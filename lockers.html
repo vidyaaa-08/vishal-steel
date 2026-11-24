@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore steel locker solutions from Vishal Steel Products for office, education, medical, fitness, industrial and warehouse environments.">
+  <meta name="theme-color" content="#202124">
+  <title>Steel Lockers | V STEEL</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <link rel="stylesheet" href="./lockers.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./lockers.js" defer></script>
+</head>
+<style>
+
+.vsl-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.vsl-hero__inner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.vsl-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.vsl-hero__background img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.vsl-hero__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 21, 23, .82),
+    rgba(20, 21, 23, .38),
+    rgba(20, 21, 23, .72)
+  );
+}
+
+.vsl-hero__copy,
+.vsl-hero__index {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .vsl-hero__background img {
+    object-position: center;
+  }
+}
+
+
+.vsl-category {
+  position: relative;
+}
+
+.vsl-category__icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: rgba(181, 18, 32, 0.10);
+  border: 1px solid rgba(181, 18, 32, 0.25);
+  border-radius: 50%;
+  color: #B51220;
+  font-size: 25px;
+  transition: background .35s ease, color .35s ease,
+              transform .35s ease;
+}
+
+.vsl-category:hover .vsl-category__icon {
+  background: #B51220;
+  color: #FFFFFF;
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+.vsl-category__icon i {
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .vsl-category__icon {
+    width: 54px;
+    height: 54px;
+    font-size: 21px;
+    margin-bottom: 18px;
+  }
+}
+
+
+.vsl-product-detail__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vsl-product-detail__label i {
+  color: #B51220;
+  font-size: 21px;
+}
+
+.vsl-detail-item {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.vsl-detail-item h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vsl-detail-item h3 i {
+  width: 22px;
+  color: #B51220;
+  font-size: 17px;
+  transition: transform .3s ease;
+}
+
+.vsl-detail-item:hover h3 i {
+  transform: translateX(5px);
+}
+
+.vsl-product-detail__label i,
+.vsl-detail-item h3 i {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .vsl-detail-item {
+    padding: 12px 0;
+  }
+}
+
+</style>
+<body class="vs-page vs-page--lockers">
+  <div id="navbar-placeholder"></div>
+  <main class="vsl-page">
+    <section class="vsl-hero" aria-labelledby="vsl-hero-title">
+    
+<div class="vsl-container vsl-hero__inner">
+
+  <div class="vsl-hero__background" aria-hidden="true">
+    <img
+      src="assets/images/product7.png"
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </div>
+
+  <div class="vsl-hero__copy">
+    <p class="vsl-eyebrow">V STEEL / STORAGE SOLUTIONS</p>
+    <h1 id="vsl-hero-title">
+      <span data-vsl-title-line>Steel</span>
+      <span data-vsl-title-line>Lockers</span>
+    </h1>
+    <p class="vsl-hero__lead">Secure storage solutions for employee belongings and documents.</p>
+    <a class="vsl-link vsl-link--light" href="#vsl-solutions">Explore locker solutions <span aria-hidden="true">↓</span></a>
+  </div>
+
+  <aside class="vsl-hero__index" aria-label="Locker applications">
+    <p class="vsl-eyebrow">Locker applications</p>
+    <ul>
+      <li>Office &amp; staff</li>
+      <li>Gym &amp; security</li>
+      <li>Industrial &amp; storage</li>
+    </ul>
+    <span class="vsl-hero__rule" aria-hidden="true"></span>
+  </aside>
+
+</div>
+
+      <p class="vsl-hero__edge" aria-hidden="true">VISHAL STEEL PRODUCTS <span>—</span> LOCKERS</p>
+    </section>
+
+    <section class="vsl-solutions" id="vsl-solutions" aria-labelledby="vsl-solutions-title">
+      <div class="vsl-container vsl-solutions__layout">
+        <header class="vsl-section-heading" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Storage, considered</p>
+          <h2 id="vsl-solutions-title">Comprehensive<br><span>Locker Solutions</span></h2>
+        </header>
+        <div class="vsl-solutions__copy" data-vsl-reveal="right">
+          <p>Vishal Steel Products is a leading manufacturer and supplier of high-quality steel products, including stainless steel, alloy steel, and carbon steel solutions, committed to excellence and customer satisfaction.</p>
+          <p>We manufacture complete commercial furniture solutions for luxury hotels, offices, and hospitality sectors. Our expertise includes office furniture (ergonomic desks, chairs, cubicles), hospitality furniture (restaurant tables, bar stools, hotel beds, dressers), and comprehensive storage solutions including office lockers, security lockers, employee lockers, file cabinets, and storage compactors for all commercial needs.</p>
+        </div>
+      </div>
+      <div class="vsl-container vsl-solutions__rail" aria-label="Locker solution environments">
+        <span>Workplaces</span><span>Shared spaces</span><span>Industrial facilities</span><span>Storage environments</span>
+      </div>
+    </section>
+
+    <section class="vsl-application vsl-application--office" aria-labelledby="vsl-office-title">
+      <div class="vsl-container vsl-application__layout">
+        <p class="vsl-application__index" data-vsl-reveal="left">01 / OFFICE &amp; STAFF</p>
+        <div class="vsl-application__copy" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Everyday storage</p>
+          <h2 id="vsl-office-title">Office and<br>Staff Lockers</h2>
+          <p>Secure storage solutions for employee belongings and documents.</p>
+          <a class="vsl-link" href="#vsl-product-details">View product details <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="vsl-application__note" data-vsl-reveal="right">
+          <span class="vsl-application__line" aria-hidden="true"></span>
+          <p>Office lockers<br>Employee lockers<br>Document storage</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-application vsl-application--gym" aria-labelledby="vsl-gym-title">
+      <div class="vsl-container vsl-application__layout">
+        <p class="vsl-application__index" data-vsl-reveal="right">02 / GYM &amp; SECURITY</p>
+        <div class="vsl-application__copy" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Personal storage</p>
+          <h2 id="vsl-gym-title">Gym and<br>Security Lockers</h2>
+          <p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p>
+        </div>
+        <div class="vsl-application__note" data-vsl-reveal="left">
+          <span class="vsl-application__line" aria-hidden="true"></span>
+          <p>Schools<br>Gyms<br>Offices</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-application vsl-application--industrial" aria-labelledby="vsl-industrial-title">
+      <div class="vsl-container vsl-application__layout">
+        <p class="vsl-application__index" data-vsl-reveal="left">03 / INDUSTRIAL &amp; STORAGE</p>
+        <div class="vsl-application__copy" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Made for demanding environments</p>
+          <h2 id="vsl-industrial-title">Industrial and<br>Storage Lockers</h2>
+          <p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p>
+        </div>
+        <div class="vsl-application__note" data-vsl-reveal="right">
+          <span class="vsl-application__line" aria-hidden="true"></span>
+          <p>Industrial furniture<br>Reinforced cabinets<br>Storage systems</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-comprehensive" aria-labelledby="vsl-comprehensive-title">
+      <div class="vsl-container vsl-comprehensive__inner">
+        <div class="vsl-comprehensive__mark" aria-hidden="true">V / STEEL</div>
+        <div class="vsl-comprehensive__copy" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Engineered across industries</p>
+          <h2 id="vsl-comprehensive-title">Comprehensive Steel<br>Locker Solutions</h2>
+          <p>Comprehensive steel, metal, and wood furniture solutions for laboratories, hospitals, offices, and industrial facilities.</p>
+        </div>
+        <p class="vsl-comprehensive__aside" data-vsl-reveal="left">From shared workspaces to specialized environments, explore locker categories shaped around the spaces they serve.</p>
+      </div>
+    </section>
+
+    <section class="vsl-categories" aria-labelledby="vsl-categories-title">
+      <div class="vsl-container">
+        <header class="vsl-section-heading vsl-section-heading--wide" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Six locker categories</p>
+          <h2 id="vsl-categories-title">Storage for<br><span>Every Setting</span></h2>
+          <p>Explore the locker categories listed for the environments V STEEL serves.</p>
+        </header>
+
+        <div class="vsl-category-list">
+          <article class="vsl-category" data-vsl-reveal="left">
+            <span class="vsl-category__icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
+            <h3>Industrial Lockers</h3>
+            <p>For industrial workplaces and shared staff storage.</p>
+          </article>
+          <article class="vsl-category" data-vsl-reveal="right">
+            <span class="vsl-category__icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+            <h3>Office Lockers</h3>
+            <p>Secure storage solutions for employee belongings and documents.</p>
+          </article>
+          <article class="vsl-category" data-vsl-reveal="left">
+            <span class="vsl-category__icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+            <h3>Educational Lockers</h3>
+            <p>For students and staff in educational settings.</p>
+          </article>
+          <article class="vsl-category" data-vsl-reveal="right">
+            <span class="vsl-category__icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></span>
+            <h3>Medical Lockers</h3>
+            <p>For staff storage in medical environments.</p>
+          </article>
+          <article class="vsl-category" data-vsl-reveal="left">
+            <span class="vsl-category__icon"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i></span>
+            <h3>Gym &amp; Fitness Lockers</h3>
+            <p>For personal storage in gyms and shared changing areas.</p>
+          </article>
+          <article class="vsl-category" data-vsl-reveal="right">
+            <span class="vsl-category__icon"><i class="fa-solid fa-warehouse" aria-hidden="true"></i></span>
+            <h3>Warehouse Lockers</h3>
+            <p>For belongings and workwear in warehouse environments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-gallery" aria-labelledby="vsl-gallery-title">
+      <div class="vsl-container">
+        <header class="vsl-section-heading vsl-section-heading--wide" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Our collection</p>
+          <h2 id="vsl-gallery-title">Our Lockers</h2>
+          <p>Explore Our Steel Locker Collection</p>
+        </header>
+        <div class="vsl-gallery__grid">
+          <figure class="vsl-gallery__item vsl-gallery__item--01" data-vsl-gallery-reveal="left">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 1: Steel Locker Manufacturing -->
+              <img alt="Steel Locker Manufacturing" data-image-src="assets/images/locker1.png" data-image-srcset="" width="1600" height="1040" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 58vw">
+            </div>
+            <figcaption>Steel Locker Manufacturing</figcaption>
+          </figure>
+          <figure class="vsl-gallery__item vsl-gallery__item--02" data-vsl-gallery-reveal="center">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 2: Multiple Compartment Steel Lockers -->
+              <img alt="Multiple Compartment Steel Lockers" data-image-src="assets/images/locker2.png" data-image-srcset="" width="1000" height="1420" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 38vw">
+            </div>
+            <figcaption>Multiple Compartment Steel Lockers</figcaption>
+          </figure>
+          <figure class="vsl-gallery__item vsl-gallery__item--03" data-vsl-gallery-reveal="bottom">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 3: Modern Office Locker Installation -->
+              <img alt="Modern Office Locker Installation" data-image-src="assets/images/locker3.png" data-image-srcset="" width="1200" height="900" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 42vw">
+            </div>
+            <figcaption>Modern Office Locker Installation</figcaption>
+          </figure>
+          <figure class="vsl-gallery__item vsl-gallery__item--04" data-vsl-gallery-reveal="right">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 4: Industrial Heavy-Duty Lockers -->
+              <img alt="Industrial Heavy-Duty Lockers" data-image-src="assets/images/locker4.png" data-image-srcset="" width="1500" height="980" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 55vw">
+            </div>
+            <figcaption>Industrial Heavy-Duty Lockers</figcaption>
+          </figure>
+          <figure class="vsl-gallery__item vsl-gallery__item--05" data-vsl-gallery-reveal="bottom">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 5: School & Educational Lockers -->
+              <img alt="School &amp; Educational Lockers" data-image-src="assets/images/locker5.png" data-image-srcset="" width="1200" height="900" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 62vw">
+            </div>
+            <figcaption>School &amp; Educational Lockers</figcaption>
+          </figure>
+          <figure class="vsl-gallery__item vsl-gallery__item--06" data-vsl-gallery-reveal="center">
+            <div class="vsl-gallery__image">
+              <!-- IMAGE SLOT 6: Customized Steel Locker Solutions -->
+              <img alt="Customized Steel Locker Solutions" data-image-src="assets/images/locker6.png" data-image-srcset="" width="1000" height="1320" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 34vw">
+            </div>
+            <figcaption>Customized Steel Locker Solutions</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-product-details" id="vsl-product-details" aria-labelledby="vsl-product-details-title">
+      <div class="vsl-container">
+        <header class="vsl-section-heading" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Locker specifications</p>
+          <h2 id="vsl-product-details-title">Product Details</h2>
+        </header>
+        <div class="vsl-product-details__list">
+          <article class="vsl-product-detail" data-vsl-reveal="left">
+            <p class="vsl-product-detail__label">Storage / Office</p>
+            <div>
+              <h3>Security Office Locker</h3>
+              <p>Secure storage solutions for employee belongings and documents.</p>
+            </div>
+          </article>
+          <article class="vsl-product-detail" data-vsl-reveal="right">
+            <p class="vsl-product-detail__label">Storage / Personal</p>
+            <div>
+              <h3>Metal Locker</h3>
+              <p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vsl-overview" aria-labelledby="vsl-overview-title">
+      <div class="vsl-container vsl-overview__layout">
+        <div class="vsl-overview__copy" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">V STEEL / Storage</p>
+          <h2 id="vsl-overview-title">Product Overview</h2>
+          <p>Comprehensive storage solutions including office lockers, security lockers, employee lockers, file cabinets, and storage compactors for all commercial needs.</p>
+        </div>
+        <ul class="vsl-overview__list" aria-label="Locker categories">
+          <li>Industrial Lockers</li>
+          <li>Office Lockers</li>
+          <li>Educational Lockers</li>
+          <li>Medical Lockers</li>
+          <li>Gym &amp; Fitness Lockers</li>
+          <li>Warehouse Lockers</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="vsl-faq" aria-labelledby="vsl-faq-title">
+      <div class="vsl-container vsl-faq__layout">
+        <header class="vsl-section-heading" data-vsl-reveal="rise">
+          <p class="vsl-eyebrow">Questions &amp; answers</p>
+          <h2 id="vsl-faq-title">Interactive<br><span>Accordion</span></h2>
+        </header>
+        <div class="vsl-accordion">
+          <details class="vsl-accordion__item">
+            <summary><span>Which locker categories are included?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
+            <div class="vsl-accordion__answer"><p>Industrial Lockers, Office Lockers, Educational Lockers, Medical Lockers, Gym &amp; Fitness Lockers, and Warehouse Lockers.</p></div>
+          </details>
+          <details class="vsl-accordion__item">
+            <summary><span>What is the Security Office Locker designed for?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
+            <div class="vsl-accordion__answer"><p>Secure storage solutions for employee belongings and documents.</p></div>
+          </details>
+          <details class="vsl-accordion__item">
+            <summary><span>What does the Metal Locker feature?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
+            <div class="vsl-accordion__answer"><p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p></div>
+          </details>
+          <details class="vsl-accordion__item">
+            <summary><span>How does V STEEL address product durability?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
+            <div class="vsl-accordion__answer"><p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+  <section class="vsl-added-section" id="vsl-added-section">
+  <div class="vsl-container">
+    <header class="vsl-section-heading" data-vsl-reveal="rise">
+      <h2>Comprehensive Locker Solutions</h2>
+    </header>
+    <div class="vsl-added-content" data-vsl-reveal="right">
+      <p>Vishal Steel Products offers a diverse range of high-quality steel lockers designed to meet various storage needs across industries. Our lockers combine security, durability, and versatility to provide optimal storage solutions.</p>
+    </div>
+  </div>
+
+  <!-- Office and Staff Lockers -->
+  <section class="vsl-application vsl-application--office" aria-labelledby="vsl-office-title-added">
+    <div class="vsl-container vsl-application__layout">
+      <p class="vsl-application__index" data-vsl-reveal="left">01 / OFFICE &amp; STAFF</p>
+      <div class="vsl-application__copy" data-vsl-reveal="rise">
+        <h2 id="vsl-office-title-added">Office and Staff Lockers</h2>
+        <p>Precision-engineered office and staff lockers designed for professional environments. Secure personal storage solutions with sleek designs, multiple compartment options, and robust construction to meet the diverse needs of modern workplaces.</p>
+        <p>Image Label: Office &amp; Staff Locker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gym and Security Lockers -->
+  <section class="vsl-application vsl-application--gym" aria-labelledby="vsl-gym-title-added">
+    <div class="vsl-container vsl-application__layout">
+      <p class="vsl-application__index" data-vsl-reveal="right">02 / GYM &amp; SECURITY</p>
+      <div class="vsl-application__copy" data-vsl-reveal="rise">
+        <h2 id="vsl-gym-title-added">Gym and Security Lockers</h2>
+        <p>High-performance lockers for fitness centers and security-critical areas. Moisture-resistant gym lockers with ventilation, and ultra-secure lockers with advanced locking mechanisms for maximum protection in sensitive environments.</p>
+        <p>Image Label: Security &amp; Gym Locker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industrial and Storage Lockers -->
+  <section class="vsl-application vsl-application--industrial" aria-labelledby="vsl-industrial-title-added">
+    <div class="vsl-container vsl-application__layout">
+      <p class="vsl-application__index" data-vsl-reveal="left">03 / INDUSTRIAL &amp; STORAGE</p>
+      <div class="vsl-application__copy" data-vsl-reveal="rise">
+        <h2 id="vsl-industrial-title-added">Industrial and Storage Lockers</h2>
+        <p>Robust industrial lockers built to withstand harsh environments. Ideal for warehouses, factories, and heavy-duty storage needs. Featuring rugged construction, customizable configurations, and maximum durability for critical industrial applications.</p>
+        <p>Image Label: Industrial &amp; Storage Locker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Section -->
+
+<section class="vsl-product-details" id="vsl-product-details-added" aria-labelledby="vsl-product-details-title-added">
+  <div class="vsl-container">
+
+    <header class="vsl-section-heading" data-vsl-reveal="rise">
+      <h2 id="vsl-product-details-title-added">Product Details</h2>
+    </header>
+
+    <div class="vsl-product-details__list">
+
+      <article class="vsl-product-detail" data-vsl-reveal="left">
+        <p class="vsl-product-detail__label">
+          <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+          Office lockers - Staff lockers Manufacturer
+        </p>
+
+        <div>
+          <div class="vsl-detail-item">
+            <h3><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Material</h3>
+            <p>Steel, wood</p>
+          </div>
+
+          <div class="vsl-detail-item">
+            <h3><i class="fa-solid fa-cubes" aria-hidden="true"></i> No. of Units</h3>
+            <p>Customizable to meet specific requirements.</p>
+          </div>
+
+          <div class="vsl-detail-item">
+            <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Usage/Applications</h3>
+            <p>Suitable for banks, offices, schools, colleges, and various other industries.</p>
+          </div>
+
+          <div class="vsl-detail-item">
+            <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Key Features</h3>
+            <p>A key feature of Vishal Steel Products Office Lockers is their customizable design, allowing for easy integration into various office layouts.</p>
+          </div>
+
+          <div class="vsl-detail-item">
+            <h3><i class="fa-solid fa-palette" aria-hidden="true"></i> Colors Options</h3>
+            <p>Choose from a diverse range of colors to suit personal preferences and needs.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="vsl-product-detail" data-vsl-reveal="right">
+        <p class="vsl-product-detail__label">
+          <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+          Product Overview
+        </p>
+
+        <p>We are a reputable supplier of lockers, specializing in crafting customized solutions to cater to our clients' specific needs. Our dedication to excellence and creativity allows us to provide unique storage solutions that elevate the aesthetics and efficiency of workspaces.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Detailed Locker Types -->
+  <section class="vsl-detailed-lockers" id="vsl-detailed-lockers" aria-labelledby="vsl-detailed-lockers-title">
+    <div class="vsl-container">
+      <header class="vsl-section-heading" data-vsl-reveal="rise">
+        <h2 id="vsl-detailed-lockers-title">Locker Types</h2>
+      </header>
+      <div class="vsl-detailed-lockers__list">
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Industrial Lockers</h3>
+          <p>Robust storage solutions for demanding industrial environments.</p>
+          <ul data-vsl-locker-features>
+            <li>Heavy-duty steel construction</li>
+            <li>Resistant to harsh conditions</li>
+            <li>Multiple size configurations</li>
+            <li>Customizable locking mechanisms</li>
+          </ul>
+        </article>
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Office Lockers</h3>
+          <p>Sleek and secure storage for modern workplace environments.</p>
+          <ul data-vsl-locker-features>
+            <li>Elegant design</li>
+            <li>Personal and shared storage options</li>
+            <li>Compact and space-efficient</li>
+            <li>Available in multiple colors</li>
+          </ul>
+        </article>
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Educational Lockers</h3>
+          <p>Durable storage solutions for schools, colleges, and training centers.</p>
+          <ul data-vsl-locker-features>
+            <li>Student-friendly design</li>
+            <li>Vandal-resistant construction</li>
+            <li>Easy maintenance</li>
+            <li>Configurable compartment sizes</li>
+          </ul>
+        </article>
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Medical Lockers</h3>
+          <p>Hygienic and secure storage for healthcare facilities.</p>
+          <ul data-vsl-locker-features>
+            <li>Antimicrobial coating</li>
+            <li>Easy to clean surfaces</li>
+            <li>Sterile environment compatibility</li>
+            <li>Secure medication storage</li>
+          </ul>
+        </article>
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Gym &amp; Fitness Lockers</h3>
+          <p>Secure personal storage for fitness centers and sports facilities.</p>
+          <ul data-vsl-locker-features>
+            <li>Moisture-resistant design</li>
+            <li>Ventilated compartments</li>
+            <li>Robust digital locks</li>
+            <li>Various size options</li>
+          </ul>
+        </article>
+        <article class="vsl-detailed-lockers__card" data-vsl-locker-card>
+          <h3>Warehouse Lockers</h3>
+          <p>Heavy-duty storage solutions for logistics and inventory management.</p>
+          <ul data-vsl-locker-features>
+            <li>Maximum load-bearing capacity</li>
+            <li>Modular and stackable design</li>
+            <li>Weather-resistant construction</li>
+            <li>Inventory tracking compatibility</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</section>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

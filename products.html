@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore V STEEL's office, workshop, laboratory, storage and medical steel solutions.">
+  <meta name="theme-color" content="#202124">
+  <title>Products | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <link rel="stylesheet" href="./products.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./products.js" defer></script>
+  <script src="./site.js" defer></script>
+</head>
+<style>.vpr-photo-slot,
+.vpr-expertise__image-slot,
+.vpr-cta__image-slot {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+}
+
+.vpr-expertise__item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.vpr-expertise__image-slot {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #292b2e;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform .7s ease;
+}
+
+.vpr-expertise__item:hover .vpr-expertise__image-slot {
+  transform: scale(1.06);
+}
+
+/* Image overlay keeps existing text readable */
+.vpr-expertise__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(20,20,20,.35),
+    rgba(20,20,20,.78)
+  );
+  pointer-events: none;
+}
+
+.vpr-expertise__image-slot img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .vpr-expertise__item {
+    min-height: 230px;
+  }
+}
+</style>
+<body class="vs-page vs-page--products">
+  <div id="navbar-placeholder"></div>
+  <main class="vpr-page">
+    <section class="vpr-hero" aria-labelledby="vpr-hero-title">
+      <div class="vpr-hero__copy">
+        <p class="vpr-eyebrow">V STEEL | OUR PRODUCTS</p>
+        <h1 id="vpr-hero-title">
+          <span data-vpr-hero-line>Complete Steel</span>
+          <span data-vpr-hero-line>Solutions</span>
+        </h1>
+        <h2>Premium Steel Manufacturing</h2>
+        <div class="vpr-hero__description">
+          <p>Specialized manufacturer of steel, metal, and wood furniture for laboratories, hospitals, offices, and industrial applications.</p>
+          <p>We create custom solutions including fume hoods, storage compactors, workbenches, hospital beds, and complete HVAC turnkey setups for diverse industry requirements.</p>
+        </div>
+        <a class="vpr-link" href="#vpr-expertise">Explore our expertise <span aria-hidden="true">↓</span></a>
+      </div>
+      <!-- Factory photography is not present in the project assets. Add an approved image at this path when supplied. -->
+      <div class="vpr-photo-slot vpr-hero__visual" role="img" aria-label="Factory photograph pending" data-photo-path="assets/images/product.png"></div>
+      <span class="vpr-hero__edge" aria-hidden="true"></span>
+    </section>
+
+    <section class="vpr-expertise" id="vpr-expertise" aria-labelledby="vpr-expertise-title">
+      <header class="vpr-section-heading">
+        <p class="vpr-eyebrow">Engineered across industries</p>
+        <h2 id="vpr-expertise-title">Our Expertise</h2>
+        <p>Comprehensive manufacturing capabilities across multiple industries and applications.</p>
+      </header>
+    
+
+<div class="vpr-expertise__grid">
+
+  <a class="vpr-expertise__item vpr-expertise__item--lab" href="#laboratory-essentials">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product.png" alt="Laboratory Furniture and Fume Hoods" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">01</span>
+    <span class="vpr-expertise__word" aria-hidden="true">LAB</span>
+    <span class="vpr-expertise__title">Laboratory Furniture &amp; Fume Hoods</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="vpr-expertise__item vpr-expertise__item--medical" href="#hospital-essentials">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product1.png" alt="Hospital Beds and Medical Equipment" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">02</span>
+    <span class="vpr-expertise__word" aria-hidden="true">CARE</span>
+    <span class="vpr-expertise__title">Hospital Beds &amp; Medical Equipment</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="vpr-expertise__item vpr-expertise__item--office" href="#office-furniture">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product2.png" alt="Office Workstations and Storage" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">03</span>
+    <span class="vpr-expertise__word" aria-hidden="true">OFFICE</span>
+    <span class="vpr-expertise__title">Office Workstations &amp; Storage</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="vpr-expertise__item vpr-expertise__item--industrial" href="./Industry-Steel-Furniture.html">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product3.png" alt="Industrial Racks and Trolleys" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">04</span>
+    <span class="vpr-expertise__word" aria-hidden="true">INDUSTRY</span>
+    <span class="vpr-expertise__title">Industrial Racks &amp; Trolleys</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="vpr-expertise__item vpr-expertise__item--hvac" href="#customized-steel-solutions">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product4.png" alt="HVAC Turnkey Solutions" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">05</span>
+    <span class="vpr-expertise__word" aria-hidden="true">HVAC</span>
+    <span class="vpr-expertise__title">HVAC Turnkey Solutions</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="vpr-expertise__item vpr-expertise__item--custom" href="#customized-steel-solutions">
+    <div class="vpr-expertise__image-slot">
+      <img src="assets/images/product5.png" alt="Custom Steel Fabrication" loading="lazy">
+    </div>
+    <span class="vpr-expertise__index">06</span>
+    <span class="vpr-expertise__word" aria-hidden="true">CUSTOM</span>
+    <span class="vpr-expertise__title">Custom Steel Fabrication</span>
+    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+  </a>
+
+</div>
+
+
+    </section>
+
+    <section class="vpr-feature" aria-labelledby="vpr-feature-title" data-vpr-feature>
+      <header class="vpr-feature__heading">
+        <p class="vpr-eyebrow">Selected products</p>
+        <h2 id="vpr-feature-title">Built for the work<br>that moves industry forward.</h2>
+      </header>
+      <div class="vpr-feature__stage" data-vpr-feature-stage>
+        <div class="vpr-feature__track" data-vpr-feature-track>
+          <article class="vpr-feature__slide" data-vpr-feature-slide>
+            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Executive Office Furniture" data-photo-path="assets/images/product3.png"></div>
+            <div class="vpr-feature__copy">
+              <p class="vpr-eyebrow">Office Furniture</p>
+              <h3>Executive Office Furniture</h3>
+              <p>Complete executive office setup including desks, chairs, and storage cabinets for professional workspaces.</p>
+              <div class="vpr-product__actions">
+                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
+                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="vpr-feature__slide" data-vpr-feature-slide>
+            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Industrial Mobile Workstation" data-photo-path="assets/images/product7.png"></div>
+            <div class="vpr-feature__copy">
+              <p class="vpr-eyebrow">Workshop</p>
+              <h3>Industrial Mobile Workstation</h3>
+              <p>Heavy-duty mobile workstation with tool storage, perfect for manufacturing and workshop environments.</p>
+              <div class="vpr-product__actions">
+                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
+                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="vpr-feature__slide" data-vpr-feature-slide>
+            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Laboratory Workbench and Fume Hood" data-photo-path="assets/images/product4.png"></div>
+            <div class="vpr-feature__copy">
+              <p class="vpr-eyebrow">Lab Equipment</p>
+              <h3>Laboratory Workbench &amp; Fume Hood</h3>
+              <p>Complete laboratory setup with chemical-resistant workbench, fume hood, and specialized storage systems.</p>
+              <div class="vpr-product__actions">
+                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
+                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="vpr-feature__slide" data-vpr-feature-slide>
+            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for High-Density Storage Compactor" data-photo-path="assets/images/product8.png"></div>
+            <div class="vpr-feature__copy">
+              <p class="vpr-eyebrow">Storage Solutions</p>
+              <h3>High-Density Storage Compactor</h3>
+              <p>Space-saving mobile storage system that doubles storage capacity, ideal for offices and archives.</p>
+              <div class="vpr-product__actions">
+                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
+                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="vpr-feature__slide" data-vpr-feature-slide>
+            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Hospital Bed and Medical Furniture" data-photo-path="assets/images/product.png"></div>
+            <div class="vpr-feature__copy">
+              <p class="vpr-eyebrow">Medical Equipment</p>
+              <h3>Hospital Bed &amp; Medical Furniture</h3>
+              <p>Complete hospital furniture including adjustable beds, medical cabinets, and patient care equipment.</p>
+              <div class="vpr-product__actions">
+                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
+                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="vpr-feature__progress">
+        <div class="vpr-feature__progress-track" role="progressbar" aria-label="Featured product progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-vpr-feature-progress>
+          <span data-vpr-feature-progress-fill></span>
+        </div>
+        <p><span data-vpr-feature-current>01</span><span> / 05</span></p>
+      </div>
+    </section>
+
+   
+
+    <section class="vpr-cta" id="customized-steel-solutions" aria-labelledby="vpr-cta-title">
+      <p class="vpr-eyebrow">Your requirement. Our expertise.</p>
+      <h2 id="vpr-cta-title">Looking for the Right Steel Solution?</h2>
+      <p>Share your customized product requirements with Vishal Steel Products.</p>
+      <div class="vpr-cta__actions">
+        <a href="./contact.html">Get A Free Quote <span aria-hidden="true">↗</span></a>
+        <a href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+      </div>
+      <span class="vpr-cta__mark" aria-hidden="true">V STEEL</span>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[data-photo-path]").forEach(function (element) {
+    const imagePath = element.getAttribute("data-photo-path");
+
+    if (imagePath) {
+      const image = new Image();
+
+      image.onload = function () {
+        element.style.backgroundImage = `url("${imagePath}")`;
+      };
+
+      image.onerror = function () {
+        console.error("Image not found:", imagePath);
+      };
+
+      image.src = imagePath;
+    }
+  });
+});
+</script>
+
+</body>
+</html>

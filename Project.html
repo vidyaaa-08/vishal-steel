@@ -1,0 +1,2068 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore completed Vishal Steel Products projects across office, warehouse, educational and laboratory environments.">
+  <meta name="theme-color" content="#202124">
+  <title>Completed Projects | Vishal Steel Products</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --project-red: #b51220;
+      --project-dark-red: #8f0d18;
+      --project-charcoal: #202124;
+      --project-white: #fff;
+      --project-grey: #f5f5f5;
+      --project-muted: #67696c;
+      --project-line: rgba(32, 33, 36, 0.13);
+      --project-gutter: clamp(20px, 5.2vw, 78px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 104px;
+    }
+
+    body.project-page {
+      overflow-x: clip;
+      background: var(--project-white);
+      color: var(--project-charcoal);
+    }
+
+    .project-main {
+      overflow: clip;
+    }
+
+    .project-page a {
+      color: inherit;
+    }
+
+    .project-hero {
+      position: relative;
+      display: grid;
+      min-height: min(680px, calc(100svh - 88px));
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      align-items: center;
+      gap: clamp(28px, 5vw, 76px);
+      padding: clamp(54px, 7vw, 92px) var(--project-gutter) 102px;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 75% 50%, rgba(181, 18, 32, 0.2), transparent 38%),
+        linear-gradient(118deg, #202124 0%, #27282b 56%, #17181a 100%);
+      color: var(--project-white);
+    }
+
+    .project-hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      content: "";
+      mask-image: linear-gradient(90deg, transparent, #000 45%, #000);
+      pointer-events: none;
+    }
+
+    .project-hero::after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: min(34vw, 470px);
+      height: 100%;
+      border-right: 1px solid rgba(255, 255, 255, 0.11);
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      content: "";
+      transform: skewX(-17deg) translateX(24%);
+      pointer-events: none;
+    }
+
+    .project-hero__copy {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .project-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 26px;
+      color: var(--project-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .project-eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .project-hero__eyebrow {
+      color: #f06a73;
+    }
+
+    .project-hero__title {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(3.55rem, 7.5vw, 7.4rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.93;
+      text-wrap: balance;
+    }
+
+    .project-hero__title span {
+      display: block;
+      color: #e5e5e5;
+    }
+
+    .project-hero__title span:last-child {
+      color: #fff;
+    }
+
+    .project-hero__subheading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 30px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(16px, 1.65vw, 20px);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .project-hero__subheading::before {
+      width: 3px;
+      height: 23px;
+      background: var(--project-red);
+      content: "";
+    }
+
+    .project-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 36px;
+    }
+
+    .project-button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 18px;
+      border: 1px solid var(--project-red);
+      background: var(--project-red);
+      color: var(--project-white) !important;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      text-decoration: none;
+      transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+    }
+
+    .project-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--project-dark-red);
+      background: var(--project-dark-red);
+    }
+
+    .project-button span {
+      font-size: 17px;
+      font-weight: 400;
+      transition: transform 200ms ease;
+    }
+
+    .project-button:hover span {
+      transform: translate(2px, -2px);
+    }
+
+    .project-hero__visual {
+      position: relative;
+      display: grid;
+      min-width: 0;
+      min-height: 390px;
+      place-items: center;
+      perspective: 1000px;
+    }
+
+    .project-hero__plate-stack {
+      position: relative;
+      width: min(100%, 470px);
+      aspect-ratio: 1.12 / 1;
+      transform-style: preserve-3d;
+    }
+
+    .project-hero__plate {
+      position: absolute;
+      inset: 9% 12%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.13), transparent 42%),
+        repeating-linear-gradient(0deg, transparent 0 9px, rgba(255, 255, 255, 0.025) 10px 11px),
+        linear-gradient(135deg, #45474b, #292a2d 56%, #191a1c);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.35);
+      transform: rotate(-8deg) skewY(-2deg);
+    }
+
+    .project-hero__plate--back {
+      inset: 5% 18% 18% 6%;
+      border-color: rgba(255, 255, 255, 0.16);
+      background:
+        repeating-linear-gradient(90deg, transparent 0 30px, rgba(255, 255, 255, 0.035) 31px 32px),
+        linear-gradient(135deg, #37393c, #222326);
+      transform: rotate(7deg) skewY(2deg) translateZ(-70px);
+    }
+
+    .project-hero__plate--front {
+      inset: 20% 5% 3% 20%;
+      border-color: rgba(255, 255, 255, 0.2);
+      background:
+        linear-gradient(135deg, rgba(181, 18, 32, 0.88) 0 4px, transparent 4px),
+        repeating-linear-gradient(0deg, transparent 0 21px, rgba(255, 255, 255, 0.055) 22px 23px),
+        linear-gradient(135deg, #36383b, #202124);
+      transform: rotate(6deg) skewY(-1deg) translateZ(55px);
+    }
+
+    .project-hero__plate-mark {
+      position: absolute;
+      right: 9%;
+      bottom: 11%;
+      display: grid;
+      width: 96px;
+      height: 96px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+      transform: translateZ(75px);
+    }
+
+    .project-hero__plate-mark::before {
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .project-hero__rule {
+      position: absolute;
+      right: var(--project-gutter);
+      bottom: 35px;
+      left: var(--project-gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .project-hero__scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .project-hero__scroll-mark {
+      display: grid;
+      width: 23px;
+      height: 23px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      color: #f06a73;
+      font-size: 13px;
+      transition: transform 200ms ease;
+    }
+
+    .project-hero__scroll:hover .project-hero__scroll-mark {
+      transform: translateY(3px);
+    }
+
+    .project-section {
+      padding: clamp(70px, 8vw, 116px) var(--project-gutter) clamp(84px, 9vw, 130px);
+      background: var(--project-grey);
+    }
+
+    .project-section__inner {
+      width: min(100%, 1440px);
+      margin: 0 auto;
+    }
+
+    .project-section__heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.48fr);
+      align-items: end;
+      gap: 24px 48px;
+      margin-bottom: 38px;
+    }
+
+    .project-section__heading .project-eyebrow {
+      grid-column: 1 / -1;
+      margin-bottom: -12px;
+    }
+
+    .project-section__title {
+      max-width: 840px;
+      margin: 0;
+      color: var(--project-charcoal);
+      font-size: clamp(2.7rem, 5.2vw, 5.4rem);
+      font-weight: 700;
+      letter-spacing: -0.07em;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    .project-section__note {
+      max-width: 330px;
+      justify-self: end;
+      margin: 0 0 4px;
+      color: var(--project-muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .project-filter-bar {
+      position: sticky;
+      z-index: 50;
+      top: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 0 0 28px;
+      padding: 12px;
+      border: 1px solid rgba(32, 33, 36, 0.1);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 26px rgba(32, 33, 36, 0.045);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+
+    .project-filters {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .project-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-filter {
+      display: inline-flex;
+      min-height: 42px;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background: transparent;
+      color: #56585b;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+      scroll-snap-align: start;
+    }
+
+    .project-filter:hover {
+      color: var(--project-red);
+    }
+
+    .project-filter[aria-pressed="true"] {
+      border-color: var(--project-red);
+      background: var(--project-red);
+      color: #fff;
+    }
+
+    .project-filter:focus-visible,
+    .project-button:focus-visible,
+    .project-hero__scroll:focus-visible,
+    .project-call__phone:focus-visible {
+      outline: 3px solid rgba(181, 18, 32, 0.55);
+      outline-offset: 3px;
+    }
+
+    .project-filter__count {
+      min-width: 50px;
+      margin: 0;
+      color: var(--project-muted);
+      font-size: 10px;
+      line-height: 1.4;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: clamp(16px, 2.2vw, 28px);
+      align-items: stretch;
+    }
+
+    .project-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      border: 1px solid rgba(32, 33, 36, 0.12);
+      background: #fff;
+      box-shadow: 0 8px 25px rgba(32, 33, 36, 0.025);
+      transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+    }
+
+    .project-card[hidden] {
+      display: none !important;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(181, 18, 32, 0.5);
+      box-shadow: 0 18px 38px rgba(32, 33, 36, 0.1);
+    }
+
+    .project-card__media {
+      --placeholder-accent: rgba(181, 18, 32, 0.18);
+      --placeholder-base: #e5e3e1;
+      position: relative;
+      display: grid;
+      width: 100%;
+      aspect-ratio: 1.28 / 1;
+      overflow: hidden;
+      place-items: center;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 72% 24%, var(--placeholder-accent), transparent 35%),
+        linear-gradient(140deg, #f1f0ee, var(--placeholder-base) 58%, #d9d8d6);
+      color: #57595c;
+    }
+
+    .project-card__media::before {
+      position: absolute;
+      z-index: -1;
+      inset: -5%;
+      background-image:
+        linear-gradient(rgba(32, 33, 36, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 33, 36, 0.06) 1px, transparent 1px),
+        linear-gradient(135deg, transparent 48%, rgba(181, 18, 32, 0.12) 48.2%, rgba(181, 18, 32, 0.12) 48.6%, transparent 48.8%);
+      background-size: 36px 36px, 36px 36px, 100% 100%;
+      content: "";
+      transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .project-card:hover .project-card__media::before {
+      transform: scale(1.06);
+    }
+
+    .project-card__media::after {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 30px;
+      height: 30px;
+      border-top: 1px solid rgba(181, 18, 32, 0.8);
+      border-right: 1px solid rgba(181, 18, 32, 0.8);
+      content: "";
+      transition: width 240ms ease, height 240ms ease;
+    }
+
+    .project-card:hover .project-card__media::after {
+      width: 38px;
+      height: 38px;
+    }
+
+    .project-card[data-category="warehouse-storage"] .project-card__media {
+      --placeholder-accent: rgba(32, 33, 36, 0.14);
+      --placeholder-base: #dedfdd;
+    }
+
+    .project-card[data-category="educational-institutions"] .project-card__media {
+      --placeholder-accent: rgba(181, 18, 32, 0.12);
+      --placeholder-base: #e7e5df;
+    }
+
+    .project-card[data-category="laboratory-furnishings"] .project-card__media {
+      --placeholder-accent: rgba(91, 105, 112, 0.16);
+      --placeholder-base: #e1e4e2;
+    }
+
+    .project-card__media-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border: 1px solid rgba(32, 33, 36, 0.16);
+      background: rgba(255, 255, 255, 0.78);
+      color: #55575a;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.3;
+      text-transform: uppercase;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+
+    .project-card__media-note::before {
+      width: 7px;
+      height: 7px;
+      background: var(--project-red);
+      content: "";
+    }
+
+    .project-card__copy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 19px 20px 21px;
+    }
+
+    .project-card__group {
+      margin: 0 0 8px;
+      color: var(--project-red);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .project-card__title {
+      margin: 0;
+      color: var(--project-charcoal);
+      font-size: clamp(17px, 1.5vw, 21px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    .project-card__category {
+      margin: 11px 0 0;
+      color: var(--project-muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .project-card__category span {
+      color: #9a9b9d;
+      font-weight: 600;
+    }
+
+    .project-call {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 32px;
+      padding: clamp(56px, 8vw, 100px) var(--project-gutter);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 90% 50%, rgba(181, 18, 32, 0.2), transparent 30%),
+        var(--project-charcoal);
+      color: #fff;
+      isolation: isolate;
+    }
+
+    .project-call::before {
+      position: absolute;
+      z-index: -1;
+      top: -40%;
+      right: 20%;
+      width: 1px;
+      height: 180%;
+      background: rgba(255, 255, 255, 0.12);
+      content: "";
+      transform: rotate(24deg);
+    }
+
+    .project-call__inner {
+      display: grid;
+      width: min(100%, 1290px);
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 32px;
+      margin: 0 auto;
+    }
+
+    .project-call__heading {
+      margin: 0;
+      font-size: clamp(2.6rem, 5.2vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.07em;
+      line-height: 0.98;
+    }
+
+    .project-call__description {
+      max-width: 640px;
+      margin: 17px 0 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .project-call__phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      padding: 17px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      color: #fff;
+      font-size: clamp(16px, 2vw, 23px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color 200ms ease, background-color 200ms ease;
+    }
+
+    .project-call__phone:hover {
+      border-color: var(--project-red);
+      background: var(--project-red);
+    }
+
+    .project-call__phone span {
+      color: #f06a73;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 1050px) {
+      .project-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+      }
+
+      .project-hero__title {
+        font-size: clamp(3.4rem, 8vw, 6.4rem);
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 78px;
+      }
+
+      .project-hero {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 66px 22px 100px;
+      }
+
+      .project-hero__title {
+        max-width: 650px;
+        font-size: clamp(3.5rem, 13vw, 6.4rem);
+      }
+
+      .project-hero__subheading {
+        margin-top: 24px;
+      }
+
+      .project-hero__visual {
+        min-height: 260px;
+        margin: 0 4%;
+      }
+
+      .project-hero__plate-stack {
+        width: min(76%, 360px);
+      }
+
+      .project-hero__plate-mark {
+        width: 72px;
+        height: 72px;
+        font-size: 7px;
+      }
+
+      .project-hero__rule {
+        right: 22px;
+        bottom: 24px;
+        left: 22px;
+        font-size: 8px;
+      }
+
+      .project-section {
+        padding: 68px 18px 84px;
+      }
+
+      .project-section__heading {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        margin-bottom: 28px;
+      }
+
+      .project-section__heading .project-eyebrow {
+        margin-bottom: -6px;
+      }
+
+      .project-section__note {
+        max-width: 520px;
+        justify-self: start;
+      }
+
+      .project-filter-bar {
+        top: 70px;
+        gap: 10px;
+        margin-right: -18px;
+        margin-left: -18px;
+        padding: 8px 12px;
+      }
+
+      .project-filters {
+        scroll-snap-type: x proximity;
+      }
+
+      .project-filter {
+        min-height: 40px;
+        padding: 0 12px;
+      }
+
+      .project-filter__count {
+        display: none;
+      }
+
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .project-card__media {
+        aspect-ratio: 1.35 / 1;
+      }
+
+      .project-card__copy {
+        padding: 18px 18px 20px;
+      }
+
+      .project-card__title {
+        font-size: 20px;
+      }
+
+      .project-call {
+        padding: 62px 22px;
+      }
+
+      .project-call__inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
+
+      .project-call__phone {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .project-hero {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+
+      .project-hero__title {
+        font-size: clamp(3.25rem, 13vw, 4.7rem);
+      }
+
+      .project-hero__actions {
+        margin-top: 28px;
+      }
+
+      .project-hero__visual {
+        min-height: 220px;
+      }
+
+      .project-hero__rule span:first-child {
+        max-width: 130px;
+        line-height: 1.5;
+      }
+
+      .project-call__phone {
+        gap: 10px;
+        padding: 15px 13px;
+        font-size: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .project-page *,
+      .project-page *::before,
+      .project-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .project-card__media {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background: #F5F5F5;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* Clickable project images — zoom cursor + subtle in-frame zoom + hover "View" badge */
+.project-card__media img {
+  cursor: zoom-in;
+  transition: transform .5s cubic-bezier(.2, .72, .18, 1);
+}
+.project-card:hover .project-card__media img {
+  transform: scale(1.035);
+}
+.project-card__zoom {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: rgba(181, 18, 32, 0.95);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+.project-card__zoom svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.project-card:hover .project-card__zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Premium project image lightbox ===== */
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 40px);
+  background: rgba(8, 8, 9, 0);
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s cubic-bezier(.2, .72, .18, 1),
+              visibility .45s, background-color .45s,
+              backdrop-filter .45s, -webkit-backdrop-filter .45s;
+}
+.project-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(8, 8, 9, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.project-lightbox__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: min(94vw, 1200px);
+  max-height: min(80vh, 760px);
+}
+.project-lightbox__img {
+  display: block;
+  max-width: min(90vw, 1160px);
+  max-height: min(76vh, 720px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.7),
+              0 0 0 1px rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  transform: scale(0.9) translateY(14px);
+  transition: opacity .4s ease, transform .55s cubic-bezier(.2, .72, .18, 1);
+}
+.project-lightbox__img.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.project-lightbox__loader {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  animation: plb-spin 0.8s linear infinite;
+}
+.project-lightbox__loader.is-on {
+  opacity: 1;
+}
+@keyframes plb-spin {
+  to { transform: rotate(360deg); }
+}
+.project-lightbox__close,
+.project-lightbox__nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  transition: background-color .25s ease, border-color .25s ease,
+              transform .25s ease, color .25s ease;
+  z-index: 3;
+}
+.project-lightbox__close {
+  top: clamp(14px, 3vw, 26px);
+  right: clamp(14px, 3vw, 26px);
+  width: 46px;
+  height: 46px;
+}
+.project-lightbox__close:hover {
+  background: var(--project-red);
+  border-color: var(--project-red);
+  transform: rotate(90deg);
+}
+.project-lightbox__close svg,
+.project-lightbox__nav svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.project-lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+}
+.project-lightbox__nav:hover {
+  background: var(--project-red);
+  border-color: var(--project-red);
+}
+.project-lightbox__nav--prev {
+  left: clamp(10px, 2.5vw, 28px);
+}
+.project-lightbox__nav--prev:hover {
+  transform: translateY(-50%) translateX(-3px);
+}
+.project-lightbox__nav--next {
+  right: clamp(10px, 2.5vw, 28px);
+}
+.project-lightbox__nav--next:hover {
+  transform: translateY(-50%) translateX(3px);
+}
+.project-lightbox.is-single .project-lightbox__nav {
+  display: none;
+}
+.project-lightbox__counter {
+  position: absolute;
+  top: clamp(14px, 3vw, 26px);
+  left: clamp(14px, 3vw, 26px);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  z-index: 3;
+}
+.project-lightbox__counter b {
+  color: #fff;
+}
+.project-lightbox__counter .plb-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+.project-lightbox__caption {
+  position: absolute;
+  bottom: clamp(14px, 3vw, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(640px, 90vw);
+  text-align: center;
+  color: #fff;
+  z-index: 3;
+}
+.project-lightbox__caption .plb-group {
+  margin: 0 0 6px;
+  color: #f06a73;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.project-lightbox__caption .plb-title {
+  margin: 0 0 6px;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.project-lightbox__caption .plb-meta {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.project-lightbox__hint {
+  position: absolute;
+  bottom: clamp(14px, 3vw, 28px);
+  right: clamp(14px, 3vw, 28px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+.project-lightbox__hint kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 1px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 600px) {
+  .project-lightbox {
+    padding: 10px;
+  }
+  .project-lightbox__nav {
+    width: 42px;
+    height: 42px;
+  }
+  .project-lightbox__nav svg {
+    width: 17px;
+    height: 17px;
+  }
+  .project-lightbox__close {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+  .project-lightbox__counter {
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .project-lightbox__caption {
+    bottom: 10px;
+    width: 92vw;
+  }
+  .project-lightbox__caption .plb-title {
+    font-size: 16px;
+  }
+  .project-lightbox__hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-lightbox,
+  .project-lightbox__img,
+  .project-lightbox__close,
+  .project-lightbox__nav,
+  .project-lightbox__caption,
+  .project-card__media img,
+  .project-card__zoom {
+    transition-duration: 0.01ms !important;
+  }
+  .project-lightbox__loader {
+    animation: none !important;
+  }
+  .project-lightbox__img {
+    transform: none !important;
+  }
+}
+  </style>
+</head>
+<body class="vs-page project-page">
+  <div id="navbar-placeholder"></div>
+  <main class="project-main" data-project-page>
+    <section class="project-hero" aria-labelledby="project-hero-title">
+      <div class="project-hero__copy">
+        <p class="project-eyebrow project-hero__eyebrow">Vishal Steel Products / Project Portfolio</p>
+        <h1 class="project-hero__title" id="project-hero-title">Innovative Steel <span>Solutions for Every Need</span></h1>
+        <div class="project-hero__actions">
+          <a class="project-button" href="#projects">Explore Projects <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="project-hero__visual" aria-hidden="true">
+        <div class="project-hero__plate-stack">
+         
+        </div>
+      </div>
+
+      <div class="project-hero__rule">
+        <span>Built for work. Made to last.</span>
+        <a class="project-hero__scroll" href="#projects">
+          Scroll to explore <span class="project-hero__scroll-mark" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="project-section" id="projects" aria-labelledby="projects-title">
+      <div class="project-section__inner">
+        <header class="project-section__heading">
+          <p class="project-eyebrow">Selected Work / Vishal Steel Products</p>
+          <p class="project-section__note">A collection of practical steel solutions made for the places where people work, learn, store, and discover.</p>
+        </header>
+
+        <div class="project-filter-bar" id="project-filters">
+          <div class="project-filters" role="group" aria-label="Filter projects by solution">
+            <button class="project-filter" type="button" data-project-filter="all" aria-pressed="true">All</button>
+            <button class="project-filter" type="button" data-project-filter="office-solutions" aria-pressed="false">Office Solutions</button>
+            <button class="project-filter" type="button" data-project-filter="warehouse-storage" aria-pressed="false">Warehouse Storage</button>
+            <button class="project-filter" type="button" data-project-filter="educational-institutions" aria-pressed="false">Educational Institutions</button>
+            <button class="project-filter" type="button" data-project-filter="laboratory-furnishings" aria-pressed="false">Laboratory Furnishings</button>
+          </div>
+          <p class="project-filter__count" data-project-count role="status" aria-live="polite">32 projects</p>
+        </div>
+
+        <!-- Replace each marked placeholder with its project image and keep loading="lazy". -->
+        <div class="project-grid" id="projects-grid">
+          <article class="project-card" data-category="office-solutions">
+           <div class="project-card__media">
+  <img
+    src="./assets/images/project-officelocker.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Office Solutions</p>
+              <h3 class="project-card__title">Secure Office Lockers</h3>
+              <p class="project-card__category"><span>Category:</span> Office Furniture</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+                            <div class="project-card__media">
+  <img
+    src="./assets/images/project-executive-office-desk.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Office Solutions</p>
+              <h3 class="project-card__title">Executive Office Desks</h3>
+              <p class="project-card__category"><span>Category:</span> Steel &amp; Wood Combination</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+                 <div class="project-card__media">
+  <img
+    src="./assets/images/project-office-workstations.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Office Solutions</p>
+              <h3 class="project-card__title">Modern Office Workstations</h3>
+              <p class="project-card__category"><span>Category:</span> Multi-Material Design</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+            <div class="project-card__media">
+  <img
+    src="./assets/images/project-organized-file-cabinets.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Office Solutions</p>
+              <h3 class="project-card__title">Organized File Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Steel Office Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+            <div class="project-card__media">
+  <img
+    src="./assets/images/project-reception-desk.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Office Solutions</p>
+              <h3 class="project-card__title">Reception Desk Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Steel &amp; Wood Furniture</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+           <div class="project-card__media">
+  <img
+    src="./assets/images/project-storgae-compactor.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Warehouse Storage</p>
+              <h3 class="project-card__title">Space-Saving Compactors</h3>
+              <p class="project-card__category"><span>Category:</span> Industrial Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+                     <div class="project-card__media">
+  <img
+    src="./assets/images/project-industrial-storage-rack.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Warehouse Storage</p>
+              <h3 class="project-card__title">Pallet Racking Systems</h3>
+              <p class="project-card__category"><span>Category:</span> Efficient Warehouse Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+                      <div class="project-card__media">
+  <img
+    src="./assets/images/project-industrial-storage-bins.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Warehouse Storage</p>
+              <h3 class="project-card__title">Industrial Storage Bins</h3>
+              <p class="project-card__category"><span>Category:</span> Durable Storage Options</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+                       <div class="project-card__media">
+  <img
+    src="./assets/images/project-heavy-duty-shelves.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Warehouse Storage</p>
+              <h3 class="project-card__title">Heavy Duty Shelves</h3>
+              <p class="project-card__category"><span>Category:</span> Strong and Reliable Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+                     <div class="project-card__media">
+  <img
+    src="./assets/images/project-warehouse-container-storage.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Warehouse Storage</p>
+              <h3 class="project-card__title">Warehouse Container Storage</h3>
+              <p class="project-card__category"><span>Category:</span> Space Maximization</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Laboratory Furnishings</p>
+              <h3 class="project-card__title">Laboratory Furniture Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Customized Steel Solutions</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+                                          <div class="project-card__media">
+  <img
+    src="./assets/images/project-laboratory-workbenches.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+       
+            <div class="project-card__copy">
+              <p class="project-card__group">Laboratory Furnishings</p>
+              <h3 class="project-card__title">Laboratory Workbenches</h3>
+              <p class="project-card__category"><span>Category:</span> Lab Furniture Solutions</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+                                <div class="project-card__media">
+  <img
+    src="./assets/images/project-laboratory-workbenches.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Laboratory Furnishings</p>
+              <h3 class="project-card__title">Laboratory Fume Hoods</h3>
+              <p class="project-card__category"><span>Category:</span> Air Purification &amp; Safety</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+                                                <div class="project-card__media">
+  <img
+    src="./assets/images/project-steel-lab-cabinets.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Laboratory Furnishings</p>
+              <h3 class="project-card__title">Steel Laboratory Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Chemical Storage Solutions</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+                                        <div class="project-card__media">
+  <img
+    src="./assets/images/project-classroom-furniture.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+       
+            <div class="project-card__copy">
+              <p class="project-card__group">Educational Institutions</p>
+              <h3 class="project-card__title">Classroom Furniture Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Educational Steel &amp; Wood</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+                                                        <div class="project-card__media">
+  <img
+    src="./assets/images/project-library-shelving.png"
+    alt="Secure Office Lockers"
+    loading="lazy"
+    decoding="async">
+</div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Educational Institutions</p>
+              <h3 class="project-card__title">Library Shelving Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Multi-Material Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+                                <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-student-desks.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Educational Institutions</p>
+              <h3 class="project-card__title">Student Desk Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Steel &amp; Wood Educational</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+             <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-school-lockers.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Educational Institutions</p>
+              <h3 class="project-card__title">School Storage Lockers</h3>
+              <p class="project-card__category"><span>Category:</span> Educational Steel Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-steel-workbenches.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Industrial Steel Workbenches</h3>
+              <p class="project-card__category"><span>Category:</span> Heavy-Duty Work Surfaces</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-Metal-Storage-Cabinets.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Metal Storage Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Multi-Material Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-fume-hoods.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Laboratory Fume Hoods</h3>
+              <p class="project-card__category"><span>Category:</span> Air Purification</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-steel-lab-cabinets.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Steel Laboratory Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Storage Solutions</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-Study-&-Research-Furniture.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Laboratory Desks</h3>
+              <p class="project-card__category"><span>Category:</span> Study &amp; Research Furniture</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="laboratory-furnishings">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-lab-storage-racks.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Laboratory Storage Racks</h3>
+              <p class="project-card__category"><span>Category:</span> Efficient Organization</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+             <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-Organized-File-Cabinets.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Organized File Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Office Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-steel-shelving-units.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Steel Shelving Units</h3>
+              <p class="project-card__category"><span>Category:</span> Storage &amp; Display</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="office-solutions">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-fireproof-cabinets.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Fireproof Cabinets</h3>
+              <p class="project-card__category"><span>Category:</span> Safety Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-steel-workbenches1.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Steel Workbenches</h3>
+              <p class="project-card__category"><span>Category:</span> Workplace Solutions</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="warehouse-storage">
+             <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-Study-&-Research-Furniture.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Steel Tables</h3>
+              <p class="project-card__category"><span>Category:</span> Industrial Furniture</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+           <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-classroom-furniture.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Classroom Furniture Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Educational Furniture</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-library-shelving.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Library Shelving Solutions</h3>
+              <p class="project-card__category"><span>Category:</span> Steel Storage</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="educational-institutions">
+            <div class="project-card__media">
+                        <img
+                          src="./assets/images/project-steel-storage-for-schools.png"
+                          alt="Secure Office Lockers"
+                          loading="lazy"
+                          decoding="async">
+                      </div>
+            <div class="project-card__copy">
+              <p class="project-card__group">Additional Projects</p>
+              <h3 class="project-card__title">Steel Storage for Schools</h3>
+              <p class="project-card__category"><span>Category:</span> Durable Steel Storage</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-call" id="call-us" aria-labelledby="project-call-title">
+      <div class="project-call__inner">
+        <div>
+          <p class="project-eyebrow">Talk to Our Team</p>
+          <h2 class="project-call__heading" id="project-call-title">Have Questions? Call Us</h2>
+          <p class="project-call__description">In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
+        </div>
+        <a class="project-call__phone" href="tel:+1800123456789">
+          +1 (800) 123 456 789 <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      const initializeProjectPage = () => {
+        const page = document.querySelector("[data-project-page]");
+        const grid = page && page.querySelector("#projects-grid");
+        const filterGroup = page && page.querySelector(".project-filters");
+        if (!page || !grid || !filterGroup) {
+          return;
+        }
+
+        const cards = Array.from(grid.querySelectorAll(".project-card"));
+        const filters = Array.from(filterGroup.querySelectorAll("[data-project-filter]"));
+        const count = page.querySelector("[data-project-count]");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const canAnimate = !reducedMotion && window.gsap && window.ScrollTrigger;
+
+        const setCount = (visibleCount) => {
+          if (count) {
+            count.textContent = `${visibleCount} ${visibleCount === 1 ? "project" : "projects"}`;
+          }
+        };
+
+        filterGroup.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-project-filter]");
+          if (!button || !filterGroup.contains(button)) {
+            return;
+          }
+
+          const selectedCategory = button.dataset.projectFilter;
+          const matchingCards = cards.filter((card) =>
+            selectedCategory === "all" || card.dataset.category === selectedCategory
+          );
+          const matchingSet = new Set(matchingCards);
+          const toShow = cards.filter((card) => matchingSet.has(card) && card.hidden);
+          const toAnimate = selectedCategory === "all" ? toShow : matchingCards;
+
+          filters.forEach((filter) => {
+            const isActive = filter === button;
+            filter.setAttribute("aria-pressed", String(isActive));
+          });
+          setCount(matchingCards.length);
+
+          if (!canAnimate) {
+            cards.forEach((card) => {
+              card.hidden = !matchingSet.has(card);
+              card.style.removeProperty("opacity");
+              card.style.removeProperty("transform");
+            });
+            return;
+          }
+
+          window.gsap.killTweensOf(cards);
+          cards.forEach((card) => {
+            const shouldShow = matchingSet.has(card);
+            card.hidden = !shouldShow;
+            if (shouldShow && !toShow.includes(card)) {
+              window.gsap.set(card, { clearProps: "opacity,transform" });
+            }
+          });
+
+          if (toAnimate.length) {
+            window.gsap.fromTo(toAnimate, { opacity: 0.65, y: 12 }, {
+              opacity: 1,
+              y: 0,
+              duration: 0.42,
+              stagger: 0.045,
+              ease: "power3.out",
+              clearProps: "opacity,transform"
+            });
+          }
+          window.requestAnimationFrame(() => window.ScrollTrigger.refresh());
+        });
+
+        if (!canAnimate) {
+          return;
+        }
+
+        window.gsap.registerPlugin(window.ScrollTrigger);
+
+        const heroTimeline = window.gsap.timeline({ defaults: { ease: "power4.out" } });
+        heroTimeline
+          .fromTo(".project-hero__eyebrow", { y: 16 }, { y: 0, duration: 0.62 })
+          .fromTo(".project-hero__title span", { y: 30 }, {
+            y: 0,
+            duration: 0.92,
+            stagger: 0.12
+          }, "-=0.28")
+          .fromTo(".project-hero__subheading, .project-hero__actions", { y: 16 }, {
+            y: 0,
+            duration: 0.68,
+            stagger: 0.09
+          }, "-=0.45")
+          .fromTo(".project-hero__visual", { y: 18, rotate: -1.5 }, {
+            y: 0,
+            rotate: 0,
+            duration: 1.05
+          }, "-=0.7");
+
+        window.gsap.to(".project-hero__plate-stack", {
+          yPercent: -7,
+          rotate: 1.2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".project-hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+          }
+        });
+
+        window.gsap.fromTo(".project-section__heading > *", { y: 20 }, {
+          y: 0,
+          duration: 0.72,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".project-section__heading",
+            start: "top 84%",
+            once: true
+          }
+        });
+
+        window.ScrollTrigger.batch(cards, {
+          start: "top 88%",
+          interval: 0.14,
+          batchMax: 6,
+          once: true,
+          onEnter: (batch) => {
+            const media = batch.map((card) => card.querySelector(".project-card__media"));
+            window.gsap.fromTo(batch, { y: 18 }, {
+              y: 0,
+              duration: 0.65,
+              stagger: 0.08,
+              ease: "power3.out",
+              clearProps: "transform"
+            });
+            window.gsap.fromTo(media, { clipPath: "inset(5% 5% 5% 5%)", scale: 0.96 }, {
+              clipPath: "inset(0% 0% 0% 0%)",
+              scale: 1,
+              duration: 0.82,
+              stagger: 0.08,
+              ease: "power3.inOut"
+            });
+          }
+        });
+
+        const refreshScrollTriggers = () => {
+          window.requestAnimationFrame(() => window.ScrollTrigger.refresh());
+        };
+        document.addEventListener("vs:components-loaded", refreshScrollTriggers, { once: true });
+        window.addEventListener("load", refreshScrollTriggers, { once: true });
+        refreshScrollTriggers();
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeProjectPage, { once: true });
+      } else {
+        initializeProjectPage();
+      }
+    })();
+
+
+
+    
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const grid = document.getElementById("projects-grid");
+  if (!grid) return;
+
+  // ---- Inject a "View" badge into each card media to signal clickability ----
+  grid.querySelectorAll(".project-card__media").forEach(function (media) {
+    if (media.querySelector(".project-card__zoom")) return;
+    const badge = document.createElement("span");
+    badge.className = "project-card__zoom";
+    badge.setAttribute("aria-hidden", "true");
+    badge.innerHTML =
+      '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>View';
+    media.appendChild(badge);
+  });
+
+  // ---- Build the lightbox once ----
+  const lb = document.createElement("div");
+  lb.className = "project-lightbox";
+  lb.setAttribute("role", "dialog");
+  lb.setAttribute("aria-modal", "true");
+  lb.setAttribute("aria-label", "Project image viewer");
+  lb.innerHTML =
+    '<button class="project-lightbox__close" type="button" aria-label="Close viewer">' +
+      '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+    '</button>' +
+    '<span class="project-lightbox__counter"><b>1</b><span class="plb-dot"></span><span class="plb-total">1</span></span>' +
+    '<button class="project-lightbox__nav project-lightbox__nav--prev" type="button" aria-label="Previous image">' +
+      '<svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>' +
+    '</button>' +
+    '<div class="project-lightbox__stage">' +
+      '<div class="project-lightbox__loader" aria-hidden="true"></div>' +
+      '<img class="project-lightbox__img" alt="">' +
+    '</div>' +
+    '<button class="project-lightbox__nav project-lightbox__nav--next" type="button" aria-label="Next image">' +
+      '<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>' +
+    '</button>' +
+    '<div class="project-lightbox__caption">' +
+      '<p class="plb-group"></p>' +
+      '<h3 class="plb-title"></h3>' +
+      '<p class="plb-meta"></p>' +
+    '</div>' +
+    '<p class="project-lightbox__hint">Use <kbd>&larr;</kbd><kbd>&rarr;</kbd> &middot; <kbd>Esc</kbd> to close</p>';
+  document.body.appendChild(lb);
+
+  const el = {
+    close: lb.querySelector(".project-lightbox__close"),
+    counterB: lb.querySelector(".project-lightbox__counter b"),
+    counterTotal: lb.querySelector(".plb-total"),
+    prev: lb.querySelector(".project-lightbox__nav--prev"),
+    next: lb.querySelector(".project-lightbox__nav--next"),
+    img: lb.querySelector(".project-lightbox__img"),
+    loader: lb.querySelector(".project-lightbox__loader"),
+    stage: lb.querySelector(".project-lightbox__stage"),
+    group: lb.querySelector(".plb-group"),
+    title: lb.querySelector(".plb-title"),
+    meta: lb.querySelector(".plb-meta")
+  };
+  const focusables = [el.close, el.prev, el.next];
+
+  let items = [];
+  let index = 0;
+  let lastFocused = null;
+
+  function setText(node, text) { if (node) node.textContent = text; }
+
+  // Collect the images that are currently visible (respects the active filter).
+  function collect() {
+    items = Array.prototype.slice.call(
+      grid.querySelectorAll(".project-card:not([hidden]) .project-card__media img")
+    ).map(function (img) {
+      return { img: img, card: img.closest(".project-card") };
+    });
+    lb.classList.toggle("is-single", items.length <= 1);
+  }
+
+  function show(i) {
+    if (!items.length) return;
+    index = (i + items.length) % items.length;
+    const it = items[index];
+    if (!it) return;
+    const card = it.card;
+    const titleEl = card.querySelector(".project-card__title");
+    const title = titleEl ? titleEl.textContent.trim() : "Project";
+
+    setText(el.group, card.querySelector(".project-card__group") ? card.querySelector(".project-card__group").textContent.trim() : "");
+    setText(el.title, title);
+    setText(el.meta, card.querySelector(".project-card__category") ? card.querySelector(".project-card__category").textContent.trim() : "");
+    setText(el.counterB, String(index + 1));
+    setText(el.counterTotal, String(items.length));
+    el.img.alt = title;
+
+    // Fade image out, swap src, fade+zoom in once loaded.
+    el.img.classList.remove("is-revealed");
+    el.loader.classList.add("is-on");
+    el.img.onload = function () {
+      el.loader.classList.remove("is-on");
+      // let one frame pass so the fade-out transition settles before reveal
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { el.img.classList.add("is-revealed"); });
+      });
+    };
+    el.img.src = it.img.currentSrc || it.img.src;
+    // Cached images may not fire `load` — handle that case.
+    if (el.img.complete && el.img.naturalWidth > 0) {
+      el.img.onload();
+    }
+  }
+
+  function open(triggerImg) {
+    collect();
+    let i = -1;
+    items.forEach(function (it, k) { if (it.img === triggerImg) i = k; });
+    if (i < 0) return;
+    lastFocused = triggerImg;
+    lb.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    show(i);
+    window.setTimeout(function () { el.close.focus(); }, 60);
+  }
+
+  function close() {
+    lb.classList.remove("is-open");
+    el.img.classList.remove("is-revealed");
+    el.loader.classList.remove("is-on");
+    document.body.style.overflow = "";
+    // clear src after the close transition so the fade-out isn't interrupted
+    window.setTimeout(function () {
+      if (!lb.classList.contains("is-open")) {
+        el.img.onload = null;
+        el.img.removeAttribute("src");
+      }
+    }, 480);
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  function next() { show(index + 1); }
+  function prev() { show(index - 1); }
+
+  // Open when a project image is clicked.
+  grid.addEventListener("click", function (event) {
+    const img = event.target.closest(".project-card__media img");
+    if (img) open(img);
+  });
+
+  el.close.addEventListener("click", close);
+  el.prev.addEventListener("click", prev);
+  el.next.addEventListener("click", next);
+  lb.addEventListener("click", function (event) {
+    if (event.target === lb || event.target === el.stage || event.target === el.loader) close();
+  });
+
+  // Keyboard: Esc closes, arrows navigate, Tab is trapped among controls.
+  document.addEventListener("keydown", function (event) {
+    if (!lb.classList.contains("is-open")) return;
+    if (event.key === "Escape") {
+      close();
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      next();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      prev();
+    } else if (event.key === "Tab") {
+      const f = focusables.filter(function (n) { return n.offsetParent !== null; });
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+
+  // Touch swipe to navigate on touch devices.
+  let sx = 0, dx = 0, swiping = false;
+  el.stage.addEventListener("touchstart", function (e) {
+    if (!lb.classList.contains("is-open")) return;
+    sx = e.touches[0].clientX; dx = 0; swiping = true;
+  }, { passive: true });
+  el.stage.addEventListener("touchmove", function (e) {
+    if (!swiping) return;
+    dx = e.touches[0].clientX - sx;
+  }, { passive: true });
+  el.stage.addEventListener("touchend", function () {
+    if (!swiping) return;
+    swiping = false;
+    if (Math.abs(dx) > 50) { if (dx < 0) next(); else prev(); }
+  });
+});
+</script>
+</body>
+</html>

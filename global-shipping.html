@@ -1,0 +1,1826 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Global shipping solutions for healthcare, laboratory, industrial, and HVAC manufacturing from VISHAL STEEL PRODUCTS.">
+  <meta name="theme-color" content="#202124">
+  <title>Global Shipping Solutions | VISHAL STEEL PRODUCTS</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --gs-red: #b51220;
+      --gs-dark-red: #8f0d18;
+      --gs-charcoal: #202124;
+      --gs-white: #fff;
+      --gs-light: #f5f5f5;
+      --gs-muted: #67696d;
+      --gs-line: rgba(32, 33, 36, 0.15);
+      --gs-gutter: clamp(22px, 6vw, 96px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 104px;
+    }
+
+    body.gs-page {
+      min-width: 0;
+      margin: 0;
+      overflow-x: clip;
+      background: var(--gs-white);
+      color: var(--gs-charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .gs-page *,
+    .gs-page *::before,
+    .gs-page *::after {
+      box-sizing: border-box;
+    }
+
+    .gs-page a {
+      color: inherit;
+    }
+
+    .gs-page a:focus-visible,
+    .gs-page button:focus-visible {
+      outline: 2px solid var(--gs-red);
+      outline-offset: 4px;
+    }
+
+    .gs-main {
+      overflow: clip;
+    }
+
+    .gs-shell {
+      width: min(calc(100% - var(--gs-gutter) * 2), 1440px);
+      margin-inline: auto;
+    }
+
+    .gs-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--gs-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .gs-eyebrow::before {
+      width: 31px;
+      height: 1px;
+      flex: 0 0 auto;
+      background: currentColor;
+      content: "";
+    }
+
+    .gs-section-heading {
+      margin: 0;
+      font-size: clamp(2.7rem, 6.4vw, 6.4rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.98;
+    }
+
+    .gs-hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: clamp(600px, 82svh, 880px);
+      align-items: center;
+      overflow: hidden;
+      background: var(--gs-charcoal);
+      color: var(--gs-white);
+    }
+
+    .gs-hero__picture,
+    .gs-hero__picture::after,
+    .gs-hero__glow,
+    .gs-hero__grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .gs-hero__picture {
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .gs-hero__picture img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 53%;
+      transform: scale(1.04);
+    }
+
+    .gs-hero__picture::after {
+      background:
+        linear-gradient(90deg, rgba(20, 21, 23, 0.9) 0%, rgba(20, 21, 23, 0.74) 42%, rgba(20, 21, 23, 0.2) 100%),
+        linear-gradient(0deg, rgba(20, 21, 23, 0.44), transparent 48%);
+      content: "";
+    }
+
+    .gs-hero__glow {
+      z-index: -2;
+      background:
+        radial-gradient(ellipse at 82% 57%, rgba(181, 18, 32, 0.34), transparent 35%),
+        radial-gradient(ellipse at 8% 12%, rgba(181, 18, 32, 0.13), transparent 29%);
+      animation: gs-hero-light 14s ease-in-out infinite alternate;
+    }
+
+    .gs-hero__grid {
+      z-index: -1;
+      opacity: 0.13;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.17) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.17) 1px, transparent 1px);
+      background-size: 90px 90px;
+      mask-image: linear-gradient(90deg, transparent, #000 46%, #000);
+    }
+
+    .gs-hero__inner {
+      position: relative;
+      z-index: 1;
+      padding-block: clamp(80px, 12vw, 150px);
+    }
+
+    .gs-breadcrumb {
+      margin: 0 0 clamp(58px, 8vw, 102px);
+    }
+
+    .gs-breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .gs-breadcrumb a {
+      text-decoration: none;
+      transition: color 220ms ease;
+    }
+
+    .gs-breadcrumb a:hover {
+      color: var(--gs-white);
+    }
+
+    .gs-breadcrumb__separator {
+      display: inline-flex;
+      color: var(--gs-red);
+    }
+
+    .gs-breadcrumb [aria-current="page"] {
+      color: var(--gs-white);
+    }
+
+    .gs-hero__title {
+      max-width: 1160px;
+      margin: 0;
+      font-size: clamp(4.2rem, 10.1vw, 9.2rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.84;
+    }
+
+    .gs-hero__title-line {
+      display: block;
+      overflow: hidden;
+      padding: 0 0 0.08em;
+    }
+
+    .gs-hero__title-line span {
+      display: inline-block;
+    }
+
+    .gs-hero__title-line--accent {
+      position: relative;
+      width: fit-content;
+      color: var(--gs-white);
+    }
+
+    .gs-hero__title-line--accent::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      background: var(--gs-red);
+      content: "";
+      transform: scaleX(var(--gs-accent-scale, 0.7));
+      transform-origin: left center;
+    }
+
+    .gs-hero__base {
+      display: flex;
+      width: min(100%, 1120px);
+      align-items: center;
+      gap: 20px;
+      margin-top: clamp(52px, 8vw, 96px);
+    }
+
+    .gs-hero__base-line {
+      height: 1px;
+      flex: 1 1 auto;
+      background: linear-gradient(90deg, var(--gs-red), rgba(255, 255, 255, 0.42), transparent);
+      transform-origin: left center;
+    }
+
+    .gs-hero__base-mark {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 50%;
+      background: var(--gs-red);
+      box-shadow: 0 0 24px rgba(181, 18, 32, 0.85);
+    }
+
+    .gs-intro {
+      position: relative;
+      padding: clamp(108px, 15vw, 212px) 0 clamp(112px, 15vw, 200px);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 48%, rgba(181, 18, 32, 0.06), transparent 34%),
+        var(--gs-light);
+    }
+
+    .gs-intro::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(48vw, 720px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(181, 18, 32, 0.55));
+      content: "";
+    }
+
+    .gs-intro__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      align-items: center;
+      gap: clamp(40px, 8vw, 132px);
+    }
+
+    .gs-intro__heading {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(3.5rem, 7.7vw, 7.6rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.9;
+    }
+
+    .gs-intro__heading span {
+      display: block;
+      color: var(--gs-red);
+    }
+
+    .gs-intro__visual {
+      position: relative;
+      display: grid;
+      min-height: 400px;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .gs-intro__visual::before,
+    .gs-intro__visual::after {
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(32, 33, 36, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .gs-intro__visual::before {
+      width: min(34vw, 450px);
+      aspect-ratio: 1;
+    }
+
+    .gs-intro__visual::after {
+      width: min(24vw, 320px);
+      aspect-ratio: 1;
+      border-color: rgba(181, 18, 32, 0.3);
+    }
+
+    .gs-intro__orbit {
+      display: block;
+      width: min(100%, 480px);
+      height: auto;
+      overflow: visible;
+    }
+
+    .gs-intro__orbit-ring {
+      fill: none;
+      stroke: rgba(32, 33, 36, 0.16);
+      stroke-width: 1;
+    }
+
+    .gs-intro__orbit-route {
+      fill: none;
+      stroke: var(--gs-red);
+      stroke-dasharray: 4 9;
+      stroke-linecap: round;
+      stroke-width: 1.5;
+    }
+
+    .gs-intro__orbit-route--soft {
+      stroke: rgba(32, 33, 36, 0.4);
+      stroke-width: 1;
+    }
+
+    .gs-intro__orbit-core {
+      fill: var(--gs-red);
+      filter: drop-shadow(0 0 15px rgba(181, 18, 32, 0.36));
+    }
+
+    .gs-intro__orbit-node {
+      fill: var(--gs-white);
+      stroke: var(--gs-red);
+      stroke-width: 2;
+    }
+
+    .gs-excellence {
+      padding: clamp(100px, 13vw, 176px) 0 clamp(108px, 14vw, 190px);
+      background: var(--gs-white);
+    }
+
+    .gs-excellence__heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(160px, 0.42fr);
+      align-items: end;
+      gap: 32px;
+      margin-bottom: clamp(50px, 8vw, 100px);
+    }
+
+    .gs-excellence__heading h2 {
+      max-width: 990px;
+    }
+
+    .gs-excellence__heading h2 span {
+      color: var(--gs-red);
+    }
+
+    .gs-excellence__rule {
+      position: relative;
+      align-self: end;
+      height: 1px;
+      margin-bottom: 10px;
+      background: rgba(32, 33, 36, 0.17);
+      transform-origin: left center;
+    }
+
+    .gs-excellence__rule::after {
+      position: absolute;
+      top: -3px;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gs-red);
+      content: "";
+    }
+
+    .gs-services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gs-service {
+      position: relative;
+      display: flex;
+      min-height: 340px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(27px, 4vw, 52px);
+      overflow: hidden;
+      border: 1px solid rgba(32, 33, 36, 0.1);
+      background: var(--gs-light);
+      transition: transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1), background-color 350ms ease, color 350ms ease, border-color 350ms ease;
+    }
+
+    .gs-service::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 72px;
+      height: 2px;
+      background: var(--gs-red);
+      content: "";
+      transition: width 450ms ease;
+    }
+
+    .gs-service::after {
+      position: absolute;
+      right: -72px;
+      bottom: -132px;
+      width: 280px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(181, 18, 32, 0.13);
+      border-radius: 50%;
+      content: "";
+      transition: transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    }
+
+    .gs-service:hover {
+      z-index: 1;
+      transform: translateY(-5px);
+    }
+
+    .gs-service:hover::before {
+      width: 160px;
+    }
+
+    .gs-service:hover::after {
+      transform: scale(1.18);
+    }
+
+    .gs-service--dark {
+      border-color: var(--gs-charcoal);
+      background: var(--gs-charcoal);
+      color: var(--gs-white);
+    }
+
+    .gs-service--dark::after {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .gs-service--red {
+      border-color: var(--gs-dark-red);
+      background:
+        radial-gradient(ellipse at 87% 14%, rgba(255, 255, 255, 0.14), transparent 33%),
+        var(--gs-red);
+      color: var(--gs-white);
+    }
+
+    .gs-service--red::before {
+      background: var(--gs-white);
+    }
+
+    .gs-service--red::after {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .gs-service__top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .gs-service__icon {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(32, 33, 36, 0.17);
+      border-radius: 50%;
+      color: var(--gs-red);
+      transition: transform 450ms ease, color 350ms ease, border-color 350ms ease;
+    }
+
+    .gs-service--dark .gs-service__icon,
+    .gs-service--red .gs-service__icon {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: var(--gs-white);
+    }
+
+    .gs-service:hover .gs-service__icon {
+      transform: rotate(-8deg) scale(1.06);
+    }
+
+    .gs-service__icon svg {
+      width: 27px;
+      height: 27px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .gs-service__signal {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(32, 33, 36, 0.24);
+      border-right: 1px solid rgba(32, 33, 36, 0.24);
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+
+    .gs-service--dark .gs-service__signal,
+    .gs-service--red .gs-service__signal {
+      border-color: rgba(255, 255, 255, 0.48);
+    }
+
+    .gs-service__copy {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      padding-top: 52px;
+    }
+
+    .gs-service__copy h3 {
+      margin: 0 0 13px;
+      font-size: clamp(1.6rem, 2.6vw, 2.65rem);
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 1.06;
+    }
+
+    .gs-service__copy p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--gs-muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .gs-service--dark .gs-service__copy p,
+    .gs-service--red .gs-service__copy p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .gs-why {
+      position: relative;
+      padding: clamp(100px, 13vw, 180px) 0 clamp(104px, 13vw, 184px);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 95% 0%, rgba(181, 18, 32, 0.2), transparent 34%),
+        var(--gs-charcoal);
+      color: var(--gs-white);
+    }
+
+    .gs-why::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(50vw, 780px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(181, 18, 32, 0.8));
+      content: "";
+    }
+
+    .gs-why__heading {
+      max-width: 1070px;
+      margin-bottom: clamp(62px, 9vw, 108px);
+    }
+
+    .gs-why__heading .gs-eyebrow {
+      color: #ef5964;
+    }
+
+    .gs-why__heading h2 {
+      max-width: 1030px;
+    }
+
+    .gs-why__description {
+      max-width: 800px;
+      margin: 28px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: clamp(15px, 1.38vw, 18px);
+      line-height: 1.85;
+    }
+
+    .gs-advantages {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gs-advantage {
+      position: relative;
+      min-height: 285px;
+      padding: 35px clamp(18px, 3vw, 42px) 18px 0;
+    }
+
+    .gs-advantage + .gs-advantage {
+      padding-left: clamp(18px, 3vw, 42px);
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gs-advantage__icon {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 40px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 50%;
+      color: #f56c76;
+      transition: transform 400ms ease, background-color 400ms ease;
+    }
+
+    .gs-advantage:hover .gs-advantage__icon {
+      transform: translateY(-4px) rotate(-8deg);
+      background: rgba(181, 18, 32, 0.18);
+    }
+
+    .gs-advantage__icon svg {
+      width: 25px;
+      height: 25px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .gs-advantage h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.15;
+    }
+
+    .gs-advantage p {
+      max-width: 390px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .gs-faq {
+      padding: clamp(104px, 14vw, 190px) 0 clamp(100px, 13vw, 174px);
+      background: var(--gs-light);
+    }
+
+    .gs-faq__grid {
+      display: grid;
+      grid-template-columns: minmax(270px, 0.76fr) minmax(0, 1.24fr);
+      align-items: start;
+      gap: clamp(45px, 8vw, 128px);
+    }
+
+    .gs-faq__intro {
+      position: sticky;
+      top: 124px;
+    }
+
+    .gs-faq__intro h2 {
+      max-width: 580px;
+      margin: 0;
+      font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
+    }
+
+    .gs-faq__subheading {
+      max-width: 390px;
+      margin: 28px 0 16px;
+      color: var(--gs-red);
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.35;
+    }
+
+    .gs-faq__description,
+    .gs-faq__additional {
+      max-width: 540px;
+      margin: 0 0 16px;
+      color: var(--gs-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .gs-faq__list {
+      border-top: 1px solid var(--gs-line);
+    }
+
+    .gs-faq__item {
+      border-bottom: 1px solid var(--gs-line);
+    }
+
+    .gs-faq__question {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 0;
+      border: 0;
+      background: transparent;
+      color: var(--gs-charcoal);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .gs-faq__question-text {
+      max-width: 650px;
+      font-size: clamp(1.08rem, 1.8vw, 1.4rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.35;
+      transition: color 220ms ease;
+    }
+
+    .gs-faq__question:hover .gs-faq__question-text,
+    .gs-faq__question[aria-expanded="true"] .gs-faq__question-text {
+      color: var(--gs-red);
+    }
+
+    .gs-faq__toggle {
+      position: relative;
+      display: grid;
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(32, 33, 36, 0.22);
+      border-radius: 50%;
+      color: var(--gs-red);
+      transition: background-color 250ms ease, border-color 250ms ease, transform 250ms ease;
+    }
+
+    .gs-faq__question[aria-expanded="true"] .gs-faq__toggle {
+      transform: rotate(45deg);
+      border-color: var(--gs-red);
+      background: var(--gs-red);
+      color: var(--gs-white);
+    }
+
+    .gs-faq__toggle svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-width: 1.7;
+    }
+
+    .gs-faq__answer {
+      padding: 0 58px 25px 0;
+      color: var(--gs-muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .gs-faq__answer p {
+      margin: 0;
+    }
+
+    .gs-contact-cta {
+      display: flex;
+      min-height: 164px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: clamp(66px, 9vw, 112px);
+      padding: 34px clamp(26px, 5vw, 66px);
+      background: var(--gs-charcoal);
+      color: var(--gs-white);
+    }
+
+    .gs-contact-cta h3 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.065em;
+      line-height: 1.06;
+    }
+
+    .gs-contact-cta__link {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: var(--gs-white);
+      text-decoration: none;
+      transition: border-color 250ms ease, background-color 250ms ease, transform 250ms ease;
+    }
+
+    .gs-contact-cta__link:hover {
+      transform: translateY(-2px);
+      border-color: var(--gs-red);
+      background: var(--gs-red);
+    }
+
+    .gs-contact-cta__link svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .gs-insights {
+      padding: clamp(100px, 13vw, 178px) 0 clamp(106px, 14vw, 194px);
+      background:
+        radial-gradient(ellipse at 5% 90%, rgba(181, 18, 32, 0.055), transparent 31%),
+        var(--gs-white);
+    }
+
+    .gs-insights__heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: clamp(46px, 7vw, 88px);
+    }
+
+    .gs-insights__heading .gs-eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .gs-insights__heading h2 {
+      max-width: 1000px;
+    }
+
+    .gs-insights__accent {
+      width: 74px;
+      height: 74px;
+      flex: 0 0 auto;
+      margin: 0 2vw 8px 0;
+      border: 1px solid rgba(181, 18, 32, 0.4);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gs-red) 0 3px, transparent 4px);
+      box-shadow: inset 0 0 0 11px rgba(181, 18, 32, 0.035), inset 0 0 0 23px rgba(181, 18, 32, 0.025);
+    }
+
+    .gs-insights__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      grid-template-rows: repeat(2, minmax(275px, auto));
+      gap: 14px;
+    }
+
+    .gs-article {
+      position: relative;
+      display: flex;
+      min-height: 275px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(26px, 4vw, 48px);
+      overflow: hidden;
+      border: 1px solid rgba(32, 33, 36, 0.14);
+      background: var(--gs-light);
+      transition: transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1), background-color 350ms ease, color 350ms ease, border-color 350ms ease;
+    }
+
+    .gs-article::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 52px;
+      height: 2px;
+      background: var(--gs-red);
+      content: "";
+      transition: width 350ms ease;
+    }
+
+    .gs-article:hover {
+      z-index: 1;
+      transform: translateY(-5px);
+      border-color: rgba(181, 18, 32, 0.4);
+      background: var(--gs-white);
+    }
+
+    .gs-article:hover::before {
+      width: 125px;
+    }
+
+    .gs-article--featured {
+      grid-row: span 2;
+      min-height: 564px;
+      border-color: var(--gs-charcoal);
+      background:
+        radial-gradient(ellipse at 94% 10%, rgba(181, 18, 32, 0.29), transparent 36%),
+        var(--gs-charcoal);
+      color: var(--gs-white);
+    }
+
+    .gs-article--featured::before {
+      background: #ef5964;
+    }
+
+    .gs-article--featured::after {
+      position: absolute;
+      right: -105px;
+      bottom: -146px;
+      width: 365px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 28px rgba(255, 255, 255, 0.025), 0 0 0 58px rgba(255, 255, 255, 0.02);
+      content: "";
+      transition: transform 650ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    }
+
+    .gs-article--featured:hover {
+      background:
+        radial-gradient(ellipse at 94% 10%, rgba(181, 18, 32, 0.42), transparent 36%),
+        var(--gs-charcoal);
+    }
+
+    .gs-article--featured:hover::after {
+      transform: scale(1.1);
+    }
+
+    .gs-article__meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 16px;
+      color: var(--gs-muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .gs-article--featured .gs-article__meta {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .gs-article__category {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gs-red);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .gs-article__category::before {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    .gs-article--featured .gs-article__category {
+      color: #ff7b83;
+    }
+
+    .gs-article__body {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding-top: 48px;
+    }
+
+    .gs-article__title {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 2.7vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 1.08;
+      transition: transform 400ms ease, color 300ms ease;
+    }
+
+    .gs-article--featured .gs-article__title {
+      max-width: 660px;
+      font-size: clamp(2.5rem, 4.9vw, 5.2rem);
+      letter-spacing: -0.075em;
+      line-height: 0.98;
+    }
+
+    .gs-article:hover .gs-article__title {
+      transform: translateX(4px);
+    }
+
+    .gs-article__description {
+      max-width: 620px;
+      margin: 0;
+      color: var(--gs-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .gs-article--featured .gs-article__description {
+      max-width: 580px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+    }
+
+    @keyframes gs-hero-light {
+      from {
+        opacity: 0.76;
+        transform: translate3d(-1.5%, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(1.5%, 0, 0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .gs-intro__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.78fr);
+        gap: 36px;
+      }
+
+      .gs-intro__visual {
+        min-height: 330px;
+      }
+
+      .gs-excellence__heading {
+        grid-template-columns: 1fr;
+      }
+
+      .gs-excellence__rule {
+        width: min(58%, 380px);
+      }
+
+      .gs-faq__grid {
+        grid-template-columns: minmax(230px, 0.75fr) minmax(0, 1.25fr);
+        gap: 42px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --gs-gutter: 22px;
+      }
+
+      .gs-hero {
+        min-height: clamp(580px, 82svh, 760px);
+      }
+
+      .gs-hero__picture img {
+        object-position: 58% center;
+      }
+
+      .gs-hero__picture::after {
+        background:
+          linear-gradient(90deg, rgba(20, 21, 23, 0.86), rgba(20, 21, 23, 0.42)),
+          linear-gradient(0deg, rgba(20, 21, 23, 0.58), transparent 64%);
+      }
+
+      .gs-hero__grid {
+        opacity: 0.08;
+        background-size: 58px 58px;
+      }
+
+      .gs-hero__inner {
+        padding-block: 74px 82px;
+      }
+
+      .gs-breadcrumb {
+        margin-bottom: 78px;
+      }
+
+      .gs-breadcrumb ol {
+        font-size: 11px;
+      }
+
+      .gs-hero__title {
+        font-size: clamp(2.35rem, 9.7vw, 4.2rem);
+        letter-spacing: -0.075em;
+        line-height: 0.91;
+      }
+
+      .gs-hero__title-line--accent::after {
+        height: 3px;
+      }
+
+      .gs-hero__base {
+        margin-top: 78px;
+      }
+
+      .gs-intro {
+        padding: 96px 0 88px;
+      }
+
+      .gs-intro__grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .gs-intro__heading {
+        max-width: 540px;
+        font-size: clamp(3.15rem, 12.6vw, 5.3rem);
+      }
+
+      .gs-intro__visual {
+        min-height: 270px;
+      }
+
+      .gs-intro__visual::before {
+        width: min(74vw, 330px);
+      }
+
+      .gs-intro__visual::after {
+        width: min(54vw, 240px);
+      }
+
+      .gs-intro__orbit {
+        width: min(100%, 340px);
+      }
+
+      .gs-excellence {
+        padding: 94px 0 100px;
+      }
+
+      .gs-section-heading {
+        font-size: clamp(2.65rem, 10vw, 4.7rem);
+      }
+
+      .gs-excellence__heading {
+        gap: 25px;
+        margin-bottom: 42px;
+      }
+
+      .gs-services {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .gs-service {
+        min-height: 290px;
+        padding: 26px;
+      }
+
+      .gs-service__copy {
+        padding-top: 42px;
+      }
+
+      .gs-service__copy h3 {
+        font-size: clamp(1.65rem, 7vw, 2.2rem);
+      }
+
+      .gs-why {
+        padding: 96px 0 100px;
+      }
+
+      .gs-why__heading {
+        margin-bottom: 52px;
+      }
+
+      .gs-why__description {
+        margin-top: 22px;
+        font-size: 15px;
+      }
+
+      .gs-advantages {
+        grid-template-columns: 1fr;
+      }
+
+      .gs-advantage,
+      .gs-advantage + .gs-advantage {
+        min-height: 0;
+        padding: 28px 0 32px;
+        border-left: 0;
+      }
+
+      .gs-advantage + .gs-advantage {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .gs-advantage__icon {
+        margin-bottom: 25px;
+      }
+
+      .gs-advantage p {
+        max-width: 560px;
+      }
+
+      .gs-faq {
+        padding: 96px 0 90px;
+      }
+
+      .gs-faq__grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .gs-faq__intro {
+        position: static;
+      }
+
+      .gs-faq__intro h2 {
+        font-size: clamp(2.7rem, 10vw, 4.6rem);
+      }
+
+      .gs-faq__subheading {
+        margin-top: 22px;
+      }
+
+      .gs-faq__question {
+        gap: 16px;
+        padding: 22px 0;
+      }
+
+      .gs-faq__question-text {
+        font-size: 1.08rem;
+      }
+
+      .gs-faq__answer {
+        padding: 0 44px 22px 0;
+        font-size: 13px;
+      }
+
+      .gs-contact-cta {
+        min-height: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 58px;
+        padding: 28px;
+      }
+
+      .gs-contact-cta__link {
+        width: 52px;
+        height: 52px;
+      }
+
+      .gs-insights {
+        padding: 92px 0 100px;
+      }
+
+      .gs-insights__heading {
+        align-items: flex-start;
+        margin-bottom: 40px;
+      }
+
+      .gs-insights__accent {
+        width: 48px;
+        height: 48px;
+        margin: 38px 0 0;
+        flex: 0 0 auto;
+        box-shadow: inset 0 0 0 7px rgba(181, 18, 32, 0.035), inset 0 0 0 15px rgba(181, 18, 32, 0.025);
+      }
+
+      .gs-insights__grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+      }
+
+      .gs-article,
+      .gs-article--featured {
+        grid-row: auto;
+        min-height: 330px;
+        padding: 27px;
+      }
+
+      .gs-article--featured {
+        min-height: 410px;
+      }
+
+      .gs-article__body {
+        padding-top: 38px;
+      }
+
+      .gs-article__title {
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+      }
+
+      .gs-article--featured .gs-article__title {
+        font-size: clamp(2.4rem, 10vw, 3.7rem);
+      }
+
+      .gs-article__meta {
+        gap: 8px 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .gs-hero__title {
+        font-size: 2.25rem;
+      }
+
+      .gs-service {
+        padding: 24px 21px;
+      }
+
+      .gs-article,
+      .gs-article--featured {
+        padding: 24px 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .gs-page *,
+      .gs-page *::before,
+      .gs-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="vs-page gs-page">
+  <div id="navbar-placeholder"></div>
+  <main class="gs-main" data-global-shipping-page>
+    <section class="gs-hero" aria-labelledby="gs-page-title">
+      <picture class="gs-hero__picture" aria-hidden="true">
+        <source
+          type="image/webp"
+          srcset="./assets/images/optimized/indeximg13-400.webp 400w, ./assets/images/optimized/indeximg13-640.webp 640w, ./assets/images/optimized/indeximg13-768.webp 768w"
+          sizes="100vw">
+        <img src="./assets/images/homepage/indeximg13.png" width="768" height="768" alt="" fetchpriority="high">
+      </picture>
+      <div class="gs-hero__glow" aria-hidden="true"></div>
+      <div class="gs-hero__grid" aria-hidden="true"></div>
+      <div class="gs-shell gs-hero__inner">
+        <nav class="gs-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="./index.html">Home</a></li>
+            <li class="gs-breadcrumb__separator" aria-hidden="true">→</li>
+            <li aria-current="page">Global Shipping Services</li>
+          </ol>
+        </nav>
+        <h1 class="gs-hero__title" id="gs-page-title">
+          <span class="gs-hero__title-line"><span>Global Shipping</span></span>
+          <span class="gs-hero__title-line gs-hero__title-line--accent"><span>Solutions</span></span>
+        </h1>
+        <div class="gs-hero__base" aria-hidden="true">
+          <span class="gs-hero__base-line"></span>
+          <span class="gs-hero__base-mark"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gs-intro" aria-labelledby="gs-intro-title">
+      <div class="gs-shell gs-intro__grid">
+        <h2 class="gs-intro__heading" id="gs-intro-title">Multi-Material <span>Global Shipping</span></h2>
+        <div class="gs-intro__visual" aria-hidden="true">
+          <svg class="gs-intro__orbit" viewBox="0 0 480 420" role="presentation">
+            <ellipse class="gs-intro__orbit-ring" cx="240" cy="210" rx="190" ry="76" transform="rotate(-27 240 210)"></ellipse>
+            <ellipse class="gs-intro__orbit-ring" cx="240" cy="210" rx="145" ry="120" transform="rotate(29 240 210)"></ellipse>
+            <path class="gs-intro__orbit-route" d="M66 270C112 170 185 116 242 142c48 22 86 120 159 84"></path>
+            <path class="gs-intro__orbit-route gs-intro__orbit-route--soft" d="M97 118c66 104 201 184 285 103"></path>
+            <circle class="gs-intro__orbit-core" cx="240" cy="210" r="13"></circle>
+            <circle class="gs-intro__orbit-node" cx="66" cy="270" r="7"></circle>
+            <circle class="gs-intro__orbit-node" cx="242" cy="142" r="6"></circle>
+            <circle class="gs-intro__orbit-node" cx="401" cy="226" r="7"></circle>
+            <circle class="gs-intro__orbit-node" cx="97" cy="118" r="5"></circle>
+            <circle class="gs-intro__orbit-node" cx="382" cy="221" r="5"></circle>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="gs-excellence" aria-labelledby="gs-excellence-title">
+      <div class="gs-shell">
+        <div class="gs-excellence__heading">
+          <div>
+            <h2 class="gs-section-heading" id="gs-excellence-title">Chameza Group Global Manufacturing &amp; Logistics <span>Excellence</span></h2>
+          </div>
+          <div class="gs-excellence__rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="gs-services">
+          <article class="gs-service" data-gs-service>
+            <div class="gs-service__top">
+              <span class="gs-service__icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><path d="M4.5 6.5h13a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-5l-4.5 3v-3h-3a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3Z"></path><path d="M12.5 3.5h9a3 3 0 0 1 3 3v6a3 3 0 0 1-2 2.83"></path></svg>
+              </span>
+              <span class="gs-service__signal" aria-hidden="true"></span>
+            </div>
+            <div class="gs-service__copy">
+              <h3>Multi-Industry Consultation</h3>
+              <p>Comprehensive consultation for healthcare, laboratory, industrial, and HVAC solutions with customized multi-material manufacturing specifications.</p>
+            </div>
+          </article>
+
+          <article class="gs-service gs-service--dark" data-gs-service>
+            <div class="gs-service__top">
+              <span class="gs-service__icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><path d="M14 3.5 23 7v6.2c0 5.3-3.5 9.4-9 11.3-5.5-1.9-9-6-9-11.3V7l9-3.5Z"></path><path d="m9.5 13.5 3 3 6-6"></path></svg>
+              </span>
+              <span class="gs-service__signal" aria-hidden="true"></span>
+            </div>
+            <div class="gs-service__copy">
+              <h3>Industry-Specific Quality Control</h3>
+              <p>Rigorous quality inspection for hospital furniture, laboratory fume hoods, warehouse racks, and HVAC systems meeting international standards.</p>
+            </div>
+          </article>
+
+          <article class="gs-service gs-service--red" data-gs-service>
+            <div class="gs-service__top">
+              <span class="gs-service__icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><path d="m14 3.5 9 5v11l-9 5-9-5v-11l9-5Z"></path><path d="m5 8.5 9 5 9-5M14 13.5v11"></path><path d="m9.5 6 9 5"></path></svg>
+              </span>
+              <span class="gs-service__signal" aria-hidden="true"></span>
+            </div>
+            <div class="gs-service__copy">
+              <h3>Specialized Multi-Material Packaging</h3>
+              <p>Advanced packaging for steel, metal, and wood products ensuring safe international transport of complex manufacturing solutions.</p>
+            </div>
+          </article>
+
+          <article class="gs-service gs-service--dark" data-gs-service>
+            <div class="gs-service__top">
+              <span class="gs-service__icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9.5"></circle><path d="M4.5 14h19M14 4.5a15 15 0 0 1 0 19M14 4.5a15 15 0 0 0 0 19"></path><path d="m17.5 8 3 1-1 3"></path></svg>
+              </span>
+              <span class="gs-service__signal" aria-hidden="true"></span>
+            </div>
+            <div class="gs-service__copy">
+              <h3>Global Turnkey Delivery</h3>
+              <p>Worldwide shipping with installation support for complete manufacturing solutions including HVAC systems and industrial setups.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gs-why" aria-labelledby="gs-why-title">
+      <div class="gs-shell">
+        <div class="gs-why__heading">
+          <p class="gs-eyebrow">Why Choose Chameza Group</p>
+          <h2 class="gs-section-heading" id="gs-why-title">Delivering Global Multi-Material Solutions with Excellence</h2>
+          <p class="gs-why__description">Part of the Chameza Group with 36+ years of excellence, we provide comprehensive multi-material manufacturing and international logistics for healthcare, laboratory, industrial, and HVAC solutions tailored to meet diverse global requirements.</p>
+        </div>
+
+        <div class="gs-advantages">
+          <article class="gs-advantage" data-gs-advantage>
+            <span class="gs-advantage__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><circle cx="7" cy="8" r="3"></circle><circle cx="21" cy="7" r="3"></circle><circle cx="14" cy="21" r="3"></circle><path d="m9.5 9.5 3 8M18.5 9l-3 9M10 8h8"></path></svg>
+            </span>
+            <h3>Multi-Industry Expertise</h3>
+            <p>Comprehensive manufacturing solutions across healthcare, laboratory, industrial, and HVAC sectors with specialized expertise in each industry's unique requirements.</p>
+          </article>
+          <article class="gs-advantage" data-gs-advantage>
+            <span class="gs-advantage__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><path d="m14 3.5 10 5.2-10 5.2L4 8.7l10-5.2Z"></path><path d="m4 14 10 5.2L24 14M4 19.3l10 5.2 10-5.2"></path></svg>
+            </span>
+            <h3>Multi-Material Manufacturing</h3>
+            <p>Unique capability in steel, metal, and wood manufacturing with complete turnkey solutions including HVAC systems and complex industrial setups.</p>
+          </article>
+          <article class="gs-advantage" data-gs-advantage>
+            <span class="gs-advantage__icon" aria-hidden="true">
+              <svg viewBox="0 0 28 28"><path d="M14 3.5 23 7v6.2c0 5.3-3.5 9.4-9 11.3-5.5-1.9-9-6-9-11.3V7l9-3.5Z"></path><path d="m9.5 13.5 3 3 6-6"></path></svg>
+            </span>
+            <h3>Global Safety Compliance</h3>
+            <p>International certifications and safety standards compliance for healthcare furniture, laboratory fume hoods, and industrial equipment worldwide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gs-faq" aria-labelledby="gs-faq-title">
+      <div class="gs-shell">
+        <div class="gs-faq__grid">
+          <div class="gs-faq__intro">
+            <h2 id="gs-faq-title">Multi-Material Global Shipping FAQs</h2>
+            <h3 class="gs-faq__subheading">Answers to Common Manufacturing &amp; Shipping Queries</h3>
+            <p class="gs-faq__description">Part of the Chameza Group with 36+ years of excellence, we understand that shipping complex multi-material manufacturing solutions globally requires specialized expertise. Our comprehensive logistics solutions cover healthcare, laboratory, industrial, and HVAC equipment worldwide.</p>
+            <p class="gs-faq__additional">Our dedicated logistics team specializes in handling hospital furniture, laboratory fume hoods, warehouse racks, HVAC systems, and complete turnkey solutions with industry-specific packaging and safety compliance for international delivery.</p>
+          </div>
+
+          <div class="gs-faq__list" data-gs-faq-list aria-label="Frequently asked questions">
+            <article class="gs-faq__item">
+              <h3 class="gs-faq__question-heading">
+                <button class="gs-faq__question" id="gs-faq-question-1" type="button" aria-expanded="true" aria-controls="gs-faq-answer-1">
+                  <span class="gs-faq__question-text">Q1. Do you ship healthcare and laboratory equipment globally?</span>
+                  <span class="gs-faq__toggle" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12"></path></svg></span>
+                </button>
+              </h3>
+              <div class="gs-faq__answer" id="gs-faq-answer-1" role="region" aria-labelledby="gs-faq-question-1">
+                <p>Yes, we specialize in global shipping of hospital beds, medical trolleys, laboratory fume hoods, and safety equipment. All healthcare and laboratory products are shipped with specialized packaging and safety compliance documentation for international delivery.</p>
+              </div>
+            </article>
+            <article class="gs-faq__item">
+              <h3 class="gs-faq__question-heading">
+                <button class="gs-faq__question" id="gs-faq-question-2" type="button" aria-expanded="true" aria-controls="gs-faq-answer-2">
+                  <span class="gs-faq__question-text">Q2. Can you handle complete HVAC system installations internationally?</span>
+                  <span class="gs-faq__toggle" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12"></path></svg></span>
+                </button>
+              </h3>
+              <div class="gs-faq__answer" id="gs-faq-answer-2" role="region" aria-labelledby="gs-faq-question-2">
+                <p>Absolutely! We provide complete HVAC turnkey solutions with global shipping and installation support. Our team coordinates international delivery of HVAC systems with technical support for setup and commissioning worldwide.</p>
+              </div>
+            </article>
+            <article class="gs-faq__item">
+              <h3 class="gs-faq__question-heading">
+                <button class="gs-faq__question" id="gs-faq-question-3" type="button" aria-expanded="true" aria-controls="gs-faq-answer-3">
+                  <span class="gs-faq__question-text">Q3. What industries do you serve with global shipping?</span>
+                  <span class="gs-faq__toggle" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12"></path></svg></span>
+                </button>
+              </h3>
+              <div class="gs-faq__answer" id="gs-faq-answer-3" role="region" aria-labelledby="gs-faq-question-3">
+                <p>We serve healthcare facilities, research laboratories, industrial operations, and commercial businesses worldwide. Our multi-material manufacturing expertise covers steel, metal, and wood products across all sectors with specialized shipping solutions.</p>
+              </div>
+            </article>
+            <article class="gs-faq__item">
+              <h3 class="gs-faq__question-heading">
+                <button class="gs-faq__question" id="gs-faq-question-4" type="button" aria-expanded="true" aria-controls="gs-faq-answer-4">
+                  <span class="gs-faq__question-text">Q4. Do you provide installation support for international orders?</span>
+                  <span class="gs-faq__toggle" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12"></path></svg></span>
+                </button>
+              </h3>
+              <div class="gs-faq__answer" id="gs-faq-answer-4" role="region" aria-labelledby="gs-faq-question-4">
+                <p>Yes, we provide comprehensive installation support for complex manufacturing solutions including warehouse racks, HVAC systems, and laboratory setups. Our technical team coordinates with local partners for professional installation and commissioning services globally.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="gs-contact-cta">
+          <h3>Need More Information?</h3>
+          <a class="gs-contact-cta__link" href="./contact.html" aria-label="Need More Information?">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 10h12M10 4.5l5.5 5.5-5.5 5.5"></path></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gs-insights" aria-labelledby="gs-insights-title">
+      <div class="gs-shell">
+        <div class="gs-insights__heading">
+          <div>
+            <p class="gs-eyebrow">Steel Insights</p>
+            <h2 class="gs-section-heading" id="gs-insights-title">Global Steel Shipping &amp; Industry Trends</h2>
+          </div>
+        </div>
+
+        <div class="gs-insights__grid">
+          <article class="gs-article gs-article--featured">
+            <div class="gs-article__meta">
+              <span>20 Jan</span>
+              <span>By VSP Logistics Team</span>
+              <span class="gs-article__category">Industry Insights</span>
+            </div>
+            <div class="gs-article__body">
+              <h3 class="gs-article__title">Revolutionizing Global Steel Product Shipping Strategies</h3>
+              <p class="gs-article__description">Explore cutting-edge logistics solutions transforming international steel product transportation, focusing on efficiency, sustainability, and cost-effective global shipping techniques.</p>
+            </div>
+          </article>
+          <article class="gs-article">
+            <div class="gs-article__meta">
+              <span>15 Feb</span>
+              <span>By VSP Research Team</span>
+              <span class="gs-article__category">Sustainability Focus</span>
+            </div>
+            <div class="gs-article__body">
+              <h3 class="gs-article__title">Sustainable Steel: Eco-Friendly Manufacturing &amp; Shipping</h3>
+              <p class="gs-article__description">Discover how Vishal Steel Products is pioneering environmentally responsible steel production and implementing green logistics solutions for global shipping.</p>
+            </div>
+          </article>
+          <article class="gs-article">
+            <div class="gs-article__meta">
+              <span>10 Mar</span>
+              <span>By VSP Experts</span>
+              <span class="gs-article__category">Logistics Insights</span>
+            </div>
+            <div class="gs-article__body">
+              <h3 class="gs-article__title">Navigating Global Steel Product Shipping Challenges</h3>
+              <p class="gs-article__description">In-depth analysis of international steel shipping complexities, innovative solutions, and strategic approaches to overcome global logistics challenges.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      const initializePage = () => {
+      const page = document.querySelector("[data-global-shipping-page]");
+      if (!page || page.dataset.initialized === "true") {
+        return;
+      }
+      page.dataset.initialized = "true";
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const faqList = page.querySelector("[data-gs-faq-list]");
+      const faqItems = faqList ? Array.from(faqList.querySelectorAll(".gs-faq__item")) : [];
+      const gsap = window.gsap;
+      const ScrollTrigger = window.ScrollTrigger;
+
+      if (faqList && faqList.dataset.initialized !== "true") {
+        faqList.dataset.initialized = "true";
+        faqItems.forEach((item, index) => {
+          const button = item.querySelector(".gs-faq__question");
+          const answer = item.querySelector(".gs-faq__answer");
+          const expanded = index === 0;
+          button.setAttribute("aria-expanded", String(expanded));
+          answer.hidden = !expanded;
+        });
+
+        faqList.addEventListener("click", (event) => {
+          const button = event.target.closest(".gs-faq__question");
+          if (!button || !faqList.contains(button)) {
+            return;
+          }
+
+          const targetItem = button.closest(".gs-faq__item");
+          const shouldExpand = button.getAttribute("aria-expanded") !== "true";
+          faqItems.forEach((item) => {
+            const itemButton = item.querySelector(".gs-faq__question");
+            const answer = item.querySelector(".gs-faq__answer");
+            const expanded = item === targetItem && shouldExpand;
+            const wasExpanded = itemButton.getAttribute("aria-expanded") === "true";
+            itemButton.setAttribute("aria-expanded", String(expanded));
+            if (!reducedMotion && gsap) {
+              gsap.killTweensOf(answer);
+            }
+
+            if (expanded) {
+              answer.hidden = false;
+              if (!reducedMotion && gsap) {
+                gsap.fromTo(answer, { height: 0, autoAlpha: 0 }, {
+                  height: "auto",
+                  autoAlpha: 1,
+                  duration: 0.38,
+                  ease: "power2.out",
+                  clearProps: "height,opacity,visibility"
+                });
+              }
+            } else if (wasExpanded && !reducedMotion && gsap) {
+              gsap.to(answer, {
+                height: 0,
+                autoAlpha: 0,
+                duration: 0.28,
+                ease: "power2.in",
+                onComplete: () => {
+                  answer.hidden = true;
+                  gsap.set(answer, { clearProps: "height,opacity,visibility" });
+                }
+              });
+            } else {
+              answer.hidden = true;
+            }
+          });
+        });
+      }
+
+      if (!reducedMotion && gsap && ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        const hero = page.querySelector(".gs-hero");
+        const heroLines = page.querySelectorAll(".gs-hero__title-line span");
+        const breadcrumb = page.querySelector(".gs-breadcrumb");
+        const heroTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+        heroTimeline
+          .from(breadcrumb, { y: 16, autoAlpha: 0, duration: 0.65 }, 0.08)
+          .from(heroLines, { yPercent: 110, autoAlpha: 0, duration: 1.05, stagger: 0.14 }, 0.18)
+          .from(".gs-hero__base-line", { scaleX: 0, duration: 0.9, transformOrigin: "left center" }, 0.72);
+        gsap.fromTo(".gs-hero__title-line--accent", { "--gs-accent-scale": 0 }, {
+          "--gs-accent-scale": 1,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.82
+        });
+
+        if (window.matchMedia("(min-width: 701px)").matches) {
+          gsap.to(".gs-hero__picture img", {
+            yPercent: 9,
+            ease: "none",
+            scrollTrigger: {
+              trigger: hero,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.65
+            }
+          });
+        }
+
+        gsap.from(".gs-intro__heading", {
+          x: -40,
+          autoAlpha: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-intro", start: "top 76%", toggleActions: "play none none none" }
+        });
+        gsap.from(".gs-intro__visual", {
+          scale: 0.92,
+          autoAlpha: 0,
+          duration: 1.05,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-intro", start: "top 76%", toggleActions: "play none none none" }
+        });
+        gsap.to(".gs-intro__orbit", {
+          rotate: 5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".gs-intro",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1
+          }
+        });
+
+        gsap.from(".gs-excellence__heading > *", {
+          y: 32,
+          autoAlpha: 0,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-excellence__heading", start: "top 82%", toggleActions: "play none none none" }
+        });
+        gsap.from("[data-gs-service]", {
+          y: 42,
+          autoAlpha: 0,
+          duration: 0.85,
+          stagger: 0.14,
+          ease: "power3.out",
+          clearProps: "transform,opacity,visibility",
+          scrollTrigger: { trigger: ".gs-services", start: "top 80%", toggleActions: "play none none none" }
+        });
+
+        gsap.from(".gs-why__heading > *", {
+          y: 30,
+          autoAlpha: 0,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-why__heading", start: "top 82%", toggleActions: "play none none none" }
+        });
+        gsap.from("[data-gs-advantage]", {
+          y: 34,
+          autoAlpha: 0,
+          duration: 0.78,
+          stagger: 0.16,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-advantages", start: "top 82%", toggleActions: "play none none none" }
+        });
+
+        gsap.from(".gs-faq__intro > *", {
+          x: -26,
+          autoAlpha: 0,
+          duration: 0.8,
+          stagger: 0.09,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-faq__grid", start: "top 82%", toggleActions: "play none none none" }
+        });
+        gsap.from(".gs-faq__item", {
+          x: 28,
+          autoAlpha: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-faq__list", start: "top 82%", toggleActions: "play none none none" }
+        });
+
+        gsap.from(".gs-insights__heading > *", {
+          y: 30,
+          autoAlpha: 0,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".gs-insights__heading", start: "top 82%", toggleActions: "play none none none" }
+        });
+        gsap.from(".gs-article", {
+          y: 38,
+          autoAlpha: 0,
+          duration: 0.9,
+          stagger: 0.15,
+          ease: "power3.out",
+          clearProps: "transform,opacity,visibility",
+          scrollTrigger: { trigger: ".gs-insights__grid", start: "top 82%", toggleActions: "play none none none" }
+        });
+
+        const componentsLoaded = document.querySelector("#navbar-placeholder [data-vs-header]");
+        if (componentsLoaded) {
+          ScrollTrigger.refresh();
+        } else {
+          document.addEventListener("vs:components-loaded", () => ScrollTrigger.refresh(), { once: true });
+        }
+      }
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePage, { once: true });
+      } else {
+        initializePage();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about Vishal Steel Products, a Chameza Group member delivering multi-material manufacturing solutions since 1989.">
+  <meta name="theme-color" content="#202124">
+  <title>About Us | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <link rel="stylesheet" href="./about.css">
+
+<style>
+  /* Vision section image positioning and spacing */
+.vsa-vision {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 70px;
+}
+
+.vsa-vision__visual {
+  width: 100%;
+  max-width: 520px;
+  justify-self: start;
+  margin-left: -30px;
+  position: relative;
+}
+
+.vsa-vision__visual .vsa-image-placeholder {
+  width: 100%;
+  min-height: 480px;
+  aspect-ratio: 1 / 1;
+}
+
+.vsa-vision__copy {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .vsa-vision {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .vsa-vision__visual {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+  /* About page image placeholders */
+  .vsa-image-placeholder {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 320px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      linear-gradient(135deg, rgba(181, 18, 32, .14), transparent 48%),
+      linear-gradient(145deg, #303236, #17181a);
+    border: 1px solid rgba(255,255,255,.24);
+  }
+
+  .vsa-image-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(255,255,255,.24);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .vsa-image-placeholder::after {
+    content: "";
+    position: absolute;
+    width: 42%;
+    height: 1px;
+    background: #B51220;
+    left: 29%;
+    bottom: 22%;
+    opacity: .9;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .vsa-image-placeholder__label {
+    position: relative;
+    z-index: 3;
+    color: rgba(255,255,255,.78);
+    font: 600 11px/1.4 Arial, sans-serif;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px;
+  }
+
+  /* All placeholder images */
+  .vsa-image-placeholder img,
+  .vsa-image-placeholder .vsa-placeholder-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center !important;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  .vsa-hero__visual,
+  .vsa-commitment__visual,
+  .vsa-mission__visual,
+  .vsa-materials__visuals,
+  .vsa-vision__visual {
+    min-width: 0;
+  }
+
+  .vsa-hero__visual .vsa-image-placeholder {
+    min-height: 420px;
+    aspect-ratio: 5 / 4;
+  }
+
+  .vsa-commitment__visual .vsa-image-placeholder,
+  .vsa-mission__visual .vsa-image-placeholder,
+  .vsa-vision__visual .vsa-image-placeholder {
+    min-height: 420px;
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Materials image — enlarged */
+  .vsa-materials__visuals {
+    width: 115%;
+    height: 100%;
+    min-height: 680px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+    transform: translateX(-20px);
+  }
+
+  .vsa-materials__visuals .vsa-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 680px;
+    aspect-ratio: auto;
+    overflow: hidden;
+  }
+
+  .vsa-materials__visuals .vsa-placeholder-image,
+  .vsa-materials__visuals img {
+    object-fit: cover;
+    object-position: left center !important;
+  }
+
+  @media (min-width: 1200px) {
+    .vsa-materials__visuals {
+      min-height: 760px;
+      width: 120%;
+    }
+
+    .vsa-materials__visuals .vsa-image-placeholder {
+      min-height: 760px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vsa-image-placeholder {
+      min-height: 240px;
+    }
+
+    .vsa-hero__visual .vsa-image-placeholder,
+    .vsa-commitment__visual .vsa-image-placeholder,
+    .vsa-mission__visual .vsa-image-placeholder,
+    .vsa-vision__visual .vsa-image-placeholder {
+      min-height: 260px;
+    }
+
+    .vsa-materials__visuals {
+      width: 100%;
+      min-height: 420px;
+      transform: none;
+    }
+
+    .vsa-materials__visuals .vsa-image-placeholder {
+      min-height: 420px;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .vsa-image-placeholder {
+      transition: border-color .35s ease, transform .5s ease;
+    }
+
+    .vsa-image-placeholder:hover {
+      border-color: rgba(181,18,32,.8);
+    }
+  }
+
+/* TRUSTED CLIENTS ANIMATED LOGO SECTION */
+
+.vsa-clients {
+  position: relative;
+  width: 100%;
+  min-height: 850px;
+  overflow: hidden;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.vsa-clients__stage {
+  position: relative;
+  width: 100%;
+  min-height: 850px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.vsa-clients__heading {
+  position: relative;
+  z-index: 3;
+  width: min(850px, 85%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.vsa-clients__heading .vsa-eyebrow {
+  color: #B51220;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  margin-bottom: 28px;
+}
+
+.vsa-clients__heading h2 {
+  color: #202124;
+  font-size: clamp(42px, 7vw, 100px);
+  line-height: .98;
+  font-weight: 800;
+  letter-spacing: -.065em;
+  margin: 0;
+}
+
+/* LOGO ANIMATION AREA */
+
+.vsa-clients__orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.vsa-client-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+   width: clamp(110px, 12vw, 180px);
+  height: clamp(110px, 14vw, 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: clientLogoFloat 13s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.vsa-client-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: .72;
+}
+
+/* DIFFERENT LOGO POSITIONS AND ANIMATION DELAYS */
+
+.logo-01 { --x: -43vw; --y: -34vh; animation-delay: 0s; }
+.logo-02 { --x: 36vw; --y: -32vh; animation-delay: 1s; }
+.logo-03 { --x: -37vw; --y: 29vh; animation-delay: 2s; }
+.logo-04 { --x: 43vw; --y: 27vh; animation-delay: 3s; }
+.logo-05 { --x: -19vw; --y: -42vh; animation-delay: 4s; }
+.logo-06 { --x: 19vw; --y: 39vh; animation-delay: 5s; }
+.logo-07 { --x: -47vw; --y: 3vh; animation-delay: 6s; }
+.logo-08 { --x: 47vw; --y: -5vh; animation-delay: 7s; }
+.logo-09 { --x: -13vw; --y: 39vh; animation-delay: 8s; }
+.logo-10 { --x: 13vw; --y: -40vh; animation-delay: 9s; }
+.logo-11 { --x: -32vw; --y: -16vh; animation-delay: 10s; }
+.logo-12 { --x: 32vw; --y: 15vh; animation-delay: 11s; }
+
+@keyframes clientLogoFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(.45);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: .85;
+  }
+
+  65% {
+    opacity: .75;
+  }
+
+  100% {
+    transform: translate(
+      calc(-50% + var(--x)),
+      calc(-50% + var(--y))
+    ) scale(1);
+    opacity: .08;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .vsa-clients,
+  .vsa-clients__stage {
+    min-height: 650px;
+  }
+
+  .vsa-clients__heading {
+    width: 90%;
+  }
+
+  .vsa-clients__heading h2 {
+    font-size: clamp(39px, 9vw, 64px);
+  }
+
+  .vsa-client-logo {
+    width: 48px;
+    height: 58px;
+  }
+
+  .logo-01 { --x: -36vw; --y: -29vh; }
+  .logo-02 { --x: 34vw; --y: -27vh; }
+  .logo-03 { --x: -37vw; --y: 25vh; }
+  .logo-04 { --x: 36vw; --y: 26vh; }
+  .logo-05 { --x: -15vw; --y: -34vh; }
+  .logo-06 { --x: 15vw; --y: 34vh; }
+  .logo-07 { --x: -43vw; --y: 0vh; }
+  .logo-08 { --x: 43vw; --y: 0vh; }
+  .logo-09 { --x: -10vw; --y: 34vh; }
+  .logo-10 { --x: 10vw; --y: -34vh; }
+  .logo-11 { --x: -29vw; --y: -12vh; }
+  .logo-12 { --x: 29vw; --y: 12vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vsa-client-logo {
+    animation: none;
+    opacity: .65;
+    transform: translate(-50%, -50%);
+  }
+}
+
+</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./about.js" defer></script>
+  <script src="./site.js" defer></script>
+</head>
+<body class="vs-page vs-page--about">
+  <div id="navbar-placeholder"></div>
+  <main class="vsa-about">
+    <section class="vsa-hero" aria-labelledby="vsa-hero-title">
+      <div class="vsa-hero__copy">
+        <p class="vsa-eyebrow">ABOUT CHAMEZA GROUP</p>
+        <h1 id="vsa-hero-title">
+          <span data-vsa-hero-line>Multi-Material</span>
+          <span data-vsa-hero-line>Manufacturing</span>
+          <span class="vsa-hero__last-line" data-vsa-hero-line>Excellence <em>Since 1989</em></span>
+        </h1>
+        <p class="vsa-hero__description">Founded by Mr. Kirit P. Panchal in 1989, Vishal Steel Products is a proud member of the Chameza Group. We specialize in comprehensive manufacturing solutions across steel, metal, and wood materials. Our expertise spans healthcare furniture, laboratory equipment including fume hoods, industrial warehouse systems, office furniture, and complete HVAC turnkey installations for all industries.</p>
+      </div>
+<div class="vsa-hero__visual" aria-hidden="true">
+  <div class="vsa-image-placeholder" data-image-slot="01">
+    <img
+      src="./assets/images/about.png"
+      alt=""
+      class="vsa-placeholder-image"
+      width="900"
+      height="700"
+      loading="eager"
+      decoding="async"
+    >
+  </div>
+</div>
+      <a class="vsa-hero__scroll" href="#vsa-expertise"><span>Discover our expertise</span><span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="vsa-expertise" id="vsa-expertise" aria-label="Areas of expertise">
+      <p class="vsa-eyebrow">Our expertise</p>
+      <ul class="vsa-expertise__list">
+        <li><span>01</span>Healthcare &amp; Hospital Furniture Solutions</li>
+        <li><span>02</span>Laboratory Fume Hoods &amp; Safety Equipment</li>
+        <li><span>03</span>Industrial Warehouse &amp; Storage Systems</li>
+        <li><span>04</span>Complete HVAC Turnkey Solutions</li>
+      </ul>
+    </section>
+
+ 
+<section class="vsa-clients" aria-labelledby="vsa-clients-title">
+  <div class="vsa-clients__stage">
+
+    <div class="vsa-clients__heading">
+      <p class="vsa-eyebrow">BUILT ON TRUSTED PARTNERSHIPS</p>
+      <h2 id="vsa-clients-title">
+        Trusted Multi-Material<br>
+        Manufacturing Partners Globally
+      </h2>
+    </div>
+
+    <div class="vsa-clients__orbit" aria-hidden="true">
+
+      <!-- Replace these image paths with actual brand logo files -->
+
+      <span class="vsa-client-logo logo-01">
+        <img src="./assets/images/icons/1.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-02">
+        <img src="./assets/images/icons/2.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-03">
+        <img src="./assets/images/icons/3.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-04">
+        <img src="./assets/images/icons/4.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-05">
+        <img src="./assets/images/icons/5.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-06">
+        <img src="./assets/images/icons/6.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-07">
+        <img src="./assets/images/icons/7.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-08">
+        <img src="./assets/images/icons/8.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-09">
+        <img src="./assets/images/icons/9.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-10">
+        <img src="./assets/images/icons/10.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-11">
+        <img src="./assets/images/icons/11.webp" alt="" loading="lazy">
+      </span>
+
+      <span class="vsa-client-logo logo-12">
+        <img src="./assets/images/icons/12.webp" alt="" loading="lazy">
+      </span>
+ <span class="vsa-client-logo logo-13">
+        <img src="./assets/images/icons/13.webp" alt="" loading="lazy">
+      </span>
+    </div>
+  </div>
+</section>
+
+
+    <section class="vsa-commitment" aria-labelledby="vsa-commitment-title">
+      <div class="vsa-commitment__visual" aria-hidden="true">
+        <!-- IMAGE PLACEHOLDER 02: Add the approved Chameza Group visual here. -->
+      <div class="vsa-image-placeholder" data-image-slot="02">
+  <img
+    src="./assets/images/about1.png"
+    alt="Chameza Group"
+    class="vsa-placeholder-image"
+    width="900"
+    height="700"
+    loading="lazy"
+    decoding="async"
+  >
+</div>
+      </div>
+      <div class="vsa-commitment__copy">
+        <p class="vsa-eyebrow">One group · many materials</p>
+        <h2 id="vsa-commitment-title">Chameza Group's Commitment to Multi-Material Manufacturing Excellence</h2>
+        <span class="vsa-commitment__underline" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="vsa-mission" aria-labelledby="vsa-mission-title">
+      <div class="vsa-mission__visual" aria-hidden="true">
+        <!-- IMAGE PLACEHOLDER 03: Add the approved Vishal Steel V-mark/mission image here. -->
+     <div class="vsa-image-placeholder" data-image-slot="03">
+  <img
+    src="./assets/images/about2.png"
+    alt="Vishal Steel Products Mission"
+    class="vsa-placeholder-image"
+    width="900"
+    height="700"
+    loading="lazy"
+    decoding="async"
+  >
+</div>
+      </div>
+      <div class="vsa-mission__copy">
+        <p class="vsa-eyebrow">Purpose in every detail</p>
+        <h2 id="vsa-mission-title">Our Mission</h2>
+        <p>To revolutionize multi-material manufacturing through innovative solutions in healthcare, laboratory, industrial, and HVAC sectors that empower businesses to build their future.</p>
+        <p>Through advanced engineering in steel, metal, and wood, we enable industries to achieve their goals while maintaining environmental responsibility and safety standards.</p>
+      </div>
+    </section>
+
+    <section class="vsa-materials" aria-labelledby="vsa-materials-title">
+      <div class="vsa-materials__heading">
+        <p class="vsa-eyebrow">Steel · Metal · Wood</p>
+        <h2 id="vsa-materials-title">Excellence Across All Materials</h2>
+        <p class="vsa-materials__support">Transforming steel, metal &amp; wood<br>into comprehensive solutions</p>
+        <p>At Vishal Steel Products, part of the Chameza Group, we transform diverse materials into engineering masterpieces. From healthcare furniture to HVAC systems, laboratory equipment to industrial solutions - we create lasting value through innovative design and uncompromising quality standards.</p>
+      </div>
+      <div class="vsa-materials__visuals" aria-label="Steel, metal and wood">
+        <!-- IMAGE PLACEHOLDER 04: Add one approved Steel / Metal / Wood composite image here. -->
+       <div class="vsa-image-placeholder" data-image-slot="04">
+  <img
+    src="./assets/images/about3.png"
+    alt="Steel, Metal and Wood Materials"
+    class="vsa-placeholder-image"
+    width="900"
+    height="700"
+    loading="lazy"
+    decoding="async"
+  >
+</div>
+      <!-- </div>
+        <div class="vsa-material vsa-material--metal" aria-label="Metal"><span aria-hidden="true">M</span><p>Metal</p></div>
+        <div class="vsa-material vsa-material--wood" aria-label="Wood"><span aria-hidden="true">W</span><p>Wood</p></div>
+      </div> -->
+    </section>
+
+    <section class="vsa-vision" aria-labelledby="vsa-vision-title">
+      <div class="vsa-vision__visual" aria-hidden="true">
+        <!-- IMAGE PLACEHOLDER 05: Add the approved future/vision image here. -->
+        <div class="vsa-image-placeholder" data-image-slot="05">
+  <img
+    src="./assets/images/about4.png"
+    alt="Vishal Steel Products – Our Vision"
+    class="vsa-placeholder-image"
+    width="900"
+    height="700"
+    loading="lazy"
+    decoding="async"
+  >
+</div>
+      </div>
+      <div class="vsa-vision__copy">
+        <p class="vsa-eyebrow">Looking ahead</p>
+        <h2 id="vsa-vision-title">Our Vision</h2>
+        <p>To be the global leader in comprehensive manufacturing solutions, setting new benchmarks in healthcare furniture, laboratory equipment, and industrial infrastructure through technological advancement.</p>
+        <p>We strive to create a future where quality multi-material solutions drive progress across healthcare, laboratory, and industrial sectors while maintaining ecological balance.</p>
+      </div>
+    </section>
+
+    <section class="vsa-history" id="vsa-history" aria-labelledby="vs-history-title">
+      <div class="vsa-history__intro">
+        <p class="vsa-eyebrow">Our journey through the years</p>
+        <h2 id="vs-history-title"><span>A Legacy of Excellence</span><span>Vishal Steel Products' Evolution</span></h2>
+        <p>From its humble beginnings in 1989 to its current position as a leader in the steel industry, Vishal Steel Products has been dedicated to delivering quality, innovation, and value to its clients.</p>
+      </div>
+      <div class="vsa-history__story">
+        <aside class="vsa-history__rail" aria-label="Company history progress">
+          <p class="vsa-history__rail-label">Our history</p>
+          <p class="vsa-history__counter"><span data-vsa-history-current>01</span><span> / 03</span></p>
+          <div class="vsa-history__progress" role="progressbar" aria-label="Company history progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-vsa-history-progress>
+            <span data-vsa-history-progress-fill></span>
+          </div>
+          <p class="vsa-history__range">1989 <span>—</span> 2023</p>
+        </aside>
+        <div class="vsa-history__chapters">
+          <article class="vsa-history__chapter vsa-history__chapter--1989" data-vsa-history-chapter>
+            <div class="vsa-history__year-wrap"><p class="vsa-history__chapter-index">CHAPTER 01</p><p class="vsa-history__year">1989</p></div>
+            <div class="vsa-history__copy">
+              <p class="vsa-history__eyebrow">The beginning</p>
+              <h3>Founding of Vishal Steel Products</h3>
+              <p>Founded by Mr. Kirit P. Panchal, pioneering high-quality mild steel products for office and commercial use.</p>
+            </div>
+            <span class="vsa-history__ornament" aria-hidden="true">V</span>
+          </article>
+          <article class="vsa-history__chapter vsa-history__chapter--2014" data-vsa-history-chapter>
+            <div class="vsa-history__year-wrap"><p class="vsa-history__chapter-index">CHAPTER 02</p><p class="vsa-history__year">2014</p></div>
+            <div class="vsa-history__copy">
+              <p class="vsa-history__eyebrow">A new scale</p>
+              <h3>Expansion into Turnkey Projects</h3>
+              <p>Established Chameza Enterprises, specializing in end-to-end infrastructure solutions.</p>
+            </div>
+            <span class="vsa-history__ornament" aria-hidden="true">14</span>
+          </article>
+          <article class="vsa-history__chapter vsa-history__chapter--2023" data-vsa-history-chapter>
+            <div class="vsa-history__year-wrap"><p class="vsa-history__chapter-index">CHAPTER 03</p><p class="vsa-history__year">2023</p></div>
+            <div class="vsa-history__copy">
+              <p class="vsa-history__eyebrow">The next chapter</p>
+              <h3>Integration into Chameza Group</h3>
+              <p>In 2023, Vishal Steel Products became an integral part of Chameza Group, expanding capabilities and offering more advanced products and services to its clients.</p>
+            </div>
+            <span class="vsa-history__ornament" aria-hidden="true">23</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+   <section class="vsa-insights" aria-labelledby="vsa-insights-title">
+  <div class="vsa-insights__copy">
+    <p class="vsa-eyebrow">EXPERT INSIGHTS</p>
+
+    <h2 id="vsa-insights-title">
+      Expert Insights: Steel Manufacturing Excellence
+    </h2>
+
+    <h3>Vishal Steel Products - Engineering Tomorrow's Solutions</h3>
+
+    <p>
+      As a distinguished member of the Chameza Group, Vishal Steel Products pioneers advanced manufacturing techniques in industrial steel furniture, specialized laboratory infrastructure, healthcare equipment, and bespoke steel solutions. Each creation embodies our commitment to engineering excellence and innovative design.
+    </p>
+  </div>
+
+  <div class="vsa-insights__visual">
+    <img
+      src="./assets/images/homepage/indeximg13.png"
+      alt="Industrial laboratory infrastructure"
+      width="1000"
+      height="750"
+      loading="lazy"
+      decoding="async"
+    >
+  </div>
+</section>
+
+    <section class="vsa-faq" aria-labelledby="vsa-faq-title">
+      <div class="vsa-faq__heading">
+        <p class="vsa-eyebrow">Answers to your questions</p>
+        <h2 id="vsa-faq-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="vsa-faq__list">
+        <details class="vsa-faq__item">
+          <summary><span>How do you ensure durability in your industrial steel furniture?</span><span class="vsa-faq__icon" aria-hidden="true"></span></summary>
+          <div class="vsa-faq__answer"><p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p></div>
+        </details>
+        <details class="vsa-faq__item">
+          <summary><span>What makes your laboratory infrastructure unique?</span><span class="vsa-faq__icon" aria-hidden="true"></span></summary>
+          <div class="vsa-faq__answer"><p>Our laboratory solutions feature precision-engineered workstations, chemical-resistant storage systems, and modular design elements that prioritize workflow efficiency and safety compliance, all crafted to meet specific research and testing requirements.</p></div>
+        </details>
+        <details class="vsa-faq__item">
+          <summary><span>How do your healthcare solutions enhance patient care?</span><span class="vsa-faq__icon" aria-hidden="true"></span></summary>
+          <div class="vsa-faq__answer"><p>Our healthcare line features ergonomically designed hospital beds with advanced positioning systems, integrated overbed solutions, and specialized medical storage units, all engineered to optimize patient comfort and streamline healthcare delivery.</p></div>
+        </details>
+        <details class="vsa-faq__item">
+          <summary><span>What sets your custom steel fabrication apart?</span><span class="vsa-faq__icon" aria-hidden="true"></span></summary>
+          <div class="vsa-faq__answer"><p>Our bespoke steel solutions combine advanced CAD/CAM technology with expert craftsmanship, enabling us to create precision-engineered products that perfectly align with specific industry requirements while maintaining superior structural integrity and finish quality.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="vsa-cta" aria-labelledby="vsa-cta-title">
+      <p class="vsa-eyebrow">A member of Chameza Group</p>
+      <h2 id="vsa-cta-title">Connect with Vishal Steel Products</h2>
+      <a href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+      <span class="vsa-cta__seal" aria-hidden="true">V<br>STEEL</span>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

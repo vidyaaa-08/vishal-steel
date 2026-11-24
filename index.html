@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vishal Steel Products manufactures commercial furniture, laboratory infrastructure and industrial solutions as part of the Chameza Group.">
+  <meta name="theme-color" content="#202124">
+  <title>V STEEL | Vishal Steel Products</title>
+  <link rel="preload" as="image" type="image/webp" href="./assets/images/optimized/indexbanner1-480.webp" media="(max-width: 480px) and (max-resolution: 1dppx)">
+  <link rel="preload" as="image" type="image/webp" href="./assets/images/optimized/indexbanner1-768.webp" media="(min-width: 481px) and (max-width: 768px) and (max-resolution: 1dppx)">
+  <link rel="preload" as="image" type="image/webp" href="./assets/images/optimized/indexbanner1-1024.webp" media="(min-width: 769px) and (max-width: 1024px) and (max-resolution: 1dppx)">
+  <link rel="preload" as="image" type="image/webp" href="./assets/images/optimized/indexbanner1-1145.webp" media="(min-width: 1025px) and (max-resolution: 1dppx)">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./site.js" defer></script>
+</head>
+<style>
+
+.vs-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: grid;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-sizing: border-box;
+    place-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    padding: max(24px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px));
+    background: linear-gradient(125deg, #8F0D18 0%, #B51220 48%, #8F0D18 100%);
+    background-size: 200% 200%;
+    color: #FFFFFF;
+    animation: vs-loader-background 12s ease-in-out infinite;
+    transition: opacity 650ms ease, visibility 650ms ease;
+}
+
+.vs-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.vs-loader-texture,
+.vs-loader-glow,
+.vs-loader-scan,
+.vs-loader-geometry {
+    position: absolute;
+    pointer-events: none;
+}
+
+.vs-loader-texture {
+    z-index: 0;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.13) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, #000 10%, transparent 88%);
+    opacity: 0.34;
+    animation: vs-loader-grid-drift 28s linear infinite;
+}
+
+.vs-loader-glow {
+    z-index: 0;
+    inset: -35%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(245, 70, 82, 0.28), transparent 58%);
+    animation: vs-loader-glow-drift 10s ease-in-out infinite alternate;
+}
+
+.vs-loader-scan {
+    z-index: 1;
+    top: -1px;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+    animation: vs-loader-scan 6s ease-in-out infinite;
+}
+
+.vs-loader-geometry {
+    z-index: 1;
+    width: clamp(130px, 20vw, 280px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0.52;
+    transform: rotate(45deg);
+}
+
+.vs-loader-geometry::before,
+.vs-loader-geometry::after {
+    position: absolute;
+    inset: 14%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    content: "";
+}
+
+.vs-loader-geometry::after {
+    inset: 30%;
+}
+
+.vs-loader-geometry--left {
+    top: 12%;
+    left: 7%;
+    animation: vs-loader-geometry-drift 24s linear infinite;
+}
+
+.vs-loader-geometry--right {
+    right: 7%;
+    bottom: 8%;
+    width: clamp(110px, 16vw, 220px);
+    animation: vs-loader-geometry-drift 30s linear infinite reverse;
+}
+
+.vs-loader-content {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 100%);
+    text-align: center;
+}
+
+.vs-loader-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 0.2em;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: clamp(2.25rem, 8.5vw, 7.25rem);
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 1.05;
+    text-shadow: 0 8px 36px rgba(70, 0, 8, 0.24);
+}
+
+.vs-loader-word {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.vs-loader-letter {
+    display: inline-block;
+    animation: vs-loader-letter-in 760ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+    animation-delay: calc(var(--letter-index) * 55ms + 120ms);
+}
+
+.vs-loader-category-wrap {
+    display: flex;
+    min-height: 1.8em;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: clamp(18px, 3vh, 30px);
+}
+
+.vs-loader-category {
+    position: relative;
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: clamp(1.05rem, 2.3vw, 1.45rem);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-decoration: none;
+    text-shadow: 0 2px 16px rgba(70, 0, 8, 0.25);
+}
+
+.vs-loader-category::after {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.75);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 220ms ease;
+}
+
+.vs-loader-category:hover::after,
+.vs-loader-category:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.vs-loader-category:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 6px;
+}
+
+.vs-loader-category.animate {
+    animation: vs-loader-category-slide 520ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.vs-loader-progress {
+    width: min(100%, 590px);
+    height: 5px;
+    overflow: hidden;
+    margin: clamp(34px, 6vh, 54px) auto 0;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 999px;
+    background: rgba(83, 0, 8, 0.28);
+    box-shadow: 0 6px 22px rgba(70, 0, 8, 0.15);
+}
+
+#vs-loader-progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), #FFFFFF);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+    transition: width 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#vs-loader.is-progressing #vs-loader-progress-bar {
+    transition: none;
+}
+
+.vs-loader-status {
+    display: flex;
+    width: min(100%, 590px);
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px auto 0;
+}
+
+.vs-loader-caption,
+.vs-loader-percentage {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.83);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+.vs-loader-percentage {
+    min-width: 3.5em;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+@keyframes vs-loader-background {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes vs-loader-grid-drift {
+    to { background-position: 72px 72px; }
+}
+
+@keyframes vs-loader-glow-drift {
+    from { transform: translate3d(-3%, -2%, 0) scale(0.96); }
+    to { transform: translate3d(3%, 2%, 0) scale(1.04); }
+}
+
+@keyframes vs-loader-scan {
+    0% { transform: translateY(-5vh); opacity: 0; }
+    12%, 82% { opacity: 0.72; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+@keyframes vs-loader-geometry-drift {
+    to { rotate: 405deg; }
+}
+
+@keyframes vs-loader-letter-in {
+    from { opacity: 0; filter: blur(7px); transform: translateY(32px) scale(0.94); }
+    to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+}
+
+@keyframes vs-loader-category-slide {
+    from { opacity: 0; transform: translateY(115%); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .vs-loader {
+        padding-right: max(20px, env(safe-area-inset-right, 0px));
+        padding-left: max(20px, env(safe-area-inset-left, 0px));
+    }
+
+    .vs-loader-texture {
+        background-size: 54px 54px;
+    }
+
+    .vs-loader-geometry--left {
+        top: 10%;
+        left: -20%;
+    }
+
+    .vs-loader-geometry--right {
+        right: -18%;
+        bottom: 10%;
+    }
+
+    .vs-loader-progress {
+        margin-top: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vs-loader,
+    .vs-loader *,
+    .vs-loader::before,
+    .vs-loader::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+</style>
+<body class="vs-page vs-page--home">
+
+<div id="vs-loader" class="vs-loader is-progressing">
+    <div class="vs-loader-texture" aria-hidden="true"></div>
+    <div class="vs-loader-glow" aria-hidden="true"></div>
+    <span class="vs-loader-scan" aria-hidden="true"></span>
+    <span class="vs-loader-geometry vs-loader-geometry--left" aria-hidden="true"></span>
+    <span class="vs-loader-geometry vs-loader-geometry--right" aria-hidden="true"></span>
+    <div class="vs-loader-content">
+        <h1 class="vs-loader-title" aria-label="VISHAL STEEL">
+            <span class="vs-loader-word" aria-hidden="true"><span class="vs-loader-letter" style="--letter-index: 0">V</span><span class="vs-loader-letter" style="--letter-index: 1">I</span><span class="vs-loader-letter" style="--letter-index: 2">S</span><span class="vs-loader-letter" style="--letter-index: 3">H</span><span class="vs-loader-letter" style="--letter-index: 4">A</span><span class="vs-loader-letter" style="--letter-index: 5">L</span></span>
+            <span class="vs-loader-word" aria-hidden="true"><span class="vs-loader-letter" style="--letter-index: 6">S</span><span class="vs-loader-letter" style="--letter-index: 7">T</span><span class="vs-loader-letter" style="--letter-index: 8">E</span><span class="vs-loader-letter" style="--letter-index: 9">E</span><span class="vs-loader-letter" style="--letter-index: 10">L</span></span>
+        </h1>
+        <div class="vs-loader-category-wrap">
+            <a id="vs-loader-category"
+               class="vs-loader-category animate"
+               href="https://vishalsteelproducts.com/Custom-Fabrication.html">
+                Office Furniture
+            </a>
+        </div>
+        <div class="vs-loader-progress"
+             role="progressbar"
+             aria-label="Page loading progress"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             aria-valuenow="0">
+            <div id="vs-loader-progress-bar"></div>
+        </div>
+        <div class="vs-loader-status">
+            <p class="vs-loader-caption">LOADING EXCELLENCE</p>
+            <span class="vs-loader-percentage" aria-hidden="true">0%</span>
+        </div>
+    </div>
+</div>
+<script>
+(() => {
+    function initializeLoader() {
+        const loader = document.getElementById("vs-loader");
+        const category = document.getElementById("vs-loader-category");
+        const progressTrack = loader && loader.querySelector(".vs-loader-progress");
+        const progressBar = document.getElementById("vs-loader-progress-bar");
+        const percentage = loader && loader.querySelector(".vs-loader-percentage");
+
+        if (!loader || !category || !progressTrack || !progressBar || !percentage ||
+            loader.dataset.initialized === "true") {
+            return;
+        }
+
+        loader.dataset.initialized = "true";
+
+        const MIN_LOADING_TIME = 3000;
+        const MAX_LOADING_TIME = 10000;
+        const CATEGORY_INTERVAL = 950;
+        const startTime = Date.now();
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const categories = [
+            { name: "Office Furniture", url: "https://vishalsteelproducts.com/Custom-Fabrication.html" },
+            { name: "Storage Solutions", url: "https://vishalsteelproducts.com/Industry-Steel-Furniture.html" },
+            { name: "Tool Trolleys", url: "https://vishalsteelproducts.com/Trolleys.html" }
+        ];
+
+        let currentIndex = 0;
+        let pageLoaded = document.readyState === "complete";
+        let finished = false;
+        let finishScheduled = false;
+        let categoryTimer = null;
+        let progressFrame = null;
+        let finishTimer = null;
+        let fallbackTimer = null;
+        let hideTimer = null;
+        let removeTimer = null;
+
+        function setProgress(value) {
+            const roundedValue = Math.floor(value);
+            progressBar.style.width = `${value}%`;
+            percentage.textContent = `${roundedValue}%`;
+            progressTrack.setAttribute("aria-valuenow", String(roundedValue));
+        }
+
+        function updateProgress() {
+            if (finished) {
+                return;
+            }
+
+            if (prefersReducedMotion) {
+                setProgress(90);
+                return;
+            }
+
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(90, 90 * (1 - Math.exp(-elapsed / 1050)));
+            setProgress(progress);
+            progressFrame = window.requestAnimationFrame(updateProgress);
+        }
+
+        function rotateCategory() {
+            if (finished) {
+                return;
+            }
+
+            currentIndex = (currentIndex + 1) % categories.length;
+            category.classList.remove("animate");
+            void category.offsetWidth;
+            category.textContent = categories[currentIndex].name;
+            category.href = categories[currentIndex].url;
+            category.classList.add("animate");
+        }
+
+        function cleanup() {
+            window.clearInterval(categoryTimer);
+            window.cancelAnimationFrame(progressFrame);
+            window.clearTimeout(finishTimer);
+            window.clearTimeout(fallbackTimer);
+            window.removeEventListener("load", handleLoad);
+        }
+
+        function finishLoading() {
+            if (finished) {
+                return;
+            }
+
+            finished = true;
+            cleanup();
+            loader.classList.remove("is-progressing");
+            setProgress(100);
+
+            hideTimer = window.setTimeout(() => {
+                loader.classList.add("is-hidden");
+                removeTimer = window.setTimeout(() => loader.remove(), prefersReducedMotion ? 0 : 700);
+            }, prefersReducedMotion ? 0 : 500);
+        }
+
+        function scheduleFinish() {
+            if (!pageLoaded || finished || finishScheduled) {
+                return;
+            }
+
+            finishScheduled = true;
+            const remainingTime = Math.max(0, MIN_LOADING_TIME - (Date.now() - startTime));
+            finishTimer = window.setTimeout(finishLoading, remainingTime);
+        }
+
+        function handleLoad() {
+            pageLoaded = true;
+            window.removeEventListener("load", handleLoad);
+            scheduleFinish();
+        }
+
+        categoryTimer = window.setInterval(rotateCategory, CATEGORY_INTERVAL);
+        progressFrame = window.requestAnimationFrame(updateProgress);
+
+        if (pageLoaded) {
+            scheduleFinish();
+        } else {
+            window.addEventListener("load", handleLoad, { once: true });
+        }
+
+        fallbackTimer = window.setTimeout(() => {
+            pageLoaded = true;
+            finishLoading();
+        }, MAX_LOADING_TIME);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeLoader, { once: true });
+    } else {
+        initializeLoader();
+    }
+})();
+</script>
+
+  <div id="navbar-placeholder"></div>
+  <main>
+    <section class="vs-hero" aria-labelledby="vs-home-title">
+      <div class="vs-hero__image vs-image-slot vs-image-slot--photo">
+        <picture>
+          <source type="image/webp" srcset="./assets/images/optimized/indexbanner1-480.webp 480w, ./assets/images/optimized/indexbanner1-768.webp 768w, ./assets/images/optimized/indexbanner1-1024.webp 1024w, ./assets/images/optimized/indexbanner1-1145.webp 1145w" sizes="100vw">
+          <img class="vs-media-image" src="./assets/images/homepage/indexbanner1.png" width="1145" height="768" alt="Contemporary commercial furniture and workspace interior" loading="eager" decoding="async" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="vs-hero__content">
+        <p class="vs-eyebrow vs-hero__eyebrow">Vishal Steel Products <span>·</span> A member of Chameza Group</p>
+        <h1 class="vs-hero__title" id="vs-home-title">Leading Manufacturer of Premium Industrial &amp; Commercial Solutions</h1>
+        <a class="vs-action vs-action--light" href="#commercial-furniture">Explore our solutions <span aria-hidden="true">↘</span></a>
+      </div>
+      <span class="vs-hero__index" aria-hidden="true">01 / 03</span>
+    </section>
+
+    <section class="vs-showcase" aria-label="Featured solutions">
+      <article class="vs-showcase__item">
+        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+          <picture>
+            <source type="image/webp" srcset="./assets/images/optimized/indeximg3-400.webp 400w, ./assets/images/optimized/indeximg3-640.webp 640w, ./assets/images/optimized/indeximg3-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
+            <img class="vs-media-image" src="./assets/images/homepage/indeximg3.png" width="768" height="768" alt="High-density mobile storage compactors" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <h2>Storage Compactor Manufacturing Unit</h2>
+      </article>
+      <article class="vs-showcase__item">
+        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+          <picture>
+            <source type="image/webp" srcset="./assets/images/optimized/indeximg-400.webp 400w, ./assets/images/optimized/indeximg-640.webp 640w, ./assets/images/optimized/indeximg-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
+            <img class="vs-media-image" src="./assets/images/homepage/indeximg.png" width="768" height="768" alt="Stainless steel laboratory workbenches and equipment" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <h2>Modular Laboratory Workbench Solutions</h2>
+      </article>
+      <article class="vs-showcase__item">
+        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+          <picture>
+            <source type="image/webp" srcset="./assets/images/optimized/indeximg4-400.webp 400w, ./assets/images/optimized/indeximg4-640.webp 640w, ./assets/images/optimized/indeximg4-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
+            <img class="vs-media-image" src="./assets/images/homepage/indeximg4.png" width="768" height="768" alt="Laboratory fume hoods and integrated steel cabinetry" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <h2>Laboratory Furniture &amp; Fume Hood Assembly</h2>
+      </article>
+    </section>
+
+    <section class="vs-red-interlude" aria-label="Our manufacturing expertise">
+      <p class="vs-eyebrow" data-reveal="rise">Engineering across materials and industries</p>
+      <p class="vs-red-interlude__statement" data-reveal="words">From healthcare to HVAC, laboratory to industrial — we're your complete manufacturing partner with proven expertise across all sectors.</p>
+    </section>
+
+    <section class="vs-solution vs-solution--furniture" id="commercial-furniture" aria-labelledby="vs-furniture-title">
+      <div class="vs-solution__media vs-image-slot vs-image-slot--photo">
+        <picture>
+          <source type="image/webp" srcset="./assets/images/optimized/project-commercial-office-400.webp 400w, ./assets/images/optimized/project-commercial-office-640.webp 640w, ./assets/images/optimized/project-commercial-office-768.webp 768w" sizes="(max-width: 760px) 100vw, 42vw">
+          <img class="vs-media-image" src="./assets/images/homepage/project-commercial-office.png" width="768" height="768" alt="Modern commercial office furniture installation" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="vs-solution__content" data-reveal="rise">
+        <p class="vs-eyebrow">01 / Commercial furniture</p>
+        <h2 id="vs-furniture-title">Complete One-Stop Commercial Furniture &amp; Custom Storage Solutions</h2>
+        <p>We manufacture complete commercial furniture solutions for luxury hotels, offices, and hospitality sectors. Our expertise includes office furniture (ergonomic desks, chairs, cubicles), hospitality furniture (restaurant tables, bar stools, hotel beds, dressers), and comprehensive storage solutions including office lockers, security lockers, employee lockers, file cabinets, and storage compactors for all commercial needs.</p>
+        <div class="vs-action-row">
+          <a class="vs-action" href="./about.html">Learn More About Us <span aria-hidden="true">↗</span></a>
+          <a class="vs-action vs-action--outline" href="./contact.html">Get Your Custom Solution Today <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="vs-stat-list" aria-label="Company delivery statistics">
+          <li><strong data-count="36">36+</strong><span>Years of Excellence</span></li>
+          <li><strong data-count="15000">15000+</strong><span>Commercial Furniture Delivered</span></li>
+          <li><strong data-count="8000">8000+</strong><span>Industrial Furniture Delivered</span></li>
+          <li><strong data-count="5000">5000+</strong><span>Healthcare &amp; Industrial Units</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="vs-solution vs-solution--laboratory" aria-labelledby="vs-lab-title">
+      <div class="vs-solution__content" data-reveal="lines">
+        <p class="vs-eyebrow">02 / Laboratory infrastructure</p>
+        <h2 id="vs-lab-title">Complete Laboratory Infrastructure &amp; Modular Clean Room Solutions</h2>
+        <p>We deliver complete laboratory infrastructure with precision and expertise. Our specialization includes lab workbenches, storage cabinets, safety equipment (fume hoods, biosafety cabinets), clean rooms &amp; partitions, anti-vibration tables, mobile furniture, and specialized storage for flammable/hazardous materials. We serve pharmaceutical, biotechnology, academic research, clinical testing, and industrial R&amp;D facilities with modular cleanroomsolutions.</p>
+      </div>
+      <div class="vs-solution__media vs-image-slot vs-image-slot--photo">
+        <picture>
+          <source type="image/webp" srcset="./assets/images/optimized/indeximg2-480.webp 480w, ./assets/images/optimized/indeximg2-768.webp 768w, ./assets/images/optimized/indeximg2-1024.webp 1024w, ./assets/images/optimized/indeximg2-1275.webp 1275w" sizes="(max-width: 760px) 100vw, 42vw">
+          <img class="vs-media-image" src="./assets/images/homepage/indeximg2.png" width="1275" height="768" alt="Laboratory infrastructure with modular fume hoods and work areas" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </section>
+
+    <section class="vs-solution vs-solution--industrial" aria-labelledby="vs-industrial-title">
+      <div class="vs-solution__media vs-image-slot vs-image-slot--photo">
+        <picture>
+          <source type="image/webp" srcset="./assets/images/optimized/indeximg1-480.webp 480w, ./assets/images/optimized/indeximg1-768.webp 768w, ./assets/images/optimized/indeximg1-1024.webp 1024w, ./assets/images/optimized/indeximg1-1440.webp 1440w, ./assets/images/optimized/indeximg1-1810.webp 1810w" sizes="(max-width: 760px) 100vw, 42vw">
+          <img class="vs-media-image" src="./assets/images/homepage/indeximg1.png" width="1810" height="768" alt="Industrial manufacturing facility with steel production equipment" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="vs-solution__content">
+        <p class="vs-eyebrow">03 / Industrial infrastructure</p>
+        <h2 id="vs-industrial-title">Complete Industrial Infrastructure &amp; HVAC Systems</h2>
+        <p>We manufacture industrial-grade warehouse racks, storage systems, and all furniture required for industrial areas. As HVAC experts, we provide complete turnkey HVAC setups for all types of industries, ensuring optimal climate control and air quality management foryourfacilities.</p>
+        <a class="vs-action" href="./service.html">Discover our services <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="vs-intro" aria-labelledby="vs-intro-title">
+      <div class="vs-intro__media vs-image-slot vs-image-slot--photo">
+        <picture>
+          <source type="image/webp" srcset="./assets/images/optimized/indeximg5-400.webp 400w, ./assets/images/optimized/indeximg5-640.webp 640w, ./assets/images/optimized/indeximg5-768.webp 768w" sizes="(max-width: 760px) 100vw, 42vw">
+          <img class="vs-media-image" src="./assets/images/homepage/indeximg5.png" width="768" height="768" alt="Steel workbenches and furniture prepared in a manufacturing workshop" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="vs-intro__content" data-reveal="rise">
+        <p class="vs-eyebrow">About the company</p>
+        <h2 id="vs-intro-title">Established in 1989 as part of the prestigious Chameza Group, founded by visionary leader Mr. Kirit P. Panchal. We are India's leading manufacturer specializing in multi-material solutions across healthcare, laboratory, industrial, and commercial sectors. Our expertise spans steel, metal, and wood manufacturing with comprehensive HVAC turnkey solutions, serving over 5,000+ satisfied clients nationwide.</h2>
+        <a class="vs-action" href="./about.html">Learn more about us <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="vs-services" id="services" aria-labelledby="vs-services-title">
+      <header class="vs-section-heading" data-reveal="rise">
+        <p class="vs-eyebrow">What we make</p>
+        <h2 id="vs-services-title">Multi-Material Manufacturing Solutions: Steel, Metal &amp; Wood Expertise</h2>
+      </header>
+      <div class="vs-service-grid">
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/indeximg3-400.webp 400w, ./assets/images/optimized/indeximg3-640.webp 640w, ./assets/images/optimized/indeximg3-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/indeximg3.png" width="768" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">Storage Compactors</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/indeximg2-480.webp 480w, ./assets/images/optimized/indeximg2-768.webp 768w, ./assets/images/optimized/indeximg2-1024.webp 1024w, ./assets/images/optimized/indeximg2-1275.webp 1275w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/indeximg2.png" width="1275" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">Laboratory Fume Hoods</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/indeximg6-400.webp 400w, ./assets/images/optimized/indeximg6-640.webp 640w, ./assets/images/optimized/indeximg6-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/indeximg6.png" width="768" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">Workstation Tables</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/indeximg11-400.webp 400w, ./assets/images/optimized/indeximg11-640.webp 640w, ./assets/images/optimized/indeximg11-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/indeximg11.png" width="768" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">Warehouse Racks</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/indeximg10-400.webp 400w, ./assets/images/optimized/indeximg10-640.webp 640w, ./assets/images/optimized/indeximg10-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/indeximg10.png" width="768" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">HVAC Turnkey Solutions</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+        <a class="vs-service-card" href="./service.html">
+          <span class="vs-service-card__image vs-image-slot vs-image-slot--photo"><picture><source type="image/webp" srcset="./assets/images/optimized/project-office-furniture-400.webp 400w, ./assets/images/optimized/project-office-furniture-640.webp 640w, ./assets/images/optimized/project-office-furniture-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"><img class="vs-media-image" src="./assets/images/homepage/project-office-furniture.png" width="768" height="768" alt="" loading="lazy" decoding="async"></picture></span>
+          <span class="vs-service-card__body"><span class="vs-service-card__title">Office &amp; Commercial Furniture</span><span class="vs-service-card__more">Read More <span aria-hidden="true">↗</span></span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="vs-why" aria-labelledby="vs-why-title">
+      <div class="vs-why__intro" data-reveal="rise">
+        <p class="vs-eyebrow">Why V STEEL</p>
+        <h2 id="vs-why-title">Why Choose Vishal Steel Products - Chameza Group?</h2>
+        <p>As part of the prestigious Chameza Group with 36+ years of excellence, we deliver unmatched multi-material manufacturing solutions. From healthcare to HVAC, laboratory to industrial - we're your complete manufacturing partner with proven expertise across all sectors.</p>
+      </div>
+      <div class="vs-feature-list">
+        <article class="vs-feature" data-reveal="slide-left">
+          <span class="vs-feature__number">01</span>
+          <div><h3>Multi-Material Expertise</h3><p>Unique capability in steel, metal, and wood manufacturing. From hospital beds to HVAC systems, we handle diverse materials and complex projects that others can't.</p></div>
+        </article>
+        <article class="vs-feature" data-reveal="slide-right">
+          <span class="vs-feature__number">02</span>
+          <div><h3>Complete Turnkey Solutions</h3><p>From design to installation, we provide end-to-end solutions including HVAC systems, laboratory setups, and industrial infrastructure - saving you time and coordination hassles.</p></div>
+        </article>
+        <article class="vs-feature" data-reveal="clip-bottom">
+          <span class="vs-feature__number">03</span>
+          <div><h3>Specialized Industry Knowledge</h3><p>Deep expertise in healthcare, laboratory, and industrial sectors with compliance to safety standards. We understand your industry's unique requirements and regulations.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="vs-journey" id="journey" aria-labelledby="vs-journey-title">
+      <div class="vs-journey__pin">
+        <header class="vs-journey__heading">
+          <div>
+            <p class="vs-eyebrow">V STEEL · Since 1989</p>
+            <h2 id="vs-journey-title">OUR JOURNEY.<br>OUR LEGACY.</h2>
+          </div>
+          <p class="vs-journey__subtitle">A Legacy of Excellence – Vishal Steel Products' Evolution</p>
+        </header>
+
+        <div class="vs-journey__stage" data-journey-stage aria-label="Company history milestones">
+          <div class="vs-journey__track" data-journey-track>
+            <article class="vs-journey__panel vs-journey__panel--founding" aria-labelledby="vs-journey-1989-title">
+              <div class="vs-journey__copy">
+                <p class="vs-journey__eyebrow">The beginning · 01 / 03</p>
+                <div class="vs-journey__year-mask"><p class="vs-journey__year">1989</p></div>
+                <h3 id="vs-journey-1989-title">Founding of Vishal Steel Products</h3>
+                <p class="vs-journey__description">Founded by Mr. Kirit P. Panchal, pioneering high-quality mild steel products for office and commercial use.</p>
+                <a class="vs-journey__link" href="./about.html#vs-history-title">Explore Our Heritage <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="vs-journey__visual vs-journey__visual--founding" aria-hidden="true">
+                <span class="vs-journey__visual-letter">V</span>
+                <span class="vs-journey__visual-year">19 <span>89</span></span>
+              </div>
+            </article>
+
+            <article class="vs-journey__panel vs-journey__panel--expansion" aria-labelledby="vs-journey-2014-title">
+              <div class="vs-journey__visual vs-journey__visual--expansion" aria-hidden="true">
+                <span class="vs-journey__visual-year">20 <span>14</span></span>
+                <span class="vs-journey__visual-name">Chameza<br>Enterprises</span>
+              </div>
+              <div class="vs-journey__copy">
+                <p class="vs-journey__eyebrow">A new scale · 02 / 03</p>
+                <div class="vs-journey__year-mask"><p class="vs-journey__year">2014</p></div>
+                <h3 id="vs-journey-2014-title">Expansion into Turnkey Projects</h3>
+                <p class="vs-journey__description">Established Chameza Enterprises, specializing in end-to-end infrastructure solutions.</p>
+                <a class="vs-journey__link" href="#projects">View Turnkey Projects <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="vs-journey__panel vs-journey__panel--integration" aria-labelledby="vs-journey-2023-title">
+              <div class="vs-journey__year-field" aria-hidden="true"><span>2023</span></div>
+              <div class="vs-journey__copy">
+                <p class="vs-journey__eyebrow">The next chapter · 03 / 03</p>
+                <div class="vs-journey__year-mask"><p class="vs-journey__year">2023</p></div>
+                <h3 id="vs-journey-2023-title">Integration into Chameza Group</h3>
+                <p class="vs-journey__description">In 2023, Vishal Steel Products became an integral part of Chameza Group, expanding capabilities and offering more advanced products and services to its clients.</p>
+                <a class="vs-journey__link" href="./about.html#vs-group-title">Learn More About Integration <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="vs-journey__red-mark" aria-hidden="true"></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="vs-journey__progress" role="progressbar" aria-label="Company journey progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" data-journey-progress>
+          <span class="vs-visually-hidden">Scroll to explore the milestones</span>
+          <span class="vs-journey__progress-track" aria-hidden="true"><span data-journey-progress-fill></span></span>
+          <span class="vs-journey__progress-label" aria-hidden="true">1989 <span>—</span> 2023</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="vs-projects" id="projects" aria-labelledby="vs-projects-title">
+      <header class="vs-section-heading vs-section-heading--wide" data-reveal="rise">
+        <p class="vs-eyebrow">Selected work</p>
+        <h2 id="vs-projects-title">Our Successful Projects</h2>
+      </header>
+      <div class="vs-projects__gallery">
+        <figure class="vs-projects__item">
+          <picture><source type="image/webp" srcset="./assets/images/optimized/project-office-furniture-400.webp 400w, ./assets/images/optimized/project-office-furniture-640.webp 640w, ./assets/images/optimized/project-office-furniture-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1536px) 60vw, 840px"><img class="vs-media-image" src="./assets/images/homepage/project-office-furniture.png" width="768" height="768" alt="Office furniture installation with desks, chairs, and storage" loading="lazy" decoding="async"></picture>
+          <figcaption>Office furniture</figcaption>
+        </figure>
+        <figure class="vs-projects__item">
+          <picture><source type="image/webp" srcset="./assets/images/optimized/project-storage-compactor-480.webp 480w, ./assets/images/optimized/project-storage-compactor-640.webp 640w, ./assets/images/optimized/project-storage-compactor-927.webp 927w" sizes="(max-width: 760px) 100vw, (max-width: 1536px) 60vw, 840px"><img class="vs-media-image" src="./assets/images/homepage/project-storage-compactor.png" width="927" height="768" alt="High-density mobile storage compactor installation" loading="lazy" decoding="async"></picture>
+          <figcaption>High-density storage</figcaption>
+        </figure>
+        <figure class="vs-projects__item">
+          <picture><source type="image/webp" srcset="./assets/images/optimized/project-laboratory-400.webp 400w, ./assets/images/optimized/project-laboratory-640.webp 640w, ./assets/images/optimized/project-laboratory-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1536px) 60vw, 840px"><img class="vs-media-image" src="./assets/images/homepage/project-laboratory.png" width="768" height="768" alt="Laboratory furniture and fume hood installation" loading="lazy" decoding="async"></picture>
+          <figcaption>Laboratory infrastructure</figcaption>
+        </figure>
+        <figure class="vs-projects__item">
+          <picture><source type="image/webp" srcset="./assets/images/optimized/indeximg7-400.webp 400w, ./assets/images/optimized/indeximg7-640.webp 640w, ./assets/images/optimized/indeximg7-768.webp 768w" sizes="(max-width: 760px) 100vw, (max-width: 1536px) 60vw, 840px"><img class="vs-media-image" src="./assets/images/homepage/indeximg7.png" width="768" height="768" alt="Industrial HVAC equipment and ductwork" loading="lazy" decoding="async"></picture>
+          <figcaption>Industrial HVAC</figcaption>
+        </figure>
+       
+      </div>
+    </section>
+
+    <section class="vs-testimonials" aria-labelledby="vs-testimonials-title">
+      <p class="vs-eyebrow">Client testimonials</p>
+      <h2 id="vs-testimonials-title">What Our Clients Say About Vishal Steel Products</h2>
+      <p class="vs-testimonials__note">Verified client feedback will appear here when provided.</p>
+    </section>
+
+    <section class="vs-process" aria-labelledby="vs-process-title">
+      <header class="vs-section-heading" data-reveal="rise">
+        <p class="vs-eyebrow">How we work</p>
+        <h2 id="vs-process-title">The Process Of Working With Us</h2>
+        <p>At Vishal Steel Products, we are committed to delivering top-quality steel furniture solutions tailored to your specific needs. Our process is designed to ensure precision, durability, and customer satisfaction at every stage:</p>
+      </header>
+      <div class="vs-process__steps">
+        <article class="vs-process-step" data-reveal="slide-left"><span class="vs-process-step__number">01</span><div><h3>Consultation &amp; Needs Assessment</h3><p>We begin by understanding your requirements, preferences, and the functional needs of your space to offer solutions that align with your vision.</p></div></article>
+        <article class="vs-process-step" data-reveal="slide-right"><span class="vs-process-step__number">02</span><div><h3>Custom Design &amp; Planning</h3><p>Our design team crafts detailed plans and 3D models, ensuring that every aspect of the furniture meets your specifications and aesthetic preferences.</p></div></article>
+        <article class="vs-process-step" data-reveal="slide-left"><span class="vs-process-step__number">03</span><div><h3>Precision Manufacturing</h3><p>Utilizing state-of-the-art machinery and high-quality materials, we manufacture your furniture with meticulous attention to detail and durability.</p></div></article>
+        <article class="vs-process-step" data-reveal="slide-right"><span class="vs-process-step__number">04</span><div><h3>Quality Assurance &amp; Delivery</h3><p>Before delivery, each piece undergoes rigorous quality checks to ensure it meets our high standards and your expectations, followed by prompt delivery and installation.</p></div></article>
+      </div>
+    </section>
+
+    <section class="vs-faq" id="faq" aria-labelledby="vs-faq-title">
+      <header class="vs-section-heading" data-reveal="rise">
+        <p class="vs-eyebrow">Frequently asked questions</p>
+        <h2 id="vs-faq-title">A little more about what we do</h2>
+      </header>
+      <div class="vs-faq__list">
+        <details class="vs-faq-item">
+          <summary><span>How do you ensure durability in your industrial steel furniture?</span><span class="vs-faq-item__icon" aria-hidden="true"></span></summary>
+          <p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p>
+        </details>
+        <details class="vs-faq-item">
+          <summary><span>What makes your laboratory infrastructure unique?</span><span class="vs-faq-item__icon" aria-hidden="true"></span></summary>
+          <p>Our laboratory solutions feature precision-engineered workstations, chemical-resistant storage systems, and modular design elements that prioritize workflow efficiency and safety compliance, all crafted to meet specific research and testing requirements.</p>
+        </details>
+        <details class="vs-faq-item">
+          <summary><span>How do your healthcare solutions enhance patient care?</span><span class="vs-faq-item__icon" aria-hidden="true"></span></summary>
+          <p>Our healthcare line features ergonomically designed hospital beds with advanced positioning systems, integrated overbed solutions, and specialized medical storage units, all engineered to optimize patient comfort and streamline healthcare delivery.</p>
+        </details>
+        <details class="vs-faq-item">
+          <summary><span>What sets your custom steel fabrication apart?</span><span class="vs-faq-item__icon" aria-hidden="true"></span></summary>
+          <p>Our bespoke steel solutions combine advanced CAD/CAM technology with expert craftsmanship, enabling us to create precision-engineered products that perfectly align with specific industry requirements while maintaining superior structural integrity and finish quality.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="vs-final-cta" aria-labelledby="vs-final-cta-title">
+      <p class="vs-eyebrow">Let’s build something together</p>
+      <h2 id="vs-final-cta-title">Get Your Custom Solution Today</h2>
+      <a class="vs-action vs-action--light" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

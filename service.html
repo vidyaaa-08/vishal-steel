@@ -1,0 +1,3134 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Comprehensive manufacturing services in steel, metal and wood from Vishal Steel Products.">
+  <meta name="theme-color" content="#202124">
+  <title>Manufacturing Services | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --svc-red: #b51220;
+      --svc-dark-red: #8f0d18;
+      --svc-charcoal: #202124;
+      --svc-white: #fff;
+      --svc-grey: #f5f5f5;
+      --svc-muted: #6b6d70;
+      --svc-line: rgba(32, 33, 36, 0.15);
+      --svc-gutter: clamp(24px, 6vw, 96px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body.service-page {
+      margin: 0;
+      overflow-x: clip;
+      background: var(--svc-white);
+      color: var(--svc-charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .service-page *,
+    .service-page *::before,
+    .service-page *::after {
+      box-sizing: border-box;
+    }
+
+    .service-page a {
+      color: inherit;
+    }
+
+    .service-main {
+      overflow: clip;
+    }
+
+    .svc-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--svc-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .svc-eyebrow::before {
+      width: 31px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .svc-hero {
+      display: grid;
+      min-height: min(850px, calc(100svh - 88px));
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      align-items: center;
+      gap: clamp(36px, 6vw, 90px);
+      padding: clamp(48px, 7vw, 96px) var(--svc-gutter);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 2% 5%, rgba(181, 18, 32, 0.18), transparent 37%),
+        var(--svc-charcoal);
+      color: var(--svc-white);
+      isolation: isolate;
+    }
+
+    .svc-hero__copy {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .svc-hero .svc-eyebrow {
+      color: #ed8a92;
+    }
+
+    .svc-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 42px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .svc-breadcrumb a {
+      color: var(--svc-white);
+      text-decoration: none;
+    }
+
+    .svc-breadcrumb a:hover {
+      color: #ed8a92;
+    }
+
+    .svc-hero__title {
+      max-width: 740px;
+      margin: 0;
+      font-size: clamp(3.2rem, 6.5vw, 7rem);
+      font-weight: 750;
+      letter-spacing: -0.085em;
+      line-height: 0.93;
+      text-wrap: balance;
+    }
+
+    .svc-hero__title-line {
+      display: block;
+      overflow: hidden;
+      padding: 0.035em 0.06em 0.1em 0;
+    }
+
+    .svc-hero__title-line:last-child {
+      color: #ed8a92;
+    }
+
+    .svc-hero__title-line span {
+      display: block;
+    }
+
+    .svc-hero__description {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: clamp(14px, 1.25vw, 17px);
+      line-height: 1.8;
+    }
+
+    .svc-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .svc-button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 0 18px;
+      border: 1px solid var(--svc-charcoal);
+      background: var(--svc-charcoal);
+      color: var(--svc-white) !important;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.045em;
+      text-decoration: none;
+      transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease, transform 240ms ease;
+    }
+
+    .svc-button span {
+      font-size: 17px;
+      font-weight: 400;
+      transition: transform 240ms ease;
+    }
+
+    .svc-button:hover {
+      border-color: var(--svc-red);
+      background: var(--svc-red);
+      transform: translateY(-2px);
+    }
+
+    .svc-button:hover span {
+      transform: translate(2px, -2px);
+    }
+
+    .svc-button--primary {
+      border-color: var(--svc-red);
+      background: var(--svc-red);
+    }
+
+    .svc-button--primary:hover {
+      border-color: var(--svc-dark-red);
+      background: var(--svc-dark-red);
+    }
+
+    .svc-button--outline {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: transparent;
+    }
+
+    .svc-button--outline:hover {
+      border-color: var(--svc-red);
+    }
+
+    .svc-hero__visual {
+      position: relative;
+      min-width: 0;
+      padding: 0 0 18px 18px;
+    }
+
+    .svc-hero__visual::before {
+      position: absolute;
+      inset: 9% 0 0 9%;
+      z-index: -1;
+      border: 1px solid rgba(237, 138, 146, 0.68);
+      content: "";
+    }
+
+    .svc-image-slot {
+      position: relative;
+      display: grid;
+      width: 100%;
+      min-width: 0;
+      min-height: 300px;
+      aspect-ratio: 1.2 / 1;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(136deg, transparent 47.8%, rgba(255, 255, 255, 0.075) 48%, transparent 48.5%),
+        linear-gradient(44deg, transparent 57%, rgba(255, 255, 255, 0.055) 57.2%, transparent 57.7%),
+        radial-gradient(ellipse at 75% 18%, rgba(181, 18, 32, 0.38), transparent 37%),
+        linear-gradient(145deg, #343538, #202124 62%, #151618);
+      color: var(--svc-white);
+      isolation: isolate;
+    }
+
+    .svc-image-slot::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+      background-size: 48px 48px;
+      content: "";
+      mask-image: radial-gradient(ellipse at center, #000 8%, transparent 90%);
+      opacity: 0.7;
+    }
+
+    .svc-image-slot::after {
+      position: absolute;
+      inset: 7%;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      content: "";
+      pointer-events: none;
+      transition: inset 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .svc-image-slot img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1100ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .svc-image-slot:hover::after {
+      inset: 5%;
+    }
+
+    .svc-image-slot:hover img {
+      transform: scale(1.035);
+    }
+
+    .svc-image-slot__label {
+      position: absolute;
+      right: 18px;
+      bottom: 17px;
+      left: 18px;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1.55;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .svc-hero__image {
+      min-height: 540px;
+      aspect-ratio: 0.96 / 1;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+    }
+
+    .svc-scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 27px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .svc-scroll-cue__line {
+      position: relative;
+      width: 34px;
+      height: 1px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .svc-scroll-cue__line::after {
+      position: absolute;
+      inset: 0;
+      background: #ed8a92;
+      content: "";
+      animation: svc-scroll-line 1.8s ease-in-out infinite;
+    }
+
+    @keyframes svc-scroll-line {
+      0% { transform: translateX(-105%); }
+      55%, 100% { transform: translateX(105%); }
+    }
+
+    .svc-section {
+      padding: clamp(76px, 10vw, 140px) var(--svc-gutter);
+    }
+
+    .svc-section-heading {
+      max-width: 1000px;
+      margin: 0;
+      font-size: clamp(2.8rem, 5.7vw, 6.3rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.93;
+      text-wrap: balance;
+    }
+
+    .svc-section-subheading {
+      max-width: 800px;
+      margin: 22px 0 0;
+      color: var(--svc-muted);
+      font-size: clamp(16px, 1.55vw, 21px);
+      line-height: 1.55;
+    }
+
+    .svc-storage {
+      background: var(--svc-white);
+    }
+
+    .svc-storage__intro {
+      margin-bottom: clamp(42px, 7vw, 92px);
+    }
+
+    .svc-offering {
+      display: grid;
+      min-height: clamp(500px, 45vw, 680px);
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      align-items: center;
+      gap: clamp(34px, 7vw, 104px);
+      padding: clamp(34px, 5vw, 74px) 0;
+      border-top: 1px solid var(--svc-line);
+    }
+
+    .svc-offering--reverse {
+      grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    }
+
+    .svc-offering--reverse .svc-offering__visual {
+      order: 2;
+    }
+
+    .svc-offering__visual {
+      position: relative;
+      min-width: 0;
+      padding: 0 16px 16px 0;
+    }
+
+    .svc-offering--reverse .svc-offering__visual {
+      padding: 0 0 16px 16px;
+    }
+
+    .svc-offering__visual::before {
+      position: absolute;
+      inset: 8% 0 0 8%;
+      z-index: -1;
+      background: var(--svc-red);
+      content: "";
+      transition: transform 550ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .svc-offering--reverse .svc-offering__visual::before {
+      inset: 8% 8% 0 0;
+      background: var(--svc-charcoal);
+    }
+
+    .svc-offering:hover .svc-offering__visual::before {
+      transform: translate(8px, -8px);
+    }
+
+    .svc-offering__image {
+      min-height: 360px;
+      aspect-ratio: 1.23 / 1;
+      box-shadow: 0 24px 64px rgba(32, 33, 36, 0.16);
+    }
+
+    .svc-offering--reverse .svc-offering__image {
+      aspect-ratio: 1.05 / 1;
+    }
+
+    .svc-offering__copy {
+      max-width: 590px;
+    }
+
+    .svc-offering__category {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--svc-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .svc-offering__category::before {
+      width: 26px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .svc-offering__title {
+      margin: 0;
+      font-size: clamp(2.5rem, 4.6vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.95;
+      text-wrap: balance;
+    }
+
+    .svc-offering__description {
+      max-width: 490px;
+      margin: 23px 0 0;
+      color: var(--svc-muted);
+      font-size: clamp(14px, 1.23vw, 17px);
+      line-height: 1.8;
+    }
+
+    .svc-feature-list {
+      display: grid;
+      gap: 11px;
+      margin: 23px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .svc-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: var(--svc-charcoal);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .svc-feature-list svg {
+      flex: 0 0 16px;
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      color: var(--svc-red);
+    }
+
+    .svc-offering .svc-button {
+      margin-top: 27px;
+    }
+
+    .svc-storage__closing {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 34px;
+      margin-top: 30px;
+      padding: clamp(34px, 5vw, 62px) 0 0;
+      border-top: 1px solid var(--svc-line);
+    }
+
+    .svc-storage__closing p {
+      max-width: 890px;
+      margin: 0;
+      color: var(--svc-muted);
+      font-size: clamp(15px, 1.45vw, 19px);
+      line-height: 1.8;
+    }
+
+    .svc-manufacturing {
+      position: relative;
+      padding: clamp(82px, 11vw, 150px) var(--svc-gutter);
+      overflow: hidden;
+      background: var(--svc-charcoal);
+      color: var(--svc-white);
+      isolation: isolate;
+    }
+
+    .svc-manufacturing::before,
+    .svc-happy-clients::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(112deg, rgba(32, 33, 36, 0.94), rgba(32, 33, 36, 0.74)),
+        var(--svc-mfg-background, radial-gradient(ellipse at 76% 18%, rgba(181, 18, 32, 0.35), transparent 42%));
+      background-position: center;
+      background-size: cover;
+      content: "";
+    }
+
+    .svc-manufacturing::after,
+    .svc-happy-clients::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 68px 68px;
+      content: "";
+      mask-image: linear-gradient(115deg, transparent, #000);
+      pointer-events: none;
+    }
+
+    .svc-manufacturing__inner {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .svc-manufacturing .svc-eyebrow,
+    .svc-happy-clients .svc-eyebrow {
+      color: #ed8a92;
+    }
+
+    .svc-manufacturing__subtitle {
+      max-width: 820px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(17px, 1.8vw, 24px);
+      line-height: 1.5;
+    }
+
+    .svc-manufacturing__description {
+      max-width: 980px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: clamp(14px, 1.2vw, 17px);
+      line-height: 1.85;
+    }
+
+    .svc-manufacturing__features {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0 26px;
+      margin: clamp(50px, 7vw, 88px) 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.23);
+    }
+
+    .svc-manufacturing__feature {
+      grid-column: span 2;
+      padding: 27px 0 31px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+    }
+
+    .svc-manufacturing__feature:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .svc-manufacturing__feature:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
+    .svc-manufacturing__index {
+      display: block;
+      margin-bottom: 19px;
+      color: #ed8a92;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .svc-manufacturing__feature h3 {
+      max-width: 340px;
+      margin: 0;
+      font-size: clamp(1.45rem, 2.2vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 1.05;
+    }
+
+    .svc-manufacturing__feature p {
+      max-width: 390px;
+      margin: 15px 0 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .svc-category {
+      padding: clamp(78px, 10vw, 138px) var(--svc-gutter);
+      background: var(--svc-grey);
+    }
+
+    .svc-category__intro {
+      max-width: 1080px;
+      margin-bottom: clamp(44px, 7vw, 84px);
+    }
+
+    .svc-category__grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(30px, 5vw, 70px) clamp(24px, 4vw, 54px);
+    }
+
+    .svc-category-card {
+      grid-column: span 7;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+      align-items: center;
+      gap: clamp(24px, 4vw, 54px);
+      min-width: 0;
+    }
+
+    .svc-category-card:nth-child(2) {
+      grid-column: 3 / span 10;
+      grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.15fr);
+    }
+
+    .svc-category-card:nth-child(2) .svc-category-card__visual {
+      order: 2;
+    }
+
+    .svc-category-card:nth-child(3) {
+      grid-column: 2 / span 10;
+      grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.9fr);
+    }
+
+    .svc-category-card__visual {
+      position: relative;
+      min-width: 0;
+      padding: 0 13px 13px 0;
+    }
+
+    .svc-category-card:nth-child(2) .svc-category-card__visual {
+      padding: 0 0 13px 13px;
+    }
+
+    .svc-category-card:nth-child(3) .svc-category-card__visual::before,
+    .svc-category-card:nth-child(2) .svc-category-card__visual::before {
+      background: var(--svc-charcoal);
+    }
+
+    .svc-category-card__visual::before {
+      position: absolute;
+      inset: 8% 0 0 8%;
+      z-index: -1;
+      background: var(--svc-red);
+      content: "";
+    }
+
+    .svc-category-card:nth-child(2) .svc-category-card__visual::before {
+      inset: 8% 8% 0 0;
+    }
+
+    .svc-category-card__image {
+      min-height: 300px;
+      aspect-ratio: 1.12 / 1;
+      box-shadow: 0 20px 55px rgba(32, 33, 36, 0.15);
+    }
+
+    .svc-category-card:nth-child(2) .svc-category-card__image {
+      aspect-ratio: 0.98 / 1;
+    }
+
+    .svc-category-card__copy {
+      min-width: 0;
+    }
+
+    .svc-category-card__copy .svc-eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .svc-category-card__title {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.08em;
+      line-height: 0.95;
+      text-wrap: balance;
+    }
+
+    .svc-category-card__description {
+      max-width: 520px;
+      margin: 19px 0 0;
+      color: var(--svc-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .svc-category-card .svc-button {
+      margin-top: 25px;
+    }
+
+    .svc-location {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: clamp(44px, 8vw, 120px);
+      padding: clamp(82px, 11vw, 150px) var(--svc-gutter);
+      background: var(--svc-white);
+    }
+
+    .svc-location__name {
+      margin: 0;
+      font-size: clamp(2.8rem, 5.4vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.93;
+    }
+
+    .svc-location__address {
+      max-width: 530px;
+      margin: 24px 0 0;
+      color: var(--svc-muted);
+      font-size: clamp(15px, 1.45vw, 19px);
+      line-height: 1.8;
+    }
+
+    .svc-map-visual {
+      position: relative;
+      display: grid;
+      min-height: 420px;
+      aspect-ratio: 1.35 / 1;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(25deg, transparent 47%, rgba(181, 18, 32, 0.1) 47.2% 48%, transparent 48.2%),
+        linear-gradient(155deg, transparent 30%, rgba(32, 33, 36, 0.09) 30.2% 31%, transparent 31.2%),
+        linear-gradient(90deg, rgba(32, 33, 36, 0.055) 1px, transparent 1px),
+        linear-gradient(rgba(32, 33, 36, 0.055) 1px, transparent 1px),
+        #f0efed;
+      background-size: auto, auto, 54px 54px, 54px 54px, auto;
+    }
+
+    .svc-map-visual::before,
+    .svc-map-visual::after {
+      position: absolute;
+      width: 76%;
+      height: 1px;
+      background: rgba(32, 33, 36, 0.22);
+      content: "";
+      transform: rotate(-24deg);
+    }
+
+    .svc-map-visual::after {
+      width: 62%;
+      transform: rotate(38deg);
+    }
+
+    .svc-map-visual__pin {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 1px solid rgba(181, 18, 32, 0.3);
+      border-radius: 50%;
+      background: var(--svc-white);
+      color: var(--svc-red);
+      box-shadow: 0 10px 28px rgba(32, 33, 36, 0.15);
+    }
+
+    .svc-map-visual__pin svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .svc-map-visual__label {
+      position: absolute;
+      right: 20px;
+      bottom: 18px;
+      left: 20px;
+      color: var(--svc-charcoal);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .svc-clients {
+      position: relative;
+      width: 100%;
+      min-height: 900px;
+      padding: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(181, 18, 32, 0.065), transparent 49%),
+        linear-gradient(135deg, #f8f8f8, #efefef 54%, #f7f7f7);
+      isolation: isolate;
+    }
+
+    .svc-clients__stage {
+      position: relative;
+      display: grid;
+      width: 100%;
+      min-height: 900px;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .svc-clients__stage::before,
+    .svc-clients__stage::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 1px solid rgba(32, 33, 36, 0.055);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .svc-clients__stage::before {
+      width: min(72vw, 980px);
+      aspect-ratio: 1;
+    }
+
+    .svc-clients__stage::after {
+      width: min(52vw, 700px);
+      aspect-ratio: 1;
+      border-color: rgba(181, 18, 32, 0.08);
+    }
+
+    .svc-clients__heading {
+      position: relative;
+      z-index: 4;
+      width: min(930px, 82%);
+      margin: 0 auto;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .svc-clients__heading::before {
+      position: absolute;
+      z-index: -1;
+      inset: -42px -72px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(247, 247, 247, 0.98) 0%, rgba(247, 247, 247, 0.94) 58%, rgba(247, 247, 247, 0) 100%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .svc-clients__heading .svc-eyebrow {
+      justify-content: center;
+      margin-bottom: 25px;
+      color: var(--svc-red);
+      letter-spacing: 0.2em;
+    }
+
+    .svc-clients__title {
+      max-width: 930px;
+      margin: 0 auto;
+      color: var(--svc-charcoal);
+      font-size: clamp(3rem, 6.6vw, 6.8rem);
+      font-weight: 750;
+      letter-spacing: -0.085em;
+      line-height: 0.94;
+      text-wrap: balance;
+    }
+
+    .svc-clients__orbit {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+      transform: scale(1);
+      transform-origin: center;
+    }
+
+    .svc-orbit-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: clamp(112px, 10vw, 170px);
+      height: clamp(78px, 7vw, 120px);
+      place-items: center;
+      opacity: 0;
+      transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(0.2);
+      animation: svc-logo-emerge var(--duration) cubic-bezier(0.24, 0.68, 0.24, 1) var(--delay) infinite both;
+      will-change: transform, opacity;
+    }
+
+    .svc-orbit-logo:nth-child(4n + 1) {
+      width: clamp(132px, 12vw, 190px);
+      height: clamp(86px, 8vw, 132px);
+    }
+
+    .svc-orbit-logo:nth-child(5n + 2) {
+      width: clamp(122px, 10.8vw, 178px);
+      height: clamp(80px, 7.5vw, 124px);
+    }
+
+    .svc-orbit-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgba(32, 33, 36, 0.12));
+      animation: svc-logo-float var(--float-duration) ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes svc-logo-emerge {
+      0%,
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(0.2);
+      }
+
+      7% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(0.32);
+      }
+
+      16% {
+        opacity: 0.98;
+        transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(0.66);
+      }
+
+      56% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--travel-x)), calc(-50% + var(--travel-y))) scale(1);
+      }
+
+      68% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--travel-x)), calc(-50% + var(--travel-y))) scale(1.015);
+      }
+
+      81% {
+        opacity: 0.84;
+        transform: translate(calc(-50% + var(--mid-x)), calc(-50% + var(--mid-y))) scale(0.88);
+      }
+
+      92% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(0.43);
+      }
+    }
+
+    @keyframes svc-logo-float {
+      from { transform: translateY(3px); }
+      to { transform: translateY(-7px); }
+    }
+
+    @media (max-width: 1080px) {
+      .svc-clients,
+      .svc-clients__stage {
+        min-height: 800px;
+      }
+
+      .svc-clients__orbit {
+        transform: scale(0.88);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .svc-clients,
+      .svc-clients__stage {
+        min-height: 730px;
+      }
+
+      .svc-clients__heading {
+        width: 91%;
+      }
+
+      .svc-clients__title {
+        font-size: clamp(2.5rem, 9.3vw, 4.2rem);
+      }
+
+      .svc-clients__orbit {
+        transform: scale(0.72);
+      }
+
+      .svc-orbit-logo {
+        width: clamp(90px, 23vw, 126px);
+        height: clamp(62px, 16vw, 88px);
+      }
+
+      .svc-orbit-logo:nth-child(4n + 1) {
+        width: clamp(98px, 25vw, 134px);
+        height: clamp(68px, 18vw, 94px);
+      }
+
+      .svc-orbit-logo:nth-child(5n + 2) {
+        width: clamp(92px, 24vw, 128px);
+        height: clamp(64px, 17vw, 90px);
+      }
+
+      .svc-clients__stage::before {
+        width: 88vw;
+      }
+
+      .svc-clients__stage::after {
+        width: 66vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .svc-clients,
+      .svc-clients__stage {
+        min-height: 680px;
+      }
+
+      .svc-clients__orbit {
+        transform: scale(0.68);
+      }
+
+      .svc-clients__heading {
+        width: 94%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .svc-clients {
+        min-height: 0;
+        padding: clamp(60px, 8vw, 90px) var(--svc-gutter);
+      }
+
+      .svc-clients__stage {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+        gap: 38px;
+        overflow: visible;
+      }
+
+      .svc-clients__heading {
+        width: min(930px, 100%);
+      }
+
+      .svc-clients__orbit {
+        position: relative;
+        inset: auto;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        overflow: visible;
+        transform: none;
+      }
+
+      .svc-orbit-logo,
+      .svc-orbit-logo:nth-child(4n + 1),
+      .svc-orbit-logo:nth-child(5n + 2) {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 118px;
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+        will-change: auto;
+      }
+
+      .svc-orbit-logo img {
+        animation: none !important;
+        filter: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) and (max-width: 760px) {
+      .svc-clients__orbit {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .svc-orbit-logo,
+      .svc-orbit-logo:nth-child(4n + 1),
+      .svc-orbit-logo:nth-child(5n + 2) {
+        height: 96px;
+      }
+    }
+
+    .service-page .vsa-clients {
+      position: relative;
+      min-height: 880px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 48%, rgba(181, 18, 32, 0.16), transparent 34%),
+        radial-gradient(ellipse at 50% 54%, rgba(90, 25, 33, 0.22), transparent 68%),
+        linear-gradient(135deg, #121316, #202124 50%, #151619);
+      color: #fff;
+      isolation: isolate;
+    }
+
+    .service-page .vsa-clients__stage {
+      position: relative;
+      display: grid;
+      min-height: 880px;
+      place-items: center;
+      overflow: hidden;
+      perspective: 1400px;
+    }
+
+    .service-page .vsa-clients__stage::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(64vw, 760px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 18, 32, 0.2), rgba(181, 18, 32, 0.055) 38%, transparent 70%);
+      content: "";
+      filter: blur(18px);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: vsa-core-pulse 7.5s ease-in-out infinite;
+    }
+
+    .service-page .vsa-clients__stage::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 24%, rgba(255, 255, 255, 0.025) 49%, transparent 72%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .service-page .vsa-clients__heading {
+      position: relative;
+      z-index: 4;
+      width: min(900px, 78%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .service-page .vsa-clients__heading::before {
+      position: absolute;
+      z-index: -1;
+      inset: -55px -80px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(21, 22, 25, 0.96), rgba(21, 22, 25, 0.82) 52%, transparent 78%);
+      content: "";
+      filter: blur(8px);
+    }
+
+    .service-page .vsa-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 27px;
+      color: #ef7c86;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .service-page .vsa-eyebrow::before {
+      width: 34px;
+      height: 1px;
+      background: #b51220;
+      box-shadow: 0 0 12px rgba(181, 18, 32, 0.9);
+      content: "";
+    }
+
+    .service-page .vsa-clients__heading h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(3rem, 6.5vw, 6.5rem);
+      font-weight: 760;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
+      text-wrap: balance;
+      text-shadow: 0 12px 52px rgba(0, 0, 0, 0.34);
+    }
+
+    .service-page .vsa-clients__orbit {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+      transform-style: preserve-3d;
+    }
+
+    .service-page .vsa-clients__orbit::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(78vw, 1060px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.075);
+      border-radius: 50%;
+      box-shadow: 0 0 90px rgba(181, 18, 32, 0.07), inset 0 0 60px rgba(255, 255, 255, 0.018);
+      content: "";
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: vsa-orbit-turn 72s linear infinite;
+    }
+
+    .service-page .vsa-clients__orbit::after {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.7px) 12% 21% / 100% 100%,
+        radial-gradient(circle, rgba(239, 124, 134, 0.46) 0 1px, transparent 1.7px) 83% 67% / 100% 100%,
+        radial-gradient(circle, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.7px) 62% 13% / 100% 100%,
+        radial-gradient(circle, rgba(255, 255, 255, 0.36) 0 1px, transparent 1.7px) 27% 79% / 100% 100%;
+      content: "";
+      opacity: 0.24;
+      pointer-events: none;
+      animation: vsa-particle-drift 90s linear infinite;
+    }
+
+    .service-page .vsa-client-logo {
+      position: absolute;
+      top: calc(50% + var(--y));
+      left: calc(50% + var(--x));
+      display: grid;
+      width: clamp(126px, 11vw, 166px);
+      height: clamp(88px, 8vw, 116px);
+      padding: 13px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(235, 237, 241, 0.92));
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3), 0 0 28px rgba(255, 255, 255, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%);
+      transform-style: preserve-3d;
+      transition: border-color 400ms ease, box-shadow 400ms ease, scale 400ms cubic-bezier(0.2, 0.75, 0.2, 1);
+      will-change: transform, opacity;
+    }
+
+    .service-page .vsa-client-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(32, 33, 36, 0.14));
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .service-page .logo-01 { --x: -40vw; --y: -30vh; }
+    .service-page .logo-02 { --x: 40vw; --y: -29vh; }
+    .service-page .logo-03 { --x: -41vw; --y: 25vh; }
+    .service-page .logo-04 { --x: 41vw; --y: 26vh; }
+    .service-page .logo-05 { --x: -20vw; --y: -35vh; }
+    .service-page .logo-06 { --x: 20vw; --y: 34vh; }
+    .service-page .logo-07 { --x: -42vw; --y: 0vh; }
+    .service-page .logo-08 { --x: 42vw; --y: 1vh; }
+    .service-page .logo-09 { --x: -12vw; --y: 36vh; }
+    .service-page .logo-10 { --x: 12vw; --y: -36vh; }
+    .service-page .logo-11 { --x: -38vw; --y: -15vh; }
+    .service-page .logo-12 { --x: 42vw; --y: -16vh; }
+    .service-page .logo-13 { --x: -27vw; --y: 33vh; }
+
+    @keyframes vsa-core-pulse {
+      0%,
+      100% { opacity: 0.62; scale: 0.94; }
+      50% { opacity: 1; scale: 1.06; }
+    }
+
+    @keyframes vsa-orbit-turn {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes vsa-particle-drift {
+      to { transform: rotate(360deg) scale(1.035); }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .service-page .vsa-client-logo:hover {
+        z-index: 5;
+        border-color: rgba(239, 124, 134, 0.92);
+        box-shadow: 0 22px 52px rgba(0, 0, 0, 0.38), 0 0 34px rgba(181, 18, 32, 0.34), inset 0 1px 0 #fff;
+        scale: 1.055;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .service-page .vsa-clients,
+      .service-page .vsa-clients__stage {
+        min-height: 760px;
+      }
+
+      .service-page .vsa-clients__heading {
+        width: min(760px, 82%);
+      }
+
+      .service-page .vsa-clients__heading h2 {
+        font-size: clamp(2.8rem, 7.3vw, 5rem);
+      }
+
+      .service-page .vsa-client-logo {
+        width: clamp(112px, 14vw, 142px);
+        height: clamp(78px, 10vw, 100px);
+        padding: 11px;
+      }
+
+      .service-page .logo-01 { --x: -35vw; --y: -27vh; }
+      .service-page .logo-02 { --x: 35vw; --y: -26vh; }
+      .service-page .logo-03 { --x: -36vw; --y: 23vh; }
+      .service-page .logo-04 { --x: 36vw; --y: 24vh; }
+      .service-page .logo-05 { --x: -19vw; --y: -33vh; }
+      .service-page .logo-06 { --x: 19vw; --y: 32vh; }
+      .service-page .logo-07 { --x: -18vw; --y: -18vh; }
+      .service-page .logo-08 { --x: 17vw; --y: 18vh; }
+      .service-page .logo-09 { --x: -12vw; --y: 34vh; }
+      .service-page .logo-10 { --x: 12vw; --y: -34vh; }
+      .service-page .logo-11 { --x: -36vw; --y: -38vh; }
+      .service-page .logo-12 { --x: 36vw; --y: 38vh; }
+      .service-page .logo-13 { --x: -27vw; --y: 33vh; }
+    }
+
+    @media (max-width: 680px) {
+      .service-page .vsa-clients,
+      .service-page .vsa-clients__stage {
+        min-height: 0;
+      }
+
+      .service-page .vsa-clients__stage {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 78px 20px 68px;
+        overflow: visible;
+      }
+
+      .service-page .vsa-clients__stage::before {
+        top: 17%;
+        width: min(94vw, 500px);
+      }
+
+      .service-page .vsa-clients__stage::after {
+        display: none;
+      }
+
+      .service-page .vsa-clients__heading {
+        width: 100%;
+        max-width: 540px;
+      }
+
+      .service-page .vsa-clients__heading::before {
+        inset: -35px -22px;
+      }
+
+      .service-page .vsa-clients__heading h2 {
+        font-size: clamp(2.25rem, 9.5vw, 3.6rem);
+        letter-spacing: -0.07em;
+      }
+
+      .service-page .vsa-clients__orbit {
+        position: relative;
+        inset: auto;
+        display: grid;
+        width: min(540px, 100%);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        overflow: visible;
+      }
+
+      .service-page .vsa-clients__orbit::before,
+      .service-page .vsa-clients__orbit::after {
+        display: none;
+      }
+
+      .service-page .vsa-client-logo {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 82px;
+        padding: 10px;
+        border-radius: 12px;
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-page .vsa-clients__stage::before,
+      .service-page .vsa-clients__orbit::before,
+      .service-page .vsa-clients__orbit::after {
+        animation: none;
+      }
+
+      .service-page .vsa-client-logo {
+        transition: none;
+        will-change: auto;
+      }
+
+      .service-page .vsa-client-logo img {
+        will-change: auto;
+      }
+    }
+
+    .svc-process {
+      padding: clamp(80px, 10vw, 140px) var(--svc-gutter);
+      background: var(--svc-white);
+    }
+
+    .svc-process__intro {
+      max-width: 980px;
+      margin-bottom: clamp(52px, 8vw, 100px);
+    }
+
+    .svc-process__steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(20px, 3vw, 42px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .svc-process__steps::before {
+      position: absolute;
+      top: 24px;
+      right: 6%;
+      left: 6%;
+      height: 1px;
+      background: var(--svc-line);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .svc-process__steps.is-in-view::before {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+
+    .svc-process__step {
+      position: relative;
+      min-width: 0;
+      padding-top: 67px;
+    }
+
+    .svc-process__step::before {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      z-index: 1;
+      width: 19px;
+      height: 19px;
+      border: 1px solid var(--svc-red);
+      border-radius: 50%;
+      background: var(--svc-white);
+      box-shadow: inset 0 0 0 5px var(--svc-white), inset 0 0 0 7px var(--svc-red);
+      content: "";
+    }
+
+    .svc-process__step-label {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--svc-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .svc-process__icon {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      margin-bottom: 22px;
+      border: 1px solid var(--svc-line);
+      color: var(--svc-red);
+    }
+
+    .svc-process__icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .svc-process__step h3 {
+      margin: 0;
+      font-size: clamp(1.25rem, 1.85vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 1.08;
+    }
+
+    .svc-process__step p {
+      margin: 15px 0 0;
+      color: var(--svc-muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .svc-process__step .svc-text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 19px;
+      color: var(--svc-charcoal);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration-color: var(--svc-red);
+      text-underline-offset: 5px;
+    }
+
+    .svc-process__closing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-top: 64px;
+      padding-top: 27px;
+      border-top: 1px solid var(--svc-line);
+    }
+
+    .svc-process__closing p {
+      max-width: 780px;
+      margin: 0;
+      color: var(--svc-muted);
+      font-size: clamp(15px, 1.4vw, 19px);
+      line-height: 1.7;
+    }
+
+    .svc-happy-clients {
+      position: relative;
+      display: grid;
+      min-height: 520px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: 50px;
+      padding: clamp(70px, 9vw, 120px) var(--svc-gutter);
+      overflow: hidden;
+      background: var(--svc-charcoal);
+      color: var(--svc-white);
+      isolation: isolate;
+    }
+
+    .svc-happy-clients__stat {
+      color: #ed8a92;
+      font-size: clamp(6rem, 14vw, 14rem);
+      font-weight: 700;
+      letter-spacing: -0.1em;
+      line-height: 0.8;
+      white-space: nowrap;
+    }
+
+    .svc-happy-clients__copy {
+      max-width: 700px;
+    }
+
+    .svc-happy-clients__copy h2 {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 5.6rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.94;
+    }
+
+    .svc-happy-clients__copy p {
+      max-width: 600px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(14px, 1.25vw, 17px);
+      line-height: 1.8;
+    }
+
+    .svc-happy-clients__copy p + p {
+      margin-top: 12px;
+    }
+
+    .svc-happy-clients .svc-button {
+      margin-top: 28px;
+    }
+
+    .svc-quote {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(42px, 8vw, 110px);
+      padding: clamp(82px, 10vw, 140px) var(--svc-gutter);
+      background: var(--svc-grey);
+    }
+
+    .svc-quote__intro {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+    }
+
+    .svc-quote__intro h2 {
+      max-width: 560px;
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 6.4rem);
+      font-weight: 700;
+      letter-spacing: -0.09em;
+      line-height: 0.9;
+    }
+
+    .svc-quote__intro p {
+      max-width: 420px;
+      margin: 24px 0 0;
+      color: var(--svc-muted);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .svc-quote__notice {
+      margin-top: 25px !important;
+      padding: 14px 16px;
+      border-left: 2px solid var(--svc-red);
+      background: rgba(181, 18, 32, 0.06);
+      color: var(--svc-charcoal) !important;
+      font-size: 12px !important;
+    }
+
+    .svc-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 21px 18px;
+      padding: clamp(25px, 4vw, 48px);
+      background: var(--svc-white);
+      box-shadow: 0 25px 70px rgba(32, 33, 36, 0.09);
+    }
+
+    .svc-field {
+      min-width: 0;
+    }
+
+    .svc-field--wide {
+      grid-column: 1 / -1;
+    }
+
+    .svc-field label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--svc-charcoal);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.045em;
+    }
+
+    .svc-field input,
+    .svc-field select,
+    .svc-field textarea {
+      display: block;
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 13px;
+      border: 1px solid rgba(32, 33, 36, 0.2);
+      border-radius: 0;
+      background: var(--svc-white);
+      color: var(--svc-charcoal);
+      font: inherit;
+      font-size: 14px;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .svc-field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .svc-field input:focus,
+    .svc-field select:focus,
+    .svc-field textarea:focus {
+      border-color: var(--svc-red);
+      box-shadow: 0 0 0 3px rgba(181, 18, 32, 0.1);
+      outline: 0;
+    }
+
+    .svc-field [aria-invalid="true"] {
+      border-color: var(--svc-red);
+    }
+
+    .svc-field__error {
+      display: block;
+      min-height: 0;
+      margin-top: 6px;
+      color: var(--svc-dark-red);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .svc-field__error:empty {
+      display: none;
+    }
+
+    .svc-form__status {
+      grid-column: 1 / -1;
+      min-height: 20px;
+      margin: 0;
+      color: var(--svc-dark-red);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .svc-form__submit {
+      justify-self: start;
+      min-width: 150px;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(181, 18, 32, 0.72);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 1080px) {
+      .svc-hero {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 36px;
+      }
+
+      .svc-hero__image {
+        min-height: 460px;
+      }
+
+      .svc-category__grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .svc-category-card,
+      .svc-category-card:nth-child(2),
+      .svc-category-card:nth-child(3) {
+        grid-column: auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+      }
+
+      .svc-category-card:nth-child(2) .svc-category-card__visual {
+        order: 0;
+      }
+
+    }
+
+    @media (max-width: 760px) {
+      .svc-hero {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding-top: 48px;
+        padding-bottom: 68px;
+      }
+
+      .svc-breadcrumb {
+        margin-bottom: 32px;
+      }
+
+      .svc-hero__title {
+        font-size: clamp(3.3rem, 11vw, 5.7rem);
+      }
+
+      .svc-hero__description {
+        margin-top: 22px;
+      }
+
+      .svc-hero__visual {
+        max-width: 640px;
+      }
+
+      .svc-hero__image {
+        min-height: 0;
+        aspect-ratio: 1.05 / 1;
+      }
+
+      .svc-section {
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+
+      .svc-section-heading {
+        font-size: clamp(3rem, 10vw, 5.2rem);
+      }
+
+      .svc-offering,
+      .svc-offering--reverse {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 31px;
+        padding: 42px 0 52px;
+      }
+
+      .svc-offering--reverse .svc-offering__visual {
+        order: 0;
+      }
+
+      .svc-offering__image,
+      .svc-offering--reverse .svc-offering__image {
+        min-height: 0;
+        aspect-ratio: 1.14 / 1;
+      }
+
+      .svc-offering__title {
+        font-size: clamp(2.8rem, 9.5vw, 4.8rem);
+      }
+
+      .svc-storage__closing {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 23px;
+      }
+
+      .svc-manufacturing {
+        padding-top: 76px;
+        padding-bottom: 78px;
+      }
+
+      .svc-manufacturing__features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 20px;
+        margin-top: 48px;
+      }
+
+      .svc-manufacturing__feature,
+      .svc-manufacturing__feature:nth-child(4),
+      .svc-manufacturing__feature:nth-child(5) {
+        grid-column: auto;
+      }
+
+      .svc-category {
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+
+      .svc-category-card,
+      .svc-category-card:nth-child(2),
+      .svc-category-card:nth-child(3) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 27px;
+      }
+
+      .svc-category-card:nth-child(2) .svc-category-card__visual {
+        order: 0;
+      }
+
+      .svc-category-card__image,
+      .svc-category-card:nth-child(2) .svc-category-card__image {
+        min-height: 0;
+        aspect-ratio: 1.15 / 1;
+      }
+
+      .svc-location {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+
+      .svc-map-visual {
+        min-height: 310px;
+      }
+
+      .svc-process__steps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+
+      .svc-process__steps::before {
+        top: 20px;
+        bottom: 12px;
+        left: 9px;
+        width: 1px;
+        height: auto;
+        transform: scaleY(0);
+        transform-origin: top center;
+      }
+
+      .svc-process__steps.is-in-view::before {
+        transform: scaleY(1);
+      }
+
+      .svc-process__step {
+        padding: 0 0 0 48px;
+      }
+
+      .svc-process__step::before {
+        top: 0;
+        left: 0;
+      }
+
+      .svc-process__icon {
+        margin-bottom: 17px;
+      }
+
+      .svc-process__closing {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .svc-happy-clients {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+        padding-top: 76px;
+        padding-bottom: 78px;
+      }
+
+      .svc-happy-clients__stat {
+        font-size: clamp(7rem, 25vw, 11rem);
+      }
+
+      .svc-quote {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+
+      .svc-quote__intro {
+        position: static;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .svc-hero__title {
+        font-size: clamp(3rem, 11.6vw, 4.3rem);
+      }
+
+      .svc-hero__actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .svc-hero__actions .svc-button {
+        width: 100%;
+      }
+
+      .svc-manufacturing__features {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .svc-category-card__title {
+        font-size: clamp(2.45rem, 9vw, 3.8rem);
+      }
+
+      .svc-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        padding: 22px 18px;
+      }
+
+      .svc-field--wide,
+      .svc-form__status {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+
+
+/* =========================================
+   INDUSTRIAL STORAGE - COMPACT 3x2 GRID
+========================================= */
+
+.svc-storage {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 72px clamp(18px, 5vw, 72px) 80px;
+  background: #f5f5f5;
+}
+
+.svc-storage__intro {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 28px;
+}
+
+.svc-storage__intro .svc-section-heading {
+  max-width: 750px;
+  margin-inline: auto;
+  font-size: clamp(2.25rem, 3.8vw, 3.8rem);
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+}
+
+.svc-storage__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.svc-offering {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 360px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.svc-offering:hover {
+  transform: translateY(-4px);
+  border-color: rgba(181, 18, 32, 0.55);
+  box-shadow: 0 12px 28px rgba(32, 33, 36, 0.09);
+}
+
+.svc-offering__visual {
+  display: flex;
+  flex: 1;
+  position: static;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+}
+
+.svc-offering__visual::before {
+  display: none;
+}
+
+.svc-icon-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  padding: 24px 24px 22px;
+  background: #fff;
+  border: 0;
+}
+
+.svc-icon-panel::after {
+  display: none;
+}
+
+.svc-icon-panel__icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin-bottom: 14px;
+  border: 1px solid rgba(181, 18, 32, 0.14);
+  border-radius: 9px;
+  background: rgba(181, 18, 32, 0.06);
+  color: #b51220;
+}
+
+.svc-icon-panel__icon svg {
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+
+.svc-icon-panel__eyebrow {
+  margin: 0 0 8px;
+  color: #b51220;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.svc-icon-panel h4 {
+  margin: 0;
+  color: #202124;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.svc-icon-panel > p:not(.svc-icon-panel__eyebrow) {
+  margin: 10px 0 0;
+  color: #686a6d;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.svc-icon-panel__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 18px;
+}
+
+.svc-icon-panel__details span {
+  padding: 5px 8px;
+  border: 1px solid rgba(32, 33, 36, 0.08);
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: #55575a;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.svc-offering .svc-icon-panel__cta {
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 12px;
+}
+
+/* Remove reverse layout from grid cards */
+.svc-offering--reverse {
+  direction: ltr;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .svc-storage__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .svc-storage {
+    padding: 50px 18px;
+  }
+
+  .svc-storage__intro {
+    margin-bottom: 22px;
+  }
+
+  .svc-storage__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .svc-icon-panel {
+    padding: 22px;
+  }
+}
+
+.svc-category--compact {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 72px clamp(18px, 5vw, 72px);
+  background: #f5f5f5;
+}
+
+.svc-category--compact .svc-category__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(260px, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.svc-category--compact .svc-category-card,
+.svc-category--compact .svc-category-card:nth-child(2),
+.svc-category--compact .svc-category-card:nth-child(3) {
+  display: flex;
+  grid-column: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+  min-height: 260px;
+  padding: 24px;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 10px;
+  background: #fff;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.svc-category--compact .svc-category-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(181, 18, 32, 0.55);
+  box-shadow: 0 12px 28px rgba(32, 33, 36, 0.09);
+}
+
+.svc-category--compact .svc-category-card__visual {
+  position: static;
+  display: block;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding: 0;
+}
+
+.svc-category--compact .svc-category-card__visual::before {
+  display: none;
+}
+
+.svc-category--compact .svc-category-card:nth-child(2) .svc-category-card__visual {
+  order: 0;
+}
+
+.svc-category--compact .svc-icon-panel--category {
+  display: grid;
+  flex: 0 0 48px;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  border: 1px solid rgba(181, 18, 32, 0.14);
+  border-radius: 9px;
+  background: rgba(181, 18, 32, 0.06);
+  color: #b51220;
+}
+
+.svc-category--compact .svc-icon-panel--category svg {
+  display: block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+}
+
+.svc-category--compact .svc-category-card__copy {
+  min-width: 0;
+}
+
+.svc-category--compact .svc-category-card__title {
+  margin: 0;
+  color: #202124;
+  font-size: clamp(1.2rem, 1.65vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
+.svc-category--compact .svc-category-card__description {
+  margin: 10px 0 0;
+  color: #686a6d;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1000px) {
+  .svc-category--compact .svc-category__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .svc-category--compact {
+    padding: 56px 18px;
+  }
+
+  .svc-category--compact .svc-category__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body class="service-page">
+  <div id="navbar-placeholder"></div>
+  <main class="service-main">
+    <section class="svc-hero" aria-labelledby="svc-hero-title">
+      <div class="svc-hero__copy">
+        <p class="svc-eyebrow">Manufacturing Services</p>
+        <nav class="svc-breadcrumb" aria-label="Breadcrumb">
+          <a href="./index.html">Home</a>
+          <span aria-hidden="true">→</span>
+          <span aria-current="page">Manufacturing Services</span>
+        </nav>
+        <h1 class="svc-hero__title" id="svc-hero-title">
+          <span class="svc-hero__title-line"><span>Complete Manufacturing</span></span>
+          <span class="svc-hero__title-line"><span>Solutions in Steel,</span></span>
+          <span class="svc-hero__title-line"><span>Metal &amp; Wood</span></span>
+        </h1>
+        <p class="svc-hero__description">Part of the Chameza Group with 36+ years of excellence, we deliver comprehensive manufacturing services from healthcare furniture and laboratory fume hoods to industrial warehouse racks and complete HVAC turnkey solutions. Your trusted partner for multi-material manufacturing across all industries.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-button svc-button--primary" href="#request-quote">Get Manufacturing Quote <span aria-hidden="true">↗</span></a>
+          <a class="svc-button svc-button--outline" href="#storage-solutions">View Our Capabilities <span aria-hidden="true">↓</span></a>
+        </div>
+        <a class="svc-scroll-cue" href="#storage-solutions">Scroll to explore <span class="svc-scroll-cue__line" aria-hidden="true"></span></a>
+      </div>
+      <div class="svc-hero__visual">
+        <!-- IMAGE PLACEHOLDER - HERO AND MANUFACTURING BACKGROUND: shared industrial visual -->
+        <div class="svc-image-slot svc-hero__image" data-image-slot="manufacturing-background" data-image-src="./assets/images/service1.png" data-image-alt="Industrial manufacturing visual for steel, metal and wood services">
+          <span class="svc-image-slot__label">Add approved industrial manufacturing image</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-storage" id="storage-solutions" aria-labelledby="svc-storage-title">
+      <div class="svc-storage__intro">
+        <p class="svc-eyebrow">Storage Solutions</p>
+        <h2 class="svc-section-heading" id="svc-storage-title">Industrial Storage Solutions</h2>
+      </div>
+      <div class="svc-storage__grid">
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <rect x="9" y="5" width="30" height="38" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M24 5v38M9 18h30M9 30h30" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                  <circle cx="29" cy="24" r="1.5" fill="currentColor"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">SECURE STORAGE</p>
+              <h4>Office Locker Systems</h4>
+              <p>Smart and secure personal storage for modern workplaces.</p>
+              <div class="svc-icon-panel__details">
+                <span>Personal Lockers</span>
+                <span>Team Storage</span>
+                <span>Secure Access</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <rect x="7" y="8" width="34" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M7 18h34M15 18v15h18V18M24 4v10m-5-5 5 5 5-5" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">SPACE OPTIMIZATION</p>
+              <h4>Industrial Storage Compactors</h4>
+              <p>Efficient storage systems designed to maximize available warehouse space.</p>
+              <div class="svc-icon-panel__details">
+                <span>Space Saving</span>
+                <span>Heavy Duty</span>
+                <span>Custom Configurations</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path d="M5 17h38M9 17v25m30-25v25M9 29h30M15 17V9h18v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <rect x="18" y="23" width="12" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">WORKSPACE DESIGN</p>
+              <h4>Workstation Tables and Furniture</h4>
+              <p>Ergonomic furniture engineered for comfortable and productive workspaces.</p>
+              <div class="svc-icon-panel__details">
+                <span>Modular Tables</span>
+                <span>Adjustable Desks</span>
+                <span>Team Workspaces</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path d="M8 5v38M40 5v38M8 14h32M8 25h32M8 36h32" stroke="currentColor" stroke-width="2"/>
+                  <rect x="12" y="7" width="9" height="6" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="26" y="18" width="10" height="6" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="12" y="29" width="12" height="6" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">INDUSTRIAL ORGANIZATION</p>
+              <h4>Custom Warehouse Rack Solutions</h4>
+              <p>Organized industrial storage systems for efficient inventory management.</p>
+              <div class="svc-icon-panel__details">
+                <span>Pallet Racking</span>
+                <span>Vertical Storage</span>
+                <span>Custom Racks</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path d="m5 16 19-9 19 9-19 9-19-9Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M13 20v12c7 6 15 6 22 0V20M43 17v15" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">EDUCATIONAL STORAGE</p>
+              <h4>School and Educational Storage Solutions</h4>
+              <p>Organized storage solutions designed for educational institutions and learning environments.</p>
+              <div class="svc-icon-panel__details">
+                <span>Classroom Storage</span>
+                <span>Lab Cabinets</span>
+                <span>Library Shelving</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-offering">
+          <div class="svc-offering__visual">
+            <div class="svc-icon-panel">
+              <span class="svc-icon-panel__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path d="M8 39 30 9l9 7-22 30H8v-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="m26 14 9 7M7 8h12M13 3v10M32 34h10M37 29v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="svc-icon-panel__eyebrow">EXPERT CONSULTATION</p>
+              <h4>Custom Design and Consultation</h4>
+              <p>Tailored storage planning and design guidance for different organizational requirements.</p>
+              <div class="svc-icon-panel__details">
+                <span>Space Planning</span>
+                <span>Ergonomic Design</span>
+                <span>Custom Solutions</span>
+              </div>
+              <a class="svc-button svc-button--primary svc-icon-panel__cta" href="#request-quote">Request a Quote <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="svc-category svc-category--compact" aria-label="Solutions Across Industries">
+      <div class="svc-category__grid">
+        <article class="svc-category-card">
+          <div class="svc-category-card__visual">
+            <div class="svc-icon-panel svc-icon-panel--category" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                <rect x="7" y="7" width="34" height="34" rx="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 14v20M14 24h20" stroke="currentColor" stroke-width="3"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-category-card__copy">
+            <h4 class="svc-category-card__title">Healthcare &amp; Laboratory Solutions</h4>
+            <p class="svc-category-card__description">Precision-engineered furniture and equipment for healthcare and research environments.</p>
+          </div>
+        </article>
+
+        <article class="svc-category-card">
+          <div class="svc-category-card__visual">
+            <div class="svc-icon-panel svc-icon-panel--category" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                <path d="M5 41V19l12-8v8l12-8v8l14-8v30H5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M13 29h6v7h-6zm16 0h6v7h-6z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-category-card__copy">
+            <h4 class="svc-category-card__title">Industrial &amp; Warehouse Solutions</h4>
+            <p class="svc-category-card__description">Heavy-duty storage, industrial furniture and workspace solutions.</p>
+          </div>
+        </article>
+
+        <article class="svc-category-card">
+          <div class="svc-category-card__visual">
+            <div class="svc-icon-panel svc-icon-panel--category" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" focusable="false">
+                <circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 8c5 8 5 12 0 16-5-4-5-8 0-16ZM40 24c-8 5-12 5-16 0 4-5 8-5 16 0ZM24 40c-5-8-5-12 0-16 5 4 5 8 0 16ZM8 24c8-5 12-5 16 0-4 5-8 5-16 0Z" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="svc-category-card__copy">
+            <h4 class="svc-category-card__title">HVAC Turnkey Solutions</h4>
+            <p class="svc-category-card__description">Complete climate control, ventilation and air quality management systems.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="svc-clients" aria-labelledby="svc-clients-title">
+      <div class="svc-clients__stage">
+        <div class="svc-clients__heading">
+          <p class="svc-eyebrow">OUR TRUSTED PARTNERS</p>
+          <h2 class="svc-clients__title" id="svc-clients-title">Global Manufacturing Partners &amp; Trusted Brands</h2>
+        </div>
+        <div class="svc-clients__orbit" aria-hidden="true">
+          <span class="svc-orbit-logo" style="--start-x:-3vw;--start-y:-2vh;--travel-x:-41vw;--travel-y:-30vh;--mid-x:-23vw;--mid-y:-17vh;--delay:0s;--duration:19s;--float-duration:3s"><img src="./assets/images/icons/1.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:4vw;--start-y:-4vh;--travel-x:40vw;--travel-y:-29vh;--mid-x:22vw;--mid-y:-16vh;--delay:1.15s;--duration:20.6s;--float-duration:3.5s"><img src="./assets/images/icons/2.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-5vw;--start-y:4vh;--travel-x:-38vw;--travel-y:28vh;--mid-x:-21vw;--mid-y:16vh;--delay:2.3s;--duration:22s;--float-duration:3.4s"><img src="./assets/images/icons/3.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:3vw;--start-y:2vh;--travel-x:40vw;--travel-y:29vh;--mid-x:22vw;--mid-y:17vh;--delay:3.45s;--duration:18.4s;--float-duration:3.1s"><img src="./assets/images/icons/4.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-2vw;--start-y:5vh;--travel-x:-19vw;--travel-y:-37vh;--mid-x:-11vw;--mid-y:-21vh;--delay:4.6s;--duration:21.3s;--float-duration:3.6s"><img src="./assets/images/icons/5.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:5vw;--start-y:-1vh;--travel-x:19vw;--travel-y:36vh;--mid-x:11vw;--mid-y:20vh;--delay:5.75s;--duration:19.7s;--float-duration:3.2s"><img src="./assets/images/icons/6.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-4vw;--start-y:-5vh;--travel-x:-42vw;--travel-y:2vh;--mid-x:-24vw;--mid-y:1vh;--delay:6.9s;--duration:23s;--float-duration:3.8s"><img src="./assets/images/icons/7.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:2vw;--start-y:3vh;--travel-x:42vw;--travel-y:-4vh;--mid-x:24vw;--mid-y:-2vh;--delay:8.05s;--duration:18.7s;--float-duration:3.4s"><img src="./assets/images/icons/8.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-1vw;--start-y:-4vh;--travel-x:-12vw;--travel-y:38vh;--mid-x:-7vw;--mid-y:21vh;--delay:9.2s;--duration:20.2s;--float-duration:3s"><img src="./assets/images/icons/9.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:4vw;--start-y:1vh;--travel-x:12vw;--travel-y:-37vh;--mid-x:7vw;--mid-y:-20vh;--delay:10.35s;--duration:22.3s;--float-duration:4s"><img src="./assets/images/icons/10.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-5vw;--start-y:2vh;--travel-x:-31vw;--travel-y:-15vh;--mid-x:-17vw;--mid-y:-8vh;--delay:11.5s;--duration:19.4s;--float-duration:3.5s"><img src="./assets/images/icons/11.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:1vw;--start-y:-5vh;--travel-x:31vw;--travel-y:15vh;--mid-x:17vw;--mid-y:8vh;--delay:12.65s;--duration:21s;--float-duration:3.3s"><img src="./assets/images/icons/12.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:2vw;--start-y:4vh;--travel-x:-43vw;--travel-y:17vh;--mid-x:-24vw;--mid-y:9vh;--delay:13.8s;--duration:23.2s;--float-duration:4.1s"><img src="./assets/images/icons/13.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-3vw;--start-y:-2vh;--travel-x:43vw;--travel-y:-18vh;--mid-x:24vw;--mid-y:-10vh;--delay:14.95s;--duration:18.9s;--float-duration:3.2s"><img src="./assets/images/icons/14.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:4vw;--start-y:-4vh;--travel-x:-25vw;--travel-y:27vh;--mid-x:-14vw;--mid-y:15vh;--delay:16.1s;--duration:20.5s;--float-duration:3.6s"><img src="./assets/images/icons/15.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-4vw;--start-y:5vh;--travel-x:25vw;--travel-y:-27vh;--mid-x:14vw;--mid-y:-15vh;--delay:17.25s;--duration:22.6s;--float-duration:3s"><img src="./assets/images/icons/16.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-2vw;--start-y:1vh;--travel-x:-5vw;--travel-y:-39vh;--mid-x:-3vw;--mid-y:-22vh;--delay:18.4s;--duration:19.2s;--float-duration:3.9s"><img src="./assets/images/icons/17.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:5vw;--start-y:-3vh;--travel-x:6vw;--travel-y:39vh;--mid-x:3vw;--mid-y:22vh;--delay:19.55s;--duration:21.8s;--float-duration:3.1s"><img src="./assets/images/icons/18.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-5vw;--start-y:-1vh;--travel-x:-40vw;--travel-y:-19vh;--mid-x:-22vw;--mid-y:-11vh;--delay:20.7s;--duration:18.5s;--float-duration:3.7s"><img src="./assets/images/icons/19.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:3vw;--start-y:3vh;--travel-x:40vw;--travel-y:20vh;--mid-x:22vw;--mid-y:11vh;--delay:21.85s;--duration:22.1s;--float-duration:3.3s"><img src="./assets/images/icons/20.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-2vw;--start-y:5vh;--travel-x:-34vw;--travel-y:34vh;--mid-x:-19vw;--mid-y:19vh;--delay:23s;--duration:20.8s;--float-duration:3.8s"><img src="./assets/images/icons/21.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:2vw;--start-y:-4vh;--travel-x:34vw;--travel-y:-34vh;--mid-x:19vw;--mid-y:-19vh;--delay:24.15s;--duration:19.5s;--float-duration:3.4s"><img src="./assets/images/icons/22.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-4vw;--start-y:1vh;--travel-x:-16vw;--travel-y:-22vh;--mid-x:-9vw;--mid-y:-12vh;--delay:25.3s;--duration:23.4s;--float-duration:3.2s"><img src="./assets/images/icons/23.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:3vw;--start-y:4vh;--travel-x:16vw;--travel-y:23vh;--mid-x:9vw;--mid-y:13vh;--delay:26.45s;--duration:18.2s;--float-duration:4.1s"><img src="./assets/images/icons/24.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:-1vw;--start-y:-3vh;--travel-x:-42vw;--travel-y:-1vh;--mid-x:-24vw;--mid-y:-1vh;--delay:27.6s;--duration:21.5s;--float-duration:3.5s"><img src="./assets/images/icons/25.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+          <span class="svc-orbit-logo" style="--start-x:5vw;--start-y:2vh;--travel-x:42vw;--travel-y:1vh;--mid-x:24vw;--mid-y:1vh;--delay:28.75s;--duration:20s;--float-duration:3.1s"><img src="./assets/images/icons/26.webp" width="220" height="150" alt="" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc-process" aria-labelledby="svc-process-title">
+      <div class="svc-process__intro">
+        <p class="svc-eyebrow">A Clear Process</p>
+        <h2 class="svc-section-heading" id="svc-process-title">See How It Works</h2>
+        <p class="svc-section-subheading">Simple Steps for an Organized and Efficient Workspace!</p>
+      </div>
+      <ol class="svc-process__steps">
+        <li class="svc-process__step" data-svc-step>
+          <span class="svc-process__step-label">Step 1</span>
+          <span class="svc-process__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 3V5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 12h5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <h3>Share Your Requirements</h3>
+          <p>We understand that selecting the right products is crucial. Vishal Steel Products provides customized storage solutions to meet your needs.</p>
+          <a class="svc-text-link" href="#request-quote">Read More <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="svc-process__step" data-svc-step>
+          <span class="svc-process__step-label">Step 2</span>
+          <span class="svc-process__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <h3>Choose the Best Option</h3>
+          <p>Our expert team helps you select from a range of durable and efficient storage solutions tailored to your space and requirements.</p>
+          <a class="svc-text-link" href="#storage-solutions">Read More <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="svc-process__step" data-svc-step>
+          <span class="svc-process__step-label">Step 3</span>
+          <span class="svc-process__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 3v4m8-4v4M4 10h16M8 14h3m2 0h3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+          <h3>Easy Online Scheduling</h3>
+          <p>With just a few clicks, you can place an order and schedule the delivery of your selected products at your convenience.</p>
+          <a class="svc-text-link" href="#request-quote">Read More <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="svc-process__step" id="after-sales-support" data-svc-step>
+          <span class="svc-process__step-label">Step 4</span>
+          <span id="global-shipping" aria-hidden="true"></span>
+          <span class="svc-process__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="18" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+          <h3>Quick Delivery &amp; Installation</h3>
+          <p>Our team ensures fast and hassle-free delivery and installation, leaving your workspace organized and ready for use.</p>
+          <a class="svc-text-link" href="#service-categories">Read More <span aria-hidden="true">↗</span></a>
+        </li>
+      </ol>
+      <div class="svc-process__closing">
+        <p>We make organizing your workspace effortless with our tailored solutions, ensuring optimal space utilization and efficiency.</p>
+        <a class="svc-button svc-button--primary" href="#storage-solutions">Explore Our Solutions <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+   
+<section class="svc-happy-clients" aria-labelledby="svc-happy-clients-title" data-shared-image="manufacturing-background">
+  <p class="svc-happy-clients__stat"
+     aria-label="10K plus happy clients worldwide">
+    <span data-happy-counter data-target="10000">10K+</span>
+  </p>
+
+  <div class="svc-happy-clients__copy">
+    <p class="svc-eyebrow">Worldwide</p>
+
+    <h2 id="svc-happy-clients-title">Happy Clients Worldwide</h2>
+
+    <p>Vishal Steel Products delivers top-quality solutions with a commitment to excellence and customer satisfaction.</p>
+
+    <p>Explore our wide range of products designed to meet your specific needs with precision and durability.</p>
+
+    <a class="svc-button svc-button--primary" href="#request-quote">
+      Get in Touch <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+<script>
+  
+(() => {
+  function initHappyClientsCounter() {
+    const section = document.querySelector(".svc-happy-clients");
+    const counter = section?.querySelector("[data-happy-counter]");
+
+    if (!section || !counter || counter.dataset.initialized === "true") {
+      return;
+    }
+
+    counter.dataset.initialized = "true";
+
+    const target = Number(counter.dataset.target) || 10000;
+    const finalText = "10K+";
+
+    const showFinalValue = () => {
+      counter.textContent = finalText;
+    };
+
+    // Reduced motion or unavailable GSAP: show final value.
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !window.gsap ||
+      !window.ScrollTrigger
+    ) {
+      showFinalValue();
+      return;
+    }
+
+    window.gsap.registerPlugin(window.ScrollTrigger);
+
+    const progress = { value: 0 };
+
+    counter.textContent = "0";
+
+    window.gsap.to(progress, {
+      value: target,
+      duration: 2.8,
+      ease: "power2.out",
+
+      onUpdate: () => {
+        counter.textContent = Math.floor(progress.value).toLocaleString("en-IN");
+      },
+
+      onComplete: showFinalValue,
+
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        once: true
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHappyClientsCounter, {
+      once: true
+    });
+  } else {
+    initHappyClientsCounter();
+  }
+})();
+
+</script>
+
+    <section class="svc-quote" id="request-quote" aria-labelledby="svc-quote-title">
+      <div class="svc-quote__intro">
+        <p class="svc-eyebrow">Start a Conversation</p>
+        <h2 id="svc-quote-title">Request a Quote</h2>
+        <p>Fill out the form below and our experts will get back to you promptly.</p>
+        <p class="svc-quote__notice">This form is not connected to a submission service. Your information will not be sent until a backend endpoint is configured.</p>
+      </div>
+      <form class="svc-form" id="svc-quote-form" novalidate>
+        <div class="svc-field svc-field--wide">
+          <label for="svc-product-type">Product Type*</label>
+          <select id="svc-product-type" name="productType" required aria-describedby="svc-product-type-error">
+            <option value="">Select a product type</option>
+            <option>Industrial Racks</option>
+            <option>Office Furniture</option>
+            <option>Warehouse Solutions</option>
+            <option>Custom Fabrications</option>
+          </select>
+          <span class="svc-field__error" id="svc-product-type-error" aria-live="polite"></span>
+        </div>
+        <div class="svc-field">
+          <label for="svc-quantity">Quantity*</label>
+          <input id="svc-quantity" name="quantity" type="number" min="1" step="1" inputmode="numeric" required aria-describedby="svc-quantity-error">
+          <span class="svc-field__error" id="svc-quantity-error" aria-live="polite"></span>
+        </div>
+        <div class="svc-field">
+          <label for="svc-full-name">Full Name*</label>
+          <input id="svc-full-name" name="fullName" type="text" autocomplete="name" required aria-describedby="svc-full-name-error">
+          <span class="svc-field__error" id="svc-full-name-error" aria-live="polite"></span>
+        </div>
+        <div class="svc-field">
+          <label for="svc-email">Email Address*</label>
+          <input id="svc-email" name="email" type="email" autocomplete="email" required aria-describedby="svc-email-error">
+          <span class="svc-field__error" id="svc-email-error" aria-live="polite"></span>
+        </div>
+        <div class="svc-field">
+          <label for="svc-phone">Phone Number*</label>
+          <input id="svc-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="svc-phone-error">
+          <span class="svc-field__error" id="svc-phone-error" aria-live="polite"></span>
+        </div>
+        <div class="svc-field svc-field--wide">
+          <label for="svc-message">Your Message</label>
+          <textarea id="svc-message" name="message" rows="5"></textarea>
+        </div>
+        <div class="svc-field svc-field--wide">
+          <label for="svc-security-answer">Security Check* — What is 8 + 4?</label>
+          <input id="svc-security-answer" name="securityAnswer" type="text" inputmode="numeric" autocomplete="off" required aria-describedby="svc-security-answer-error">
+          <span class="svc-field__error" id="svc-security-answer-error" aria-live="polite"></span>
+        </div>
+        <p class="svc-form__status" id="svc-form-status" role="status" aria-live="polite"></p>
+        <button class="svc-button svc-button--primary svc-form__submit" type="submit">Submit <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      let initialized = false;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function initializeImageSlots() {
+        document.querySelectorAll("[data-image-slot]").forEach((slot) => {
+          if (slot.dataset.imageInitialized === "true") {
+            return;
+          }
+          slot.dataset.imageInitialized = "true";
+          const source = (slot.dataset.imageSrc || "").trim();
+          if (!source) {
+            return;
+          }
+
+          const image = new Image();
+          image.alt = slot.dataset.imageAlt || "";
+          image.width = 1600;
+          image.height = 1200;
+          image.loading = slot.dataset.imageSlot === "manufacturing-background" ? "eager" : "lazy";
+          image.decoding = "async";
+          image.className = "svc-image-slot__image";
+          image.addEventListener("load", () => {
+            if (window.ScrollTrigger && !reducedMotion) {
+              window.ScrollTrigger.refresh();
+            }
+          }, { once: true });
+          image.src = source;
+          slot.appendChild(image);
+          const label = slot.querySelector(".svc-image-slot__label");
+          if (label) {
+            label.hidden = true;
+          }
+
+          if (slot.dataset.imageSlot === "manufacturing-background") {
+            const safeSource = JSON.stringify(source).replace(/</g, "\\u003c");
+            document.querySelectorAll("[data-shared-image='manufacturing-background']").forEach((section) => {
+              section.style.setProperty("--svc-mfg-background", `url(${safeSource})`);
+            });
+          }
+        });
+      }
+
+      function initializeQuoteForm() {
+        const form = document.getElementById("svc-quote-form");
+        const status = document.getElementById("svc-form-status");
+        if (!form || !status || form.dataset.initialized === "true") {
+          return;
+        }
+        form.dataset.initialized = "true";
+
+        const fields = Array.from(form.querySelectorAll("input[required], select[required]"));
+        const isValidPhone = (value) => {
+          const trimmed = value.trim();
+          const digitCount = trimmed.replace(/\D/g, "").length;
+          return /^[+]?[0-9\s().-]+$/.test(trimmed) && digitCount >= 7 && digitCount <= 15;
+        };
+        const errorMessage = (field) => {
+          if (field.name === "securityAnswer" && field.value.trim() !== "12") {
+            return "Please enter the correct answer: 12.";
+          }
+          if (!field.value.trim()) {
+            return "This field is required.";
+          }
+          if (field.name === "email" && !field.validity.valid) {
+            return "Enter a valid email address.";
+          }
+          if (field.name === "phone" && !isValidPhone(field.value)) {
+            return "Enter a valid phone number.";
+          }
+          if (field.name === "quantity" && !field.validity.valid) {
+            return "Enter a quantity of at least 1.";
+          }
+          if (!field.validity.valid) {
+            return "Please choose a valid option.";
+          }
+          return "";
+        };
+
+        const validateField = (field) => {
+          const message = errorMessage(field);
+          field.setAttribute("aria-invalid", String(Boolean(message)));
+          const error = document.getElementById(`${field.id}-error`);
+          if (error) {
+            error.textContent = message;
+          }
+          return !message;
+        };
+
+        fields.forEach((field) => {
+          field.addEventListener("input", () => {
+            if (field.getAttribute("aria-invalid") === "true") {
+              validateField(field);
+            }
+          });
+          field.addEventListener("change", () => {
+            if (field.getAttribute("aria-invalid") === "true") {
+              validateField(field);
+            }
+          });
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          status.textContent = "";
+          const invalidFields = fields.filter((field) => !validateField(field));
+          if (invalidFields.length) {
+            status.textContent = "Please review the highlighted fields.";
+            invalidFields[0].focus();
+            return;
+          }
+
+          status.textContent = "Your details passed validation, but they have not been sent because no backend submission endpoint is configured.";
+        });
+      }
+
+      function initializeAnimations() {
+        if (reducedMotion || !window.gsap || !window.ScrollTrigger) {
+          return;
+        }
+
+        window.gsap.registerPlugin(window.ScrollTrigger);
+
+        const clientsSection = document.querySelector(".vsa-clients");
+        if (clientsSection) {
+          const stage = clientsSection.querySelector(".vsa-clients__stage");
+          const orbit = clientsSection.querySelector(".vsa-clients__orbit");
+          const logos = Array.from(orbit.querySelectorAll(".vsa-client-logo"));
+          const revealLogos = () => {
+            const stageBounds = stage.getBoundingClientRect();
+            const centerX = stageBounds.left + stageBounds.width / 2;
+            const centerY = stageBounds.top + stageBounds.height / 2;
+
+            logos.forEach((logo, index) => {
+              const bounds = logo.getBoundingClientRect();
+              const endX = bounds.left + bounds.width / 2 - centerX;
+              const endY = bounds.top + bounds.height / 2 - centerY;
+              const curveX = Math.sin((index + 1) * 1.37) * 20;
+              const curveY = Math.cos((index + 1) * 1.13) * 17;
+              const rotation = (index % 2 ? 1 : -1) * (4 + (index % 4) * 1.25);
+              const duration = 1.3 + (index % 5) * 0.13;
+
+              window.gsap.timeline({ delay: index * 0.095 })
+                .fromTo(logo, {
+                  x: -endX,
+                  y: -endY,
+                  z: -100,
+                  rotation,
+                  scale: 0.2,
+                  opacity: 0,
+                  filter: "blur(6px)"
+                }, {
+                  x: -endX * 0.46 + curveX,
+                  y: -endY * 0.46 + curveY,
+                  z: -28,
+                  rotation: rotation * 0.45,
+                  scale: 0.72,
+                  opacity: 0.84,
+                  filter: "blur(1px)",
+                  duration: duration * 0.56,
+                  ease: "power2.inOut"
+                })
+                .to(logo, {
+                  x: 0,
+                  y: 0,
+                  z: 0,
+                  rotation: 0,
+                  scale: 1,
+                  opacity: 1,
+                  filter: "blur(0px)",
+                  duration: duration * 0.44,
+                  ease: "power3.out",
+                  onComplete: () => {
+                    window.gsap.to(logo, {
+                      y: index % 2 ? -5 : 5,
+                      rotation: index % 2 ? 0.7 : -0.7,
+                      duration: 2.4 + (index % 4) * 0.35,
+                      delay: (index % 3) * 0.12,
+                      repeat: -1,
+                      yoyo: true,
+                      ease: "sine.inOut"
+                    });
+                  }
+                });
+            });
+          };
+
+          window.ScrollTrigger.create({
+            trigger: clientsSection,
+            start: "top 78%",
+            once: true,
+            onEnter: revealLogos
+          });
+
+          window.gsap.to(orbit, {
+            y: -12,
+            scale: 1.018,
+            ease: "none",
+            scrollTrigger: {
+              trigger: clientsSection,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.8
+            }
+          });
+
+          if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            const imageMotion = logos.map((logo, index) => {
+              const image = logo.querySelector("img");
+              const depth = 0.45 + (index % 4) * 0.18;
+              return {
+                x: window.gsap.quickTo(image, "x", { duration: 0.65, ease: "power2.out" }),
+                y: window.gsap.quickTo(image, "y", { duration: 0.65, ease: "power2.out" }),
+                rotateX: window.gsap.quickTo(image, "rotationX", { duration: 0.65, ease: "power2.out" }),
+                rotateY: window.gsap.quickTo(image, "rotationY", { duration: 0.65, ease: "power2.out" }),
+                depth
+              };
+            });
+            let pointerFrame = 0;
+            let pointerX = 0;
+            let pointerY = 0;
+
+            clientsSection.addEventListener("pointermove", (event) => {
+              if (event.pointerType === "touch") {
+                return;
+              }
+              const bounds = clientsSection.getBoundingClientRect();
+              pointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+              pointerY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+              if (pointerFrame) {
+                return;
+              }
+              pointerFrame = window.requestAnimationFrame(() => {
+                imageMotion.forEach((motion) => {
+                  motion.x(pointerX * 10 * motion.depth);
+                  motion.y(pointerY * 8 * motion.depth);
+                  motion.rotateX(-pointerY * 3 * motion.depth);
+                  motion.rotateY(pointerX * 4 * motion.depth);
+                });
+                pointerFrame = 0;
+              });
+            }, { passive: true });
+
+            clientsSection.addEventListener("pointerleave", () => {
+              imageMotion.forEach((motion) => {
+                motion.x(0);
+                motion.y(0);
+                motion.rotateX(0);
+                motion.rotateY(0);
+              });
+            }, { passive: true });
+          }
+        }
+
+        const timeline = window.gsap.timeline({ defaults: { ease: "power4.out" } });
+        timeline
+          .fromTo(".svc-hero__title-line span", { yPercent: 112 }, {
+            yPercent: 0,
+            duration: 1.05,
+            stagger: 0.1
+          })
+          .from(".svc-breadcrumb", { y: 12, opacity: 0, duration: 0.5 }, "-=0.45")
+          .from(".svc-hero__description", { y: 20, opacity: 0, duration: 0.65 }, "-=0.35")
+          .from(".svc-hero__actions .svc-button", { y: 16, opacity: 0, duration: 0.5, stagger: 0.08 }, "-=0.35")
+          .fromTo(".svc-hero__image", { clipPath: "inset(8% 6% 8% 6%)" }, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.1,
+            ease: "power3.inOut"
+          }, 0.12);
+
+        window.gsap.utils.toArray("[data-svc-reveal]").forEach((element, index) => {
+          const image = element.querySelector(".svc-image-slot");
+          const copy = element.querySelector(".svc-offering__copy, .svc-category-card__copy");
+          if (image) {
+            window.gsap.fromTo(image, { clipPath: "inset(9% 7% 9% 7%)", scale: 0.97 }, {
+              clipPath: "inset(0% 0% 0% 0%)",
+              scale: 1,
+              duration: 0.95,
+              ease: "power3.inOut",
+              scrollTrigger: { trigger: element, start: "top 78%", once: true }
+            });
+            window.gsap.to(image, {
+              yPercent: -3,
+              ease: "none",
+              scrollTrigger: { trigger: element, start: "top bottom", end: "bottom top", scrub: 0.7 }
+            });
+          }
+          if (copy) {
+            window.gsap.from(copy, {
+              x: index % 2 ? -28 : 28,
+              y: 18,
+              opacity: 0,
+              duration: 0.72,
+              ease: "power3.out",
+              scrollTrigger: { trigger: element, start: "top 76%", once: true }
+            });
+          } else {
+            window.gsap.from(element, {
+              y: 24,
+              opacity: 0,
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: { trigger: element, start: "top 82%", once: true }
+            });
+          }
+        });
+
+        window.gsap.utils.toArray(".svc-manufacturing__feature").forEach((feature, index) => {
+          window.gsap.from(feature, {
+            y: 24,
+            opacity: 0,
+            duration: 0.7,
+            delay: index * 0.05,
+            ease: "power3.out",
+            scrollTrigger: { trigger: feature, start: "top 83%", once: true }
+          });
+        });
+
+        const processSteps = document.querySelector(".svc-process__steps");
+        if (processSteps) {
+          window.ScrollTrigger.create({
+            trigger: processSteps,
+            start: "top 78%",
+            once: true,
+            onEnter: () => processSteps.classList.add("is-in-view")
+          });
+        }
+        window.gsap.utils.toArray("[data-svc-step]").forEach((step, index) => {
+          window.gsap.from(step, {
+            y: 30,
+            opacity: 0,
+            duration: 0.72,
+            delay: index * 0.08,
+            ease: "power3.out",
+            scrollTrigger: { trigger: step, start: "top 82%", once: true }
+          });
+        });
+
+        window.gsap.from(".svc-happy-clients__stat", {
+          x: -40,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".svc-happy-clients", start: "top 75%", once: true }
+        });
+        window.gsap.from(".svc-quote__intro", {
+          y: 28,
+          opacity: 0,
+          duration: 0.75,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".svc-quote", start: "top 75%", once: true }
+        });
+        window.gsap.from(".svc-form", {
+          y: 24,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".svc-form", start: "top 80%", once: true }
+        });
+      }
+
+      function initializePage() {
+        if (initialized) {
+          return;
+        }
+        initialized = true;
+        initializeImageSlots();
+        initializeQuoteForm();
+        initializeAnimations();
+
+        const refresh = () => {
+          if (window.ScrollTrigger && !reducedMotion) {
+            window.ScrollTrigger.refresh();
+          }
+        };
+        window.addEventListener("load", refresh, { once: true });
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(refresh);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePage, { once: true });
+      } else {
+        initializePage();
+      }
+    })();
+  </script>
+</body>
+</html>

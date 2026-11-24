@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Frequently asked questions about Vishal Steel Products, steel furniture, lockers, cabinets, laboratory and hospital essentials.">
+  <meta name="theme-color" content="#202124">
+  <title>FAQ's | Vishal Steel Products</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root{--faq-red:#B51220;--faq-dark:#8F0D18;--faq-ink:#202124;--faq-grey:#F5F5F5;--faq-muted:#696b70;--faq-line:rgba(32,33,36,.14);--faq-ease:cubic-bezier(.2,.72,.18,1)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body.vs-faq-page{margin:0;color:var(--faq-ink);background:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+    .faq-wrap{width:min(1240px,calc(100% - 64px));margin-inline:auto}
+    .faq-eyebrow{display:flex;align-items:center;gap:11px;margin:0;color:var(--faq-red);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+    .faq-eyebrow:before{content:"";width:28px;height:2px;background:currentColor}
+    .faq-heading{margin:16px 0 18px;font-size:clamp(38px,5.1vw,68px);line-height:1.03;letter-spacing:-.055em;font-weight:800}
+    .faq-copy{color:var(--faq-muted);font-size:14px;line-height:1.9}
+    .faq-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--faq-ink);color:#fff}
+    .faq-hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.13;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(90deg,#000,transparent 88%)}
+    .faq-hero:after{content:"";position:absolute;z-index:-1;right:-170px;top:-260px;width:590px;height:590px;border:1px solid #ffffff20;border-radius:50%;box-shadow:0 0 0 65px #ffffff08,0 0 0 130px #ffffff05}
+    .faq-hero__inner{min-height:330px;padding:76px 0 62px;display:flex;flex-direction:column;justify-content:center}
+    .faq-hero .faq-eyebrow{color:#f17b83}
+    .faq-hero h1{margin:22px 0 23px;font-size:clamp(54px,8vw,92px);line-height:.95;letter-spacing:-.07em}
+    .faq-breadcrumb{display:flex;align-items:center;gap:11px;color:#c5c5c7;font-size:12px}
+    .faq-breadcrumb a{color:#fff;text-decoration:none;transition:color .2s}
+    .faq-breadcrumb a:hover{color:#ff9299}
+    .faq-breadcrumb span[aria-hidden]{color:#ed5964}
+    .faq-categories{padding:95px 0 88px}
+    .faq-categories__head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:36px}
+    .faq-categories__head .faq-heading{max-width:620px;margin-bottom:0}
+    .faq-categories__head .faq-copy{max-width:380px;margin:0}
+    .faq-category-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--faq-line);border-left:1px solid var(--faq-line)}
+    .faq-category{min-height:126px;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;border-right:1px solid var(--faq-line);border-bottom:1px solid var(--faq-line);color:var(--faq-ink);text-decoration:none;transition:background .3s,color .3s,transform .3s}
+    .faq-category span:first-child{font-size:14px;font-weight:700;line-height:1.4;letter-spacing:-.02em}
+    .faq-category span:last-child{align-self:flex-end;color:var(--faq-red);font-size:20px;transition:transform .3s}
+    .faq-category:hover,.faq-category:focus-visible{background:var(--faq-red);color:#fff;transform:translateY(-3px);outline:none}
+    .faq-category:hover span:last-child,.faq-category:focus-visible span:last-child{color:#fff;transform:translate(3px,-3px)}
+    .faq-questions{padding:96px 0 110px;background:var(--faq-grey)}
+    .faq-questions__layout{display:grid;grid-template-columns:290px 1fr;gap:75px;align-items:start}
+    .faq-questions__intro{position:sticky;top:115px}
+    .faq-questions__intro .faq-heading{font-size:clamp(38px,4vw,54px)}
+    .faq-questions__intro p:last-child{max-width:260px}
+    .faq-group{padding:0 0 50px;margin-bottom:46px;border-bottom:1px solid var(--faq-line);scroll-margin-top:110px}
+    .faq-group:last-child{margin-bottom:0}
+    .faq-group__title{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 18px;font-size:clamp(23px,2.6vw,32px);letter-spacing:-.045em}
+    .faq-group__title:after{content:"";height:1px;flex:1;max-width:120px;background:var(--faq-red)}
+    .faq-item{border-top:1px solid rgba(32,33,36,.16)}
+    .faq-item:last-child{border-bottom:1px solid rgba(32,33,36,.16)}
+    .faq-item summary{position:relative;list-style:none;cursor:pointer;padding:22px 52px 22px 0;font-size:15px;font-weight:700;line-height:1.55;letter-spacing:-.015em}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary:after{content:"+";position:absolute;right:3px;top:50%;width:29px;height:29px;display:grid;place-items:center;border:1px solid #c7c7c7;border-radius:50%;color:var(--faq-red);font-size:19px;font-weight:400;transform:translateY(-50%);transition:background .25s,color .25s,transform .25s}
+    .faq-item[open] summary:after{content:"−";background:var(--faq-red);border-color:var(--faq-red);color:#fff;transform:translateY(-50%) rotate(180deg)}
+    .faq-answer{max-width:760px;padding:0 42px 23px 0;color:var(--faq-muted);font-size:13px;line-height:1.9}
+    .faq-answer p{margin:0}
+    .faq-still{padding:82px 0;background:#fff}
+    .faq-still__panel{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:center;gap:35px;padding:48px 55px;background:var(--faq-ink);color:#fff}
+    .faq-still__panel:after{content:"?";position:absolute;right:28%;top:-95px;color:#ffffff08;font-size:300px;font-weight:800;line-height:1;pointer-events:none}
+    .faq-still h2{position:relative;z-index:1;margin:0 0 12px;font-size:clamp(28px,4vw,44px);letter-spacing:-.055em}
+    .faq-still p{position:relative;z-index:1;max-width:650px;margin:0;color:#c9c9cb;font-size:13px;line-height:1.8}
+    .faq-still__contact{position:relative;z-index:1;display:grid;gap:13px;min-width:230px}
+    .faq-still__contact a{color:#fff;text-decoration:none;font-size:13px}
+    .faq-still__contact a span{display:inline-block;width:24px;color:#f06a73}
+    .faq-contact{padding:108px 0;background:var(--faq-grey)}
+    .faq-contact__head{max-width:660px;margin-bottom:42px}
+    .faq-contact__head .faq-heading{margin-bottom:12px}
+    .faq-contact__layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:65px}
+    .faq-contact__details{padding:34px;background:var(--faq-ink);color:#fff}
+    .faq-contact__details h3{margin:0 0 28px;font-size:23px;letter-spacing:-.04em}
+    .faq-detail{padding:0 0 23px;margin-bottom:23px;border-bottom:1px solid #ffffff24}
+    .faq-detail:last-child{margin:0;padding:0;border:0}
+    .faq-detail span{display:block;margin-bottom:8px;color:#ef737b;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .faq-detail p,.faq-detail a{margin:0;color:#fff;font-size:13px;line-height:1.8;text-decoration:none}
+    .faq-contact__form{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;align-content:start}
+    .faq-field{display:flex;flex-direction:column;gap:8px}
+    .faq-field--full{grid-column:1/-1}
+    .faq-field label{font-size:11px;font-weight:700;letter-spacing:.02em}
+    .faq-field input,.faq-field textarea{width:100%;border:1px solid #d6d6d6;border-radius:0;background:#fff;padding:15px 16px;color:var(--faq-ink);font:inherit;font-size:13px;outline:none;transition:border .2s,box-shadow .2s}
+    .faq-field input{height:50px}
+    .faq-field textarea{min-height:140px;resize:vertical}
+    .faq-field input:focus,.faq-field textarea:focus{border-color:var(--faq-red);box-shadow:0 0 0 3px #b5122015}
+    .faq-field input[aria-invalid="true"],.faq-field textarea[aria-invalid="true"]{border-color:#c5222d}
+    .faq-error{min-height:14px;color:#b51220;font-size:10px;line-height:1.4}
+    .faq-submit{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:2px}
+    .faq-submit button{display:inline-flex;align-items:center;gap:35px;border:0;padding:17px 22px;background:var(--faq-red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .25s}
+    .faq-submit button:hover{background:var(--faq-dark);transform:translateY(-2px)}
+    .faq-form-status{color:#4a4d50;font-size:12px;line-height:1.6}
+    .faq-connect{position:relative;overflow:hidden;padding:74px 0;background:#fff}
+    .faq-connect__inner{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:38px 0;border-top:1px solid var(--faq-line);border-bottom:1px solid var(--faq-line)}
+    .faq-connect__brand{display:flex;align-items:center;gap:25px;max-width:780px}
+    .faq-connect__logo{width:115px;height:76px;display:grid;place-items:center;flex-shrink:0;background:var(--faq-grey);padding:10px}
+    .faq-connect__logo img{max-width:100%;max-height:100%;object-fit:contain}
+    .faq-connect h2{margin:0;font-size:clamp(23px,3vw,36px);line-height:1.15;letter-spacing:-.05em}
+    .faq-quote-link{display:inline-flex;align-items:center;gap:25px;flex-shrink:0;padding:17px 22px;background:var(--faq-red);color:#fff;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,transform .2s}
+    .faq-quote-link:hover{background:var(--faq-dark);transform:translateY(-3px)}
+    /* Shared footer receives page-scoped visual refinement; markup remains loaded by includes.js. */
+    .vs-faq-page .vs-footer{background:#17181a;color:#fff}
+    .vs-faq-page .vs-footer-main{padding-top:68px;padding-bottom:55px}
+    .vs-faq-page .vs-footer-company p,.vs-faq-page .vs-newsletter-note{color:#b8b9bb;line-height:1.85}
+    .vs-faq-page .vs-footer-column h2,.vs-faq-page .vs-footer-newsletter h2{color:#fff;font-size:14px;letter-spacing:.02em}
+    .vs-faq-page .vs-footer-column a{color:#c7c7c9;transition:color .2s,transform .2s}
+    .vs-faq-page .vs-footer-column a:hover{color:#ff7c84;transform:translateX(3px)}
+    .vs-faq-page .vs-social-links a{border:1px solid #ffffff40;color:#fff;transition:background .2s,border .2s}
+    .vs-faq-page .vs-social-links a:hover{background:var(--faq-red);border-color:var(--faq-red)}
+    .vs-faq-page .vs-newsletter-form{display:flex;border-bottom:1px solid #ffffff55}
+    .vs-faq-page .vs-newsletter-form input{min-width:0;background:transparent;color:#fff;border:0}
+    .vs-faq-page .vs-newsletter-form button{background:var(--faq-red);color:#fff;border:0;padding-inline:15px}
+    .vs-faq-page .vs-footer-bottom{border-top:1px solid #ffffff20;color:#aaa}
+    .vs-faq-page .vs-footer-bottom a{color:#c7c7c9}
+    .faq-reveal{opacity:1;transform:none}
+    .vs-faq-page.faq-motion .faq-reveal{opacity:0;transform:translateY(25px)}
+    .vs-faq-page.faq-motion.faq-motion-ready .faq-reveal.is-visible{opacity:1;transform:none;transition:opacity .75s var(--faq-ease),transform .75s var(--faq-ease)}
+    @media(max-width:1000px){.faq-category-grid{grid-template-columns:repeat(3,1fr)}.faq-questions__layout{grid-template-columns:230px 1fr;gap:42px}.faq-contact__layout{gap:35px}}
+    @media(max-width:760px){.faq-wrap{width:calc(100% - 40px)}.faq-hero__inner{min-height:280px;padding:62px 0 48px}.faq-categories,.faq-questions,.faq-contact{padding:75px 0}.faq-categories__head{display:block}.faq-categories__head .faq-copy{margin-top:18px}.faq-category-grid{grid-template-columns:repeat(2,1fr)}.faq-category{min-height:108px;padding:17px 14px}.faq-questions__layout{grid-template-columns:1fr;gap:32px}.faq-questions__intro{position:static}.faq-questions__intro p:last-child{max-width:560px}.faq-group{padding-bottom:34px;margin-bottom:34px}.faq-still{padding:60px 0}.faq-still__panel{grid-template-columns:1fr;padding:34px 27px}.faq-still__contact{min-width:0}.faq-contact__layout{grid-template-columns:1fr;gap:25px}.faq-contact__details{padding:28px}.faq-connect__inner{align-items:flex-start;flex-direction:column}.faq-connect__brand{align-items:flex-start}.faq-connect__logo{width:85px;height:65px}.faq-connect{padding:45px 0}}
+    @media(max-width:480px){.faq-category-grid{grid-template-columns:1fr 1fr}.faq-category{min-height:100px}.faq-contact__form{grid-template-columns:1fr}.faq-field--full,.faq-submit{grid-column:1}.faq-connect__brand{gap:15px}.faq-connect__logo{width:70px;height:58px}.faq-hero h1{font-size:58px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.vs-faq-page *,.vs-faq-page *:before,.vs-faq-page *:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.vs-faq-page.faq-motion .faq-reveal{opacity:1!important;transform:none!important}}
+  </style>
+</head>
+<body class="vs-page vs-faq-page">
+  <div id="navbar-placeholder"></div>
+
+  <main class="vsl-page">
+    <section class="faq-hero" aria-labelledby="faq-hero-title">
+      <div class="faq-wrap faq-hero__inner">
+        <p class="faq-eyebrow">Vishal Steel Products / Support</p>
+        <h1 id="faq-hero-title">FAQ's</h1>
+        <nav class="faq-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span aria-hidden="true">→</span><span aria-current="page">FAQ's</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="faq-categories" aria-labelledby="faq-categories-title">
+      <div class="faq-wrap">
+        <div class="faq-categories__head faq-reveal">
+          <div><p class="faq-eyebrow">Find Your Answer</p><h2 class="faq-heading" id="faq-categories-title">Explore FAQ Categories</h2></div>
+          <p class="faq-copy">Browse the categories below to find information about our steel furniture, storage products and specialized solutions.</p>
+        </div>
+        <div class="faq-category-grid faq-reveal">
+          <a class="faq-category" href="#steel-furniture"><span>Industrial Steel Furniture</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#lockers-cabinets"><span>Lockers</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#lockers-cabinets"><span>Cabinets</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#steel-furniture"><span>Trolleys</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#steel-furniture"><span>Workbench</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#laboratory-hospital"><span>Laboratory Essentials</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#laboratory-hospital"><span>Hospital Essentials</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#laboratory-hospital"><span>Steel Bed</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#steel-furniture"><span>Table Tray</span><span aria-hidden="true">↗</span></a>
+          <a class="faq-category" href="#steel-furniture"><span>Customized Steel Solutions</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-questions" aria-labelledby="faq-questions-title">
+      <div class="faq-wrap faq-questions__layout">
+        <aside class="faq-questions__intro faq-reveal">
+          <p class="faq-eyebrow">Knowledge Centre</p>
+          <h2 class="faq-heading" id="faq-questions-title">Frequently Asked Questions</h2>
+          <p class="faq-copy">Answers to common questions about our products, customization and ordering process.</p>
+        </aside>
+        <div class="faq-questions__content">
+          <section class="faq-group faq-reveal" id="steel-furniture">
+            <h2 class="faq-group__title">Steel Furniture</h2>
+            <details class="faq-item"><summary>Q1. What types of steel furniture do you offer?</summary><div class="faq-answer"><p>We offer a wide range of industrial steel furniture including workbenches, trolleys, cabinets, and more. Each piece is designed for durability and efficiency, catering to both industrial and commercial needs.</p></div></details>
+            <details class="faq-item"><summary>Q2. Can you customize steel furniture for my business?</summary><div class="faq-answer"><p>Yes, we specialize in providing customized steel solutions based on your specific requirements. Whether it’s for a laboratory, hospital, or industrial setting, we can tailor furniture designs to suit your needs.</p></div></details>
+            <details class="faq-item"><summary>Q3. What is the lead time for steel furniture orders?</summary><div class="faq-answer"><p>The lead time for custom steel furniture can vary depending on the complexity of the design and the quantity ordered. Generally, it takes 2–4 weeks for us to fulfill an order, but we can provide a more accurate timeline based on your specific request.</p></div></details>
+            <details class="faq-item"><summary>Q4. What is the warranty on your steel furniture?</summary><div class="faq-answer"><p>Our steel furniture comes with a warranty of 1–3 years depending on the product. This warranty covers defects in materials and workmanship, ensuring your investment is protected.</p></div></details>
+          </section>
+
+          <section class="faq-group faq-reveal" id="lockers-cabinets">
+            <h2 class="faq-group__title">Lockers and Cabinets</h2>
+            <details class="faq-item"><summary>Q1. Do you offer customized lockers and cabinets?</summary><div class="faq-answer"><p>Yes, we can customize lockers and cabinets for various applications, including offices, schools, hospitals, and industrial settings. Our designs prioritize security and functionality, with various locking mechanisms and sizes available.</p></div></details>
+            <details class="faq-item"><summary>Q2. How can I order lockers or cabinets?</summary><div class="faq-answer"><p>You can place an order for lockers or cabinets by contacting us through our website or by calling our customer support. We’ll help you select the best options based on your needs and deliver them at your convenience.</p></div></details>
+            <details class="faq-item"><summary>Q3. Are your lockers and cabinets secure?</summary><div class="faq-answer"><p>Yes, our lockers and cabinets are designed with security in mind. We offer various locking systems including mechanical locks, electronic locks, and keyless options to ensure the safety of your items.</p></div></details>
+            <details class="faq-item"><summary>Q4. Can I get large lockers for industrial use?</summary><div class="faq-answer"><p>Yes, we provide lockers and cabinets in large sizes suitable for industrial use, designed to withstand heavy-duty requirements and provide ample storage for tools and equipment.</p></div></details>
+          </section>
+
+          <section class="faq-group faq-reveal" id="laboratory-hospital">
+            <h2 class="faq-group__title">Laboratory and Hospital Essentials</h2>
+            <details class="faq-item"><summary>Q1. Do you supply laboratory furniture?</summary><div class="faq-answer"><p>Yes, we offer a range of laboratory essentials, including workbenches, lab cabinets, and storage units. All our products are made with durable materials to withstand the demands of a laboratory environment.</p></div></details>
+            <details class="faq-item"><summary>Q2. What hospital furniture do you provide?</summary><div class="faq-answer"><p>We provide hospital essentials such as steel beds, trolleys, and storage cabinets. All our products are designed for comfort, durability, and functionality, ensuring the highest standards for healthcare environments.</p></div></details>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-still" aria-labelledby="faq-still-title">
+      <div class="faq-wrap">
+        <div class="faq-still__panel faq-reveal">
+          <div><h2 id="faq-still-title">You Still Have A Question?</h2><p>If you cannot find the answer to your question in our FAQ section, feel free to contact us. We will answer you shortly!</p></div>
+          <div class="faq-still__contact">
+            <a href="mailto:sales@vishalsteelproducts.com"><span aria-hidden="true">✉</span>sales@vishalsteelproducts.com</a>
+            <a href="tel:+918387997777"><span aria-hidden="true">☎</span>+91 8387997777</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-contact" id="get-in-touch" aria-labelledby="faq-contact-title">
+      <div class="faq-wrap">
+        <header class="faq-contact__head faq-reveal">
+          <p class="faq-eyebrow">We’re Here to Help</p>
+          <h2 class="faq-heading" id="faq-contact-title">Get In Touch</h2>
+          <p class="faq-copy">Fill out the form below and we'll get back to you shortly.</p>
+        </header>
+        <div class="faq-contact__layout">
+          <aside class="faq-contact__details faq-reveal">
+            <h3>Contact Details</h3>
+            <div class="faq-detail"><span>Location</span><p>Unit No 5, Phase-1, Parmar Techno Center, Vasai Phata Vasai East</p></div>
+            <div class="faq-detail"><span>Phone Number</span><a href="tel:+918387997777">+91 8387997777</a></div>
+            <div class="faq-detail"><span>Email Address</span><a href="mailto:sales@vishalsteelproducts.com">sales@vishalsteelproducts.com</a></div>
+          </aside>
+          <form class="faq-contact__form faq-reveal" id="faq-contact-form" novalidate>
+            <div class="faq-field"><label for="faq-first-name">First Name*</label><input id="faq-first-name" name="firstName" type="text" placeholder="Enter your first name" autocomplete="given-name" required minlength="2" aria-describedby="faq-first-error"><span class="faq-error" id="faq-first-error"></span></div>
+            <div class="faq-field"><label for="faq-last-name">Last Name*</label><input id="faq-last-name" name="lastName" type="text" placeholder="Enter your last name" autocomplete="family-name" required minlength="2" aria-describedby="faq-last-error"><span class="faq-error" id="faq-last-error"></span></div>
+            <div class="faq-field"><label for="faq-email">Email Address*</label><input id="faq-email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required aria-describedby="faq-email-error"><span class="faq-error" id="faq-email-error"></span></div>
+            <div class="faq-field"><label for="faq-phone">Phone Number*</label><input id="faq-phone" name="phone" type="tel" placeholder="Enter your phone number" autocomplete="tel" inputmode="numeric" required aria-describedby="faq-phone-error"><span class="faq-error" id="faq-phone-error"></span></div>
+            <div class="faq-field faq-field--full"><label for="faq-interest">Product Type / Interest*</label><input id="faq-interest" name="interest" type="text" placeholder="e.g., Steel Furniture, Lab Equipment" required aria-describedby="faq-interest-error"><span class="faq-error" id="faq-interest-error"></span></div>
+            <div class="faq-field faq-field--full"><label for="faq-message">Message*</label><textarea id="faq-message" name="message" placeholder="Text area" required minlength="10" aria-describedby="faq-message-error"></textarea><span class="faq-error" id="faq-message-error"></span></div>
+            <div class="faq-submit"><button type="submit">Send Message <span aria-hidden="true">↗</span></button><span class="faq-form-status" id="faq-form-status" role="status" aria-live="polite"></span></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-connect" aria-labelledby="faq-connect-title">
+      <div class="faq-wrap faq-connect__inner faq-reveal">
+        <div class="faq-connect__brand">
+          <div class="faq-connect__logo"><img src="./assets/images/optimized/vishal-steel-products-logo-300.webp" alt="Vishal Steel Products Logo" loading="lazy"></div>
+          <h2 id="faq-connect-title">Connect with Vishal Steel Products for Premium Steel Furniture Solutions</h2>
+        </div>
+        <a class="faq-quote-link" href="contact.html#quote">Request a Quote <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      "use strict";
+      const page=document.body;
+      const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Accessible FAQ accordion: keep one answer open at a time within each group.
+      document.querySelectorAll(".faq-group").forEach(group=>{
+        const items=[...group.querySelectorAll("details")];
+        items.forEach(item=>item.addEventListener("toggle",()=>{
+          if(!item.open)return;
+          items.forEach(other=>{if(other!==item)other.open=false;});
+        }));
+      });
+
+      // Inline validation messages follow the exact requested validation wording.
+      const form=document.getElementById("faq-contact-form");
+      const status=document.getElementById("faq-form-status");
+      const rules=[
+        {id:"faq-first-name",error:"faq-first-error",message:"Please enter a valid first name (minimum 2 characters).",test:v=>v.trim().length>=2},
+        {id:"faq-last-name",error:"faq-last-error",message:"Please enter a valid last name (minimum 2 characters).",test:v=>v.trim().length>=2},
+        {id:"faq-email",error:"faq-email-error",message:"Please enter a valid email address.",test:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())},
+        {id:"faq-phone",error:"faq-phone-error",message:"Please enter a valid 10-digit phone number.",test:v=>/^\d{10}$/.test(v.replace(/\D/g,""))},
+        {id:"faq-interest",error:"faq-interest-error",message:"Please specify your product type or area of interest.",test:v=>v.trim().length>0},
+        {id:"faq-message",error:"faq-message-error",message:"Please enter a message (minimum 10 characters).",test:v=>v.trim().length>=10}
+      ];
+      rules.forEach(rule=>{
+        const field=document.getElementById(rule.id);
+        field.addEventListener("input",()=>{
+          if(field.getAttribute("aria-invalid")==="true"&&rule.test(field.value)){
+            field.removeAttribute("aria-invalid");
+            document.getElementById(rule.error).textContent="";
+          }
+        });
+      });
+      form.addEventListener("submit",event=>{
+        event.preventDefault();
+        let firstInvalid=null;
+        rules.forEach(rule=>{
+          const field=document.getElementById(rule.id);
+          const valid=rule.test(field.value);
+          field.setAttribute("aria-invalid",String(!valid));
+          document.getElementById(rule.error).textContent=valid?"":rule.message;
+          if(!valid&&!firstInvalid)firstInvalid=field;
+        });
+        if(firstInvalid){status.textContent="Please review the highlighted fields.";firstInvalid.focus();return;}
+        const data=new FormData(form);
+        const subject=encodeURIComponent("Website Enquiry – "+data.get("interest"));
+        const body=encodeURIComponent(
+          "First Name: "+data.get("firstName")+"\n"+
+          "Last Name: "+data.get("lastName")+"\n"+
+          "Email: "+data.get("email")+"\n"+
+          "Phone: "+data.get("phone")+"\n"+
+          "Product Type / Interest: "+data.get("interest")+"\n\n"+
+          "Message:\n"+data.get("message")
+        );
+        status.textContent="Opening your email application to send this enquiry.";
+        window.location.href="mailto:sales@vishalsteelproducts.com?subject="+subject+"&body="+body;
+      });
+
+      if(!reduced&&"IntersectionObserver"in window){
+        page.classList.add("faq-motion");
+        const observer=new IntersectionObserver((entries,obs)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){entry.target.classList.add("is-visible");obs.unobserve(entry.target);}
+          });
+        },{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+        document.querySelectorAll(".faq-reveal").forEach(el=>observer.observe(el));
+        page.classList.add("faq-motion-ready");
+      }
+      if(!reduced&&window.gsap&&window.ScrollTrigger){
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".faq-hero__inner > *",{y:25,opacity:0,duration:.8,stagger:.12,ease:"power3.out",delay:.12});
+        gsap.utils.toArray(".faq-category").forEach((item,i)=>{
+          gsap.from(item,{y:18,opacity:0,duration:.55,delay:i*.035,ease:"power2.out",scrollTrigger:{trigger:".faq-category-grid",start:"top 82%",once:true}});
+        });
+        ScrollTrigger.refresh();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1443 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Expert design consultation for steel, healthcare, laboratory, industrial and HVAC solutions from Vishal Steel Products.">
+  <meta name="theme-color" content="#202124">
+  <title>Design Consultation | VISHAL STEEL PRODUCTS</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --dc-red: #b51220;
+      --dc-dark-red: #8f0d18;
+      --dc-charcoal: #202124;
+      --dc-white: #fff;
+      --dc-grey: #f5f5f5;
+      --dc-muted: #67696d;
+      --dc-line: rgba(32, 33, 36, 0.16);
+      --dc-gutter: clamp(22px, 6vw, 96px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 104px;
+    }
+
+    body.dc-page {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: clip;
+      background: var(--dc-white);
+      color: var(--dc-charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .dc-page *,
+    .dc-page *::before,
+    .dc-page *::after {
+      box-sizing: border-box;
+    }
+
+    .dc-page a {
+      color: inherit;
+    }
+
+    .dc-main {
+      overflow: clip;
+    }
+
+    .dc-shell {
+      width: min(100% - var(--dc-gutter) * 2, 1440px);
+      margin-inline: auto;
+    }
+
+    .dc-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 21px;
+      color: var(--dc-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .dc-eyebrow::before {
+      width: 32px;
+      height: 1px;
+      flex: 0 0 auto;
+      background: currentColor;
+      content: "";
+    }
+
+    .dc-section-title {
+      max-width: 1000px;
+      margin: 0;
+      font-size: clamp(2.6rem, 6.6vw, 6.8rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.94;
+    }
+
+    .dc-section-copy {
+      max-width: 620px;
+      margin: 24px 0 0;
+      color: var(--dc-muted);
+      font-size: clamp(15px, 1.45vw, 18px);
+      line-height: 1.8;
+    }
+
+    .dc-page a:focus-visible {
+      outline: 2px solid var(--dc-red);
+      outline-offset: 5px;
+    }
+
+    .dc-hero {
+      position: relative;
+      isolation: isolate;
+      min-height: min(920px, calc(100svh - 88px));
+      padding: clamp(78px, 9.5vw, 142px) 0 58px;
+      overflow: hidden;
+      background: var(--dc-charcoal);
+      color: var(--dc-white);
+    }
+
+    .dc-hero::before,
+    .dc-hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+    }
+
+    .dc-hero::before {
+      background:
+        radial-gradient(ellipse at 78% 36%, rgba(181, 18, 32, 0.3), transparent 34%),
+        radial-gradient(ellipse at 7% 93%, rgba(143, 13, 24, 0.16), transparent 35%);
+      animation: dc-ambient 12s ease-in-out infinite alternate;
+    }
+
+    .dc-hero::after {
+      opacity: 0.15;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 76px 76px;
+      mask-image: linear-gradient(90deg, transparent, #000 45%, #000 100%);
+    }
+
+    .dc-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dc-hero__top {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .dc-hero__copy {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+    }
+
+    .dc-hero__eyebrow {
+      margin-bottom: 27px;
+      color: #f15b65;
+    }
+
+    .dc-hero__title {
+      max-width: 1180px;
+      margin: 0;
+      font-size: clamp(3.35rem, 6.2vw, 6.8rem);
+      font-weight: 750;
+      letter-spacing: -0.09em;
+      line-height: 0.91;
+    }
+
+    .dc-hero__title-line {
+      display: block;
+      overflow: hidden;
+      padding: 0.02em 0.05em 0.08em 0;
+    }
+
+    .dc-hero__title-line span {
+      display: block;
+      transform-origin: left center;
+    }
+
+    .dc-hero__description {
+      max-width: 690px;
+      margin: 29px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.8;
+    }
+
+    .dc-hero__visual {
+      position: absolute;
+      z-index: 0;
+      top: 16px;
+      right: -14px;
+      width: min(36vw, 460px);
+      height: 410px;
+      min-height: 0;
+      opacity: 0.55;
+      transform-style: preserve-3d;
+      perspective: 1100px;
+      pointer-events: none;
+    }
+
+    .dc-hero__halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(32vw, 430px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 34px rgba(255, 255, 255, 0.025), 0 0 0 78px rgba(255, 255, 255, 0.018);
+    }
+
+    .dc-hero__halo::before,
+    .dc-hero__halo::after {
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(181, 18, 32, 0.48);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .dc-hero__halo::after {
+      inset: 27%;
+      border-color: rgba(255, 255, 255, 0.19);
+    }
+
+    .dc-hero__core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 17%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8b9bd 0, var(--dc-red) 43%, rgba(181, 18, 32, 0.1) 72%);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 50px rgba(181, 18, 32, 0.75);
+    }
+
+    .dc-hero__beam {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 78%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.66), transparent);
+      transform: translate(-50%, -50%) rotate(-38deg);
+    }
+
+    .dc-hero__beam--vertical {
+      transform: translate(-50%, -50%) rotate(53deg);
+      opacity: 0.58;
+    }
+
+    .dc-hero__plate {
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      width: clamp(76px, 9vw, 128px);
+      height: 57%;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: linear-gradient(100deg, rgba(255, 255, 255, 0.12), rgba(32, 33, 36, 0.8) 44%, rgba(255, 255, 255, 0.08));
+      box-shadow: 17px 18px 34px rgba(0, 0, 0, 0.34);
+      transform: translateX(-50%) rotate(30deg) skewY(-8deg);
+    }
+
+    .dc-hero__plate--back {
+      top: 14%;
+      left: 41%;
+      height: 67%;
+      opacity: 0.5;
+      transform: translateX(-50%) rotate(-30deg) skewY(8deg);
+    }
+
+    .dc-hero__visual-note {
+      position: absolute;
+      right: 0;
+      bottom: 3%;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .dc-hero__services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: clamp(34px, 5vw, 66px);
+      border-top: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .dc-hero__service {
+      position: relative;
+      min-height: 160px;
+      padding: 25px clamp(18px, 2.4vw, 38px) 8px 0;
+      transition: background-color 300ms ease, transform 300ms ease;
+    }
+
+    .dc-hero__service + .dc-hero__service {
+      padding-left: clamp(18px, 2.4vw, 38px);
+      border-left: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .dc-hero__service:hover {
+      transform: translateY(-5px);
+    }
+
+    .dc-hero__service-index {
+      display: block;
+      margin-bottom: 17px;
+      color: #f15b65;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+    }
+
+    .dc-hero__service h2 {
+      max-width: 290px;
+      margin: 0;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      line-height: 1.16;
+    }
+
+    .dc-hero__service p {
+      max-width: 390px;
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .dc-hero__scroll {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 27px;
+      color: rgba(255, 255, 255, 0.59);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .dc-hero__scroll::before {
+      width: 32px;
+      height: 1px;
+      background: var(--dc-red);
+      content: "";
+    }
+
+    .dc-expertise {
+      position: relative;
+      padding: clamp(90px, 12vw, 174px) 0 clamp(98px, 12vw, 172px);
+      background: var(--dc-white);
+    }
+
+    .dc-expertise__intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(250px, 0.7fr);
+      align-items: end;
+      gap: clamp(28px, 8vw, 124px);
+      margin-bottom: clamp(62px, 9vw, 126px);
+    }
+
+    .dc-expertise__intro .dc-section-copy {
+      margin: 0 0 5px;
+    }
+
+    .dc-expertise__echo {
+      position: relative;
+      margin: 0 0 clamp(66px, 10vw, 144px);
+      padding: clamp(34px, 5vw, 70px) clamp(28px, 5vw, 78px);
+      overflow: hidden;
+      background: var(--dc-charcoal);
+      color: var(--dc-white);
+    }
+
+    .dc-expertise__echo::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: var(--dc-red);
+      content: "";
+    }
+
+    .dc-expertise__echo::after {
+      position: absolute;
+      right: -80px;
+      bottom: -180px;
+      width: 430px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.025), 0 0 0 90px rgba(255, 255, 255, 0.02);
+      content: "";
+      pointer-events: none;
+    }
+
+    .dc-expertise__echo h3 {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(2.3rem, 5.7vw, 5.6rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
+    }
+
+    .dc-expertise__echo p {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.69);
+      font-size: clamp(14px, 1.35vw, 17px);
+      line-height: 1.8;
+    }
+
+    .dc-expertise__list {
+      border-top: 1px solid var(--dc-line);
+    }
+
+    .dc-expertise__item {
+      position: relative;
+      display: grid;
+      min-height: 250px;
+      grid-template-columns: minmax(125px, 0.34fr) minmax(0, 1fr) auto;
+      grid-template-areas: "number copy action";
+      align-items: center;
+      gap: clamp(20px, 4vw, 64px);
+      padding: 34px 0;
+      border-bottom: 1px solid var(--dc-line);
+      transition: background-color 300ms ease;
+    }
+
+    .dc-expertise__item:nth-child(even) {
+      grid-template-columns: minmax(0, 1fr) minmax(125px, 0.34fr) auto;
+      grid-template-areas: "copy number action";
+    }
+
+    .dc-expertise__item:hover {
+      background: linear-gradient(90deg, rgba(181, 18, 32, 0.035), transparent 75%);
+    }
+
+    .dc-expertise__number {
+      grid-area: number;
+      color: var(--dc-red);
+      font-size: clamp(5rem, 11vw, 10.4rem);
+      font-weight: 700;
+      letter-spacing: -0.12em;
+      line-height: 0.8;
+      opacity: 0.88;
+      transition: color 280ms ease, transform 350ms ease;
+    }
+
+    .dc-expertise__item:hover .dc-expertise__number {
+      color: var(--dc-dark-red);
+      transform: translateX(6px);
+    }
+
+    .dc-expertise__copy {
+      grid-area: copy;
+      max-width: 780px;
+    }
+
+    .dc-expertise__copy h3 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 57px);
+      font-weight: 650;
+      letter-spacing: -0.065em;
+      line-height: 1;
+    }
+
+    .dc-expertise__copy p {
+      max-width: 650px;
+      margin: 16px 0 0;
+      color: var(--dc-muted);
+      font-size: clamp(14px, 1.35vw, 17px);
+      line-height: 1.75;
+    }
+
+    .dc-expertise__link {
+      grid-area: action;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      align-self: center;
+      min-height: 48px;
+      color: var(--dc-charcoal);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .dc-expertise__link span {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(32, 33, 36, 0.23);
+      border-radius: 50%;
+      color: var(--dc-red);
+      font-size: 17px;
+      transition: color 240ms ease, background-color 240ms ease, border-color 240ms ease, transform 240ms ease;
+    }
+
+    .dc-expertise__link:hover span {
+      transform: translate(3px, -3px);
+      border-color: var(--dc-red);
+      background: var(--dc-red);
+      color: var(--dc-white);
+    }
+
+    .dc-portfolio {
+      position: relative;
+      padding: clamp(90px, 12vw, 164px) 0 clamp(100px, 13vw, 180px);
+      overflow: hidden;
+      background: var(--dc-grey);
+    }
+
+    .dc-portfolio::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(34vw, 480px);
+      height: 1px;
+      background: var(--dc-red);
+      content: "";
+    }
+
+    .dc-portfolio__intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.7fr);
+      align-items: end;
+      gap: clamp(28px, 7vw, 112px);
+      margin-bottom: clamp(58px, 8vw, 114px);
+    }
+
+    .dc-portfolio__intro .dc-section-copy {
+      margin: 0 0 4px;
+    }
+
+    .dc-portfolio__grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: start;
+      column-gap: clamp(18px, 3.2vw, 48px);
+      row-gap: clamp(58px, 9vw, 128px);
+    }
+
+    .dc-project {
+      min-width: 0;
+    }
+
+    .dc-project:nth-child(1),
+    .dc-project:nth-child(5) {
+      grid-column: 1 / span 6;
+    }
+
+    .dc-project:nth-child(2),
+    .dc-project:nth-child(4),
+    .dc-project:nth-child(6) {
+      grid-column: 8 / span 5;
+      margin-top: clamp(65px, 10vw, 142px);
+    }
+
+    .dc-project:nth-child(3) {
+      grid-column: 2 / span 5;
+      margin-top: -30px;
+    }
+
+    .dc-project__frame {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #e8e7e4;
+    }
+
+    .dc-media {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.18 / 1;
+      margin: 0;
+      overflow: hidden;
+      background-color: #e6e5e2;
+      background-image:
+        linear-gradient(135deg, transparent 49.7%, rgba(32, 33, 36, 0.08) 50%, transparent 50.3%),
+        linear-gradient(45deg, transparent 49.7%, rgba(32, 33, 36, 0.055) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 66% 32%, rgba(181, 18, 32, 0.1), transparent 38%),
+        linear-gradient(140deg, #f2f1ef, #dad9d6);
+      background-size: 54px 54px, 54px 54px, auto, auto;
+      transform: perspective(1300px) rotateX(var(--dc-rotate-x, 0deg)) rotateY(var(--dc-rotate-y, 0deg)) scale(var(--dc-scale, 1));
+      transform-style: preserve-3d;
+      transition: transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1), background-color 300ms ease;
+      will-change: transform, clip-path;
+    }
+
+    .dc-media::before,
+    .dc-media::after {
+      position: absolute;
+      z-index: 1;
+      inset: 18px;
+      border: 1px solid rgba(32, 33, 36, 0.11);
+      content: "";
+      pointer-events: none;
+    }
+
+    .dc-media::after {
+      inset: 0;
+      border: 0;
+      background: linear-gradient(160deg, rgba(32, 33, 36, 0.02), rgba(32, 33, 36, 0.16));
+      opacity: 0.68;
+      transition: opacity 350ms ease;
+    }
+
+    .dc-project:nth-child(2) .dc-media {
+      aspect-ratio: 0.98 / 1;
+      background-image:
+        linear-gradient(90deg, transparent 49.7%, rgba(32, 33, 36, 0.08) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 32% 75%, rgba(181, 18, 32, 0.12), transparent 40%),
+        linear-gradient(135deg, #e4e3df, #f3f2ef);
+      background-size: 62px 62px, auto, auto;
+    }
+
+    .dc-project:nth-child(3) .dc-media {
+      aspect-ratio: 1.28 / 1;
+      background-image:
+        linear-gradient(135deg, transparent 49.7%, rgba(32, 33, 36, 0.07) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 75% 30%, rgba(181, 18, 32, 0.1), transparent 42%),
+        linear-gradient(135deg, #efeeeb, #d7d6d2);
+      background-size: 50px 50px, auto, auto;
+    }
+
+    .dc-project:nth-child(4) .dc-media {
+      aspect-ratio: 1.08 / 1;
+      background-image:
+        linear-gradient(0deg, transparent 49.7%, rgba(32, 33, 36, 0.08) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 38% 38%, rgba(181, 18, 32, 0.11), transparent 43%),
+        linear-gradient(135deg, #f1f0ed, #d9d8d4);
+      background-size: 64px 64px, auto, auto;
+    }
+
+    .dc-project:nth-child(5) .dc-media {
+      aspect-ratio: 1.28 / 1;
+      background-image:
+        linear-gradient(90deg, transparent 49.7%, rgba(32, 33, 36, 0.07) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 70% 68%, rgba(181, 18, 32, 0.12), transparent 38%),
+        linear-gradient(135deg, #d9d8d4, #f3f2ef);
+      background-size: 58px 58px, auto, auto;
+    }
+
+    .dc-project:nth-child(6) .dc-media {
+      aspect-ratio: 1 / 1.05;
+      background-image:
+        linear-gradient(135deg, transparent 49.7%, rgba(32, 33, 36, 0.08) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 38% 36%, rgba(181, 18, 32, 0.1), transparent 40%),
+        linear-gradient(135deg, #f0efec, #d8d7d3);
+      background-size: 55px 55px, auto, auto;
+    }
+
+    .dc-media__image {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .dc-project:hover .dc-media {
+      --dc-scale: 1.025;
+    }
+
+    .dc-project:hover .dc-media::after {
+      opacity: 0.36;
+    }
+
+    .dc-project__meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 11px;
+      color: var(--dc-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .dc-project__meta::before {
+      width: 23px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .dc-project__title {
+      max-width: 520px;
+      margin: 0;
+      font-size: clamp(24px, 3.25vw, 44px);
+      font-weight: 650;
+      letter-spacing: -0.06em;
+      line-height: 1.04;
+    }
+
+    .dc-project__title span {
+      display: block;
+      margin-top: 8px;
+      color: #74767a;
+      font-size: clamp(15px, 1.55vw, 20px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.4;
+    }
+
+    .dc-project:nth-child(even) .dc-project__title {
+      max-width: 440px;
+    }
+
+    @keyframes dc-ambient {
+      from {
+        transform: scale(0.98) translate3d(0, 0, 0);
+      }
+      to {
+        transform: scale(1.05) translate3d(-1.5%, 1%, 0);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .dc-hero__top {
+        min-height: 420px;
+      }
+
+      .dc-hero__visual {
+        top: 18px;
+        right: -20px;
+        width: min(40vw, 360px);
+        height: 340px;
+        opacity: 0.42;
+      }
+
+      .dc-hero__halo {
+        width: min(37vw, 340px);
+      }
+
+      .dc-expertise__item,
+      .dc-expertise__item:nth-child(even) {
+        grid-template-columns: minmax(100px, 0.28fr) minmax(0, 1fr) auto;
+        grid-template-areas: "number copy action";
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .dc-section-title {
+        font-size: clamp(2.55rem, 10vw, 4.7rem);
+      }
+
+      .dc-hero {
+        min-height: 0;
+        padding: 74px 0 45px;
+      }
+
+      .dc-hero__top {
+        min-height: 0;
+      }
+
+      .dc-hero__title {
+        max-width: 760px;
+        font-size: clamp(3.1rem, 11vw, 6.1rem);
+      }
+
+      .dc-hero__description {
+        max-width: 610px;
+      }
+
+      .dc-hero__visual {
+        position: absolute;
+        top: 54px;
+        right: -100px;
+        width: 45%;
+        min-width: 240px;
+        height: 300px;
+        min-height: 0;
+        opacity: 0.34;
+        pointer-events: none;
+      }
+
+      .dc-hero__halo {
+        width: 250px;
+      }
+
+      .dc-hero__services {
+        position: relative;
+        z-index: 2;
+        grid-template-columns: 1fr;
+        margin-top: 56px;
+      }
+
+      .dc-hero__service,
+      .dc-hero__service + .dc-hero__service {
+        min-height: 0;
+        padding: 22px 0 24px;
+        border-left: 0;
+      }
+
+      .dc-hero__service + .dc-hero__service {
+        border-top: 1px solid rgba(255, 255, 255, 0.17);
+      }
+
+      .dc-hero__service-index {
+        margin-bottom: 10px;
+      }
+
+      .dc-hero__service p {
+        max-width: 540px;
+      }
+
+      .dc-expertise__intro,
+      .dc-portfolio__intro {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .dc-expertise__intro .dc-section-copy,
+      .dc-portfolio__intro .dc-section-copy {
+        max-width: 620px;
+      }
+
+      .dc-expertise__item,
+      .dc-expertise__item:nth-child(even) {
+        min-height: 0;
+        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-areas:
+          "number copy"
+          "number action";
+        gap: 12px 22px;
+        padding: 29px 0 32px;
+      }
+
+      .dc-expertise__number {
+        align-self: start;
+        padding-top: 5px;
+        font-size: clamp(4.5rem, 13vw, 7rem);
+      }
+
+      .dc-expertise__copy h3 {
+        font-size: clamp(26px, 6.5vw, 40px);
+      }
+
+      .dc-expertise__link {
+        justify-self: start;
+        min-height: 40px;
+      }
+
+      .dc-expertise__link span {
+        width: 32px;
+        height: 32px;
+      }
+
+      .dc-portfolio__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 22px;
+        row-gap: 58px;
+      }
+
+      .dc-project:nth-child(n) {
+        grid-column: auto;
+        margin-top: 0;
+      }
+
+      .dc-project:nth-child(even) {
+        margin-top: 52px;
+      }
+
+      .dc-project__meta {
+        gap: 8px;
+        font-size: 9px;
+      }
+
+      .dc-project__title {
+        font-size: clamp(22px, 4vw, 30px);
+      }
+
+      .dc-project__title span {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .dc-hero__title {
+        font-size: clamp(2.8rem, 12.4vw, 4.25rem);
+        letter-spacing: -0.085em;
+      }
+
+      .dc-hero__visual {
+        top: 95px;
+        right: -132px;
+        opacity: 0.27;
+      }
+
+      .dc-hero__description {
+        max-width: 520px;
+        margin-top: 22px;
+        font-size: 14px;
+      }
+
+      .dc-expertise__echo {
+        padding: 32px 24px;
+      }
+
+      .dc-expertise__echo h3 {
+        font-size: clamp(2.15rem, 9vw, 3.3rem);
+      }
+
+      .dc-expertise__item,
+      .dc-expertise__item:nth-child(even) {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 10px 16px;
+      }
+
+      .dc-expertise__number {
+        font-size: 4.8rem;
+      }
+
+      .dc-expertise__copy p {
+        margin-top: 12px;
+        font-size: 14px;
+      }
+
+      .dc-portfolio__grid {
+        grid-template-columns: 1fr;
+        row-gap: 43px;
+      }
+
+      .dc-project:nth-child(n) {
+        margin-top: 0;
+      }
+
+      .dc-project:nth-child(even) {
+        margin-top: 0;
+      }
+
+      .dc-media,
+      .dc-project:nth-child(n) .dc-media {
+        aspect-ratio: 1.16 / 1;
+      }
+
+      .dc-project__meta {
+        margin-top: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .dc-page *,
+      .dc-page *::before,
+      .dc-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="vs-page dc-page">
+  <div id="navbar-placeholder"></div>
+  <main class="dc-main">
+    <section class="dc-hero" aria-labelledby="dc-hero-title">
+      <div class="dc-shell dc-hero__inner">
+        <div class="dc-hero__top">
+          <div class="dc-hero__copy">
+            <p class="dc-eyebrow dc-hero__eyebrow">Design Consultation</p>
+            <h1 class="dc-hero__title" id="dc-hero-title">
+              <span class="dc-hero__title-line"><span>Multi-Material Manufacturing</span></span>
+              <span class="dc-hero__title-line"><span>Excellence Through Expert</span></span>
+              <span class="dc-hero__title-line"><span>Design Consultation</span></span>
+            </h1>
+            <p class="dc-hero__description">Part of the Chameza Group with 36+ years of excellence, we transform complex manufacturing challenges into comprehensive solutions across healthcare, laboratory, industrial, and HVAC sectors.</p>
+          </div>
+
+          <div class="dc-hero__visual" aria-hidden="true">
+            <div class="dc-hero__halo"></div>
+            <div class="dc-hero__beam"></div>
+            <div class="dc-hero__beam dc-hero__beam--vertical"></div>
+            <div class="dc-hero__plate dc-hero__plate--back"></div>
+            <div class="dc-hero__plate"></div>
+            <div class="dc-hero__core"></div>
+            <span class="dc-hero__visual-note">Design / Engineering / Precision</span>
+          </div>
+        </div>
+
+        <div class="dc-hero__services" aria-label="Design consultation service categories">
+          <article class="dc-hero__service">
+            <span class="dc-hero__service-index">01</span>
+            <h2>Healthcare &amp; Laboratory Design</h2>
+            <p>Specialized design consultation for hospital furniture, medical equipment, and all types of laboratory fume hoods with safety compliance.</p>
+          </article>
+          <article class="dc-hero__service">
+            <span class="dc-hero__service-index">02</span>
+            <h2>Industrial Solutions Design</h2>
+            <p>Expert design consultation for warehouse racks, workbenches, and industrial furniture optimized for maximum efficiency and durability.</p>
+          </article>
+          <article class="dc-hero__service">
+            <span class="dc-hero__service-index">03</span>
+            <h2>HVAC System Design</h2>
+            <p>Complete turnkey HVAC system design and consultation ensuring optimal climate control and air quality management for all industries.</p>
+          </article>
+        </div>
+        <a class="dc-hero__scroll" href="#expertise">Scroll to explore</a>
+      </div>
+    </section>
+
+    <section class="dc-expertise" id="expertise" aria-labelledby="dc-expertise-title">
+      <div class="dc-shell">
+        <header class="dc-expertise__intro">
+          <div>
+            <p class="dc-eyebrow">Our Expertise</p>
+            <h2 class="dc-section-title" id="dc-expertise-title">Comprehensive Steel Solutions</h2>
+          </div>
+          <p class="dc-section-copy">From precision engineering to custom fabrication, Vishal Steel Products delivers innovative steel solutions tailored to your specific industrial and architectural requirements.</p>
+        </header>
+
+        <div class="dc-expertise__echo">
+          <h3>Comprehensive Steel Solutions</h3>
+          <p>From precision engineering to custom fabrication, Vishal Steel Products delivers innovative steel solutions tailored to your specific industrial and architectural requirements.</p>
+        </div>
+
+        <div class="dc-expertise__list" aria-label="Steel design and fabrication expertise">
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">01</span>
+            <div class="dc-expertise__copy">
+              <h3>Custom Steel Design</h3>
+              <p>Innovative design solutions for complex industrial and architectural steel structures, tailored to your unique specifications.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-healthcare">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">02</span>
+            <div class="dc-expertise__copy">
+              <h3>Precision Fabrication</h3>
+              <p>State-of-the-art fabrication techniques ensuring highest quality, precision, and structural integrity for every steel component.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-laboratory">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">03</span>
+            <div class="dc-expertise__copy">
+              <h3>Engineering Consultation</h3>
+              <p>Comprehensive technical support from concept development to final implementation, ensuring optimal steel solution design.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-industrial">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">04</span>
+            <div class="dc-expertise__copy">
+              <h3>Industrial Steel Solutions</h3>
+              <p>Specialized steel solutions for diverse industrial applications, from manufacturing equipment to infrastructure projects.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-hvac">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">05</span>
+            <div class="dc-expertise__copy">
+              <h3>Architectural Metalwork</h3>
+              <p>Innovative steel solutions for architectural projects, combining aesthetic design with structural excellence and durability.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-workstation">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="dc-expertise__item">
+            <span class="dc-expertise__number" aria-hidden="true">06</span>
+            <div class="dc-expertise__copy">
+              <h3>Quality Assurance</h3>
+              <p>Rigorous quality control and testing processes ensuring highest standards of material strength, durability, and performance.</p>
+            </div>
+            <a class="dc-expertise__link" href="#portfolio-commercial">Learn More <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dc-portfolio" id="portfolio" aria-labelledby="dc-portfolio-title">
+      <div class="dc-shell">
+        <header class="dc-portfolio__intro">
+          <div>
+            <p class="dc-eyebrow">Design Portfolio</p>
+            <h2 class="dc-section-title" id="dc-portfolio-title">Expert Design Consultation Across Industries</h2>
+          </div>
+          <p class="dc-section-copy">Showcasing our design expertise in multi-material manufacturing solutions with specialized consultation services for healthcare, laboratory, industrial, and commercial sectors.</p>
+        </header>
+
+        <div class="dc-portfolio__grid">
+          <article class="dc-project" id="portfolio-healthcare">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: Healthcare Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-healthcare-design" data-image-src="./assets/images/Design-Consultation.png" data-image-alt="Medical Equipment Design Consultation"></figure>
+            </div>
+            <p class="dc-project__meta">01. Healthcare Design</p>
+            <h3 class="dc-project__title">Healthcare Design<span>Medical Equipment Design Consultation</span></h3>
+          </article>
+
+          <article class="dc-project" id="portfolio-laboratory">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: Laboratory Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-laboratory-design" data-image-src="./assets/images/Design-Consultation1.png" data-image-alt="Fume Hood Safety Design Solutions"></figure>
+            </div>
+            <p class="dc-project__meta">02. Laboratory Design</p>
+            <h3 class="dc-project__title">Laboratory Design<span>Fume Hood Safety Design Solutions</span></h3>
+          </article>
+
+          <article class="dc-project" id="portfolio-industrial">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: Industrial Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-industrial-design" data-image-src="./assets/images/Design-Consultation2.png" data-image-alt="Warehouse Storage System Design"></figure>
+            </div>
+            <p class="dc-project__meta">03. Industrial Design</p>
+            <h3 class="dc-project__title">Industrial Design<span>Warehouse Storage System Design</span></h3>
+          </article>
+
+          <article class="dc-project" id="portfolio-hvac">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: HVAC Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-hvac-design" data-image-src="./assets/images/Design-Consultation3.png" data-image-alt="Climate Control System Design"></figure>
+            </div>
+            <p class="dc-project__meta">04. HVAC Design</p>
+            <h3 class="dc-project__title">HVAC Design<span>Climate Control System Design</span></h3>
+          </article>
+
+          <article class="dc-project" id="portfolio-workstation">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: Workstation Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-workstation-design" data-image-src="./assets/images/Design-Consultation4.png" data-image-alt="Ergonomic Workbench Design"></figure>
+            </div>
+            <p class="dc-project__meta">05. Workstation Design</p>
+            <h3 class="dc-project__title">Workstation Design<span>Ergonomic Workbench Design</span></h3>
+          </article>
+
+          <article class="dc-project" id="portfolio-commercial">
+            <div class="dc-project__frame">
+              <!-- Image placeholder: Commercial Design portfolio. Set data-image-src to configure this image independently. -->
+              <figure class="dc-media" data-image-slot="portfolio-commercial-design" data-image-src="./assets/images/Design-Consultation5.png" data-image-alt="Office Space Design Solutions"></figure>
+            </div>
+            <p class="dc-project__meta">06. Commercial Design</p>
+            <h3 class="dc-project__title">Commercial Design<span>Office Space Design Solutions</span></h3>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      let initialized = false;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function initializeConfiguredImages() {
+        document.querySelectorAll("[data-image-slot]").forEach((slot) => {
+          const source = (slot.dataset.imageSrc || "").trim();
+          if (!source || slot.dataset.imageInitialized === "true") {
+            return;
+          }
+
+          slot.dataset.imageInitialized = "true";
+          const image = new Image();
+          image.className = "dc-media__image";
+          image.alt = slot.dataset.imageAlt || "";
+          image.width = 1600;
+          image.height = 1200;
+          image.loading = "lazy";
+          image.decoding = "async";
+          image.addEventListener("load", () => {
+            slot.classList.add("has-image");
+            if (window.ScrollTrigger && !reducedMotion) {
+              window.ScrollTrigger.refresh();
+            }
+          }, { once: true });
+          image.addEventListener("error", () => {
+            slot.classList.add("has-image-error");
+            console.error(`Could not load configured image for ${slot.dataset.imageSlot}: ${source}`);
+          }, { once: true });
+          slot.appendChild(image);
+          image.src = source;
+        });
+      }
+
+      function initializePointerInteraction() {
+        if (reducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          return;
+        }
+
+        document.querySelectorAll(".dc-project__frame").forEach((frame) => {
+          if (frame.dataset.pointerInitialized === "true") {
+            return;
+          }
+          frame.dataset.pointerInitialized = "true";
+          const media = frame.querySelector(".dc-media");
+          if (!media) {
+            return;
+          }
+
+          frame.addEventListener("pointermove", (event) => {
+            const bounds = frame.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            media.style.setProperty("--dc-rotate-x", `${-y * 2.2}deg`);
+            media.style.setProperty("--dc-rotate-y", `${x * 2.6}deg`);
+          }, { passive: true });
+          frame.addEventListener("pointerleave", () => {
+            media.style.setProperty("--dc-rotate-x", "0deg");
+            media.style.setProperty("--dc-rotate-y", "0deg");
+          }, { passive: true });
+        });
+      }
+
+      function initializeAnimations() {
+        if (reducedMotion || !window.gsap || !window.ScrollTrigger) {
+          return;
+        }
+
+        const gsap = window.gsap;
+        const ScrollTrigger = window.ScrollTrigger;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const hero = document.querySelector(".dc-hero");
+        if (hero) {
+          const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+          timeline
+            .fromTo(hero.querySelector(".dc-hero__eyebrow"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 })
+            .fromTo(hero.querySelectorAll(".dc-hero__title-line span"), { yPercent: 112, rotate: 1.4 }, { yPercent: 0, rotate: 0, duration: 0.95, stagger: 0.12 }, "-=0.2")
+            .fromTo(hero.querySelector(".dc-hero__description"), { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65 }, "-=0.4")
+            .fromTo(hero.querySelector(".dc-hero__visual"), { opacity: 0, scale: 0.93, rotateY: -7 }, { opacity: 1, scale: 1, rotateY: 0, duration: 1.2, ease: "power3.inOut" }, 0.18);
+        }
+
+        gsap.utils.toArray(".dc-hero__service").forEach((service, index) => {
+          ScrollTrigger.create({
+            trigger: service,
+            start: "top 94%",
+            once: true,
+            onEnter: () => gsap.fromTo(service, {
+              y: 24 + index * 3,
+              opacity: 0
+            }, {
+              y: 0,
+              opacity: 1,
+              duration: 0.7,
+              delay: index * 0.1,
+              ease: "power3.out"
+            })
+          });
+        });
+
+        const expertiseIntro = document.querySelector(".dc-expertise__intro");
+        if (expertiseIntro) {
+          ScrollTrigger.create({
+            trigger: expertiseIntro,
+            start: "top 82%",
+            once: true,
+            onEnter: () => gsap.fromTo(expertiseIntro.children, {
+              y: 26,
+              opacity: 0
+            }, {
+              y: 0,
+              opacity: 1,
+              duration: 0.78,
+              stagger: 0.12,
+              ease: "power3.out"
+            })
+          });
+        }
+
+        const expertiseEcho = document.querySelector(".dc-expertise__echo");
+        if (expertiseEcho) {
+          ScrollTrigger.create({
+            trigger: expertiseEcho,
+            start: "top 84%",
+            once: true,
+            onEnter: () => gsap.fromTo(expertiseEcho, {
+              clipPath: "inset(0 0 0 5%)",
+              x: 24
+            }, {
+              clipPath: "inset(0 0 0 0)",
+              x: 0,
+              duration: 0.9,
+              ease: "power3.inOut"
+            })
+          });
+        }
+
+        gsap.utils.toArray(".dc-expertise__item").forEach((item, index) => {
+          const number = item.querySelector(".dc-expertise__number");
+          const copy = item.querySelector(".dc-expertise__copy");
+          const action = item.querySelector(".dc-expertise__link");
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 84%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(number, { x: index % 2 ? 18 : -18, opacity: 0.2 }, {
+                x: 0,
+                opacity: 0.88,
+                duration: 0.8,
+                ease: "power3.out"
+              });
+              gsap.fromTo([copy, action], { y: 21, opacity: 0 }, {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                delay: 0.08,
+                stagger: 0.08,
+                ease: "power3.out"
+              });
+            }
+          });
+          gsap.to(number, {
+            yPercent: index % 2 ? -4 : 4,
+            ease: "none",
+            scrollTrigger: {
+              trigger: item,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.8
+            }
+          });
+        });
+
+        const portfolioIntro = document.querySelector(".dc-portfolio__intro");
+        if (portfolioIntro) {
+          ScrollTrigger.create({
+            trigger: portfolioIntro,
+            start: "top 82%",
+            once: true,
+            onEnter: () => gsap.fromTo(portfolioIntro.children, { y: 24, opacity: 0 }, {
+              y: 0,
+              opacity: 1,
+              duration: 0.78,
+              stagger: 0.13,
+              ease: "power3.out"
+            })
+          });
+        }
+
+        gsap.utils.toArray(".dc-project").forEach((project, index) => {
+          const media = project.querySelector(".dc-media");
+          const meta = project.querySelector(".dc-project__meta");
+          const title = project.querySelector(".dc-project__title");
+          ScrollTrigger.create({
+            trigger: project,
+            start: "top 86%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(media, {
+                clipPath: "inset(7% 5% 7% 5%)"
+              }, {
+                clipPath: "inset(0% 0% 0% 0%)",
+                duration: 1,
+                delay: (index % 2) * 0.08,
+                ease: "power3.inOut"
+              });
+              gsap.fromTo([meta, title], {
+                y: 18,
+                opacity: 0
+              }, {
+                y: 0,
+                opacity: 1,
+                duration: 0.65,
+                delay: 0.13 + (index % 2) * 0.07,
+                stagger: 0.1,
+                ease: "power3.out"
+              });
+            }
+          });
+        });
+
+        const portfolio = document.querySelector(".dc-portfolio");
+        if (portfolio) {
+          gsap.to(portfolio, {
+            backgroundColor: "#f0efed",
+            ease: "none",
+            scrollTrigger: {
+              trigger: portfolio,
+              start: "top bottom",
+              end: "top top",
+              scrub: 0.8
+            }
+          });
+        }
+
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+      }
+
+      function initializePage() {
+        if (initialized) {
+          return;
+        }
+        initialized = true;
+        initializeConfiguredImages();
+        initializePointerInteraction();
+        initializeAnimations();
+
+        const refresh = () => {
+          if (window.ScrollTrigger && !reducedMotion) {
+            window.ScrollTrigger.refresh();
+          }
+        };
+        window.addEventListener("load", refresh, { once: true });
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(refresh);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePage, { once: true });
+      } else {
+        initializePage();
+      }
+    })();
+  </script>
+</body>
+</html>

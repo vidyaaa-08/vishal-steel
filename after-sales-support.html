@@ -1,0 +1,2007 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="After-sales support for healthcare, laboratory, industrial and HVAC solutions from Vishal Steel Products.">
+  <meta name="theme-color" content="#202124">
+  <title>After-Sales Support | VISHAL STEEL PRODUCTS</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --as-red: #b51220;
+      --as-dark-red: #8f0d18;
+      --as-charcoal: #202124;
+      --as-white: #fff;
+      --as-grey: #f5f5f5;
+      --as-muted: #67696d;
+      --as-line: rgba(32, 33, 36, 0.15);
+      --as-gutter: clamp(22px, 6vw, 94px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 104px;
+    }
+
+    body.as-page {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: clip;
+      background: var(--as-white);
+      color: var(--as-charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .as-page *,
+    .as-page *::before,
+    .as-page *::after {
+      box-sizing: border-box;
+    }
+
+    .as-page a {
+      color: inherit;
+    }
+
+    .as-main {
+      overflow: clip;
+    }
+
+    .as-shell {
+      width: min(100% - var(--as-gutter) * 2, 1440px);
+      margin-inline: auto;
+    }
+
+    .as-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--as-red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .as-eyebrow::before {
+      width: 31px;
+      height: 1px;
+      flex: 0 0 auto;
+      background: currentColor;
+      content: "";
+    }
+
+    .as-section-title {
+      max-width: 1000px;
+      margin: 0;
+      font-size: clamp(2.55rem, 6.2vw, 6.1rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
+    }
+
+    .as-section-copy {
+      max-width: 690px;
+      margin: 23px 0 0;
+      color: var(--as-muted);
+      font-size: clamp(15px, 1.38vw, 18px);
+      line-height: 1.8;
+    }
+
+    .as-page a:focus-visible,
+    .as-page button:focus-visible,
+    .as-page input:focus-visible {
+      outline: 2px solid var(--as-red);
+      outline-offset: 4px;
+    }
+
+    .as-titlebar {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: clamp(390px, 48vw, 650px);
+      align-items: center;
+      padding: clamp(62px, 9vw, 128px) 0;
+      overflow: hidden;
+      background: var(--as-charcoal);
+      color: var(--as-white);
+    }
+
+    .as-titlebar::before,
+    .as-titlebar::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+    }
+
+    .as-titlebar::before {
+      background:
+        radial-gradient(ellipse at 82% 55%, rgba(181, 18, 32, 0.29), transparent 31%),
+        radial-gradient(ellipse at 15% 15%, rgba(181, 18, 32, 0.12), transparent 35%);
+      animation: as-title-glow 13s ease-in-out infinite alternate;
+    }
+
+    .as-titlebar::after {
+      opacity: 0.14;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-size: 78px 78px;
+      mask-image: linear-gradient(90deg, transparent, #000 48%, #000);
+    }
+
+    .as-titlebar__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .as-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 clamp(38px, 6vw, 82px);
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+
+    .as-breadcrumb a {
+      color: var(--as-white);
+      text-decoration: none;
+      transition: color 220ms ease;
+    }
+
+    .as-breadcrumb a:hover {
+      color: #f28a92;
+    }
+
+    .as-breadcrumb__separator {
+      color: #e4646d;
+      font-size: 15px;
+    }
+
+    .as-titlebar h1 {
+      max-width: 1050px;
+      margin: 0;
+      font-size: clamp(4.4rem, 12vw, 11rem);
+      font-weight: 750;
+      letter-spacing: -0.095em;
+      line-height: 0.82;
+    }
+
+    .as-titlebar__accent {
+      display: block;
+      width: clamp(80px, 13vw, 178px);
+      height: 3px;
+      margin-top: clamp(34px, 5vw, 68px);
+      transform-origin: left center;
+      background: var(--as-red);
+    }
+
+    .as-titlebar__orbit {
+      position: absolute;
+      top: 50%;
+      right: -3%;
+      width: min(44vw, 570px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.022), 0 0 0 85px rgba(255, 255, 255, 0.018);
+      pointer-events: none;
+    }
+
+    .as-titlebar__orbit::before,
+    .as-titlebar__orbit::after {
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(181, 18, 32, 0.56);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .as-titlebar__orbit::after {
+      inset: 28%;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .as-titlebar__core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f8bfc3 0, var(--as-red) 47%, transparent 76%);
+      box-shadow: 0 0 45px rgba(181, 18, 32, 0.76);
+      transform: translate(-50%, -50%);
+    }
+
+    .as-intro {
+      padding: clamp(88px, 11vw, 156px) 0;
+      background: var(--as-white);
+    }
+
+    .as-intro__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: clamp(34px, 7vw, 105px);
+    }
+
+    .as-intro__copy {
+      max-width: 700px;
+    }
+
+    .as-intro__copy .as-section-title {
+      font-size: clamp(2.7rem, 5.4vw, 5.65rem);
+    }
+
+    .as-intro__media-frame {
+      position: relative;
+      min-width: 0;
+      padding: 0 0 20px 20px;
+      perspective: 1300px;
+    }
+
+    .as-intro__media-frame::before {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 62%;
+      height: 68%;
+      background: var(--as-red);
+      content: "";
+    }
+
+    .as-media {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.18 / 1;
+      margin: 0;
+      overflow: hidden;
+      background-color: #e8e7e4;
+      background-image:
+        linear-gradient(135deg, transparent 49.7%, rgba(32, 33, 36, 0.07) 50%, transparent 50.3%),
+        linear-gradient(45deg, transparent 49.7%, rgba(32, 33, 36, 0.045) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 70% 28%, rgba(181, 18, 32, 0.12), transparent 42%),
+        linear-gradient(135deg, #f0efec, #d8d7d3);
+      background-size: 58px 58px, 58px 58px, auto, auto;
+      transform: perspective(1200px) rotateX(var(--as-rotate-x, 0deg)) rotateY(var(--as-rotate-y, 0deg));
+      transition: transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      will-change: transform, clip-path;
+    }
+
+    .as-media::before,
+    .as-media::after {
+      position: absolute;
+      z-index: 1;
+      inset: 17px;
+      border: 1px solid rgba(32, 33, 36, 0.12);
+      content: "";
+      pointer-events: none;
+    }
+
+    .as-media::after {
+      inset: 0;
+      border: 0;
+      background: linear-gradient(150deg, rgba(32, 33, 36, 0.02), rgba(32, 33, 36, 0.15));
+    }
+
+    .as-media__image {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .as-services {
+      padding: clamp(88px, 11vw, 158px) 0 clamp(96px, 12vw, 174px);
+      background: var(--as-grey);
+    }
+
+    .as-services__intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 0.68fr);
+      align-items: end;
+      gap: clamp(30px, 7vw, 105px);
+      margin-bottom: clamp(54px, 8vw, 112px);
+    }
+
+    .as-services__intro .as-section-copy {
+      margin: 0 0 4px;
+    }
+
+    .as-service-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      align-items: start;
+      gap: clamp(20px, 3.2vw, 46px);
+    }
+
+    .as-service {
+      position: relative;
+      min-width: 0;
+      min-height: 350px;
+      padding: clamp(27px, 3.8vw, 53px);
+      overflow: hidden;
+      border-top: 2px solid var(--as-red);
+      background: var(--as-white);
+      transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1), background-color 350ms ease, color 350ms ease;
+    }
+
+    .as-service:nth-child(1) {
+      grid-column: 1 / span 7;
+    }
+
+    .as-service:nth-child(2) {
+      grid-column: 8 / span 5;
+      margin-top: clamp(70px, 9vw, 128px);
+      background: var(--as-charcoal);
+      color: var(--as-white);
+    }
+
+    .as-service:nth-child(3) {
+      grid-column: 2 / span 5;
+      margin-top: -28px;
+      background: #e9e8e5;
+    }
+
+    .as-service:nth-child(4) {
+      grid-column: 7 / span 6;
+      margin-top: clamp(38px, 6vw, 84px);
+      background: #fff;
+    }
+
+    .as-service::after {
+      position: absolute;
+      right: -92px;
+      bottom: -132px;
+      width: 245px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(181, 18, 32, 0.13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 26px rgba(181, 18, 32, 0.025), 0 0 0 55px rgba(181, 18, 32, 0.018);
+      content: "";
+      pointer-events: none;
+      transition: transform 600ms ease, border-color 300ms ease;
+    }
+
+    .as-service:hover {
+      transform: translateY(-7px);
+      background-color: #fff;
+      color: var(--as-charcoal);
+    }
+
+    .as-service:nth-child(2):hover {
+      background-color: #292a2d;
+      color: var(--as-white);
+    }
+
+    .as-service:hover::after {
+      transform: scale(1.12);
+      border-color: rgba(181, 18, 32, 0.36);
+    }
+
+    .as-icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border: 1px solid rgba(181, 18, 32, 0.34);
+      color: var(--as-red);
+      transition: transform 350ms ease, color 250ms ease, background-color 250ms ease;
+    }
+
+    .as-icon svg {
+      display: block;
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .as-service:hover .as-icon {
+      transform: rotate(-6deg) scale(1.06);
+    }
+
+    .as-service h3 {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 29px 0 0;
+      font-size: clamp(25px, 3.3vw, 43px);
+      font-weight: 650;
+      letter-spacing: -0.06em;
+      line-height: 1.04;
+    }
+
+    .as-service p {
+      position: relative;
+      z-index: 1;
+      max-width: 610px;
+      margin: 16px 0 0;
+      color: var(--as-muted);
+      font-size: clamp(14px, 1.3vw, 16px);
+      line-height: 1.78;
+    }
+
+    .as-service:nth-child(2) p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .as-highlights {
+      position: relative;
+      padding: clamp(88px, 11vw, 154px) 0;
+      overflow: hidden;
+      background: var(--as-white);
+    }
+
+    .as-highlights::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(32vw, 440px);
+      height: 1px;
+      background: var(--as-red);
+      content: "";
+    }
+
+    .as-highlights__intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: clamp(48px, 7vw, 94px);
+    }
+
+    .as-highlights__intro .as-section-title {
+      max-width: 850px;
+    }
+
+    .as-highlights__rule {
+      width: clamp(70px, 12vw, 160px);
+      height: 1px;
+      flex: 0 0 auto;
+      margin-bottom: 12px;
+      background: var(--as-red);
+    }
+
+    .as-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--as-line);
+      border-left: 1px solid var(--as-line);
+    }
+
+    .as-highlight {
+      position: relative;
+      display: flex;
+      min-height: 220px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      padding: clamp(24px, 3.2vw, 46px);
+      border-right: 1px solid var(--as-line);
+      border-bottom: 1px solid var(--as-line);
+      background: var(--as-white);
+      transition: color 300ms ease, background-color 300ms ease;
+    }
+
+    .as-highlight::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--as-red);
+      content: "";
+      transition: width 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .as-highlight:hover {
+      background: var(--as-grey);
+    }
+
+    .as-highlight:hover::after {
+      width: 100%;
+    }
+
+    .as-highlight__icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: var(--as-red);
+      transition: transform 350ms ease;
+    }
+
+    .as-highlight:hover .as-highlight__icon {
+      transform: translateY(-4px) rotate(-5deg);
+    }
+
+    .as-highlight__icon svg {
+      display: block;
+      width: 31px;
+      height: 31px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .as-highlight h3 {
+      max-width: 280px;
+      margin: 0;
+      font-size: clamp(19px, 2.1vw, 26px);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+    }
+
+    .as-commitment {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(88px, 12vw, 170px) 0;
+      overflow: hidden;
+      background: var(--as-charcoal);
+      color: var(--as-white);
+    }
+
+    .as-commitment::before {
+      position: absolute;
+      z-index: -1;
+      top: -25%;
+      right: -10%;
+      width: min(70vw, 900px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 50%;
+      box-shadow: 0 0 0 48px rgba(255, 255, 255, 0.02), 0 0 0 100px rgba(255, 255, 255, 0.015);
+      content: "";
+      pointer-events: none;
+    }
+
+    .as-commitment::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: radial-gradient(ellipse at 15% 70%, rgba(181, 18, 32, 0.22), transparent 40%);
+      content: "";
+      animation: as-title-glow 14s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .as-commitment__head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, 0.65fr);
+      align-items: end;
+      gap: clamp(30px, 7vw, 100px);
+      margin-bottom: clamp(52px, 7vw, 96px);
+    }
+
+    .as-commitment__head .as-section-title {
+      max-width: 850px;
+      font-size: clamp(2.7rem, 6vw, 6rem);
+    }
+
+    .as-commitment__lead {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.8;
+    }
+
+    .as-commitment__body {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: clamp(30px, 7vw, 104px);
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .as-commitment__aside {
+      max-width: 430px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 15px;
+      line-height: 1.82;
+    }
+
+    .as-commitment__aside p,
+    .as-commitment__copy p {
+      margin: 0;
+    }
+
+    .as-commitment__copy {
+      max-width: 800px;
+    }
+
+    .as-commitment__copy > p {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.8;
+    }
+
+    .as-commitment__features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin: clamp(38px, 5vw, 68px) 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .as-commitment__feature {
+      min-height: 130px;
+      padding: 23px 22px 23px 0;
+      color: var(--as-white);
+      font-size: clamp(15px, 1.55vw, 19px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.35;
+    }
+
+    .as-commitment__feature + .as-commitment__feature {
+      padding-left: 22px;
+      border-left: 1px solid rgba(255, 255, 255, 0.17);
+    }
+
+    .as-commitment__feature::before {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin-bottom: 22px;
+      background: var(--as-red);
+      content: "";
+    }
+
+    .as-commitment__closing {
+      padding-left: 22px;
+      border-left: 2px solid var(--as-red);
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: clamp(16px, 1.65vw, 21px) !important;
+    }
+
+    .as-support-directory {
+      padding: clamp(88px, 11vw, 158px) 0;
+      background: var(--as-grey);
+    }
+
+    .as-support-directory__grid {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.62fr) minmax(0, 1.38fr);
+      gap: clamp(40px, 8vw, 124px);
+    }
+
+    .as-search-panel {
+      align-self: start;
+    }
+
+    .as-search-panel h2 {
+      max-width: 430px;
+      margin: 0;
+      font-size: clamp(2.7rem, 5.4vw, 5.1rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
+    }
+
+    .as-search-form {
+      margin-top: 35px;
+    }
+
+    .as-search-form label {
+      display: block;
+      margin-bottom: 11px;
+      color: var(--as-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .as-search-form__field {
+      display: flex;
+      min-height: 58px;
+      align-items: center;
+      gap: 13px;
+      padding: 0 16px;
+      border: 1px solid rgba(32, 33, 36, 0.24);
+      background: var(--as-white);
+      transition: border-color 240ms ease, box-shadow 240ms ease;
+    }
+
+    .as-search-form__field:focus-within {
+      border-color: var(--as-red);
+      box-shadow: 0 6px 22px rgba(181, 18, 32, 0.08);
+    }
+
+    .as-search-form__field svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: var(--as-red);
+      stroke-linecap: round;
+      stroke-width: 1.7;
+    }
+
+    .as-search-form input {
+      width: 100%;
+      min-width: 0;
+      height: 54px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--as-charcoal);
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .as-search-form input::placeholder {
+      color: #77797c;
+      opacity: 1;
+    }
+
+    .as-search-status {
+      min-height: 20px;
+      margin: 12px 0 0;
+      color: var(--as-muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .as-support-links h3 {
+      margin: 0 0 22px;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 650;
+      letter-spacing: -0.05em;
+    }
+
+    .as-support-links__list {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--as-line);
+      list-style: none;
+    }
+
+    .as-support-links__item[hidden] {
+      display: none !important;
+    }
+
+    .as-support-link {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--as-line);
+      color: var(--as-charcoal);
+      font-size: clamp(16px, 1.8vw, 21px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-decoration: none;
+      transition: color 230ms ease, padding 280ms ease;
+    }
+
+    .as-support-link:hover {
+      padding-inline: 8px;
+      color: var(--as-red);
+    }
+
+    .as-support-link__arrow {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(32, 33, 36, 0.19);
+      border-radius: 50%;
+      color: var(--as-red);
+      font-size: 16px;
+      transition: transform 250ms ease, color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+    }
+
+    .as-support-link:hover .as-support-link__arrow {
+      transform: translate(3px, -3px);
+      border-color: var(--as-red);
+      background: var(--as-red);
+      color: var(--as-white);
+    }
+
+    .as-solutions {
+      padding: clamp(88px, 11vw, 158px) 0;
+      background: var(--as-white);
+    }
+
+    .as-solutions__intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: clamp(48px, 7vw, 94px);
+    }
+
+    .as-solutions__intro .as-highlights__rule {
+      display: block;
+    }
+
+    .as-solutions__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      align-items: start;
+      gap: clamp(34px, 7vw, 100px);
+    }
+
+    .as-solutions__media {
+      position: sticky;
+      top: 118px;
+    }
+
+    .as-solutions__media-frame {
+      position: relative;
+      padding: 0 19px 19px 0;
+      perspective: 1300px;
+    }
+
+    .as-solutions__media-frame::before {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 66%;
+      height: 65%;
+      background: var(--as-charcoal);
+      content: "";
+    }
+
+    .as-solutions__media .as-media {
+      aspect-ratio: 0.94 / 1;
+      background-image:
+        linear-gradient(90deg, transparent 49.7%, rgba(32, 33, 36, 0.07) 50%, transparent 50.3%),
+        linear-gradient(135deg, transparent 49.7%, rgba(32, 33, 36, 0.05) 50%, transparent 50.3%),
+        radial-gradient(ellipse at 70% 28%, rgba(181, 18, 32, 0.13), transparent 41%),
+        linear-gradient(145deg, #f0efec, #d8d7d3);
+      background-size: 62px 62px, 62px 62px, auto, auto;
+    }
+
+    .as-solutions__list {
+      border-top: 1px solid var(--as-line);
+    }
+
+    .as-solution {
+      padding: clamp(27px, 3.8vw, 48px) 0;
+      border-bottom: 1px solid var(--as-line);
+      transition: padding 300ms ease, background-color 300ms ease;
+    }
+
+    .as-solution:hover {
+      padding-inline: 12px;
+      background: linear-gradient(90deg, rgba(181, 18, 32, 0.045), transparent 82%);
+    }
+
+    .as-solution h3 {
+      max-width: 660px;
+      margin: 0;
+      font-size: clamp(24px, 3.3vw, 40px);
+      font-weight: 650;
+      letter-spacing: -0.06em;
+      line-height: 1.05;
+    }
+
+    .as-solution p {
+      max-width: 690px;
+      margin: 14px 0 0;
+      color: var(--as-muted);
+      font-size: clamp(14px, 1.3vw, 16px);
+      line-height: 1.78;
+    }
+
+    .as-button {
+      display: inline-flex;
+      min-height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 17px;
+      margin-top: 22px;
+      padding: 0 19px;
+      border: 1px solid var(--as-red);
+      background: var(--as-red);
+      color: var(--as-white) !important;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, transform 250ms ease;
+    }
+
+    .as-button span {
+      font-size: 16px;
+      transition: transform 250ms ease;
+    }
+
+    .as-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--as-charcoal);
+      background: var(--as-charcoal);
+    }
+
+    .as-button:hover span {
+      transform: translate(2px, -2px);
+    }
+
+    .as-contact {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(82px, 11vw, 154px) 0;
+      overflow: hidden;
+      background: var(--as-charcoal);
+      color: var(--as-white);
+    }
+
+    .as-contact::before {
+      position: absolute;
+      z-index: -1;
+      top: -48%;
+      right: -12%;
+      width: min(82vw, 1050px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+      box-shadow: 0 0 0 52px rgba(255, 255, 255, 0.018), 0 0 0 110px rgba(255, 255, 255, 0.012);
+      content: "";
+      pointer-events: none;
+    }
+
+    .as-contact__heading {
+      max-width: 970px;
+      margin: 0;
+      font-size: clamp(3.2rem, 8.5vw, 8rem);
+      font-weight: 750;
+      letter-spacing: -0.09em;
+      line-height: 0.9;
+    }
+
+    .as-contact__heading em {
+      color: #e9636d;
+      font-style: normal;
+    }
+
+    .as-contact__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+      gap: clamp(36px, 8vw, 120px);
+      margin-top: clamp(48px, 7vw, 96px);
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .as-contact__methods {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px clamp(20px, 4vw, 60px);
+    }
+
+    .as-contact__method {
+      min-width: 0;
+    }
+
+    .as-contact__label {
+      display: block;
+      margin-bottom: 13px;
+      color: #ed8a92;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .as-contact__value {
+      display: inline-block;
+      max-width: 100%;
+      color: var(--as-white);
+      font-size: clamp(19px, 2.5vw, 31px);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+      text-decoration-color: rgba(255, 255, 255, 0.35);
+      text-underline-offset: 6px;
+      transition: color 220ms ease, text-decoration-color 220ms ease;
+    }
+
+    .as-contact__value:hover {
+      color: #ff9aa1;
+      text-decoration-color: currentColor;
+    }
+
+    .as-contact__social {
+      align-self: start;
+    }
+
+    .as-contact__social h2 {
+      margin: 0 0 19px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .as-social-icons {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .as-social-icons__mark {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: rgba(255, 255, 255, 0.86);
+      transition: border-color 240ms ease, background-color 240ms ease, color 240ms ease, transform 240ms ease;
+    }
+
+    .as-social-icons__mark svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+
+    .as-contact__note {
+      max-width: 410px;
+      margin: 15px 0 0;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .as-whatsapp {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 12px;
+      margin-top: 27px;
+      padding: 0 17px;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      color: var(--as-white) !important;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: border-color 250ms ease, background-color 250ms ease, color 250ms ease;
+    }
+
+    .as-whatsapp svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .as-whatsapp[aria-disabled="true"] {
+      border-color: rgba(255, 255, 255, 0.22);
+      color: rgba(255, 255, 255, 0.58) !important;
+      cursor: not-allowed;
+    }
+
+    .as-whatsapp:not([aria-disabled="true"]):hover {
+      border-color: #1c9a63;
+      background: #1c9a63;
+      color: var(--as-white) !important;
+    }
+
+    .as-whatsapp-status {
+      max-width: 430px;
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .as-whatsapp-status[hidden] {
+      display: none;
+    }
+
+    @keyframes as-title-glow {
+      from {
+        transform: scale(0.97) translate3d(0, 0, 0);
+      }
+      to {
+        transform: scale(1.04) translate3d(-1.3%, 1%, 0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .as-intro__grid,
+      .as-services__intro,
+      .as-commitment__head,
+      .as-commitment__body,
+      .as-support-directory__grid,
+      .as-solutions__grid,
+      .as-contact__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .as-intro__grid {
+        gap: 42px;
+      }
+
+      .as-intro__media-frame {
+        max-width: 760px;
+      }
+
+      .as-services__intro {
+        gap: 22px;
+      }
+
+      .as-services__intro .as-section-copy {
+        max-width: 720px;
+      }
+
+      .as-commitment__head {
+        gap: 24px;
+      }
+
+      .as-commitment__lead {
+        max-width: 720px;
+      }
+
+      .as-commitment__body {
+        gap: 29px;
+      }
+
+      .as-commitment__aside {
+        max-width: 760px;
+      }
+
+      .as-support-directory__grid {
+        gap: 54px;
+      }
+
+      .as-search-panel h2 {
+        max-width: 680px;
+      }
+
+      .as-solutions__grid {
+        gap: 45px;
+      }
+
+      .as-solutions__media {
+        position: relative;
+        top: auto;
+        max-width: 700px;
+      }
+
+      .as-solutions__media .as-media {
+        aspect-ratio: 1.3 / 1;
+      }
+
+      .as-contact__grid {
+        gap: 46px;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .as-titlebar {
+        min-height: 380px;
+      }
+
+      .as-titlebar__orbit {
+        right: -27%;
+        width: 66vw;
+        opacity: 0.6;
+      }
+
+      .as-titlebar h1 {
+        max-width: 760px;
+        font-size: clamp(4.1rem, 17vw, 7.8rem);
+      }
+
+      .as-breadcrumb {
+        margin-bottom: 46px;
+      }
+
+      .as-services__intro,
+      .as-solutions__intro {
+        display: block;
+      }
+
+      .as-services__intro .as-section-copy {
+        margin-top: 22px;
+      }
+
+      .as-service-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .as-service:nth-child(n) {
+        grid-column: auto;
+        min-height: 0;
+        margin-top: 0;
+        padding: 29px;
+      }
+
+      .as-service h3 {
+        margin-top: 23px;
+      }
+
+      .as-highlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .as-highlight {
+        min-height: 190px;
+        padding: 23px;
+      }
+
+      .as-commitment__features {
+        grid-template-columns: 1fr;
+      }
+
+      .as-commitment__feature,
+      .as-commitment__feature + .as-commitment__feature {
+        min-height: 0;
+        padding: 20px 0;
+        border-left: 0;
+      }
+
+      .as-commitment__feature + .as-commitment__feature {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .as-commitment__feature::before {
+        margin-bottom: 14px;
+      }
+
+      .as-contact__methods {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .as-titlebar {
+        min-height: 340px;
+        padding-block: 52px;
+      }
+
+      .as-titlebar h1 {
+        font-size: clamp(3.8rem, 18vw, 5.6rem);
+      }
+
+      .as-titlebar__orbit {
+        top: 58%;
+        right: -40%;
+        width: 82vw;
+      }
+
+      .as-breadcrumb {
+        gap: 9px;
+        font-size: 10px;
+      }
+
+      .as-intro,
+      .as-services,
+      .as-highlights,
+      .as-commitment,
+      .as-support-directory,
+      .as-solutions,
+      .as-contact {
+        padding-block: 76px;
+      }
+
+      .as-intro__media-frame {
+        padding: 0 0 13px 13px;
+      }
+
+      .as-media::before {
+        inset: 12px;
+      }
+
+      .as-highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .as-highlight {
+        min-height: 145px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .as-highlight h3 {
+        max-width: none;
+        margin-left: auto;
+      }
+
+      .as-highlight__icon {
+        flex: 0 0 auto;
+      }
+
+      .as-contact__heading {
+        font-size: clamp(3.15rem, 14vw, 4.7rem);
+      }
+
+      .as-contact__social h2 {
+        font-size: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .as-page *,
+      .as-page *::before,
+      .as-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+
+.as-titlebar {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(20, 21, 23, 0.88),
+      rgba(20, 21, 23, 0.58)
+    ),
+    url("./assets/images/aftersalebg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.as-titlebar__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.as-titlebar .as-breadcrumb,
+.as-titlebar .as-breadcrumb a,
+.as-titlebar .as-breadcrumb span,
+.as-titlebar h1 {
+  color: #fff;
+}
+
+.as-titlebar h1 {
+  max-width: 850px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.as-titlebar__orbit {
+  z-index: 1;
+}
+
+.as-titlebar__accent {
+  background: #B51220;
+}
+
+@media (max-width: 768px) {
+  .as-titlebar {
+    min-height: 320px;
+    background-position: center;
+  }
+
+  .as-titlebar__inner {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+}
+
+  </style>
+</head>
+<body class="vs-page as-page">
+  <div id="navbar-placeholder"></div>
+  <main class="as-main">
+   
+<header class="as-titlebar" aria-labelledby="as-page-title">
+  <div class="as-shell as-titlebar__inner">
+    <nav class="as-breadcrumb" aria-label="Breadcrumb">
+      <a href="./index.html"></a>
+   
+    </nav>
+
+    <h1 id="as-page-title">After-Sales Support</h1>
+
+  
+  </div>
+</header>
+
+
+    <section class="as-intro" aria-labelledby="as-intro-title">
+      <div class="as-shell as-intro__grid">
+        <div class="as-intro__copy">
+          <p class="as-eyebrow">Customer Care &amp; Support</p>
+          <h2 class="as-section-title" id="as-intro-title">Comprehensive Multi-Industry After-Sales Support</h2>
+          <p class="as-section-copy">Part of the Chameza Group with 36+ years of excellence, Vishal Steel Products provides exceptional after-sales support across healthcare, laboratory, industrial, and HVAC sectors. Our dedicated support team ensures comprehensive assistance throughout the entire lifecycle of our multi-material manufacturing solutions.</p>
+        </div>
+        <div class="as-intro__media-frame" data-as-tilt>
+          <!-- Image placeholder: After-sales support introduction. Configure independently using data-image-src. -->
+          <figure class="as-media" data-image-slot="support-introduction" data-image-src="./assets/images/aftersale1.png" data-image-alt="After-sales support across healthcare, laboratory, industrial, and HVAC sectors"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-services" aria-labelledby="as-services-title">
+      <div class="as-shell">
+        <header class="as-services__intro">
+          <div>
+            <p class="as-eyebrow">Specialized Assistance</p>
+            <h2 class="as-section-title" id="as-services-title">Industry-Specialized Support Services</h2>
+          </div>
+          <p class="as-section-copy">We understand that each industry has unique requirements. Our after-sales support is tailored to provide specialized assistance for healthcare furniture, laboratory fume hoods, industrial warehouse racks, HVAC systems, and commercial furniture solutions.</p>
+        </header>
+
+        <div class="as-service-grid">
+          <article class="as-service">
+            <span class="as-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.1-7-9.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7 2.8C19 15.9 12 20 12 20Z"/><path d="M3 12h4l2-3 3.5 6 2-3H21"/></svg>
+            </span>
+            <h3>Healthcare &amp; Laboratory Equipment Support</h3>
+            <p>Specialized support for hospital beds, medical trolleys, and laboratory fume hoods with safety compliance standards. Our healthcare support team understands critical environment requirements and provides rapid response for medical equipment maintenance and safety certifications.</p>
+          </article>
+
+          <article class="as-service">
+            <span class="as-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11"/><path d="M9 20v-6h6v6M4 10h16"/><circle cx="18" cy="6" r="2"/></svg>
+            </span>
+            <h3>Industrial &amp; HVAC System Support</h3>
+            <p>Comprehensive support for warehouse racks, workbenches, and complete HVAC turnkey systems. Our industrial support includes preventive maintenance, system optimization, and emergency repair services to minimize operational downtime.</p>
+          </article>
+
+          <article class="as-service">
+            <span class="as-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5V5.8a1.8 1.8 0 0 1 1.8-1.8h12.4A1.8 1.8 0 0 1 20 5.8v13.7"/><path d="M8 8h8M8 12h8M8 16h4M3 20h18"/></svg>
+            </span>
+            <h3>Multi-Material Technical Consultation</h3>
+            <p>Expert technical guidance for steel, metal, and wood products across all industries. Our consultation services include installation support, maintenance protocols, and performance optimization strategies tailored to your specific manufacturing requirements.</p>
+          </article>
+
+          <article class="as-service">
+            <span class="as-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.8-3 8-7 10-4-2-7-5.2-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4M8 7.5h8"/></svg>
+            </span>
+            <h3>Comprehensive Warranty &amp; Training Programs</h3>
+            <p>Industry-specific warranty coverage and training programs for all our manufacturing solutions. We provide comprehensive education on proper usage, maintenance best practices, and safety protocols for healthcare, laboratory, industrial, and commercial applications.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-highlights" aria-labelledby="as-highlights-title">
+      <div class="as-shell">
+        <header class="as-highlights__intro">
+          <div>
+            <p class="as-eyebrow">Across Every Industry</p>
+            <h2 class="as-section-title" id="as-highlights-title">Multi-Industry Service Excellence</h2>
+          </div>
+          <span class="as-highlights__rule" aria-hidden="true"></span>
+        </header>
+
+        <div class="as-highlight-grid">
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.1-7-9.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7 2.8C19 15.9 12 20 12 20Z"/><path d="M3 12h4l2-3 3.5 6 2-3H21"/></svg></span>
+            <h3>Healthcare Equipment Support</h3>
+          </article>
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M8 15h8M10 11h4"/></svg></span>
+            <h3>Laboratory Safety Compliance</h3>
+          </article>
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3"/><circle cx="12" cy="12" r="6"/><path d="M12 8v4l3 2"/></svg></span>
+            <h3>HVAC System Maintenance</h3>
+          </article>
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-5 8 5v12M8 20v-6h8v6M4 10h16"/></svg></span>
+            <h3>Industrial Equipment Service</h3>
+          </article>
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2M4.5 4.5 3 6m16.5-1.5L21 6"/></svg></span>
+            <h3>24/7 Emergency Support</h3>
+          </article>
+          <article class="as-highlight">
+            <span class="as-highlight__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 5v14m8-14v14M4 10h16m-16 4h16"/></svg></span>
+            <h3>Multi-Material Expertise</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-commitment" aria-labelledby="as-commitment-title">
+      <div class="as-shell">
+        <header class="as-commitment__head">
+          <div>
+            <p class="as-eyebrow">Long-Term Partnership</p>
+            <h2 class="as-section-title" id="as-commitment-title">Chameza Group Service Commitment</h2>
+          </div>
+          <p class="as-commitment__lead">With 36+ years of manufacturing excellence and 500+ projects delivered across multiple industries, our after-sales support reflects the Chameza Group's commitment to long-term customer relationships.</p>
+        </header>
+
+        <div class="as-commitment__body">
+          <aside class="as-commitment__aside">
+            <p>We don't just sell products – we provide comprehensive solutions with ongoing support that adapts to your evolving business needs.</p>
+          </aside>
+          <div class="as-commitment__copy">
+            <p>Our multi-industry expertise allows us to understand the unique challenges of healthcare facilities, research laboratories, industrial operations, and commercial spaces. This specialized knowledge enables us to provide targeted support that goes beyond generic customer service.</p>
+            <div class="as-commitment__features" aria-label="Service commitment features">
+              <div class="as-commitment__feature">Industry-Specific Expertise</div>
+              <div class="as-commitment__feature">Proactive Maintenance Programs</div>
+              <div class="as-commitment__feature">Nationwide Service Network</div>
+            </div>
+            <p class="as-commitment__closing">Choose Vishal Steel Products and experience after-sales support that matches the quality of our manufacturing. Our commitment extends far beyond delivery – we're your long-term partner in success across healthcare, laboratory, industrial, and commercial applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-support-directory" id="support-directory" aria-labelledby="as-search-title">
+      <div class="as-shell as-support-directory__grid">
+        <div class="as-search-panel">
+          <p class="as-eyebrow">Customer Care</p>
+          <h2 id="as-search-title">Search Support</h2>
+          <form class="as-search-form" role="search" action="#support-services" method="get" data-support-search>
+            <label for="as-support-query">Search Support</label>
+            <div class="as-search-form__field">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+              <input id="as-support-query" name="support" type="search" placeholder="Search support topics" autocomplete="off" aria-controls="as-support-service-list">
+            </div>
+            <p class="as-search-status" data-support-status role="status" aria-live="polite">All support services are shown.</p>
+          </form>
+        </div>
+
+        <div class="as-support-links" id="support-services">
+          <h3>Support Services</h3>
+          <ul class="as-support-links__list" id="as-support-service-list">
+            <li class="as-support-links__item" data-support-item data-support-text="warranty claims">
+              <a class="as-support-link" href="mailto:sales@vishalsteelproducts.com?subject=Warranty%20Claims">
+                <span>Warranty Claims</span><span class="as-support-link__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="as-support-links__item" data-support-item data-support-text="technical support">
+              <a class="as-support-link" href="mailto:sales@vishalsteelproducts.com?subject=Technical%20Support">
+                <span>Technical Support</span><span class="as-support-link__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="as-support-links__item" data-support-item data-support-text="product replacement">
+              <a class="as-support-link" href="mailto:sales@vishalsteelproducts.com?subject=Product%20Replacement">
+                <span>Product Replacement</span><span class="as-support-link__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="as-support-links__item" data-support-item data-support-text="training resources">
+              <a class="as-support-link" href="mailto:sales@vishalsteelproducts.com?subject=Training%20Resources">
+                <span>Training Resources</span><span class="as-support-link__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="as-support-links__item" data-support-item data-support-text="customer feedback">
+              <a class="as-support-link" href="mailto:sales@vishalsteelproducts.com?subject=Customer%20Feedback">
+                <span>Customer Feedback</span><span class="as-support-link__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-solutions" aria-labelledby="as-solutions-title">
+      <div class="as-shell">
+        <header class="as-solutions__intro">
+          <div>
+            <p class="as-eyebrow">Support Across Sectors</p>
+            <h2 class="as-section-title" id="as-solutions-title">Multi-Industry Support Excellence</h2>
+          </div>
+          <span class="as-highlights__rule" aria-hidden="true"></span>
+        </header>
+
+        <div class="as-solutions__grid">
+          <div class="as-solutions__media">
+            <div class="as-solutions__media-frame" data-as-tilt>
+              <!-- Image placeholder: Multi-industry support excellence. Configure independently using data-image-src. -->
+              <figure class="as-media" data-image-slot="multi-industry-support" data-image-src="./assets/images/aftersalebg.png" data-image-alt="Multi-industry after-sales support for healthcare, laboratory, industrial, and HVAC solutions"></figure>
+            </div>
+          </div>
+
+          <div class="as-solutions__list">
+            <article class="as-solution">
+              <h3>Healthcare &amp; Laboratory Support</h3>
+              <p>Specialized support for hospital beds, medical trolleys, and laboratory fume hoods with safety compliance. Our healthcare support team ensures critical equipment meets stringent medical standards.</p>
+              <a class="as-button" href="./hospital-essentials.html">Healthcare Solutions <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="as-solution">
+              <h3>Industrial &amp; HVAC Solutions</h3>
+              <p>Comprehensive support for warehouse racks, workbenches, and complete HVAC turnkey systems. Expert maintenance and optimization services for industrial operations.</p>
+              <a class="as-button" href="./Industry-Steel-Furniture.html">Industrial Solutions <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="as-solution">
+              <h3>Multi-Material Technical Expertise</h3>
+              <p>Expert technical support for steel, metal, and wood manufacturing solutions. Comprehensive training, maintenance protocols, and performance optimization across all industries.</p>
+              <a class="as-button" href="mailto:sales@vishalsteelproducts.com?subject=Technical%20Support">Technical Support <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="as-contact" id="immediate-support" aria-labelledby="as-contact-title">
+      <div class="as-shell">
+        <p class="as-eyebrow">We're Here to Help</p>
+        <h2 class="as-contact__heading" id="as-contact-title">Need Immediate <em>Support?</em></h2>
+
+        <div class="as-contact__grid">
+          <div class="as-contact__methods">
+            <div class="as-contact__method">
+              <span class="as-contact__label">Customer Support Helpline</span>
+              <a class="as-contact__value" href="tel:+918828991702">+91 8828991702</a>
+            </div>
+            <div class="as-contact__method">
+              <span class="as-contact__label">Email Support</span>
+              <a class="as-contact__value" href="mailto:sales@vishalsteelproducts.com">sales@vishalsteelproducts.com</a>
+            </div>
+            <div class="as-contact__method as-contact__method--whatsapp">
+              <span class="as-contact__label">WhatsApp Support</span>
+              <a class="as-whatsapp" data-whatsapp-support aria-disabled="true" tabindex="-1" aria-label="WhatsApp Support is not configured">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z"/><path d="M9 8.5c.3-.5.7-.5 1-.1l1 1.4c.2.3.2.6 0 .9l-.5.6c.6 1.1 1.4 1.8 2.5 2.4l.6-.6c.2-.2.5-.3.8-.1l1.5.8c.4.2.5.6.3 1-.3.7-1 1.1-1.8 1.1-2.7-.1-6.5-3.5-6.7-6.2-.1-.5.4-1 .9-1.2Z"/></svg>
+                <span>WhatsApp Support</span><span aria-hidden="true">↗</span>
+              </a>
+              <p class="as-whatsapp-status" data-whatsapp-status role="status">WhatsApp support is not configured with an official project link yet.</p>
+            </div>
+          </div>
+
+          <div class="as-contact__social">
+            <h2>Follow Us</h2>
+            <ul class="as-social-icons" aria-label="Social media icons">
+              <li><span class="as-social-icons__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.8v8h3.4Z" fill="currentColor"/></svg></span></li>
+              <li><span class="as-social-icons__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 8.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6ZM5 10h3v9H5v-9Zm5 0h2.9v1.2h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5V19h-3v-4.3c0-1 0-2.3-1.5-2.3s-1.8 1.1-1.8 2.2V19h-3v-9Z" fill="currentColor"/></svg></span></li>
+              <li><span class="as-social-icons__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.8" r="1" fill="currentColor"/></svg></span></li>
+              <li><span class="as-social-icons__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 7.2a2.5 2.5 0 0 0-1.8-1.8C17.6 5 12 5 12 5s-5.6 0-7.2.4A2.5 2.5 0 0 0 3 7.2 26 26 0 0 0 2.6 12 26 26 0 0 0 3 16.8a2.5 2.5 0 0 0 1.8 1.8C6.4 19 12 19 12 19s5.6 0 7.2-.4a2.5 2.5 0 0 0 1.8-1.8 26 26 0 0 0 .4-4.8 26 26 0 0 0-.4-4.8ZM10 15.1V8.9l5.2 3.1-5.2 3.1Z" fill="currentColor"/></svg></span></li>
+            </ul>
+            <p class="as-contact__note">Social media icons are shown from the existing site design. Profile links are not configured in the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      let initialized = false;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const WHATSAPP_SUPPORT_URL = "";
+
+      function initializeConfiguredImages() {
+        document.querySelectorAll("[data-image-slot]").forEach((slot) => {
+          const source = (slot.dataset.imageSrc || "").trim();
+          if (!source || slot.dataset.imageInitialized === "true") {
+            return;
+          }
+
+          slot.dataset.imageInitialized = "true";
+          const image = new Image();
+          image.className = "as-media__image";
+          image.alt = slot.dataset.imageAlt || "";
+          image.width = 1600;
+          image.height = 1200;
+          image.loading = slot.dataset.imageSlot === "support-introduction" ? "eager" : "lazy";
+          image.decoding = "async";
+          image.addEventListener("load", () => {
+            slot.classList.add("has-image");
+            if (window.ScrollTrigger && !reducedMotion) {
+              window.ScrollTrigger.refresh();
+            }
+          }, { once: true });
+          image.addEventListener("error", () => {
+            slot.classList.add("has-image-error");
+            console.error(`Could not load configured image for ${slot.dataset.imageSlot}: ${source}`);
+          }, { once: true });
+          slot.appendChild(image);
+          image.src = source;
+        });
+      }
+
+      function initializeWhatsApp() {
+        const status = document.querySelector("[data-whatsapp-status]");
+        document.querySelectorAll("[data-whatsapp-support]").forEach((link) => {
+          if (!WHATSAPP_SUPPORT_URL) {
+            link.removeAttribute("href");
+            link.setAttribute("aria-disabled", "true");
+            link.setAttribute("tabindex", "-1");
+            return;
+          }
+
+          link.href = WHATSAPP_SUPPORT_URL;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.removeAttribute("aria-disabled");
+          link.removeAttribute("tabindex");
+        });
+        if (status && WHATSAPP_SUPPORT_URL) {
+          status.hidden = true;
+        }
+      }
+
+      function initializeSupportSearch() {
+        const form = document.querySelector("[data-support-search]");
+        const input = form && form.querySelector('input[type="search"]');
+        const status = document.querySelector("[data-support-status]");
+        const items = Array.from(document.querySelectorAll("[data-support-item]"));
+        if (!form || !input || !status || form.dataset.initialized === "true") {
+          return;
+        }
+
+        form.dataset.initialized = "true";
+        form.addEventListener("submit", (event) => event.preventDefault());
+        input.addEventListener("input", () => {
+          const query = input.value.trim().toLocaleLowerCase();
+          let visibleCount = 0;
+          items.forEach((item) => {
+            const text = (item.dataset.supportText || item.textContent).toLocaleLowerCase();
+            const visible = !query || text.includes(query);
+            item.hidden = !visible;
+            if (visible) {
+              visibleCount += 1;
+            }
+          });
+          status.textContent = visibleCount
+            ? query ? "Matching support services are shown." : "All support services are shown."
+            : "No matching support services.";
+        });
+      }
+
+      function initializePointerInteraction() {
+        if (reducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          return;
+        }
+
+        document.querySelectorAll("[data-as-tilt]").forEach((frame) => {
+          if (frame.dataset.tiltInitialized === "true") {
+            return;
+          }
+          frame.dataset.tiltInitialized = "true";
+          const media = frame.querySelector(".as-media");
+          if (!media) {
+            return;
+          }
+
+          frame.addEventListener("pointermove", (event) => {
+            const bounds = frame.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            media.style.setProperty("--as-rotate-x", `${-y * 2}deg`);
+            media.style.setProperty("--as-rotate-y", `${x * 2.4}deg`);
+          }, { passive: true });
+          frame.addEventListener("pointerleave", () => {
+            media.style.setProperty("--as-rotate-x", "0deg");
+            media.style.setProperty("--as-rotate-y", "0deg");
+          }, { passive: true });
+        });
+      }
+
+      function initializeAnimations() {
+        if (reducedMotion || !window.gsap || !window.ScrollTrigger) {
+          return;
+        }
+
+        const gsap = window.gsap;
+        const ScrollTrigger = window.ScrollTrigger;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const titlebar = document.querySelector(".as-titlebar");
+        if (titlebar) {
+          gsap.timeline({ defaults: { ease: "power3.out" } })
+            .fromTo(titlebar.querySelector(".as-breadcrumb"), { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 })
+            .fromTo(titlebar.querySelector("h1"), { yPercent: 70, clipPath: "inset(0 0 100% 0)" }, { yPercent: 0, clipPath: "inset(0 0 0% 0)", duration: 0.9 }, "-=0.15")
+            .fromTo(titlebar.querySelector(".as-titlebar__accent"), { scaleX: 0 }, { scaleX: 1, duration: 0.6 }, "-=0.25")
+            .fromTo(titlebar.querySelector(".as-titlebar__orbit"), { opacity: 0, scale: 0.91, rotate: -8 }, { opacity: 1, scale: 1, rotate: 0, duration: 1.2, ease: "power3.inOut" }, 0.08);
+
+          gsap.to(titlebar.querySelector(".as-titlebar__orbit"), {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: titlebar,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.75
+            }
+          });
+        }
+
+        const introCopy = document.querySelector(".as-intro__copy");
+        const introMedia = document.querySelector(".as-intro__media-frame");
+        if (introCopy && introMedia) {
+          ScrollTrigger.create({
+            trigger: introCopy,
+            start: "top 82%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(introCopy, { x: -28, opacity: 0 }, { x: 0, opacity: 1, duration: 0.82, ease: "power3.out" });
+              gsap.fromTo(introMedia, { clipPath: "inset(6% 6% 6% 6%)", scale: 0.96 }, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 1.1, delay: 0.08, ease: "power3.inOut" });
+            }
+          });
+          gsap.to(introMedia, {
+            yPercent: -2.5,
+            ease: "none",
+            scrollTrigger: {
+              trigger: introMedia,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.8
+            }
+          });
+        }
+
+        gsap.utils.toArray(".as-service").forEach((service, index) => {
+          ScrollTrigger.create({
+            trigger: service,
+            start: "top 84%",
+            once: true,
+            onEnter: () => gsap.fromTo(service, {
+              x: index % 2 ? 24 : -24,
+              y: index % 2 ? 0 : 13,
+              clipPath: "inset(0 0 0 3%)",
+              opacity: 0
+            }, {
+              x: 0,
+              y: 0,
+              clipPath: "inset(0 0 0 0)",
+              opacity: 1,
+              duration: 0.8,
+              delay: (index % 2) * 0.08,
+              ease: "power3.out"
+            })
+          });
+        });
+
+        gsap.utils.toArray(".as-highlight").forEach((highlight, index) => {
+          ScrollTrigger.create({
+            trigger: highlight,
+            start: "top 88%",
+            once: true,
+            onEnter: () => gsap.fromTo(highlight, {
+              y: index % 2 ? 18 : 30,
+              opacity: 0,
+              clipPath: index % 2 ? "inset(0 0 5% 0)" : "inset(5% 0 0 0)"
+            }, {
+              y: 0,
+              opacity: 1,
+              clipPath: "inset(0 0 0 0)",
+              duration: 0.68,
+              delay: (index % 3) * 0.06,
+              ease: "power3.out"
+            })
+          });
+        });
+
+        const commitment = document.querySelector(".as-commitment");
+        if (commitment) {
+          ScrollTrigger.create({
+            trigger: commitment,
+            start: "top 72%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(commitment.querySelector(".as-commitment__head"), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.86, ease: "power3.out" });
+              gsap.fromTo(commitment.querySelector(".as-commitment__body"), { clipPath: "inset(0 0 0 5%)", x: 22 }, { clipPath: "inset(0 0 0 0)", x: 0, duration: 1, delay: 0.12, ease: "power3.inOut" });
+            }
+          });
+        }
+
+        const directory = document.querySelector(".as-support-directory");
+        if (directory) {
+          ScrollTrigger.create({
+            trigger: directory,
+            start: "top 78%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(directory.querySelector(".as-search-panel"), { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.75, ease: "power3.out" });
+              gsap.fromTo(directory.querySelectorAll(".as-support-links__item"), { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.62, stagger: 0.08, delay: 0.08, ease: "power3.out" });
+            }
+          });
+        }
+
+        const solutions = document.querySelector(".as-solutions");
+        if (solutions) {
+          const mediaFrame = solutions.querySelector(".as-solutions__media-frame");
+          ScrollTrigger.create({
+            trigger: solutions,
+            start: "top 77%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(mediaFrame, { clipPath: "inset(8% 7% 8% 7%)", scale: 0.96 }, { clipPath: "inset(0 0 0 0)", scale: 1, duration: 1, ease: "power3.inOut" });
+              gsap.fromTo(solutions.querySelectorAll(".as-solution"), { x: 26, opacity: 0 }, { x: 0, opacity: 1, duration: 0.72, stagger: 0.12, delay: 0.1, ease: "power3.out" });
+            }
+          });
+        }
+
+        const contact = document.querySelector(".as-contact");
+        if (contact) {
+          ScrollTrigger.create({
+            trigger: contact,
+            start: "top 78%",
+            once: true,
+            onEnter: () => {
+              gsap.fromTo(contact.querySelector(".as-contact__heading"), { yPercent: 25, clipPath: "inset(0 0 100% 0)" }, { yPercent: 0, clipPath: "inset(0 0 0 0)", duration: 0.9, ease: "power3.out" });
+              gsap.fromTo(contact.querySelectorAll(".as-contact__method, .as-contact__social"), { y: 17, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, delay: 0.12, stagger: 0.09, ease: "power3.out" });
+            }
+          });
+        }
+
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+      }
+
+      function initializePage() {
+        if (initialized) {
+          return;
+        }
+        initialized = true;
+        initializeConfiguredImages();
+        initializeWhatsApp();
+        initializeSupportSearch();
+        initializePointerInteraction();
+        initializeAnimations();
+
+        const refresh = () => {
+          if (window.ScrollTrigger && !reducedMotion) {
+            window.ScrollTrigger.refresh();
+          }
+        };
+        window.addEventListener("load", refresh, { once: true });
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(refresh);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePage, { once: true });
+      } else {
+        initializePage();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore V STEEL's precision-engineered industrial, laboratory, electronics and modular workbench solutions.">
+  <meta name="theme-color" content="#202124">
+  <title>Steel Workbenches | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <link rel="stylesheet" href="./workbench.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./workbench.js" defer></script>
+  <script src="./site.js" defer></script>
+</head>
+<body class="vs-page vs-page--workbench">
+  <div id="navbar-placeholder"></div>
+  <main class="wb-page">
+    <section class="wb-hero" aria-labelledby="wb-hero-title">
+      <div class="wb-hero__layout wb-container">
+        <div class="wb-hero__copy">
+          <p class="wb-eyebrow">INDUSTRIAL PRECISION WORKBENCHES</p>
+          <h1 id="wb-hero-title"><span>STEEL</span><span>WORKBENCHES.</span></h1>
+          <p class="wb-hero__typing">
+            <span class="wb-hero__typing-label">V STEEL /</span>
+            <span data-wb-typing>Industrial Workbenches</span>
+            <span class="wb-hero__caret" aria-hidden="true"></span>
+          </p>
+          <a class="wb-hero__link" href="#wb-solutions">Explore workbench solutions <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <div class="wb-hero__stage" data-wb-hero-stage>
+          <svg class="wb-hero__drawing" viewBox="0 0 720 640" fill="none" aria-hidden="true">
+            <path d="M37 68H242M478 68H683M37 68V103M683 68V103M64 591H227M493 591H656M64 556V591M656 556V591" />
+            <path d="M360 0V47M360 593V640M0 320H54M666 320H720" />
+            <circle cx="360" cy="320" r="248" />
+            <circle cx="360" cy="320" r="226" />
+            <path d="M78 320H119M601 320H642M360 38V79M360 561V602" />
+          </svg>
+
+          <!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the hero image is supplied. -->
+          <figure class="wb-photo wb-hero__photo wb-hero__photo--main is-focus" data-wb-photo data-wb-hero-image="0">
+            <picture>
+              <source type="image/avif" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" data-wb-srcset="">
+              <source type="image/webp" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" data-wb-srcset="">
+              <img alt="Industrial steel workbench product photograph" width="1600" height="1200" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" data-wb-src="assets/images/workbe1.png" data-wb-srcset="" loading="eager" fetchpriority="high" decoding="async">
+            </picture>
+            <figcaption class="wb-photo__label" aria-hidden="true"><span>01</span> WORK SURFACE</figcaption>
+            <span class="wb-photo__corner" aria-hidden="true"></span>
+          </figure>
+
+          <!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the supporting image is supplied. -->
+          <figure class="wb-photo wb-hero__photo wb-hero__photo--research" data-wb-photo data-wb-hero-image="1">
+            <picture>
+              <source type="image/avif" sizes="(max-width: 760px) 38vw, 24vw" data-wb-srcset="">
+              <source type="image/webp" sizes="(max-width: 760px) 38vw, 24vw" data-wb-srcset="">
+              <img alt="Laboratory research workbench product photograph" width="900" height="1100" sizes="(max-width: 760px) 38vw, 24vw" data-wb-src="assets/images/workbe2.png" data-wb-srcset="" loading="eager" decoding="async">
+            </picture>
+            <figcaption class="wb-photo__label" aria-hidden="true"><span>02</span> RESEARCH</figcaption>
+            <span class="wb-photo__corner" aria-hidden="true"></span>
+          </figure>
+
+          <!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the supporting image is supplied. -->
+          <figure class="wb-photo wb-hero__photo wb-hero__photo--assembly" data-wb-photo data-wb-hero-image="2">
+            <picture>
+              <source type="image/avif" sizes="(max-width: 760px) 38vw, 24vw" data-wb-srcset="">
+              <source type="image/webp" sizes="(max-width: 760px) 38vw, 24vw" data-wb-srcset="">
+              <img alt="Electronics assembly workbench product photograph" width="1000" height="760" sizes="(max-width: 760px) 38vw, 24vw" data-wb-src="assets/images/workbe3.png" data-wb-srcset="" loading="eager" decoding="async">
+            </picture>
+            <figcaption class="wb-photo__label" aria-hidden="true"><span>03</span> ASSEMBLY</figcaption>
+            <span class="wb-photo__corner" aria-hidden="true"></span>
+          </figure>
+
+          <div class="wb-hero__measure wb-hero__measure--top" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wb-hero__measure wb-hero__measure--side" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wb-hero__controls" role="group" aria-label="Select a workbench image">
+            <button type="button" class="is-active" data-wb-hero-focus="0" aria-label="Focus industrial workbench image" aria-pressed="true">01</button>
+            <button type="button" data-wb-hero-focus="1" aria-label="Focus research workbench image" aria-pressed="false">02</button>
+            <button type="button" data-wb-hero-focus="2" aria-label="Focus assembly workbench image" aria-pressed="false">03</button>
+          </div>
+          <p class="wb-hero__stage-index" aria-hidden="true">VSP / WB—01</p>
+        </div>
+      </div>
+      <div class="wb-hero__bottom wb-container" aria-hidden="true">
+        <span>ENGINEERED WORKSPACE</span>
+        <span>PRECISION / FUNCTION / FORM</span>
+        <span>V STEEL</span>
+      </div>
+    </section>
+
+    <section class="wb-showcase wb-showcase--industrial" id="wb-solutions" aria-labelledby="wb-industrial-title">
+      <div class="wb-showcase__layout wb-container">
+        <div class="wb-showcase__copy">
+          <p class="wb-eyebrow">Industrial Precision Workbenches</p>
+          <h2 id="wb-industrial-title">Steel Workbenches</h2>
+          <p class="wb-showcase__section-heading">Industrial Precision Workbenches</p>
+          <p class="wb-showcase__description">Transform your industrial workspace with our meticulously engineered workbenches. Designed for maximum productivity, these robust steel workstations offer unparalleled durability, ergonomic design, and customizable configurations to meet the most demanding manufacturing and technical environments.</p>
+          <span class="wb-showcase__index" aria-hidden="true">01 / 03</span>
+        </div>
+        <!-- Add the approved industrial workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
+        <figure class="wb-photo wb-showcase__photo wb-showcase__photo--industrial" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <img alt="Industrial precision steel workbench product photograph" width="1600" height="1200" sizes="(max-width: 760px) 92vw, 56vw" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>01</span> INDUSTRIAL PRECISION</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+        <span class="wb-showcase__rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="wb-showcase wb-showcase--research" aria-labelledby="wb-research-title">
+      <div class="wb-showcase__layout wb-container">
+        <div class="wb-showcase__copy">
+          <p class="wb-eyebrow">Advanced Scientific Workspace</p>
+          <h2 id="wb-research-title">Laboratory Research Workbenches</h2>
+          <p class="wb-showcase__description">Elevate scientific research with our cutting-edge laboratory workbenches. Engineered with precision, these workstations feature chemical-resistant surfaces, anti-static properties, and specialized compartments. Designed to protect sensitive equipment, facilitate complex research, and maintain a sterile, organized scientific environment.</p>
+          <span class="wb-showcase__index" aria-hidden="true">02 / 03</span>
+        </div>
+        <!-- Add the approved laboratory workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
+        <figure class="wb-photo wb-showcase__photo wb-showcase__photo--research" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <img alt="Laboratory research workbench product photograph" width="1400" height="1200" sizes="(max-width: 760px) 92vw, 56vw" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>02</span> SCIENTIFIC WORKSPACE</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+        <span class="wb-showcase__rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="wb-showcase wb-showcase--technical" aria-labelledby="wb-technical-title">
+      <div class="wb-showcase__layout wb-container">
+        <div class="wb-showcase__copy">
+          <p class="wb-eyebrow">Specialized Technical Solutions</p>
+          <h2 id="wb-technical-title">Electronics and Assembly Workbenches</h2>
+          <p class="wb-showcase__description">Revolutionize your electronics and assembly processes with our specialized workbenches. Featuring integrated power outlets, ESD protection, precision tool storage, and ergonomic design, these workstations are engineered to enhance productivity, ensure component safety, and optimize workflow efficiency in high-precision manufacturing environments.</p>
+          <span class="wb-showcase__index" aria-hidden="true">03 / 03</span>
+        </div>
+        <!-- Add the approved electronics and assembly workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
+        <figure class="wb-photo wb-showcase__photo wb-showcase__photo--technical" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <img alt="Electronics and assembly workbench product photograph" width="1600" height="1100" sizes="(max-width: 760px) 92vw, 56vw" data-wb-src="assets/images/workbe6.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>03</span> TECHNICAL ASSEMBLY</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+        <span class="wb-showcase__rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="wb-categories" aria-labelledby="wb-categories-title">
+      <div class="wb-container">
+        <header class="wb-categories__heading">
+          <div>
+            <p class="wb-eyebrow">Designed around the work</p>
+            <h2 id="wb-categories-title">Comprehensive Steel Workbench Solutions</h2>
+            <p>Vishal Steel Products offers a diverse range of high-performance steel workbenches engineered to meet complex industrial, scientific, and technical workspace requirements. Our workbenches combine precision engineering, durability, and innovative design to provide optimal productivity and efficiency.</p>
+          </div>
+          <!-- Additional image 01 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
+          <figure class="wb-photo wb-extra-image wb-extra-image--01" data-wb-photo>
+            <picture>
+              <source type="image/avif" sizes="(max-width: 760px) 92vw, 38vw" data-wb-srcset="">
+              <source type="image/webp" sizes="(max-width: 760px) 92vw, 38vw" data-wb-srcset="">
+              <img alt="Workbench systems detail photograph" width="1200" height="900" sizes="(max-width: 760px) 92vw, 38vw" data-wb-src="assets/images/workbe1.png" data-wb-srcset="" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="wb-photo__label" aria-hidden="true"><span>DETAIL 01</span> WORKSPACE SYSTEMS</figcaption>
+            <span class="wb-photo__corner" aria-hidden="true"></span>
+          </figure>
+        </header>
+
+        <div class="wb-category-grid">
+          <article class="wb-category wb-category--01" data-wb-category tabindex="0">
+            <p class="wb-category__number">01 <span> / 06</span></p>
+            <h3>Industrial Precision Workbenches</h3>
+            <p>Robust workstations for demanding manufacturing and technical environments.</p>
+            <ul>
+              <li>Heavy-duty steel construction</li>
+              <li>Maximum load-bearing capacity</li>
+              <li>Ergonomic design</li>
+              <li>Customizable configuration</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+          <article class="wb-category wb-category--02" data-wb-category tabindex="0">
+            <p class="wb-category__number">02 <span> / 06</span></p>
+            <h3>Laboratory Research Workbenches</h3>
+            <p>Precision-engineered workstations for scientific and research settings.</p>
+            <ul>
+              <li>Chemical-resistant surfaces</li>
+              <li>Anti-static properties</li>
+              <li>Specialized compartment design</li>
+              <li>Sterile environment compatibility</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+          <article class="wb-category wb-category--03" data-wb-category tabindex="0">
+            <p class="wb-category__number">03 <span> / 06</span></p>
+            <h3>Technical Assembly Workbenches</h3>
+            <p>Advanced workstations for precision assembly and technical manufacturing.</p>
+            <ul>
+              <li>Integrated power outlets</li>
+              <li>ESD protection</li>
+              <li>Precision tool storage</li>
+              <li>Modular workspace design</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+          <article class="wb-category wb-category--04" data-wb-category tabindex="0">
+            <p class="wb-category__number">04 <span> / 06</span></p>
+            <h3>Electronics Assembly Workbenches</h3>
+            <p>Specialized workstations for electronics manufacturing and component handling.</p>
+            <ul>
+              <li>Static-free surfaces</li>
+              <li>Precision alignment features</li>
+              <li>Component protection design</li>
+              <li>Integrated cable management</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+          <article class="wb-category wb-category--05" data-wb-category tabindex="0">
+            <p class="wb-category__number">05 <span> / 06</span></p>
+            <h3>Medical Research Workbenches</h3>
+            <p>High-precision workstations for medical research and clinical environments.</p>
+            <ul>
+              <li>Antimicrobial surfaces</li>
+              <li>Sterile workspace design</li>
+              <li>Contamination prevention</li>
+              <li>Ergonomic instrument layout</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+          <article class="wb-category wb-category--06" data-wb-category tabindex="0">
+            <p class="wb-category__number">06 <span> / 06</span></p>
+            <h3>Modular Workshop Workbenches</h3>
+            <p>Adaptable workstations for versatile industrial and technical applications.</p>
+            <ul>
+              <li>Quick reconfiguration</li>
+              <li>Scalable workspace design</li>
+              <li>Multi-purpose functionality</li>
+              <li>Customizable accessory integration</li>
+            </ul>
+            <span class="wb-category__line" aria-hidden="true"></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wb-details" aria-labelledby="wb-details-title">
+      <div class="wb-details__layout wb-container">
+        <div class="wb-details__heading">
+          <p class="wb-eyebrow">Built with purpose</p>
+          <h2 id="wb-details-title">Product Details</h2>
+          <!-- Additional image 02 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
+          <figure class="wb-photo wb-extra-image wb-extra-image--02" data-wb-photo>
+            <picture>
+              <source type="image/avif" sizes="(max-width: 760px) 92vw, 40vw" data-wb-srcset="">
+              <source type="image/webp" sizes="(max-width: 760px) 92vw, 40vw" data-wb-srcset="">
+              <img alt="Workbench construction detail photograph" width="1200" height="1050" sizes="(max-width: 760px) 92vw, 40vw" data-wb-src="assets/images/workbe2.png" data-wb-srcset="" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="wb-photo__label" aria-hidden="true"><span>DETAIL 02</span> CONSTRUCTION</figcaption>
+            <span class="wb-photo__corner" aria-hidden="true"></span>
+          </figure>
+        </div>
+        <div class="wb-details__specs">
+          <h3>Industrial Workbench Solutions</h3>
+          <dl>
+            <div class="wb-spec">
+              <dt>Construction</dt>
+              <dd>Heavy-duty steel frame with reinforced joints and precision-engineered surfaces</dd>
+            </div>
+            <div class="wb-spec">
+              <dt>Dimensions</dt>
+              <dd>Customizable sizes with standard options ranging from 4ft to 8ft in length</dd>
+            </div>
+            <div class="wb-spec">
+              <dt>Features</dt>
+              <dd>Integrated storage, adjustable height, modular design, and specialized work surfaces</dd>
+            </div>
+            <div class="wb-spec">
+              <dt>Applications</dt>
+              <dd>Suitable for manufacturing, assembly, laboratory, and technical workshop environments</dd>
+            </div>
+            <div class="wb-spec">
+              <dt>Durability</dt>
+              <dd>Powder-coated finish, corrosion-resistant materials, and high load-bearing capacity</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="wb-overview" aria-labelledby="wb-overview-title">
+      <div class="wb-overview__layout wb-container">
+        <!-- Additional image 03 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
+        <figure class="wb-photo wb-extra-image wb-extra-image--03" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 56vw" data-wb-srcset="">
+            <img alt="Industrial workbench overview photograph" width="1600" height="1200" sizes="(max-width: 760px) 92vw, 56vw" data-wb-src="assets/images/workbe3.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>OVERVIEW</span> WORKBENCH IN USE</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+        <div class="wb-overview__copy">
+          <p class="wb-eyebrow">A platform for precision</p>
+          <h2 id="wb-overview-title">Product Overview</h2>
+          <p>Our industrial workbenches are engineered for maximum efficiency and durability in demanding work environments. Each workbench combines ergonomic design with robust construction to provide a stable, versatile platform for various industrial applications. From precision assembly to heavy manufacturing, our workbenches deliver exceptional performance and reliability.</p>
+          <span class="wb-overview__mark" aria-hidden="true">VSP / 03</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="wb-premium" aria-labelledby="wb-premium-title">
+      <div class="wb-premium__layout wb-container">
+        <div class="wb-premium__copy">
+          <p class="wb-eyebrow">Precision workspace / V STEEL</p>
+          <h2 id="wb-premium-title">Premium Industrial Steel Workbenches</h2>
+          <p>Engineered for maximum productivity and precision, our steel workbenches provide robust workspace solutions for manufacturing, research, technical, and industrial environments. Designed to optimize workflow, enhance efficiency, and support complex technical operations.</p>
+        </div>
+        <!-- Additional image 04 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
+        <figure class="wb-photo wb-extra-image wb-extra-image--04" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 52vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 52vw" data-wb-srcset="">
+            <img alt="Premium industrial steel workbench photograph" width="1500" height="1050" sizes="(max-width: 760px) 92vw, 52vw" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>WORKSPACE</span> INDUSTRIAL STEEL</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+        <span class="wb-premium__axis" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="wb-features" aria-labelledby="wb-features-title">
+      <div class="wb-features__layout wb-container">
+        <div class="wb-features__copy">
+          <p class="wb-eyebrow">Technical specification</p>
+          <h2 id="wb-features-title">Key Features &amp; Specifications</h2>
+          <p>Our industrial steel workbenches offer:</p>
+          <ul class="wb-feature-list">
+            <li>High-grade steel construction with superior structural integrity</li>
+            <li>Ergonomic design for optimal workspace comfort and efficiency</li>
+            <li>Multiple configuration options to suit diverse industrial requirements</li>
+            <li>Precision-engineered surfaces for specialized technical applications</li>
+            <li>Modular and adaptable workspace solutions</li>
+          </ul>
+        </div>
+        <!-- Additional image 05 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
+        <figure class="wb-photo wb-extra-image wb-extra-image--05" data-wb-photo>
+          <picture>
+            <source type="image/avif" sizes="(max-width: 760px) 92vw, 44vw" data-wb-srcset="">
+            <source type="image/webp" sizes="(max-width: 760px) 92vw, 44vw" data-wb-srcset="">
+            <img alt="Workbench technical features photograph" width="1200" height="1400" sizes="(max-width: 760px) 92vw, 44vw" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="wb-photo__label" aria-hidden="true"><span>DETAIL 05</span> TECHNICAL FEATURES</figcaption>
+          <span class="wb-photo__corner" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </section>
+<style>
+
+/* Center the Why Choose section */
+.wb-why__layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.wb-why__copy {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.wb-why__copy .wb-eyebrow {
+  justify-content: center;
+}
+
+.wb-why__copy h2 {
+  max-width: 850px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.wb-why__copy > p {
+  text-align: center;
+}
+
+.wb-why-list {
+  width: 100%;
+  max-width: 850px;
+  margin: 30px auto 0;
+  padding: 0;
+  text-align: left;
+}
+
+.wb-why-list li {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .wb-why__copy {
+    max-width: 100%;
+  }
+
+  .wb-why__copy h2 {
+    font-size: clamp(34px, 8vw, 48px);
+  }
+
+  .wb-why-list li {
+    gap: 16px;
+  }
+}
+
+</style>
+
+<section class="wb-why" aria-labelledby="wb-why-title">
+  <div class="wb-why__layout wb-container">
+    <div class="wb-why__copy">
+      <p class="wb-eyebrow">The V STEEL approach</p>
+      <h2 id="wb-why-title">Why Choose Vishal Steel Workbenches?</h2>
+      <p>We stand out through:</p>
+
+      <ol class="wb-why-list">
+        <li><span>01</span><p>Advanced engineering with stringent quality control</p></li>
+        <li><span>02</span><p>Customizable solutions tailored to specific industry needs</p></li>
+        <li><span>03</span><p>Competitive pricing without compromising on precision</p></li>
+        <li><span>04</span><p>Comprehensive technical support and workspace consultation</p></li>
+        <li><span>05</span><p>ISO-certified manufacturing and design processes</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+    <section class="wb-cta" aria-labelledby="wb-cta-title">
+      <div class="wb-cta__inner wb-container">
+        <p class="wb-eyebrow">V STEEL / INDUSTRIAL WORKSPACE</p>
+        <h2 id="wb-cta-title">Need a Workbench for Your Industry?</h2>
+        <a class="wb-cta__button" data-wb-whatsapp data-whatsapp-enquiry aria-disabled="true" tabindex="-1">WhatsApp Enquiry <span aria-hidden="true">↗</span></a>
+        <span class="wb-cta__index" aria-hidden="true">END / WB</span>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

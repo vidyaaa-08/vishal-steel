@@ -1,0 +1,1475 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laboratory furniture, fume hoods, workstations and custom laboratory solutions from Vishal Steel Products.">
+  <meta name="theme-color" content="#202124">
+  <title>Laboratory Essentials | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --lab-red: #b51220;
+      --lab-dark-red: #8f0d18;
+      --lab-charcoal: #202124;
+      --lab-white: #fff;
+      --lab-grey: #f5f5f5;
+      --lab-muted: #6b6d70;
+      --lab-line: rgba(32, 33, 36, 0.14);
+      --lab-gutter: clamp(24px, 6vw, 96px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body.lab-page {
+      margin: 0;
+      overflow-x: clip;
+      background: var(--lab-white);
+      color: var(--lab-charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lab-page *,
+    .lab-page *::before,
+    .lab-page *::after {
+      box-sizing: border-box;
+    }
+
+    .lab-page a {
+      color: inherit;
+    }
+
+    .lab-main {
+      overflow: clip;
+    }
+
+    .lab-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      min-height: min(850px, calc(100svh - 88px));
+      padding: clamp(46px, 7vw, 100px) var(--lab-gutter) clamp(70px, 9vw, 130px);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 2% 2%, rgba(181, 18, 32, 0.06), transparent 38%),
+        var(--lab-grey);
+      isolation: isolate;
+    }
+
+    .lab-hero::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 44%;
+      height: 100%;
+      background: linear-gradient(140deg, rgba(32, 33, 36, 0.025), rgba(32, 33, 36, 0.09));
+      content: "";
+      z-index: -1;
+    }
+
+    .lab-hero__copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 clamp(20px, 4vw, 68px) 26px 0;
+    }
+
+    .lab-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 24px;
+      color: var(--lab-red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .lab-kicker::before {
+      display: block;
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .lab-hero__title {
+      width: 100%;
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.6rem, 5.5vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.96;
+    }
+
+    .lab-hero__title-line {
+      display: block;
+      overflow: hidden;
+      padding: 0.04em 0.08em 0.1em 0;
+    }
+
+    .lab-hero__title-line span {
+      display: block;
+    }
+
+    .lab-hero__title-line:last-child {
+      color: var(--lab-red);
+    }
+
+    .lab-hero__visual {
+      position: relative;
+      align-self: stretch;
+      min-height: 520px;
+      margin: 0 -4vw 0 0;
+    }
+
+    .lab-hero__visual .lab-image-slot {
+      height: 100%;
+      min-height: inherit;
+      aspect-ratio: auto;
+      box-shadow: 0 30px 90px rgba(32, 33, 36, 0.2);
+    }
+
+    .lab-hero__visual .lab-image-slot__label {
+      right: 10%;
+      bottom: 11%;
+      left: 10%;
+      max-width: 420px;
+      font-size: clamp(18px, 2.2vw, 29px);
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+      text-align: left;
+      text-transform: none;
+    }
+
+    .lab-image-slot {
+      --slot-accent: rgba(181, 18, 32, 0.55);
+      position: relative;
+      display: grid;
+      min-width: 0;
+      min-height: 270px;
+      aspect-ratio: 1.38 / 1;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(138deg, transparent 48%, rgba(255, 255, 255, 0.08) 48.2%, transparent 48.6%),
+        linear-gradient(38deg, transparent 58%, rgba(255, 255, 255, 0.06) 58.2%, transparent 58.6%),
+        radial-gradient(ellipse at 70% 22%, rgba(181, 18, 32, 0.36), transparent 36%),
+        linear-gradient(145deg, #343538, #202124 62%, #151618);
+      color: var(--lab-white);
+      isolation: isolate;
+    }
+
+    .lab-image-slot::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+      background-size: 46px 46px;
+      content: "";
+      mask-image: linear-gradient(135deg, #000, transparent 90%);
+      opacity: 0.58;
+    }
+
+    .lab-image-slot::after {
+      position: absolute;
+      inset: 9%;
+      z-index: -1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      content: "";
+      transform: translate3d(var(--slot-shift, 0), 0, 0);
+      transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1), inset 650ms ease;
+    }
+
+    .lab-image-slot:hover::after {
+      inset: 7%;
+      transform: translate3d(8px, -5px, 0);
+    }
+
+    .lab-image-slot__label {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.83);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1.5;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .lab-image-slot__mark {
+      position: relative;
+      display: grid;
+      width: min(34%, 160px);
+      min-width: 92px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(30px, 5vw, 68px);
+      font-weight: 300;
+      letter-spacing: -0.08em;
+      line-height: 1;
+    }
+
+    .lab-image-slot__mark::before,
+    .lab-image-slot__mark::after {
+      position: absolute;
+      width: 150%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.19);
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .lab-image-slot__mark::after {
+      transform: rotate(-45deg);
+    }
+
+    .lab-hero__index {
+      position: absolute;
+      right: var(--lab-gutter);
+      bottom: 32px;
+      color: rgba(32, 33, 36, 0.56);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .lab-scroll-cue {
+      position: absolute;
+      bottom: 28px;
+      left: var(--lab-gutter);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--lab-charcoal);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .lab-scroll-cue__line {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 1px;
+      overflow: hidden;
+      background: rgba(32, 33, 36, 0.25);
+    }
+
+    .lab-scroll-cue__line::after {
+      position: absolute;
+      inset: 0;
+      background: var(--lab-red);
+      content: "";
+      transform: translateX(-100%);
+      animation: lab-cue-line 1.7s ease-in-out infinite;
+    }
+
+    .lab-story {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
+      align-items: center;
+      gap: clamp(42px, 8vw, 132px);
+      min-height: min(720px, 82vw);
+      padding: clamp(24px, 4vw, 58px) var(--lab-gutter);
+      border-top: 1px solid var(--lab-line);
+    }
+
+    .lab-story:nth-of-type(even) {
+      grid-template-columns: minmax(290px, 0.9fr) minmax(0, 1.1fr);
+      background: var(--lab-grey);
+    }
+
+    .lab-story:nth-of-type(even) .lab-story__visual {
+      order: 2;
+    }
+
+    .lab-story__visual {
+      position: relative;
+      min-width: 0;
+    }
+
+    .lab-story__visual .lab-image-slot {
+      min-height: 390px;
+      aspect-ratio: 1.42 / 1;
+    }
+
+    .lab-story:nth-of-type(3n) .lab-story__visual .lab-image-slot {
+      aspect-ratio: 0.98 / 1;
+    }
+
+    .lab-story__visual::before {
+      position: absolute;
+      top: -18px;
+      left: -18px;
+      z-index: 2;
+      width: clamp(54px, 8vw, 112px);
+      aspect-ratio: 1;
+      border-top: 1px solid var(--lab-red);
+      border-left: 1px solid var(--lab-red);
+      content: "";
+      pointer-events: none;
+    }
+
+    .lab-story:nth-of-type(even) .lab-story__visual::before {
+      right: -18px;
+      left: auto;
+      border-right: 1px solid var(--lab-red);
+      border-left: 0;
+    }
+
+    .lab-story__copy {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      padding: 24px 0;
+    }
+
+    .lab-story__number {
+      display: block;
+      margin-bottom: clamp(22px, 4vw, 45px);
+      color: var(--lab-red);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .lab-story__title {
+      margin: 0;
+      font-size: clamp(2rem, 4.1vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.065em;
+      line-height: 1.02;
+    }
+
+    .lab-story__description {
+      max-width: 440px;
+      margin: 24px 0 0;
+      color: var(--lab-muted);
+      font-size: clamp(14px, 1.3vw, 17px);
+      line-height: 1.8;
+    }
+
+    .lab-story__rule {
+      display: block;
+      width: 54px;
+      height: 2px;
+      margin-top: 30px;
+      background: var(--lab-red);
+      transform-origin: left center;
+    }
+
+    .lab-solutions {
+      padding-bottom: clamp(90px, 12vw, 160px);
+      background: var(--lab-white);
+    }
+
+    .lab-solutions__heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: clamp(80px, 11vw, 145px) var(--lab-gutter) clamp(38px, 5vw, 66px);
+    }
+
+    .lab-solutions__heading h2 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 7rem);
+      letter-spacing: -0.085em;
+      line-height: 0.9;
+    }
+
+    .lab-solutions__heading p {
+      max-width: 240px;
+      margin: 0 0 6px;
+      color: var(--lab-muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .lab-solution {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 108px);
+      padding: clamp(38px, 6vw, 84px) var(--lab-gutter);
+      border-top: 1px solid var(--lab-line);
+    }
+
+    .lab-solution:nth-child(even) {
+      grid-template-columns: minmax(0, 0.97fr) minmax(0, 1.03fr);
+      background: var(--lab-grey);
+    }
+
+    .lab-solution:nth-child(even) .lab-solution__visual {
+      order: 2;
+    }
+
+    .lab-solution__visual {
+      position: relative;
+      min-width: 0;
+    }
+
+    .lab-solution__visual .lab-image-slot {
+      min-height: 330px;
+      aspect-ratio: 1.48 / 1;
+    }
+
+    .lab-solution:nth-child(3) .lab-solution__visual .lab-image-slot {
+      aspect-ratio: 1.08 / 1;
+    }
+
+    .lab-solution__content {
+      position: relative;
+      min-width: 0;
+      padding: 22px 0;
+    }
+
+    .lab-solution__index {
+      position: absolute;
+      top: -0.3em;
+      right: 0;
+      z-index: 0;
+      color: rgba(181, 18, 32, 0.09);
+      font-size: clamp(7rem, 17vw, 17rem);
+      font-weight: 700;
+      letter-spacing: -0.11em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .lab-solution__content > *:not(.lab-solution__index) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .lab-solution__title {
+      max-width: 560px;
+      margin: 0;
+      font-size: clamp(2.2rem, 4.6vw, 4.8rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.98;
+    }
+
+    .lab-solution__description {
+      max-width: 440px;
+      margin: 24px 0 0;
+      color: var(--lab-muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .lab-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      min-width: 154px;
+      min-height: 52px;
+      margin-top: 32px;
+      padding: 0 18px;
+      border: 1px solid var(--lab-charcoal);
+      background: transparent;
+      color: var(--lab-charcoal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+    }
+
+    .lab-button span {
+      color: var(--lab-red);
+      font-size: 18px;
+      transition: color 220ms ease, transform 220ms ease;
+    }
+
+    .lab-button:hover {
+      border-color: var(--lab-red);
+      background: var(--lab-red);
+      color: var(--lab-white);
+      transform: translateY(-3px);
+    }
+
+    .lab-button:hover span {
+      color: var(--lab-white);
+      transform: translate(3px, -3px);
+    }
+
+    .lab-comprehensive {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr);
+      gap: clamp(40px, 8vw, 120px);
+      padding: clamp(86px, 12vw, 170px) var(--lab-gutter);
+      overflow: hidden;
+      background: var(--lab-charcoal);
+      color: var(--lab-white);
+      isolation: isolate;
+    }
+
+    .lab-comprehensive::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(110deg, rgba(32, 33, 36, 0.98) 20%, rgba(32, 33, 36, 0.84) 64%, rgba(32, 33, 36, 0.7)),
+        repeating-linear-gradient(0deg, transparent 0 62px, rgba(255, 255, 255, 0.055) 63px),
+        repeating-linear-gradient(90deg, transparent 0 62px, rgba(255, 255, 255, 0.055) 63px);
+      content: "";
+    }
+
+    .lab-comprehensive__backdrop {
+      position: absolute;
+      top: 10%;
+      right: -12%;
+      z-index: -1;
+      width: 53%;
+      min-height: 80%;
+      opacity: 0.65;
+      transform: rotate(-7deg);
+    }
+
+    .lab-comprehensive__backdrop .lab-image-slot {
+      min-height: 500px;
+      height: 100%;
+      aspect-ratio: auto;
+      opacity: 0.56;
+    }
+
+    .lab-comprehensive__copy {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .lab-comprehensive__copy .lab-kicker {
+      color: #ffb8be;
+    }
+
+    .lab-comprehensive__title {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(3rem, 7.3vw, 7.2rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.94;
+    }
+
+    .lab-comprehensive__description {
+      max-width: 640px;
+      margin: 30px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: clamp(15px, 1.45vw, 18px);
+      line-height: 1.8;
+    }
+
+    .lab-comprehensive__stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: end;
+      gap: 38px;
+      padding-bottom: 8px;
+    }
+
+    .lab-stat {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.32);
+    }
+
+    .lab-stat__number {
+      display: block;
+      color: var(--lab-white);
+      font-size: clamp(4.5rem, 9vw, 9rem);
+      font-weight: 700;
+      letter-spacing: -0.095em;
+      line-height: 0.9;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lab-stat__label {
+      display: block;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .lab-comprehensive .lab-button,
+    .lab-why .lab-button {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: var(--lab-white);
+    }
+
+    .lab-comprehensive .lab-button span,
+    .lab-why .lab-button span {
+      color: #ffb8be;
+    }
+
+    .lab-comprehensive .lab-button:hover,
+    .lab-why .lab-button:hover {
+      border-color: var(--lab-red);
+      color: var(--lab-white);
+    }
+
+    .lab-comprehensive .lab-button:hover span,
+    .lab-why .lab-button:hover span {
+      color: var(--lab-white);
+    }
+
+    .lab-why {
+      padding: clamp(90px, 12vw, 170px) var(--lab-gutter);
+      background: var(--lab-grey);
+    }
+
+    .lab-why__heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 18px;
+      margin-bottom: clamp(52px, 8vw, 110px);
+    }
+
+    .lab-why__heading .lab-kicker {
+      margin: 0;
+    }
+
+    .lab-why__title {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 700;
+      letter-spacing: -0.085em;
+      line-height: 0.92;
+    }
+
+    .lab-why__layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 120px);
+    }
+
+    .lab-why__visual {
+      position: relative;
+      min-width: 0;
+    }
+
+    .lab-why__visual .lab-image-slot {
+      min-height: 480px;
+      aspect-ratio: 1.12 / 1;
+    }
+
+    .lab-why__visual::after {
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      z-index: -1;
+      width: 48%;
+      height: 45%;
+      border-right: 1px solid var(--lab-red);
+      border-bottom: 1px solid var(--lab-red);
+      content: "";
+    }
+
+    .lab-why__content {
+      min-width: 0;
+    }
+
+    .lab-why__description {
+      max-width: 580px;
+      margin: 0 0 44px;
+      color: var(--lab-muted);
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.8;
+    }
+
+    .lab-feature {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 20px;
+      padding: 26px 0;
+      border-top: 1px solid var(--lab-line);
+    }
+
+    .lab-feature__number {
+      padding-top: 5px;
+      color: var(--lab-red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .lab-feature h3 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 1.1;
+    }
+
+    .lab-feature p {
+      max-width: 470px;
+      margin: 12px 0 0;
+      color: var(--lab-muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .lab-why__content .lab-button {
+      margin-top: 30px;
+    }
+
+    .lab-image-slot__media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lab-image-slot:has(.lab-image-slot__media) .lab-image-slot__mark,
+    .lab-image-slot:has(.lab-image-slot__media) .lab-image-slot__label {
+      z-index: 1;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.68);
+    }
+
+    .lab-image-slot:has(.lab-image-slot__media)::before {
+      z-index: 1;
+      background-color: rgba(32, 33, 36, 0.18);
+      background-blend-mode: multiply;
+      mask-image: none;
+    }
+
+    .lab-page .lab-image-slot--photo::before {
+      z-index: -1;
+      background-color: transparent;
+      background-blend-mode: normal;
+      opacity: 0;
+    }
+
+    .lab-page .lab-image-slot--photo::after {
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .lab-page .vs-footer {
+      position: relative;
+    }
+
+    @keyframes lab-cue-line {
+      0% { transform: translateX(-100%); }
+      60%, 100% { transform: translateX(100%); }
+    }
+
+    @media (max-width: 900px) {
+      .lab-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        min-height: 760px;
+      }
+
+      .lab-hero__title {
+        max-width: 100%;
+      }
+
+      .lab-hero__visual {
+        min-height: 470px;
+        margin-right: -6vw;
+      }
+
+      .lab-story,
+      .lab-story:nth-of-type(even) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
+        gap: 42px;
+        min-height: 0;
+      }
+
+      .lab-story:nth-of-type(even) .lab-story__visual {
+        order: 0;
+      }
+
+      .lab-story__visual .lab-image-slot {
+        min-height: 330px;
+      }
+
+      .lab-solution,
+      .lab-solution:nth-child(even) {
+        gap: 42px;
+      }
+
+      .lab-comprehensive {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.6fr);
+        gap: 42px;
+      }
+
+      .lab-why__layout {
+        gap: 48px;
+      }
+
+      .lab-why__visual .lab-image-slot {
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      .lab-hero {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: auto;
+        padding-top: 66px;
+        padding-bottom: 96px;
+      }
+
+      .lab-hero__copy {
+        padding: 0 0 34px;
+      }
+
+      .lab-kicker {
+        margin-bottom: 19px;
+      }
+
+      .lab-hero__title {
+        max-width: 560px;
+        font-size: clamp(2.4rem, 10.5vw, 4.8rem);
+      }
+
+      .lab-hero__visual {
+        min-height: 0;
+        margin: 0;
+      }
+
+      .lab-hero__visual .lab-image-slot {
+        min-height: 0;
+        aspect-ratio: 1.05 / 1;
+      }
+
+      .lab-hero__meta {
+        margin-top: 24px;
+      }
+
+      .lab-scroll-cue {
+        bottom: 23px;
+      }
+
+      .lab-hero__index {
+        bottom: 24px;
+      }
+
+      .lab-solutions__heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .lab-solutions__heading p {
+        max-width: 360px;
+      }
+
+      .lab-story,
+      .lab-story:nth-of-type(even) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding-top: 45px;
+        padding-bottom: 54px;
+      }
+
+      .lab-story:nth-of-type(even) .lab-story__visual {
+        order: 0;
+      }
+
+      .lab-story__visual .lab-image-slot,
+      .lab-story:nth-of-type(3n) .lab-story__visual .lab-image-slot {
+        min-height: 0;
+        aspect-ratio: 1.15 / 1;
+      }
+
+      .lab-story__copy {
+        padding: 0;
+      }
+
+      .lab-story__number {
+        margin-bottom: 18px;
+      }
+
+      .lab-story__description {
+        margin-top: 17px;
+      }
+
+      .lab-story__rule {
+        margin-top: 21px;
+      }
+
+      .lab-solutions__heading {
+        gap: 20px;
+        padding-top: 90px;
+      }
+
+      .lab-solution,
+      .lab-solution:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+        padding-top: 38px;
+        padding-bottom: 45px;
+      }
+
+      .lab-solution:nth-child(even) .lab-solution__visual {
+        order: 0;
+      }
+
+      .lab-solution__visual .lab-image-slot,
+      .lab-solution:nth-child(3) .lab-solution__visual .lab-image-slot {
+        min-height: 0;
+        aspect-ratio: 1.2 / 1;
+      }
+
+      .lab-solution__content {
+        padding: 8px 0;
+      }
+
+      .lab-solution__index {
+        top: -0.15em;
+        font-size: 9rem;
+      }
+
+      .lab-comprehensive {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 58px;
+        padding-top: 92px;
+        padding-bottom: 96px;
+      }
+
+      .lab-comprehensive__backdrop {
+        top: 30%;
+        right: -32%;
+        width: 100%;
+        min-height: 60%;
+      }
+
+      .lab-comprehensive__backdrop .lab-image-slot {
+        min-height: 420px;
+      }
+
+      .lab-comprehensive__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 22px;
+      }
+
+      .lab-stat {
+        padding-top: 15px;
+      }
+
+      .lab-stat__number {
+        font-size: clamp(3.8rem, 17vw, 6rem);
+      }
+
+      .lab-stat__label {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+      }
+
+      .lab-why {
+        padding-top: 92px;
+        padding-bottom: 100px;
+      }
+
+      .lab-why__heading {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        margin-bottom: 40px;
+      }
+
+      .lab-why__heading .lab-kicker {
+        margin-bottom: 0;
+      }
+
+      .lab-why__layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 46px;
+      }
+
+      .lab-why__visual .lab-image-slot {
+        min-height: 0;
+        aspect-ratio: 1.08 / 1;
+      }
+
+      .lab-why__description {
+        margin-bottom: 30px;
+      }
+
+      .lab-feature {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 14px;
+        padding: 22px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="vs-page lab-page">
+  <div id="navbar-placeholder"></div>
+  <main class="lab-main">
+    <section class="lab-hero" aria-labelledby="lab-hero-title">
+      <div class="lab-hero__copy">
+        <p class="lab-kicker">Laboratory Solutions</p>
+        <h1 class="lab-hero__title" id="lab-hero-title">
+          <span class="lab-hero__title-line"><span>Comprehensive</span></span>
+          <span class="lab-hero__title-line"><span>Laboratory</span></span>
+          <span class="lab-hero__title-line"><span>Essential Equipment</span></span>
+        </h1>
+      </div>
+      <div class="lab-hero__visual">
+        <div class="lab-image-slot lab-image-slot--photo" data-image-slot="laboratory-hero">
+          <img class="lab-image-slot__media" src="./assets/images/Equipment1.png" alt="Laboratory equipment" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+      <a class="lab-scroll-cue" href="#lab-editorial">
+        <span class="lab-scroll-cue__line" aria-hidden="true"></span>
+        <span>Scroll to explore</span>
+      </a>
+    </section>
+
+    <section class="lab-editorial" id="lab-editorial" aria-label="Laboratory essential equipment">
+      <article class="lab-story" data-story>
+        <div class="lab-story__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="stainless-steel-lab-equipment">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment2.png" alt="Stainless steel laboratory equipment and work surfaces" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">STAINLESS STEEL LAB EQUIPMENT</span>
+          </div>
+        </div>
+        <div class="lab-story__copy">
+          <span class="lab-story__number">01 / 05</span>
+          <h2 class="lab-story__title">Stainless Steel Lab Equipment</h2>
+          <p class="lab-story__description">Precision Engineered Solutions</p>
+          <span class="lab-story__rule" aria-hidden="true"></span>
+        </div>
+      </article>
+
+      <article class="lab-story" data-story>
+        <div class="lab-story__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="laboratory-workstations">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment3.png" alt="Laboratory workstation with fume extraction and storage" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY WORKSTATIONS</span>
+          </div>
+        </div>
+        <div class="lab-story__copy">
+          <span class="lab-story__number">02 / 05</span>
+          <h2 class="lab-story__title">Laboratory Workstations</h2>
+          <p class="lab-story__description">Advanced Workstations, Custom Laboratory Solutions</p>
+          <span class="lab-story__rule" aria-hidden="true"></span>
+        </div>
+      </article>
+
+      <article class="lab-story" data-story>
+        <div class="lab-story__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="laboratory-safety-equipment">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment4.png" alt="Laboratory safety and fume hood equipment" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY SAFETY EQUIPMENT</span>
+          </div>
+        </div>
+        <div class="lab-story__copy">
+          <span class="lab-story__number">03 / 05</span>
+          <h2 class="lab-story__title">Laboratory Safety Equipment</h2>
+          <p class="lab-story__description">Comprehensive Protection</p>
+          <span class="lab-story__rule" aria-hidden="true"></span>
+        </div>
+      </article>
+
+      <article class="lab-story" data-story>
+        <div class="lab-story__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="laboratory-storage-solutions">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment2.png" alt="Laboratory storage cabinets and equipment" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY STORAGE SOLUTIONS</span>
+          </div>
+        </div>
+        <div class="lab-story__copy">
+          <span class="lab-story__number">04 / 05</span>
+          <h2 class="lab-story__title">Laboratory Storage Solutions</h2>
+          <p class="lab-story__description">Efficient Organization</p>
+          <span class="lab-story__rule" aria-hidden="true"></span>
+        </div>
+      </article>
+
+      <article class="lab-story" data-story>
+        <div class="lab-story__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="custom-laboratory-fabrication">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment1.png" alt="Custom laboratory work surfaces and cabinetry" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">CUSTOM LABORATORY FABRICATION</span>
+          </div>
+        </div>
+        <div class="lab-story__copy">
+          <span class="lab-story__number">05 / 05</span>
+          <h2 class="lab-story__title">Custom Laboratory Fabrication</h2>
+          <p class="lab-story__description">Tailored Laboratory Solutions</p>
+          <span class="lab-story__rule" aria-hidden="true"></span>
+        </div>
+      </article>
+    </section>
+
+    <section class="lab-solutions" aria-labelledby="lab-solutions-title">
+      <header class="lab-solutions__heading">
+        <div>
+          <h2 id="lab-solutions-title">Our Solutions</h2>
+        </div>
+      </header>
+
+      <article class="lab-solution" data-solution>
+        <div class="lab-solution__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="solution-laboratory-furniture">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment4.png" alt="Laboratory furniture and fume hoods" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY FURNITURE &amp; FUME HOODS</span>
+          </div>
+        </div>
+        <div class="lab-solution__content">
+          <span class="lab-solution__index" aria-hidden="true">01</span>
+          <h3 class="lab-solution__title">Laboratory Furniture &amp; Fume Hoods</h3>
+          <p class="lab-solution__description">Complete laboratory setups including workbenches, fume hoods, and chemical-resistant furniture for research facilities.</p>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="lab-solution" data-solution>
+        <div class="lab-solution__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="solution-industrial-workbenches-storage">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment3.png" alt="Laboratory workbenches and storage" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY WORKBENCHES &amp; STORAGE</span>
+          </div>
+        </div>
+        <div class="lab-solution__content">
+          <span class="lab-solution__index" aria-hidden="true">02</span>
+          <h3 class="lab-solution__title">Industrial Workbenches &amp; Storage</h3>
+          <p class="lab-solution__description">Heavy-duty workbenches, tool trolleys, and warehouse racking systems for manufacturing environments.</p>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="lab-solution" data-solution>
+        <div class="lab-solution__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="solution-office-furniture">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment2.png" alt="Laboratory workstation furniture and cabinets" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY FURNITURE SOLUTIONS</span>
+          </div>
+        </div>
+        <div class="lab-solution__content">
+          <span class="lab-solution__index" aria-hidden="true">03</span>
+          <h3 class="lab-solution__title">Office Furniture Solutions</h3>
+          <p class="lab-solution__description">Modern office desks, filing cabinets, storage compactors, and ergonomic furniture for professional workspaces.</p>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="lab-solution" data-solution>
+        <div class="lab-solution__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="solution-hvac-turnkey">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment4.png" alt="Laboratory ventilation and turnkey equipment" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY VENTILATION &amp; TURNKEY SOLUTIONS</span>
+          </div>
+        </div>
+        <div class="lab-solution__content">
+          <span class="lab-solution__index" aria-hidden="true">04</span>
+          <h3 class="lab-solution__title">HVAC Turnkey Solutions</h3>
+          <p class="lab-solution__description">Complete HVAC system design, installation, and maintenance for industrial and commercial facilities.</p>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="lab-comprehensive" aria-labelledby="lab-comprehensive-title">
+      <div class="lab-comprehensive__backdrop" aria-hidden="true">
+        <div class="lab-image-slot lab-image-slot--photo" data-image-slot="comprehensive-solutions-background">
+          <img class="lab-image-slot__media" src="./assets/images/Equipment5.png" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="lab-comprehensive__copy">
+        <p class="lab-kicker">Our Comprehensive Solutions</p>
+        <h2 class="lab-comprehensive__title" id="lab-comprehensive-title">Multi-Industry Manufacturing Expertise</h2>
+        <p class="lab-comprehensive__description">Specialized manufacturer serving laboratories, hospitals, offices, and industrial facilities with custom steel, metal, and wood furniture solutions.</p>
+        <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="lab-comprehensive__stats" aria-label="Manufacturing statistics">
+        <div class="lab-stat">
+          <span class="lab-stat__number" data-count="36" data-suffix="+">36+</span>
+          <span class="lab-stat__label">Years Manufacturing Experience</span>
+        </div>
+        <div class="lab-stat">
+          <span class="lab-stat__number" data-count="1000" data-suffix="+">1000+</span>
+          <span class="lab-stat__label">Projects Completed</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-why" aria-labelledby="lab-why-section-title">
+      <header class="lab-why__heading">
+        <p class="lab-kicker">Why Choose Vishal Steel Products</p>
+        <h2 class="lab-why__title" id="lab-why-section-title">Complete Laboratory &amp; Industrial Solutions</h2>
+      </header>
+      <div class="lab-why__layout">
+        <div class="lab-why__visual">
+          <div class="lab-image-slot lab-image-slot--photo" data-image-slot="why-choose-vishal-steel">
+            <img class="lab-image-slot__media" src="./assets/images/Equipment1.png" alt="Modern laboratory equipment and work surfaces" loading="lazy" decoding="async">
+            <span class="lab-image-slot__label">LABORATORY &amp; INDUSTRIAL SOLUTIONS</span>
+          </div>
+        </div>
+        <div class="lab-why__content">
+          <p class="lab-why__description">Specialized manufacturer of laboratory furniture, fume hoods, hospital equipment, and industrial storage systems with expertise in steel, metal, and wood fabrication.</p>
+          <article class="lab-feature">
+            <span class="lab-feature__number">01</span>
+            <div>
+              <h3>Multi-Material Expertise</h3>
+              <p>Advanced fabrication in steel, metal, and wood for laboratories, hospitals, offices, and industrial applications.</p>
+            </div>
+          </article>
+          <article class="lab-feature">
+            <span class="lab-feature__number">02</span>
+            <div>
+              <h3>Turnkey Solutions</h3>
+              <p>Complete project delivery including design, manufacturing, installation, and HVAC turnkey setups for all industries.</p>
+            </div>
+          </article>
+          <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    (() => {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let scrollTriggerRefreshBound = false;
+      let animationsInitialized = false;
+
+      function animateCount(element, target, suffix) {
+        if (reducedMotion) {
+          element.textContent = `${target}${suffix}`;
+          return;
+        }
+
+        const duration = 1500;
+        const start = performance.now();
+        const update = (now) => {
+          const progress = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          element.textContent = `${Math.round(target * eased)}${suffix}`;
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        };
+        requestAnimationFrame(update);
+      }
+
+      function initializeAnimations() {
+        if (animationsInitialized) {
+          return;
+        }
+        animationsInitialized = true;
+
+        const { gsap, ScrollTrigger } = window;
+        if (reducedMotion || !gsap || !ScrollTrigger) {
+          document.querySelectorAll("[data-count]").forEach((element) => {
+            element.textContent = `${Number(element.dataset.count)}${element.dataset.suffix || ""}`;
+          });
+          return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".lab-hero__title-line span", {
+          yPercent: 115,
+          opacity: 0,
+          duration: 1.05,
+          stagger: 0.12,
+          ease: "power4.out",
+          delay: 0.15
+        });
+        gsap.from(".lab-hero__copy > :not(.lab-hero__title)", {
+          y: 22,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power2.out",
+          delay: 0.55
+        });
+        gsap.from(".lab-hero__visual .lab-image-slot", {
+          clipPath: "inset(0 0 0 100%)",
+          scale: 1.06,
+          duration: 1.35,
+          ease: "power3.inOut",
+          delay: 0.2
+        });
+
+        gsap.utils.toArray(".lab-story").forEach((story, index) => {
+          const visual = story.querySelector(".lab-image-slot");
+          const copy = story.querySelector(".lab-story__copy");
+          const fromLeft = index % 2 === 0;
+          gsap.fromTo(visual,
+            { clipPath: fromLeft ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.08 },
+            {
+              clipPath: "inset(0 0% 0 0%)",
+              scale: 1,
+              duration: 1.1,
+              ease: "power3.inOut",
+              scrollTrigger: { trigger: story, start: "top 78%", once: true }
+            }
+          );
+          gsap.from(copy, {
+            x: fromLeft ? 36 : -36,
+            opacity: 0,
+            duration: 0.85,
+            ease: "power2.out",
+            scrollTrigger: { trigger: story, start: "top 76%", once: true }
+          });
+          gsap.to(visual, {
+            yPercent: -5,
+            ease: "none",
+            scrollTrigger: { trigger: story, start: "top bottom", end: "bottom top", scrub: 0.6 }
+          });
+        });
+
+        gsap.utils.toArray("[data-solution]").forEach((solution, index) => {
+          const visual = solution.querySelector(".lab-image-slot");
+          const content = solution.querySelector(".lab-solution__content");
+          const direction = index % 2 === 0 ? 1 : -1;
+          gsap.fromTo(visual,
+            { clipPath: direction > 0 ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.07 },
+            {
+              clipPath: "inset(0 0 0 0)",
+              scale: 1,
+              duration: 1.05,
+              ease: "power3.inOut",
+              scrollTrigger: { trigger: solution, start: "top 78%", once: true }
+            }
+          );
+          gsap.from(content.children, {
+            x: direction * 24,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.09,
+            ease: "power2.out",
+            scrollTrigger: { trigger: solution, start: "top 76%", once: true }
+          });
+          gsap.to(visual, {
+            yPercent: -4,
+            ease: "none",
+            scrollTrigger: { trigger: solution, start: "top bottom", end: "bottom top", scrub: 0.65 }
+          });
+        });
+
+        const comprehensive = document.querySelector(".lab-comprehensive");
+        if (comprehensive) {
+          gsap.from(".lab-comprehensive__copy > *", {
+            y: 28,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: { trigger: comprehensive, start: "top 72%", once: true }
+          });
+          gsap.to(".lab-comprehensive__backdrop", {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: { trigger: comprehensive, start: "top bottom", end: "bottom top", scrub: 0.7 }
+          });
+        }
+
+        const statistics = document.querySelector(".lab-comprehensive__stats");
+        if (statistics) {
+          ScrollTrigger.create({
+            trigger: statistics,
+            start: "top 82%",
+            once: true,
+            onEnter: () => {
+              statistics.querySelectorAll("[data-count]").forEach((element) => {
+                animateCount(element, Number(element.dataset.count), element.dataset.suffix || "");
+              });
+            }
+          });
+        }
+
+        gsap.from(".lab-why__heading > *, .lab-feature", {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".lab-why", start: "top 72%", once: true }
+        });
+        gsap.fromTo(".lab-why__visual .lab-image-slot",
+          { clipPath: "inset(0 0 100% 0)", scale: 1.06 },
+          {
+            clipPath: "inset(0 0 0 0)",
+            scale: 1,
+            duration: 1.15,
+            ease: "power3.inOut",
+            scrollTrigger: { trigger: ".lab-why__layout", start: "top 75%", once: true }
+          }
+        );
+
+        if (!scrollTriggerRefreshBound) {
+          scrollTriggerRefreshBound = true;
+          window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+          document.fonts?.ready.then(() => ScrollTrigger.refresh());
+          document.addEventListener("vs:components-loaded", () => ScrollTrigger.refresh(), { once: true });
+        }
+        ScrollTrigger.refresh();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeAnimations();
+      }, { once: true });
+
+      if (document.readyState !== "loading") {
+        initializeAnimations();
+      }
+    })();
+  </script>
+</body>
+</html>

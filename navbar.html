@@ -1,0 +1,153 @@
+
+<!doctype html>
+<html lang="en">
+<body>
+<header class="vs-header" data-vs-header>
+  <div class="vs-header__inner">
+
+    <a class="vs-brand" href="./index.html" aria-label="Vishal Steel Products home">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="./assets/images/optimized/vishal-steel-products-logo-300.webp 300w, ./assets/images/optimized/vishal-steel-products-logo-600.webp 600w"
+          sizes="(max-width: 1100px) 180px, 250px">
+        <img
+          class="vs-brand__logo"
+          src="./vishal-steel-products-logo.png"
+          width="2172"
+          height="724"
+          alt="Vishal Steel Products"
+          loading="eager"
+          decoding="async">
+      </picture>
+    </a>
+
+    <button
+      class="vs-menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="vs-primary-navigation"
+      aria-expanded="false"
+      data-vs-menu-toggle>
+      <span class="vs-menu-toggle__line"></span>
+      <span class="vs-menu-toggle__line"></span>
+      <span class="vs-menu-toggle__line"></span>
+    </button>
+
+    <nav
+      class="vs-navigation"
+      id="vs-primary-navigation"
+      aria-label="Main navigation"
+      data-vs-navigation>
+
+      <ul class="vs-navigation__list">
+
+        <li class="vs-navigation__item">
+          <a class="vs-navigation__link" href="./index.html">Home</a>
+        </li>
+
+        <li class="vs-navigation__item">
+          <a class="vs-navigation__link" href="./about.html">About</a>
+        </li>
+
+        <!-- PRODUCTS -->
+        <li class="vs-navigation__item vs-navigation__item--dropdown" data-vs-dropdown>
+          <div class="vs-navigation__dropdown-heading">
+            <a class="vs-navigation__link" href="./products.html">Products</a>
+            <button
+              class="vs-dropdown-toggle"
+              type="button"
+              aria-label="Toggle Products menu"
+              aria-expanded="false"
+              aria-controls="vs-products-menu"
+              data-vs-dropdown-toggle>
+              <svg class="vs-dropdown-arrow" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="vs-dropdown-panel" id="vs-products-menu">
+            <a class="vs-dropdown-panel__eyebrow" href="./products.html">Product Categories</a>
+            <a class="vs-dropdown-panel__link" href="./Industry-Steel-Furniture.html">Industrial Steel Furniture</a>
+            <a class="vs-dropdown-panel__link" href="./lockers.html">Lockers</a>
+            <a class="vs-dropdown-panel__link" href="./cabinets.html">Cabinets</a>
+            <a class="vs-dropdown-panel__link" href="./trolleys.html">Trolleys</a>
+            <a class="vs-dropdown-panel__link" href="./workbench.html">Workbenches</a>
+            <a class="vs-dropdown-panel__link" href="./laboratory-essentials.html">Laboratory Essentials</a>
+            <a class="vs-dropdown-panel__link" href="./hospital-essentials.html">Hospital Essentials</a>
+            <a class="vs-dropdown-panel__link" href="./custom-steel.html">Customized Steel Solutions</a>
+          </div>
+        </li>
+
+        <!-- SERVICES -->
+        <li class="vs-navigation__item vs-navigation__item--dropdown" data-vs-dropdown>
+          <div class="vs-navigation__dropdown-heading">
+            <a class="vs-navigation__link" href="./service.html">Services</a>
+            <button
+              class="vs-dropdown-toggle"
+              type="button"
+              aria-label="Toggle Services menu"
+              aria-expanded="false"
+              aria-controls="vs-services-menu"
+              data-vs-dropdown-toggle>
+              <svg class="vs-dropdown-arrow" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="vs-dropdown-panel" id="vs-services-menu">
+            <a class="vs-dropdown-panel__eyebrow" href="./service.html">Service</a>
+            <a class="vs-dropdown-panel__link" href="./custom-fabrication.html">Custom Fabrication</a>
+            <a class="vs-dropdown-panel__link" href="./design-consultant.html">Design Consultation</a>
+            <a class="vs-dropdown-panel__link" href="./after-sales-support.html">After-Sales Support</a>
+            <a class="vs-dropdown-panel__link" href="./global-shipping.html">Global Shipping</a>
+          </div>
+        </li>
+
+        <!-- PROJECTS -->
+        <li class="vs-navigation__item vs-navigation__item--dropdown" data-vs-dropdown>
+          <div class="vs-navigation__dropdown-heading">
+            <a class="vs-navigation__link" href="./Project.html">Projects</a>
+            <button
+              class="vs-dropdown-toggle"
+              type="button"
+              aria-label="Toggle Projects menu"
+              aria-expanded="false"
+              aria-controls="vs-projects-menu"
+              data-vs-dropdown-toggle>
+              <svg class="vs-dropdown-arrow" viewBox="0 0 12 8" aria-hidden="true">
+                <path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="vs-dropdown-panel" id="vs-projects-menu">
+            <a class="vs-dropdown-panel__eyebrow" href="./Project.html">Projects</a>
+            <a class="vs-dropdown-panel__link" href="./client-testimonials.html">Client Testimonials</a>
+            <a class="vs-dropdown-panel__link" href="./products.html">Product Category</a>
+          </div>
+        </li>
+
+        <li class="vs-navigation__item">
+          <a class="vs-navigation__link" href="faq.html">FAQ</a>
+        </li>
+
+        <li class="vs-navigation__item">
+          <a class="vs-navigation__link" href="./contact.html">Contact Us</a>
+        </li>
+
+        <li class="vs-navigation__item vs-navigation__item--cta">
+          <a class="vs-quote-button" href="./contact.html">
+            Get A Free Quote
+            <span class="vs-quote-button__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+</body>
+</html>

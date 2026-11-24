@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en" class="vs-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Premium steel trolleys from Vishal Steel Products – industrial, medical, laboratory and logistics solutions.">
+  <meta name="theme-color" content="#202124">
+  <title>Steel Trolleys | V STEEL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./pages.css">
+  <link rel="stylesheet" href="./trolleys.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="./includes.js" defer></script>
+  <script src="./trolleys.js" defer></script>
+</head>
+<body class="vs-page vs-page--trolleys">
+  <div id="navbar-placeholder"></div>
+
+  <main class="vsl-page">
+    <!-- HERO SECTION -->
+
+<section class="trolleys-hero" aria-labelledby="trolleys-hero-title" data-hero-active-visual="0">
+  <div class="hero-pointer" aria-hidden="true"></div>
+
+  <div class="trolleys-hero__inner vsl-container">
+
+    <div class="hero-content">
+      <p class="trolleys-hero__eyebrow">
+        VISHAL STEEL <span aria-hidden="true">/</span> MATERIAL HANDLING
+      </p>
+
+      <h1 id="trolleys-hero-title" class="trolleys-hero__title" data-vsl-reveal="rise">
+        STEEL<br>TROLLEYS.
+      </h1>
+
+      <p class="trolleys-hero__subtitle">
+        Built for
+        <span class="trolleys-hero__typed" data-typing-text>Industrial Trolleys</span>
+        <span class="trolleys-hero__caret" aria-hidden="true"></span>
+      </p>
+
+      <a class="trolleys-hero__cta" data-whatsapp-enquiry>
+        WhatsApp Enquiry
+      </a>
+    </div>
+
+    <div class="hero-image" data-hero-stage role="group" aria-label="Choose a trolley visual">
+
+      <!-- INDUSTRIAL TROLLEY -->
+      <article class="trolleys-hero__card is-active" data-hero-card="0">
+        <img
+          src="assets/images/trolly3.png"
+          alt="Industrial steel trolley"
+          width="1200"
+          height="1000"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        >
+        <span class="trolleys-hero__card-label">INDUSTRIAL</span>
+      </article>
+
+      <!-- MEDICAL TROLLEY -->
+      <article class="trolleys-hero__card" data-hero-card="1">
+        <img
+          src="assets/images/trolly2.png"
+          alt="Medical steel trolley"
+          width="900"
+          height="700"
+          loading="eager"
+          decoding="async"
+        >
+        <span class="trolleys-hero__card-label">MEDICAL</span>
+      </article>
+
+      <!-- LABORATORY TROLLEY -->
+      <article class="trolleys-hero__card" data-hero-card="2">
+        <img
+          src="assets/images/trolly1.png"
+          alt="Laboratory steel trolley"
+          width="900"
+          height="700"
+          loading="eager"
+          decoding="async"
+        >
+        <span class="trolleys-hero__card-label">LABORATORY</span>
+      </article>
+
+      <div class="trolleys-hero__controls" role="group" aria-label="Select a trolley visual">
+
+        <button type="button"
+          class="trolleys-hero__indicator is-active"
+          data-hero-visual="0"
+          aria-label="Show industrial trolley visual"
+          aria-pressed="true">01</button>
+
+        <button type="button"
+          class="trolleys-hero__indicator"
+          data-hero-visual="1"
+          aria-label="Show medical trolley visual"
+          aria-pressed="false">02</button>
+
+        <button type="button"
+          class="trolleys-hero__indicator"
+          data-hero-visual="2"
+          aria-label="Show laboratory trolley visual"
+          aria-pressed="false">03</button>
+
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  
+
+.trolleys-story__panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  border-radius: 18px;
+}
+
+.trolleys-story__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 10%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+  z-index: -1;
+}
+
+.trolleys-story__panel[data-image-slot="story1"] {
+  background-image: url("assets/images/trolly3.png");
+}
+
+.trolleys-story__panel[data-image-slot="story2"] {
+  background-image: url("assets/images/trolly2.png");
+}
+
+.trolleys-story__panel[data-image-slot="story3"] {
+  background-image: url("assets/images/trolly1.png");
+}
+
+.trolleys-story__title,
+.trolleys-story__desc {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.trolleys-story__title {
+  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 12px;
+}
+
+.trolleys-story__desc {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+@media (max-width: 768px) {
+  .trolleys-story__panel {
+    min-height: 380px;
+    padding: 24px;
+  }
+}
+
+</style>
+    <!-- STORY SECTION - HORIZONTAL SCROLL -->
+    <section class="trolleys-story" id="trolleys-story">
+      <div class="trolleys-story__inner vsl-container">
+        <div class="trolleys-story__wrapper">
+          <article class="trolleys-story__panel" data-image-slot="story1">
+            <h2 class="trolleys-story__title">Dynamic Mobility</h2>
+            <p class="trolleys-story__desc">Experience seamless movement across industrial floors.</p>
+          </article>
+          <article class="trolleys-story__panel" data-image-slot="story2">
+            <h2 class="trolleys-story__title">Precision Engineering</h2>
+            <p class="trolleys-story__desc">Engineered for accuracy in medical and lab environments.</p>
+          </article>
+          <article class="trolleys-story__panel" data-image-slot="story3">
+            <h2 class="trolleys-story__title">Robust Performance</h2>
+            <p class="trolleys-story__desc">Built to endure harsh warehouse conditions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION SECTION 1 -->
+
+<section class="trolleys-solution" id="solution-1">
+  <div class="trolleys-solution__layout vsl-container">
+
+    <div class="trolleys-solution__image" data-image-slot="solution1">
+      <img
+        src="assets/images/trolly3.png"
+        alt="Versatile Industrial Steel Trolleys"
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+
+    <div class="trolleys-solution__copy" data-vsl-reveal="rise">
+      <p class="trolleys-solution__eyebrow">Versatile Industrial Solutions</p>
+
+      <h2 class="trolleys-solution__title">Steel Trolleys for Every Need</h2>
+
+      <p class="trolleys-solution__desc">
+        Transform your industrial workflow with our robust steel trolleys. Engineered to withstand extreme conditions, these versatile material handling solutions offer unmatched durability, maximum load capacity, and seamless mobility. Designed for warehouses, manufacturing plants, and logistics centers to optimize efficiency and reduce manual handling risks.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- SOLUTION SECTION 2 -->
+    <section class="trolleys-solution" id="solution-2">
+      <div class="trolleys-solution__layout reverse vsl-container">
+        <div class="trolleys-solution__copy" data-vsl-reveal="rise">
+          <p class="trolleys-solution__eyebrow">Professional Healthcare Mobility</p>
+          <h2 class="trolleys-solution__title">Hospital and Medical Trolleys</h2>
+          <p class="trolleys-solution__desc">Precision-engineered medical trolleys that prioritize patient care and healthcare efficiency. Featuring antimicrobial surfaces, smooth-glide wheels, and modular design, these trolleys ensure safe transportation of medical equipment, medications, and sensitive instruments while maintaining the highest standards of hygiene and infection control.</p>
+        </div>
+        <div class="trolleys-solution__image" data-image-slot="solution2">
+          <!-- IMAGE SLOT 3: Professional Healthcare Mobility -->
+          <picture>
+            <source type="image/avif" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw">
+            <source type="image/webp" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw">
+            <img alt="Professional Healthcare Mobility" data-image-src="assets/images/trolly2.png" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw" width="1200" height="900" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION SECTION 3 -->
+    <section class="trolleys-solution trolleys-solution--research" id="solution-3">
+      <div class="trolleys-solution__layout trolleys-solution__layout--research vsl-container">
+        <div class="trolleys-solution__image" data-image-slot="solution3">
+          <!-- IMAGE SLOT 4: Advanced Scientific Mobility -->
+          <picture>
+            <source type="image/avif" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw">
+            <source type="image/webp" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw">
+            <img alt="Advanced Scientific Mobility" data-image-src="assets/images/trolly1.png" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 58vw, 56vw" width="1200" height="1180" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="trolleys-solution__copy" data-vsl-reveal="rise">
+          <p class="trolleys-solution__eyebrow">Advanced Scientific Mobility</p>
+          <h2 class="trolleys-solution__title">Laboratory and Research Trolleys</h2>
+          <p class="trolleys-solution__desc">Revolutionize scientific research with our cutting-edge laboratory trolleys. Engineered with precision and innovation, these trolleys offer chemical-resistant surfaces, anti-static properties, and specialized compartments. Designed to protect sensitive equipment, facilitate sample transportation, and maintain a sterile, organized research environment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPREHENSIVE SOLUTIONS GRID -->
+    <section class="trolleys-premium" id="premium-solutions">
+      <div class="vsl-container">
+        <header class="vsl-section-heading" data-vsl-reveal="rise">
+          <h2 class="trolleys-premium__title">Comprehensive Steel Trolley Solutions</h2>
+          <p class="trolleys-premium__desc">Vishal Steel Products offers a diverse range of high-performance steel trolleys engineered to meet complex material handling needs across industries. Our trolleys combine durability, versatility, and innovative design to provide optimal mobility and efficiency.</p>
+        </header>
+        <div class="trolleys-premium__grid">
+          <article class="trolleys-category" data-vsl-reveal="left">
+            <h3 class="trolleys-category__title">Industrial Storage Trolleys</h3>
+            <p class="trolleys-category__intro">Robust material handling solutions for demanding industrial environments.</p>
+            <ul class="trolleys-category__list">
+              <li>Heavy-duty steel construction</li>
+              <li>Maximum load-bearing capacity</li>
+              <li>Extreme condition resistance</li>
+              <li>Customizable configuration</li>
+            </ul>
+          </article>
+          <article class="trolleys-category" data-vsl-reveal="right">
+            <h3 class="trolleys-category__title">Hospital and Medical Trolleys</h3>
+            <p class="trolleys-category__intro">Precision-engineered mobility solutions for healthcare settings.</p>
+            <ul class="trolleys-category__list">
+              <li>Antimicrobial surface treatment</li>
+              <li>Smooth-glide medical-grade wheels</li>
+              <li>Modular equipment compartments</li>
+              <li>Infection control design</li>
+            </ul>
+          </article>
+          <article class="trolleys-category" data-vsl-reveal="left">
+            <h3 class="trolleys-category__title">Construction and Site Management Trolleys</h3>
+            <p class="trolleys-category__intro">Robust mobility solutions for construction, engineering, and on-site material handling.</p>
+            <ul class="trolleys-category__list">
+              <li>Heavy-duty industrial-grade construction</li>
+              <li>All-terrain wheel design</li>
+              <li>High impact and corrosion resistance</li>
+              <li>Tool and equipment organization features</li>
+            </ul>
+          </article>
+          <article class="trolleys-category" data-vsl-reveal="right">
+            <h3 class="trolleys-category__title">Laboratory Research Trolleys</h3>
+            <p class="trolleys-category__intro">Precision mobility for scientific and research environments.</p>
+            <ul class="trolleys-category__list">
+              <li>Chemical-resistant surfaces</li>
+              <li>Anti-static properties</li>
+              <li>Specialized compartment design</li>
+              <li>Sterile environment compatibility</li>
+            </ul>
+          </article>
+          <article class="trolleys-category" data-vsl-reveal="left">
+            <h3 class="trolleys-category__title">Logistics and Warehouse Trolleys</h3>
+            <p class="trolleys-category__intro">High-performance material handling solutions for complex logistics.</p>
+            <ul class="trolleys-category__list">
+              <li>Extreme load capacity</li>
+              <li>Modular and adaptable design</li>
+              <li>Rugged wheel construction</li>
+              <li>Inventory management integration</li>
+            </ul>
+          </article>
+          <article class="trolleys-category" data-vsl-reveal="right">
+            <h3 class="trolleys-category__title">Transport and Logistics Trolleys</h3>
+            <p class="trolleys-category__intro">Specialized trolleys for efficient material movement and transportation.</p>
+            <ul class="trolleys-category__list">
+              <li>Multi-terrain mobility</li>
+              <li>Shock-absorbing design</li>
+              <li>Secure load restraint</li>
+              <li>Customizable load configurations</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT DETAILS -->
+    <section class="trolleys-product-details" id="product-details">
+      <div class="vsl-container">
+        <header class="vsl-section-heading" data-vsl-reveal="rise"><h2 class="trolleys-product-details__title">Product Details</h2></header>
+        <div class="trolleys-product-details__content">
+          <div class="trolleys-product-details__image trolleys-additional-image trolleys-additional-image--details" data-image-slot="additional-1">
+            <!-- ADDITIONAL IMAGE 1: Product Details -->
+             <style>/* Product Details Image - Full Image Visible */
+.product-details picture {
+  display: flex;
+  width: 100%;
+  height: 610px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-details picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .product-details picture {
+    height: 500px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .product-details picture {
+    height: 380px;
+  }
+}</style>
+            <picture>
+              <source type="image/avif" data-image-srcset="assets/images/trolly3.png" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 52vw, 58vw">
+              <source type="image/webp" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 52vw, 58vw">
+              <img alt="Industrial Steel Trolleys" data-image-src="" data-image-srcset="" sizes="(max-width: 620px) 100vw, (max-width: 1000px) 52vw, 58vw" width="1000" height="840" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="trolleys-product-details__info">
+            <h3 class="trolleys-product-details__name">Industrial Steel Trolleys</h3>
+            <ul class="trolleys-specs">
+              <li><strong>Material:</strong> High-grade steel with powder-coated finish for durability</li>
+              <li><strong>Load Capacity:</strong> Varies by model, ranging from 100kg to 500kg</li>
+              <li><strong>Features:</strong> Heavy-duty wheels, ergonomic handles, and adjustable shelves</li>
+              <li><strong>Applications:</strong> Suitable for industrial, medical, laboratory, and warehouse environments</li>
+              <li><strong>Customization:</strong> Available in various sizes, configurations, and finishes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT OVERVIEW -->
+    <section class="trolleys-overview" id="overview">
+      <div class="vsl-container">
+        <header class="vsl-section-heading" data-vsl-reveal="rise">
+          <h2 class="trolleys-overview__title">Product Overview</h2>
+        </header>
+        <p class="trolleys-overview__text" data-vsl-reveal="right">Our industrial trolleys are engineered for maximum durability and efficiency in material handling. Each trolley is crafted with precision using high-quality steel and features smooth-rolling casters for easy maneuverability. Whether you need solutions for warehouses, hospitals, or laboratories, our trolleys combine robust construction with ergonomic design to enhance workplace productivity.</p>
+        <div class="trolleys-overview__image trolleys-additional-image trolleys-additional-image--overview" data-image-slot="additional-2">
+          <!-- ADDITIONAL IMAGE 2: Product Overview -->
+          <picture>
+            <source type="image/avif" data-image-srcset="" sizes="100vw">
+            <source type="image/webp" data-image-srcset="" sizes="100vw">
+            <img alt="Steel trolley product overview" data-image-src="assets/images/trolly1.png" data-image-srcset="" sizes="100vw" width="1600" height="760" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCORDION -->
+    <section class="trolleys-accordion" id="accordion">
+      <div class="vsl-container">
+        <header class="vsl-section-heading" data-vsl-reveal="rise"><h2 class="trolleys-accordion__title">Premium Industrial Steel Trolleys</h2></header>
+        <div class="trolleys-accordion__list">
+          <details class="trolleys-accordion__item" data-vsl-reveal="rise"><summary><span>Premium Industrial Steel Trolleys</span><span class="trolleys-accordion__icon" aria-hidden="true"></span></summary><div class="trolleys-accordion__content"><p>Engineered for efficiency and durability, our steel trolleys provide robust material handling solutions for warehouses, factories, hospitals, and diverse industrial environments. Designed to streamline logistics and enhance workplace productivity.</p></div></details>
+          <details class="trolleys-accordion__item" data-vsl-reveal="rise"><summary><span>Key Features &amp; Specifications</span><span class="trolleys-accordion__icon" aria-hidden="true"></span></summary><div class="trolleys-accordion__content"><ul><li>High-grade steel construction with superior load-bearing capacity</li><li>Smooth-rolling casters for effortless maneuverability</li><li>Multiple size configurations to suit varied industrial requirements</li><li>Corrosion-resistant finish for long-lasting performance</li><li>Ergonomic design for safe and efficient material transportation</li></ul></div></details>
+          <details class="trolleys-accordion__item" data-vsl-reveal="rise"><summary><span>Why Choose Vishal Steel Trolleys?</span><span class="trolleys-accordion__icon" aria-hidden="true"></span></summary><div class="trolleys-accordion__content"><ul><li>Precision engineering with strict quality control</li><li>Customizable solutions tailored to specific industry needs</li><li>Competitive pricing without compromising on quality</li><li>Comprehensive after-sales support and technical assistance</li><li>ISO-certified manufacturing processes</li></ul></div></details>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WHATSAPP CTA -->
+    <section class="trolleys-cta" id="cta">
+      <div class="vsl-container">
+        <h2 class="trolleys-cta__title" data-vsl-reveal="rise">Looking for the Right Industrial Trolley?</h2>
+        <a class="trolleys-cta__button" data-vsl-reveal="rise" data-whatsapp-enquiry aria-disabled="true" tabindex="-1">WhatsApp Enquiry</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>
