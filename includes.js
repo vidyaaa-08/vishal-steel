@@ -2,6 +2,32 @@
 (() => {
   "use strict";
 
+  // One shared visual layer keeps every page on the V STEEL brand system.
+  // It is injected by the existing include loader, so pages can keep their
+  // existing page-specific markup and scripts.
+  const redesignLink = document.createElement("link");
+  redesignLink.rel = "stylesheet";
+  redesignLink.href = new URL("vishal-redesign.css", window.location.href).href;
+  redesignLink.dataset.vsRedesign = "true";
+  if (!document.querySelector('link[data-vs-redesign="true"]')) {
+    document.head.appendChild(redesignLink);
+  }
+
+  const pageName = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  if (!["index.html", "about.html", "faq.html", "contact.html"].includes(pageName)) {
+    const transformLink = document.createElement("link");
+    transformLink.rel = "stylesheet";
+    transformLink.href = new URL("structural-redesign.css", window.location.href).href;
+    transformLink.dataset.vsStructural = "true";
+    if (!document.querySelector('link[data-vs-structural="true"]')) {
+      document.head.appendChild(transformLink);
+    }
+    const transformScript = document.createElement("script");
+    transformScript.src = new URL("structural-redesign.js", window.location.href).href;
+    transformScript.defer = true;
+    document.head.appendChild(transformScript);
+  }
+
   const currentScript = document.currentScript;
   const scriptUrl = currentScript?.src || window.location.href;
 
@@ -52,6 +78,15 @@
       console.error("Navbar is missing required navigation elements.");
       return;
     }
+
+    const currentFile = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    navigation.querySelectorAll(".vs-navigation__link").forEach((link) => {
+      const href = (link.getAttribute("href") || "").split("/").pop().split("#")[0].toLowerCase();
+      if (href && href === currentFile) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
 
     if (header.dataset.vsInitialized === "true") return;
     header.dataset.vsInitialized = "true";

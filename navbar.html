@@ -1,5 +1,8 @@
 <style>
 /* =========================================================
+   V STEEL NAVBAR — NAVY / SLATE / STEEL THEME
+   Existing logo asset is intentionally preserved without recoloring.
+   =========================================================
    V STEEL NAVBAR — standalone styles
    All selectors are scoped to the navbar to avoid page clashes.
    ========================================================= */
@@ -9,11 +12,11 @@
 }
 
 .vs-header {
-  --vs-red: #b51220;
-  --vs-red-dark: #8f0d18;
-  --vs-ink: #202124;
-  --vs-muted: #62656b;
-  --vs-line: rgba(32, 33, 36, .09);
+  --vs-accent: #607D8B;
+  --vs-accent-dark: #173747;
+  --vs-ink: #173747;
+  --vs-muted: #607D8B;
+  --vs-line: rgba(23, 55, 71, .12);
   position: sticky;
   z-index: 1000;
   top: 0;
@@ -34,7 +37,7 @@
   width: 100%;
   height: 3px;
   content: "";
-  background: linear-gradient(90deg, var(--vs-red), #e45b64 42%, transparent 100%);
+  background: linear-gradient(90deg, #173747 0%, #607D8B 42%, #A8B7BE 74%, transparent 100%);
   pointer-events: none;
 }
 
@@ -136,7 +139,7 @@
   left: 3px;
   height: 2px;
   content: "";
-  background: var(--vs-red);
+  background: var(--vs-accent);
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: left center;
@@ -146,7 +149,7 @@
 .vs-navigation__link:hover,
 .vs-navigation__link:focus-visible,
 .vs-navigation__item--dropdown.is-open > .vs-navigation__dropdown-heading .vs-navigation__link {
-  color: var(--vs-red);
+  color: var(--vs-accent);
 }
 
 .vs-navigation__link:hover::after,
@@ -160,7 +163,7 @@
 .vs-menu-toggle:focus-visible,
 .vs-dropdown-toggle:focus-visible,
 .vs-dropdown-panel a:focus-visible {
-  outline: 2px solid var(--vs-red);
+  outline: 2px solid var(--vs-accent);
   outline-offset: 4px;
   border-radius: 3px;
 }
@@ -183,8 +186,8 @@
 
 .vs-dropdown-toggle:hover,
 .vs-navigation__item--dropdown.is-open .vs-dropdown-toggle {
-  color: var(--vs-red);
-  background: rgba(181, 18, 32, .07);
+  color: var(--vs-accent);
+  background: rgba(96, 125, 139, .10);
 }
 
 .vs-dropdown-arrow {
@@ -230,7 +233,7 @@
   width: 42px;
   height: 3px;
   content: "";
-  background: var(--vs-red);
+  background: var(--vs-accent);
   border-radius: 0 0 3px 3px;
 }
 
@@ -271,7 +274,7 @@
 
 .vs-dropdown-panel a:not(.vs-dropdown-panel__eyebrow)::after {
   margin-left: auto;
-  color: var(--vs-red);
+  color: var(--vs-accent);
   content: "↗";
   font-size: 14px;
   opacity: 0;
@@ -281,8 +284,8 @@
 
 .vs-dropdown-panel a:not(.vs-dropdown-panel__eyebrow):hover {
   padding-left: 15px;
-  color: var(--vs-red);
-  background: #fff3f4;
+  color: var(--vs-accent);
+  background: #EEF2F4;
 }
 
 .vs-dropdown-panel a:not(.vs-dropdown-panel__eyebrow):hover::after {
@@ -294,7 +297,7 @@
   min-height: 37px;
   margin: 0 0 5px;
   padding: 2px 11px 10px;
-  color: var(--vs-red);
+  color: var(--vs-accent);
   border-bottom: 1px solid #ececef;
   border-radius: 0;
   font-size: 11px;
@@ -324,10 +327,10 @@
   padding: 0 17px;
   overflow: hidden;
   color: #fff;
-  background: var(--vs-red);
-  border: 1px solid var(--vs-red);
+  background: #173747;
+  border: 1px solid #173747;
   border-radius: 5px;
-  box-shadow: 0 5px 13px rgba(181, 18, 32, .14);
+  box-shadow: 0 5px 13px rgba(23, 55, 71, .14);
   font: 700 12.5px/1 Arial, Helvetica, sans-serif;
   letter-spacing: .025em;
   text-decoration: none;
@@ -346,9 +349,9 @@
 
 .vs-quote-button:hover {
   color: #fff;
-  background: var(--vs-red-dark);
-  border-color: var(--vs-red-dark);
-  box-shadow: 0 8px 20px rgba(181, 18, 32, .24);
+  background: #607D8B;
+  border-color: #607D8B;
+  box-shadow: 0 8px 20px rgba(23, 55, 71, .22);
   transform: translateY(-1px);
 }
 
@@ -386,8 +389,8 @@
   height: 46px;
   padding: 11px;
   color: var(--vs-ink);
-  background: #f6f6f7;
-  border: 1px solid #e8e8ea;
+  background: #F4F5F3;
+  border: 1px solid #DCE3E7;
   border-radius: 8px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -565,7 +568,7 @@
     gap: 2px;
     padding: 0 9px;
     overflow: hidden;
-    background: #f7f7f8;
+    background: #F4F5F3;
     border: 0;
     border-radius: 8px;
     box-shadow: none;
@@ -728,17 +731,24 @@
 
 </style>
 
+
+
+<div class="vs-top-strip" aria-label="Contact information">
+  <div class="vs-top-strip__inner">
+    <span>Commercial, laboratory, healthcare and industrial steel solutions</span>
+    <div class="vs-top-strip__contacts">
+      <a href="tel:+918828991702">+91 8828991702</a>
+      <a href="mailto:sales@vishalsteelproducts.com">sales@vishalsteelproducts.com</a>
+    </div>
+  </div>
+</div>
 <header class="vs-header" data-vs-header>
   <div class="vs-header__inner">
     <a class="vs-brand" href="./index.html" aria-label="Vishal Steel Products home">
       <picture>
-        <source
-          type="image/webp"
-          srcset="./assets/images/optimized/vishal-steel-products-logo-300.webp 300w, ./assets/images/optimized/vishal-steel-products-logo-600.webp 600w"
-          sizes="(max-width: 1100px) 180px, 250px">
         <img
           class="vs-brand__logo"
-          src="./vishal-steel-products-logo.png"
+          src="./assets/images/optimized/vishal-logo.png"
           width="2172"
           height="724"
           alt="Vishal Steel Products"

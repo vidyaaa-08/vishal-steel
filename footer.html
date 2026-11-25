@@ -1,105 +1,308 @@
 <style>
-  .vs-footer{
-    --vsf-red:#B51220;--vsf-dark:#8F0D18;--vsf-ink:#202124;--vsf-muted:#b9babd;
-    position:relative;isolation:isolate;display:block;width:100%;margin:0;padding:0;
-    overflow:hidden;background:#17181a;color:#fff;font-family:inherit;
+  /* =========================================================
+     V STEEL FOOTER — Navy / Slate / Steel theme
+     Original logo asset and logo colours remain unchanged.
+     ========================================================= */
+  .vs-footer {
+    --vsf-navy: #173747;
+    --vsf-navy-deep: #102B39;
+    --vsf-slate: #607D8B;
+    --vsf-steel: #DCE3E7;
+    --vsf-silver: #A8B7BE;
+    --vsf-ivory: #F4F5F3;
+    --vsf-muted: #C7D2D8;
+    position: relative;
+    isolation: isolate;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--vsf-navy-deep);
+    color: #fff;
+    font-family: inherit;
   }
-  .vs-footer *{box-sizing:border-box}
-  .vs-footer:before{
-    content:"";position:absolute;z-index:-1;top:-300px;right:-160px;width:620px;height:620px;
-    border:1px solid #ffffff17;border-radius:50%;
-    box-shadow:0 0 0 65px #ffffff06,0 0 0 130px #ffffff04;pointer-events:none;
+
+  .vs-footer * { box-sizing: border-box; }
+
+  .vs-footer::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -300px;
+    right: -160px;
+    width: 620px;
+    height: 620px;
+    border: 1px solid rgba(220, 227, 231, .18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 65px rgba(220, 227, 231, .055),
+                0 0 0 130px rgba(220, 227, 231, .035);
+    pointer-events: none;
   }
-  .vs-footer:after{
-    content:"";position:absolute;z-index:-1;inset:0;opacity:.055;pointer-events:none;
-    background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
-    background-size:52px 52px;mask-image:linear-gradient(90deg,#000,transparent 85%);
+
+  .vs-footer::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: .045;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,.9) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.9) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: linear-gradient(90deg, #000, transparent 85%);
   }
-  .vs-footer-main{
-    width:min(1240px,calc(100% - 64px));margin:0 auto;padding:76px 0 66px;
-    display:grid;grid-template-columns:minmax(230px,1.55fr) minmax(140px,.8fr) minmax(130px,.75fr) minmax(230px,1.2fr);
-    gap:clamp(24px,3.5vw,54px);align-items:start;
+
+  .vs-footer-main {
+    display: grid;
+    grid-template-columns: minmax(230px, 1.55fr) minmax(140px, .8fr) minmax(130px, .75fr) minmax(230px, 1.2fr);
+    align-items: start;
+    gap: clamp(24px, 3.5vw, 54px);
+    width: min(1240px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 76px 0 66px;
   }
-  .vs-footer-company,.vs-footer-column,.vs-footer-newsletter{min-width:0}
-  .vs-footer-logo{display:inline-flex;align-items:center;max-width:100%;margin:0 0 22px;text-decoration:none}
-  .vs-footer-logo img{display:block;width:auto;max-width:205px;height:auto;max-height:66px;object-fit:contain}
-  .vs-footer-company>p{max-width:365px;margin:0 0 25px;color:var(--vsf-muted);font-size:13px;line-height:1.9}
-  .vs-social-links{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
-  .vs-social-links a{
-    width:39px;height:39px;display:inline-flex;align-items:center;justify-content:center;
-    border:1px solid #ffffff38;border-radius:50%;color:#fff;text-decoration:none;
-    font-size:12px;font-weight:700;transition:background .25s,border-color .25s,transform .25s;
+
+  .vs-footer-company,
+  .vs-footer-column,
+  .vs-footer-newsletter { min-width: 0; }
+
+  .vs-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 0 22px;
+    text-decoration: none;
   }
-  .vs-social-links a:hover{background:var(--vsf-red);border-color:var(--vsf-red);transform:translateY(-3px)}
-  .vs-footer-column h2,.vs-footer-newsletter h2{
-    margin:4px 0 24px;color:#fff;font-size:14px;font-weight:700;line-height:1.4;letter-spacing:.015em;
+
+  .vs-footer-logo img {
+    display: block;
+    width: auto;
+    max-width: 205px;
+    height: auto;
+    max-height: 66px;
+    object-fit: contain;
   }
-  .vs-footer-column h2:after,.vs-footer-newsletter h2:after{
-    content:"";display:block;width:30px;height:2px;margin-top:13px;background:var(--vsf-red);
+
+  .vs-footer-company > p {
+    max-width: 365px;
+    margin: 0 0 25px;
+    color: var(--vsf-muted);
+    font-size: 13px;
+    line-height: 1.9;
   }
-  .vs-footer-column a{
-    position:relative;display:block;width:fit-content;max-width:100%;margin:0 0 13px;
-    color:#c6c7c9;font-size:12px;line-height:1.55;text-decoration:none;
-    transition:color .2s,transform .2s;
+
+  .vs-footer .vs-social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
   }
-  .vs-footer-column a:before{
-    content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:#f06c75;transition:width .25s;
+
+  .vs-footer .vs-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border: 1px solid rgba(220, 227, 231, .38);
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
   }
-  .vs-footer-column a:hover{color:#fff;transform:translateX(3px)}
-  .vs-footer-column a:hover:before{width:100%}
-  .vs-newsletter-note{margin:0 0 17px;color:var(--vsf-muted);font-size:12px;line-height:1.8}
-  .vs-newsletter-form{
-    display:flex;align-items:stretch;width:100%;max-width:360px;min-width:0;
-    padding:4px;border:1px solid #ffffff42;background:#ffffff08;
-    transition:border-color .2s,background .2s;
+
+  .vs-footer .vs-social-links a:hover {
+    background: var(--vsf-slate);
+    border-color: var(--vsf-slate);
+    transform: translateY(-3px);
   }
-  .vs-newsletter-form:focus-within{border-color:#e46a73;background:#ffffff0d}
-  .vs-newsletter-form input{
-    flex:1 1 auto;width:1%;min-width:0;height:46px;padding:0 11px;
-    border:0;outline:0;background:transparent;color:#fff;font:inherit;font-size:12px;
+
+  .vs-footer-column h2,
+  .vs-footer-newsletter h2 {
+    margin: 4px 0 24px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: .015em;
   }
-  .vs-newsletter-form input::placeholder{color:#a9aaad;opacity:1}
-  .vs-newsletter-form button{
-    flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:12px;
-    min-height:46px;padding:0 15px;border:0;background:var(--vsf-red);color:#fff;
-    font:inherit;font-size:10px;font-weight:700;letter-spacing:.04em;cursor:pointer;
-    transition:background .2s;
+
+  .vs-footer-column h2::after,
+  .vs-footer-newsletter h2::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-top: 13px;
+    background: var(--vsf-silver);
   }
-  .vs-newsletter-form button:hover{background:var(--vsf-dark)}
-  .vs-newsletter-form button span{font-size:15px;transition:transform .2s}
-  .vs-newsletter-form button:hover span{transform:translate(2px,-2px)}
-  .vs-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-  .vs-footer-bottom{
-    width:100%;min-height:72px;margin:0;padding:20px max(32px,calc((100% - 1240px)/2));
-    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;
-    border-top:1px solid #ffffff20;background:#131416;color:#aeb0b3;
+
+  .vs-footer-column a {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 13px;
+    color: #D0DCE1;
+    font-size: 12px;
+    line-height: 1.55;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
   }
-  .vs-footer-bottom p{margin:0;font-size:11px;line-height:1.6}
-  .vs-legal-links{display:flex;align-items:center;flex-wrap:wrap;gap:22px}
-  .vs-legal-links a{color:#c5c6c8;font-size:11px;text-decoration:none;transition:color .2s}
-  .vs-legal-links a:hover{color:#ff858c}
-  @media(max-width:1000px){
-    .vs-footer-main{grid-template-columns:1.2fr 1fr 1fr!important;gap:38px 30px!important}
-    .vs-footer-company{grid-column:1/-1}
-    .vs-footer-company>p{max-width:540px}
+
+  .vs-footer-column a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 1px;
+    background: var(--vsf-silver);
+    transition: width .25s ease;
   }
-  @media(max-width:640px){
-    .vs-footer-main{width:calc(100% - 40px)!important;padding:52px 0 42px!important;grid-template-columns:1fr 1fr!important;gap:34px 22px!important}
-    .vs-footer-company,.vs-footer-newsletter{grid-column:1/-1}
-    .vs-footer-logo img{max-width:185px}
-    .vs-footer-company>p{font-size:12px}
-    .vs-footer-column h2,.vs-footer-newsletter h2{margin-bottom:18px}
-    .vs-newsletter-form{max-width:100%}
-    .vs-footer-bottom{padding:20px!important;align-items:flex-start!important;flex-direction:column!important}
-    .vs-legal-links{gap:16px}
+
+  .vs-footer-column a:hover {
+    color: #fff;
+    transform: translateX(3px);
   }
-  @media(max-width:360px){
-    .vs-footer-main{grid-template-columns:1fr!important}
-    .vs-footer-column{grid-column:1/-1}
-    .vs-newsletter-form button{padding:0 10px;gap:7px}
+
+  .vs-footer-column a:hover::before { width: 100%; }
+
+  .vs-newsletter-note {
+    margin: 0 0 17px;
+    color: var(--vsf-muted);
+    font-size: 12px;
+    line-height: 1.8;
   }
-  @media(prefers-reduced-motion:reduce){
-    .vs-footer *,.vs-footer *:before,.vs-footer *:after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+
+  .vs-footer .vs-newsletter-form {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 360px;
+    min-width: 0;
+    padding: 4px;
+    border: 1px solid rgba(220, 227, 231, .42);
+    background: rgba(255,255,255,.045);
+    transition: border-color .2s ease, background .2s ease;
+  }
+
+  .vs-footer .vs-newsletter-form:focus-within {
+    border-color: var(--vsf-silver);
+    background: rgba(255,255,255,.08);
+  }
+
+  .vs-footer .vs-newsletter-form input {
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 11px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+  }
+
+  .vs-footer .vs-newsletter-form input::placeholder {
+    color: #B9C8CF;
+    opacity: 1;
+  }
+
+  .vs-footer .vs-newsletter-form button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 46px;
+    padding: 0 15px;
+    border: 0;
+    background: var(--vsf-slate);
+    color: #fff;
+    font: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+
+  .vs-footer .vs-newsletter-form button:hover { background: #496574; }
+  .vs-footer .vs-newsletter-form button span { font-size: 15px; transition: transform .2s ease; }
+  .vs-footer .vs-newsletter-form button:hover span { transform: translate(2px, -2px); }
+
+  .vs-visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .vs-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    width: 100%;
+    min-height: 72px;
+    margin: 0;
+    padding: 20px max(32px, calc((100% - 1240px) / 2));
+    border-top: 1px solid rgba(220, 227, 231, .18);
+    background: #0C2430;
+    color: #B9C8CF;
+  }
+
+  .vs-footer-bottom p { margin: 0; font-size: 11px; line-height: 1.6; }
+  .vs-legal-links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; }
+  .vs-legal-links a { color: #D0DCE1; font-size: 11px; text-decoration: none; transition: color .2s ease; }
+  .vs-legal-links a:hover { color: #fff; }
+
+  @media (max-width: 1000px) {
+    .vs-footer-main { grid-template-columns: 1.2fr 1fr 1fr; gap: 38px 30px; }
+    .vs-footer-company { grid-column: 1 / -1; }
+    .vs-footer-company > p { max-width: 540px; }
+  }
+
+  @media (max-width: 640px) {
+    .vs-footer-main {
+      width: calc(100% - 40px);
+      padding: 52px 0 42px;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px 22px;
+    }
+    .vs-footer-company,
+    .vs-footer-newsletter { grid-column: 1 / -1; }
+    .vs-footer-logo img { max-width: 185px; }
+    .vs-footer-company > p { font-size: 12px; }
+    .vs-footer-column h2,
+    .vs-footer-newsletter h2 { margin-bottom: 18px; }
+    .vs-footer .vs-newsletter-form { max-width: 100%; }
+    .vs-footer-bottom { padding: 20px; align-items: flex-start; flex-direction: column; }
+    .vs-legal-links { gap: 16px; }
+  }
+
+  @media (max-width: 360px) {
+    .vs-footer-main { grid-template-columns: 1fr; }
+    .vs-footer-column { grid-column: 1 / -1; }
+    .vs-footer .vs-newsletter-form button { padding: 0 10px; gap: 7px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vs-footer *,
+    .vs-footer *::before,
+    .vs-footer *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
 </style>
 
@@ -107,7 +310,7 @@
   <div class="vs-footer-main">
     <section class="vs-footer-company" aria-label="Company information">
       <a class="vs-footer-logo" href="index.html" aria-label="Vishal Steel Products home">
-        <img src="assets/images/optimized/vishal-steel-products-logo-600.webp" alt="Vishal Steel Products">
+        <img src="assets/images/optimized/vishal-logo.png" alt="Vishal Steel Products">
       </a>
       <p>Vishal Steel Products is a leading manufacturer and supplier of high-quality steel products, including stainless steel, alloy steel, and carbon steel solutions, committed to excellence and customer satisfaction.</p>
       <div class="vs-social-links" aria-label="Social media links">
@@ -124,8 +327,8 @@
       <a href="products.html">Office Furniture</a>
       <a href="products.html">Storage Solutions</a>
       <a href="trolleys.html">Tool Trolleys</a>
-      <a href="industrial-workbenches.html">Industrial Workbenches</a>
-      <a href="office-lockers.html">Office Lockers</a>
+      <a href="workbench.html">Industrial Workbenches</a>
+      <a href="lockers.html">Office Lockers</a>
       <a href="custom-steel.html">Custom Steel Solutions</a>
     </nav>
 
@@ -134,7 +337,7 @@
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="service.html">Services</a>
-      <a href="project.html">Projects</a>
+      <a href="Project.html">Projects</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact Us</a>
     </nav>

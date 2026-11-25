@@ -4,292 +4,457 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore V STEEL's office, workshop, laboratory, storage and medical steel solutions.">
-  <meta name="theme-color" content="#202124">
+  <meta name="theme-color" content="#102B39">
   <title>Products | V STEEL</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./pages.css">
-  <link rel="stylesheet" href="./products.css">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="./includes.js" defer></script>
-  <script src="./products.js" defer></script>
-  <script src="./site.js" defer></script>
+  <style>
+    :root{
+      --navy:#173747;
+      --deep:#102B39;
+      --slate:#607D8B;
+      --steel:#DCE3E7;
+      --silver:#A8B7BE;
+      --ivory:#F4F5F3;
+      --paper:#FAFBFA;
+      --white:#FFFFFF;
+      --ink:#172D38;
+      --muted:#637680;
+      --line:rgba(23,55,71,.16);
+      --ease:cubic-bezier(.2,.75,.2,1);
+      --shell:min(1360px,calc(100% - 72px));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button{font:inherit}
+    .vpr-page{overflow:hidden}
+    .vpr-shell{width:var(--shell);max-width:1360px;margin-inline:auto}
+    .vpr-eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 18px;color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+    .vpr-eyebrow:before{content:"";width:29px;height:1px;background:currentColor;flex:0 0 auto}
+    .vpr-display{margin:0;color:var(--navy);font-size:clamp(40px,6vw,82px);font-weight:900;line-height:.94;letter-spacing:-.075em}
+    .vpr-copy{color:var(--muted);font-size:14px;line-height:1.85}
+    .vpr-button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:52px;padding:0 22px;border:1px solid var(--navy);background:var(--navy);color:#fff;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;overflow:hidden;transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .25s}
+    .vpr-button:after{content:"↗";font-size:17px;transition:transform .25s}
+    .vpr-button:hover{transform:translateY(-3px);background:var(--slate);border-color:var(--slate);box-shadow:0 12px 28px rgba(16,43,57,.18)}
+    .vpr-button:hover:after{transform:translate(3px,-3px)}
+    .vpr-top-progress{position:fixed;z-index:1300;top:0;left:0;width:100%;height:3px;pointer-events:none}
+    .vpr-top-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--slate),var(--silver),#edf2f4)}
+
+    /* HERO — oversized type, split composition and image reveal */
+    .vpr-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);min-height:min(760px,calc(100svh - 86px));overflow:hidden;background:var(--deep);color:#fff;isolation:isolate}
+    .vpr-hero:before{position:absolute;z-index:-1;inset:0;content:"";opacity:.14;background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,#000,transparent 82%)}
+    .vpr-hero__copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(58px,8vw,116px) clamp(28px,5vw,78px) clamp(72px,8vw,100px) max(36px,calc((100vw - 1360px)/2))}
+    .vpr-hero__eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 26px;color:#c6d5dc;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+    .vpr-hero__eyebrow:before{content:"";width:32px;height:1px;background:var(--silver)}
+    .vpr-hero h1{max-width:850px;margin:0;color:#fff;font-size:clamp(58px,8.3vw,124px);font-weight:900;line-height:.84;letter-spacing:-.09em;text-transform:uppercase}
+    .vpr-hero h1 span{display:block;overflow:hidden;padding:0 0 .09em}
+    .vpr-hero h1 span b{display:block;font-weight:inherit;transform:translateY(115%);transition:transform 1s var(--ease)}
+    .vpr-hero.is-ready h1 span b{transform:translateY(0)}
+    .vpr-hero h1 span:nth-child(2){color:#b8c9d1}
+    .vpr-hero__subheading{margin:24px 0 12px;color:#fff;font-size:clamp(16px,1.5vw,21px);font-weight:700;letter-spacing:-.02em}
+    .vpr-hero__description{max-width:600px}
+    .vpr-hero__description p{margin:0 0 9px;color:#d3dfe4;font-size:13px;line-height:1.8}
+    .vpr-link{display:inline-flex;align-items:center;gap:14px;margin-top:19px;padding:0 0 8px;border-bottom:1px solid rgba(255,255,255,.65);color:#fff;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:gap .25s,color .25s,border-color .25s}
+    .vpr-link span{font-size:17px;transition:transform .25s}
+    .vpr-link:hover{gap:20px;color:#dce3e7;border-color:#dce3e7}
+    .vpr-link:hover span{transform:translate(3px,-2px)}
+    .vpr-hero__visual{position:relative;min-height:100%;overflow:hidden;background:var(--slate);clip-path:inset(0 0 0 100%);transition:clip-path 1.15s .2s var(--ease)}
+    .vpr-hero.is-ready .vpr-hero__visual{clip-path:inset(0)}
+    .vpr-photo-slot{background-position:center;background-size:cover;background-repeat:no-repeat}
+    .vpr-hero__visual:before{position:absolute;z-index:1;inset:7%;content:"";border:1px solid rgba(255,255,255,.55);pointer-events:none}
+    .vpr-hero__visual:after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,rgba(16,43,57,.45),transparent 55%),linear-gradient(0deg,rgba(16,43,57,.34),transparent 60%)}
+    .vpr-hero__visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.8s 0.25s var(--ease);filter:saturate(.78) contrast(1.04)}
+    .vpr-hero.is-ready .vpr-hero__visual img{transform:scale(1)}
+    .vpr-hero__visual-label{position:absolute;z-index:2;right:28px;bottom:28px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl}
+    .vpr-hero__index{position:absolute;z-index:3;top:28px;right:30px;color:#e1e9ec;font-size:9px;font-weight:800;letter-spacing:.18em}
+
+    /* EXPERTISE — editorial bento grid */
+    .vpr-expertise{padding:clamp(76px,9vw,124px) 0;background:var(--ivory)}
+    .vpr-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:38px}
+    .vpr-section-heading h2{margin:0;color:var(--navy);font-size:clamp(44px,6vw,78px);font-weight:900;line-height:.92;letter-spacing:-.075em}
+    .vpr-section-heading>p:last-child{max-width:400px;margin:0 0 4px;color:var(--muted);font-size:13px;line-height:1.8}
+    .vpr-expertise__grid{display:grid;grid-template-columns:1.16fr .92fr .92fr;grid-template-rows:270px 270px;gap:14px}
+    .vpr-expertise__item{position:relative;display:block;min-width:0;min-height:0;overflow:hidden;background:var(--navy);color:#fff;text-decoration:none;isolation:isolate;transform:translateZ(0)}
+    .vpr-expertise__item:first-child{grid-row:span 2}
+    .vpr-expertise__item:nth-child(4){grid-column:2/4}
+    .vpr-expertise__image-slot{position:absolute;z-index:-2;inset:0;width:100%;height:100%;background:var(--slate);overflow:hidden}
+    .vpr-expertise__image-slot img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.76);transform:scale(1.02);transition:transform .9s var(--ease),filter .8s}
+    .vpr-expertise__item:before{position:absolute;z-index:-1;inset:0;content:"";background:linear-gradient(180deg,rgba(12,34,45,.08) 15%,rgba(12,34,45,.2) 44%,rgba(12,34,45,.94) 100%);transition:opacity .35s}
+    .vpr-expertise__item:hover .vpr-expertise__image-slot img{transform:scale(1.08);filter:saturate(.98)}
+    .vpr-expertise__index{position:absolute;top:20px;left:22px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.15em}
+    .vpr-expertise__word{position:absolute;top:18px;right:22px;color:rgba(255,255,255,.62);font-size:9px;font-weight:800;letter-spacing:.16em}
+    .vpr-expertise__title{position:absolute;right:24px;bottom:24px;left:24px;max-width:500px;font-size:clamp(20px,2.2vw,31px);font-weight:800;line-height:1.05;letter-spacing:-.045em}
+    .vpr-expertise__arrow{position:absolute;right:20px;bottom:20px;display:grid;width:35px;height:35px;place-items:center;border:1px solid rgba(255,255,255,.68);border-radius:50%;font-size:17px;opacity:0;transform:translate(-6px,6px);transition:opacity .3s,transform .3s,background .3s}
+    .vpr-expertise__item:hover .vpr-expertise__arrow{opacity:1;transform:translate(0);background:rgba(255,255,255,.14)}
+    .vpr-expertise__item:hover .vpr-expertise__title{right:65px}
+    .vpr-expertise__title{transition:right .35s var(--ease)}
+
+    /* FEATURED PRODUCT CAROUSEL */
+    .vpr-feature{padding:clamp(78px,10vw,136px) 0;background:var(--paper)}
+    .vpr-feature__heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;width:var(--shell);margin:0 auto 34px}
+    .vpr-feature__heading h2{max-width:850px;margin:0;color:var(--navy);font-size:clamp(42px,6vw,80px);font-weight:900;line-height:.94;letter-spacing:-.075em}
+    .vpr-feature__heading-note{max-width:250px;margin:0 0 4px;color:var(--muted);font-size:12px;line-height:1.8}
+    .vpr-feature__stage{width:var(--shell);margin:0 auto;overflow:hidden;background:var(--steel)}
+    .vpr-feature__track{display:flex;will-change:transform;transition:transform .8s cubic-bezier(.22,.75,.2,1)}
+    .vpr-feature__slide{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);flex:0 0 100%;min-width:0;min-height:470px;background:var(--steel)}
+    .vpr-feature__visual{position:relative;min-height:470px;background-color:#c8d3d9;background-image:none;background-position:center center;background-size:cover;background-repeat:no-repeat;overflow:hidden}
+    .vpr-feature__visual::before{position:absolute;inset:0;content:"";z-index:0;background-image:linear-gradient(135deg,transparent 49.7%,rgba(23,55,71,.045) 50%,transparent 50.3%);background-size:54px 54px;pointer-events:none;opacity:.35}
+    .vpr-feature__visual.is-image-loaded::before{opacity:0}
+    .vpr-feature__visual:after{position:absolute;inset:0;content:"";background:linear-gradient(0deg,rgba(16,43,57,.15),transparent 60%);pointer-events:none}
+    .vpr-feature__visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+    .vpr-feature__slide:hover .vpr-feature__visual img{transform:scale(1.035)}
+    .vpr-feature__copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(32px,5vw,76px);background:var(--steel)}
+    .vpr-feature__copy .vpr-eyebrow{margin-bottom:20px}
+    .vpr-feature__copy h3{max-width:500px;margin:0 0 17px;color:var(--navy);font-size:clamp(31px,4vw,54px);font-weight:900;line-height:.98;letter-spacing:-.065em}
+    .vpr-feature__copy>p:not(.vpr-eyebrow){max-width:450px;margin:0;color:#526873;font-size:13px;line-height:1.85}
+    .vpr-product__actions{display:flex;flex-wrap:wrap;gap:22px;margin-top:24px}
+    .vpr-product__actions .vpr-link{margin-top:0;border-color:var(--navy);color:var(--navy)}
+    .vpr-product__actions .vpr-link:hover{color:var(--slate);border-color:var(--slate)}
+    .vpr-feature__controls{display:flex;align-items:center;justify-content:space-between;gap:20px;width:var(--shell);margin:22px auto 0}
+    .vpr-feature__progress{display:flex;flex:1;align-items:center;gap:17px;max-width:600px}
+    .vpr-feature__progress-track{position:relative;flex:1;height:2px;background:var(--line);overflow:hidden}
+    .vpr-feature__progress-track span{display:block;width:20%;height:100%;background:var(--navy);transition:width .45s ease}
+    .vpr-feature__count{margin:0;color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.14em;white-space:nowrap}
+    .vpr-feature__count strong{color:var(--navy)}
+    .vpr-feature__buttons{display:flex;gap:8px}
+    .vpr-feature__button{display:grid;width:44px;height:44px;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--navy);font-size:18px;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s}
+    .vpr-feature__button:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-2px)}
+
+    /* CLOSING CTA */
+    .vpr-cta{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,10vw,132px) 0;background:var(--navy);color:#fff}
+    .vpr-cta:after{position:absolute;z-index:-1;right:-2vw;bottom:-.3em;content:"V STEEL";color:rgba(255,255,255,.045);font-size:clamp(150px,25vw,370px);font-weight:900;letter-spacing:-.12em;line-height:1;white-space:nowrap;pointer-events:none}
+    .vpr-cta__inner{display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
+    .vpr-cta .vpr-eyebrow{color:#c5d3d9}
+    .vpr-cta h2{max-width:850px;margin:0;color:#fff;font-size:clamp(42px,6.8vw,88px);font-weight:900;line-height:.92;letter-spacing:-.075em}
+    .vpr-cta__description{max-width:500px;margin:20px 0 0;color:#d0dce1;font-size:13px;line-height:1.85}
+    .vpr-cta__actions{display:flex;flex:0 0 auto;flex-direction:column;gap:12px}
+    .vpr-cta__actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;min-width:190px;min-height:48px;padding:0 17px;border:1px solid rgba(255,255,255,.62);color:#fff;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s,transform .25s}
+    .vpr-cta__actions a:first-child{background:#fff;border-color:#fff;color:var(--navy)}
+    .vpr-cta__actions a:hover{background:var(--silver);border-color:var(--silver);color:var(--deep);transform:translateY(-2px)}
+    .vpr-cta__actions a span{font-size:17px}
+
+    /* REVEALS + BACK TO TOP */
+    .vpr-reveal{opacity:1;transform:none}
+    .vpr-js .vpr-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .vpr-js .vpr-reveal.is-visible{opacity:1;transform:translateY(0)}
+    .vpr-reveal-delay-1{transition-delay:.08s!important}.vpr-reveal-delay-2{transition-delay:.16s!important}.vpr-reveal-delay-3{transition-delay:.24s!important}
+    #vpr-back-to-top{position:fixed;right:22px;bottom:22px;z-index:1200;display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:var(--navy);color:#fff;box-shadow:0 10px 28px rgba(16,43,57,.22);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(9px);transition:opacity .25s,visibility .25s,transform .25s,background .25s}
+    #vpr-back-to-top.is-visible{opacity:1;visibility:visible;transform:none}
+    #vpr-back-to-top:hover{background:var(--slate);transform:translateY(-3px)}
+    #vpr-back-to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+    @media(max-width:1000px){
+      :root{--shell:calc(100% - 48px)}
+      .vpr-hero{grid-template-columns:1fr .82fr;min-height:680px}
+      .vpr-hero h1{font-size:clamp(54px,8vw,92px)}
+      .vpr-expertise__grid{grid-template-columns:1fr 1fr;grid-template-rows:300px 240px 240px}
+      .vpr-expertise__item:first-child{grid-row:auto;grid-column:1/-1}
+      .vpr-expertise__item:nth-child(4){grid-column:auto}
+      .vpr-feature__slide{grid-template-columns:1fr 1fr}
+      .vpr-feature__visual{min-height:430px}
+      .vpr-feature__slide{min-height:430px}
+    }
+    @media(max-width:760px){
+      :root{--shell:calc(100% - 40px)}
+      .vpr-hero{display:flex;min-height:780px;flex-direction:column;justify-content:flex-end}
+      .vpr-hero__visual{position:absolute;inset:0 0 210px;min-height:0}
+      .vpr-hero__visual:after{background:linear-gradient(90deg,rgba(16,43,57,.55),rgba(16,43,57,.12)),linear-gradient(0deg,var(--deep),transparent 80%)}
+      .vpr-hero__copy{min-height:530px;justify-content:flex-end;padding:170px 24px 78px;background:linear-gradient(0deg,var(--deep),rgba(16,43,57,.92) 62%,rgba(16,43,57,.08))}
+      .vpr-hero h1{font-size:clamp(52px,12vw,86px)}
+      .vpr-hero__description p{font-size:12px}
+      .vpr-hero__index{right:20px;top:20px}
+      .vpr-section-heading,.vpr-feature__heading{display:block}
+      .vpr-section-heading>p:last-child,.vpr-feature__heading-note{margin-top:17px}
+      .vpr-expertise__grid{grid-template-columns:1fr 1fr;grid-template-rows:300px 215px 215px}
+      .vpr-expertise__item:first-child{grid-column:1/-1}
+      .vpr-expertise__title{font-size:21px}
+      .vpr-feature__slide{grid-template-columns:1fr;min-height:0}
+      .vpr-feature__visual{min-height:330px;aspect-ratio:1.25}
+      .vpr-feature__copy{min-height:310px;padding:30px 25px 34px}
+      .vpr-cta__inner{align-items:flex-start;flex-direction:column}
+      .vpr-cta__actions{width:100%;flex-direction:row;flex-wrap:wrap}
+      .vpr-cta__actions a{flex:1 1 175px}
+    }
+    @media(max-width:480px){
+      .vpr-hero{min-height:760px}
+      .vpr-hero__copy{padding-inline:20px}
+      .vpr-hero h1{font-size:clamp(46px,12.5vw,66px)}
+      .vpr-expertise__grid{grid-template-columns:1fr;grid-template-rows:340px repeat(5,230px)}
+      .vpr-expertise__item:first-child,.vpr-expertise__item:nth-child(4){grid-column:auto}
+      .vpr-expertise__index{top:17px;left:17px}
+      .vpr-expertise__word{top:17px;right:17px}
+      .vpr-expertise__title{right:55px;bottom:19px;left:18px;font-size:22px}
+      .vpr-feature__buttons{gap:6px}
+      .vpr-feature__button{width:40px;height:40px}
+      #vpr-back-to-top{right:15px;bottom:15px;width:44px;height:44px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .vpr-js .vpr-reveal{opacity:1!important;transform:none!important}
+      .vpr-hero h1 span b{transform:none!important}
+      .vpr-hero__visual{clip-path:none!important}
+    }
+  </style>
 </head>
-<style>.vpr-photo-slot,
-.vpr-expertise__image-slot,
-.vpr-cta__image-slot {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-
-}
-
-.vpr-expertise__item {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.vpr-expertise__image-slot {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: #292b2e;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform .7s ease;
-}
-
-.vpr-expertise__item:hover .vpr-expertise__image-slot {
-  transform: scale(1.06);
-}
-
-/* Image overlay keeps existing text readable */
-.vpr-expertise__item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    180deg,
-    rgba(20,20,20,.35),
-    rgba(20,20,20,.78)
-  );
-  pointer-events: none;
-}
-
-.vpr-expertise__image-slot img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .vpr-expertise__item {
-    min-height: 230px;
-  }
-}
-</style>
 <body class="vs-page vs-page--products">
+  <div class="vpr-top-progress" aria-hidden="true"><span data-vpr-page-progress></span></div>
   <div id="navbar-placeholder"></div>
   <main class="vpr-page">
     <section class="vpr-hero" aria-labelledby="vpr-hero-title">
       <div class="vpr-hero__copy">
-        <p class="vpr-eyebrow">V STEEL | OUR PRODUCTS</p>
+        <p class="vpr-hero__eyebrow">V STEEL | OUR PRODUCTS</p>
         <h1 id="vpr-hero-title">
-          <span data-vpr-hero-line>Complete Steel</span>
-          <span data-vpr-hero-line>Solutions</span>
+          <span><b data-vpr-hero-line>Complete Steel</b></span>
+          <span><b data-vpr-hero-line>Solutions</b></span>
         </h1>
-        <h2>Premium Steel Manufacturing</h2>
+        <h2 class="vpr-hero__subheading">Premium Steel Manufacturing</h2>
         <div class="vpr-hero__description">
           <p>Specialized manufacturer of steel, metal, and wood furniture for laboratories, hospitals, offices, and industrial applications.</p>
           <p>We create custom solutions including fume hoods, storage compactors, workbenches, hospital beds, and complete HVAC turnkey setups for diverse industry requirements.</p>
         </div>
         <a class="vpr-link" href="#vpr-expertise">Explore our expertise <span aria-hidden="true">↓</span></a>
       </div>
-      <!-- Factory photography is not present in the project assets. Add an approved image at this path when supplied. -->
-      <div class="vpr-photo-slot vpr-hero__visual" role="img" aria-label="Factory photograph pending" data-photo-path="assets/images/product.png"></div>
-      <span class="vpr-hero__edge" aria-hidden="true"></span>
+      <div class="vpr-photo-slot vpr-hero__visual" role="img" aria-label="V STEEL manufacturing facility" data-photo-path="assets/images/product.png">
+        <span class="vpr-hero__visual-label">Manufacturing / Equipment / Workspaces</span>
+      </div>
+      <span class="vpr-hero__index">PRODUCT RANGE&nbsp;&nbsp;—&nbsp;&nbsp;V STEEL</span>
     </section>
 
     <section class="vpr-expertise" id="vpr-expertise" aria-labelledby="vpr-expertise-title">
-      <header class="vpr-section-heading">
-        <p class="vpr-eyebrow">Engineered across industries</p>
-        <h2 id="vpr-expertise-title">Our Expertise</h2>
-        <p>Comprehensive manufacturing capabilities across multiple industries and applications.</p>
-      </header>
-    
-
-<div class="vpr-expertise__grid">
-
-  <a class="vpr-expertise__item vpr-expertise__item--lab" href="#laboratory-essentials">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product.png" alt="Laboratory Furniture and Fume Hoods" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">01</span>
-    <span class="vpr-expertise__word" aria-hidden="true">LAB</span>
-    <span class="vpr-expertise__title">Laboratory Furniture &amp; Fume Hoods</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-  <a class="vpr-expertise__item vpr-expertise__item--medical" href="#hospital-essentials">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product1.png" alt="Hospital Beds and Medical Equipment" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">02</span>
-    <span class="vpr-expertise__word" aria-hidden="true">CARE</span>
-    <span class="vpr-expertise__title">Hospital Beds &amp; Medical Equipment</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-  <a class="vpr-expertise__item vpr-expertise__item--office" href="#office-furniture">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product2.png" alt="Office Workstations and Storage" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">03</span>
-    <span class="vpr-expertise__word" aria-hidden="true">OFFICE</span>
-    <span class="vpr-expertise__title">Office Workstations &amp; Storage</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-  <a class="vpr-expertise__item vpr-expertise__item--industrial" href="./Industry-Steel-Furniture.html">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product3.png" alt="Industrial Racks and Trolleys" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">04</span>
-    <span class="vpr-expertise__word" aria-hidden="true">INDUSTRY</span>
-    <span class="vpr-expertise__title">Industrial Racks &amp; Trolleys</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-  <a class="vpr-expertise__item vpr-expertise__item--hvac" href="#customized-steel-solutions">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product4.png" alt="HVAC Turnkey Solutions" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">05</span>
-    <span class="vpr-expertise__word" aria-hidden="true">HVAC</span>
-    <span class="vpr-expertise__title">HVAC Turnkey Solutions</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-  <a class="vpr-expertise__item vpr-expertise__item--custom" href="#customized-steel-solutions">
-    <div class="vpr-expertise__image-slot">
-      <img src="assets/images/product5.png" alt="Custom Steel Fabrication" loading="lazy">
-    </div>
-    <span class="vpr-expertise__index">06</span>
-    <span class="vpr-expertise__word" aria-hidden="true">CUSTOM</span>
-    <span class="vpr-expertise__title">Custom Steel Fabrication</span>
-    <span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
-  </a>
-
-</div>
-
-
+      <div class="vpr-shell">
+        <header class="vpr-section-heading vpr-reveal">
+          <div><p class="vpr-eyebrow">Engineered across industries</p><h2 id="vpr-expertise-title">Our Expertise</h2></div>
+          <p>Comprehensive manufacturing capabilities across multiple industries and applications.</p>
+        </header>
+        <div class="vpr-expertise__grid">
+          <a class="vpr-expertise__item vpr-reveal" href="#laboratory-essentials">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product.png" alt="Laboratory Furniture and Fume Hoods" loading="lazy"></div>
+            <span class="vpr-expertise__index">01</span><span class="vpr-expertise__word" aria-hidden="true">LAB</span>
+            <span class="vpr-expertise__title">Laboratory Furniture &amp; Fume Hoods</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="vpr-expertise__item vpr-reveal vpr-reveal-delay-1" href="#hospital-essentials">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product1.png" alt="Hospital Beds and Medical Equipment" loading="lazy"></div>
+            <span class="vpr-expertise__index">02</span><span class="vpr-expertise__word" aria-hidden="true">CARE</span>
+            <span class="vpr-expertise__title">Hospital Beds &amp; Medical Equipment</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="vpr-expertise__item vpr-reveal vpr-reveal-delay-2" href="#office-furniture">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product2.png" alt="Office Workstations and Storage" loading="lazy"></div>
+            <span class="vpr-expertise__index">03</span><span class="vpr-expertise__word" aria-hidden="true">OFFICE</span>
+            <span class="vpr-expertise__title">Office Workstations &amp; Storage</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="vpr-expertise__item vpr-reveal" href="./Industry-Steel-Furniture.html">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product3.png" alt="Industrial Racks and Trolleys" loading="lazy"></div>
+            <span class="vpr-expertise__index">04</span><span class="vpr-expertise__word" aria-hidden="true">INDUSTRY</span>
+            <span class="vpr-expertise__title">Industrial Racks &amp; Trolleys</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="vpr-expertise__item vpr-reveal vpr-reveal-delay-1" href="#customized-steel-solutions">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product4.png" alt="HVAC Turnkey Solutions" loading="lazy"></div>
+            <span class="vpr-expertise__index">05</span><span class="vpr-expertise__word" aria-hidden="true">HVAC</span>
+            <span class="vpr-expertise__title">HVAC Turnkey Solutions</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="vpr-expertise__item vpr-reveal vpr-reveal-delay-2" href="#customized-steel-solutions">
+            <div class="vpr-expertise__image-slot"><img src="assets/images/product5.png" alt="Custom Steel Fabrication" loading="lazy"></div>
+            <span class="vpr-expertise__index">06</span><span class="vpr-expertise__word" aria-hidden="true">CUSTOM</span>
+            <span class="vpr-expertise__title">Custom Steel Fabrication</span><span class="vpr-expertise__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="vpr-feature" aria-labelledby="vpr-feature-title" data-vpr-feature>
-      <header class="vpr-feature__heading">
-        <p class="vpr-eyebrow">Selected products</p>
-        <h2 id="vpr-feature-title">Built for the work<br>that moves industry forward.</h2>
+      <header class="vpr-feature__heading vpr-reveal">
+        <div><p class="vpr-eyebrow">Selected products</p><h2 id="vpr-feature-title">Built for the work<br>that moves industry forward.</h2></div>
+        <p class="vpr-feature__heading-note">Explore a selection of products designed for professional, technical and operational environments.</p>
       </header>
-      <div class="vpr-feature__stage" data-vpr-feature-stage>
+      <div class="vpr-feature__stage" data-vpr-feature-stage aria-roledescription="carousel" aria-label="Selected products">
         <div class="vpr-feature__track" data-vpr-feature-track>
-          <article class="vpr-feature__slide" data-vpr-feature-slide>
-            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
-            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Executive Office Furniture" data-photo-path="assets/images/product3.png"></div>
-            <div class="vpr-feature__copy">
-              <p class="vpr-eyebrow">Office Furniture</p>
-              <h3>Executive Office Furniture</h3>
-              <p>Complete executive office setup including desks, chairs, and storage cabinets for professional workspaces.</p>
-              <div class="vpr-product__actions">
-                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
-                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+          <article class="vpr-feature__slide" data-vpr-feature-slide aria-label="1 of 5">
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Executive Office Furniture" data-photo-path="assets/images/product3.png"></div>
+            <div class="vpr-feature__copy"><p class="vpr-eyebrow">Office Furniture</p><h3>Executive Office Furniture</h3><p>Complete executive office setup including desks, chairs, and storage cabinets for professional workspaces.</p><div class="vpr-product__actions"><a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a><a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="vpr-feature__slide" data-vpr-feature-slide>
-            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
-            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Industrial Mobile Workstation" data-photo-path="assets/images/product7.png"></div>
-            <div class="vpr-feature__copy">
-              <p class="vpr-eyebrow">Workshop</p>
-              <h3>Industrial Mobile Workstation</h3>
-              <p>Heavy-duty mobile workstation with tool storage, perfect for manufacturing and workshop environments.</p>
-              <div class="vpr-product__actions">
-                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
-                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+          <article class="vpr-feature__slide" data-vpr-feature-slide aria-label="2 of 5">
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Industrial Mobile Workstation" data-photo-path="assets/images/product7.png"></div>
+            <div class="vpr-feature__copy"><p class="vpr-eyebrow">Workshop</p><h3>Industrial Mobile Workstation</h3><p>Heavy-duty mobile workstation with tool storage, perfect for manufacturing and workshop environments.</p><div class="vpr-product__actions"><a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a><a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="vpr-feature__slide" data-vpr-feature-slide>
-            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
-            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Laboratory Workbench and Fume Hood" data-photo-path="assets/images/product4.png"></div>
-            <div class="vpr-feature__copy">
-              <p class="vpr-eyebrow">Lab Equipment</p>
-              <h3>Laboratory Workbench &amp; Fume Hood</h3>
-              <p>Complete laboratory setup with chemical-resistant workbench, fume hood, and specialized storage systems.</p>
-              <div class="vpr-product__actions">
-                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
-                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+          <article class="vpr-feature__slide" data-vpr-feature-slide aria-label="3 of 5">
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Laboratory Workbench and Fume Hood" data-photo-path="assets/images/product4.png"></div>
+            <div class="vpr-feature__copy"><p class="vpr-eyebrow">Lab Equipment</p><h3>Laboratory Workbench &amp; Fume Hood</h3><p>Complete laboratory setup with chemical-resistant workbench, fume hood, and specialized storage systems.</p><div class="vpr-product__actions"><a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a><a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="vpr-feature__slide" data-vpr-feature-slide>
-            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
-            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for High-Density Storage Compactor" data-photo-path="assets/images/product8.png"></div>
-            <div class="vpr-feature__copy">
-              <p class="vpr-eyebrow">Storage Solutions</p>
-              <h3>High-Density Storage Compactor</h3>
-              <p>Space-saving mobile storage system that doubles storage capacity, ideal for offices and archives.</p>
-              <div class="vpr-product__actions">
-                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
-                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+          <article class="vpr-feature__slide" data-vpr-feature-slide aria-label="4 of 5">
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="High-Density Storage Compactor" data-photo-path="assets/images/product8.png"></div>
+            <div class="vpr-feature__copy"><p class="vpr-eyebrow">Storage Solutions</p><h3>High-Density Storage Compactor</h3><p>Space-saving mobile storage system that doubles storage capacity, ideal for offices and archives.</p><div class="vpr-product__actions"><a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a><a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="vpr-feature__slide" data-vpr-feature-slide>
-            <!-- Product photo unavailable. Add the approved image at this path with descriptive alt text. -->
-            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Product photograph pending for Hospital Bed and Medical Furniture" data-photo-path="assets/images/product.png"></div>
-            <div class="vpr-feature__copy">
-              <p class="vpr-eyebrow">Medical Equipment</p>
-              <h3>Hospital Bed &amp; Medical Furniture</h3>
-              <p>Complete hospital furniture including adjustable beds, medical cabinets, and patient care equipment.</p>
-              <div class="vpr-product__actions">
-                <a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a>
-                <a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
+          <article class="vpr-feature__slide" data-vpr-feature-slide aria-label="5 of 5">
+            <div class="vpr-photo-slot vpr-feature__visual" role="img" aria-label="Hospital Bed and Medical Furniture" data-photo-path="assets/images/product.png"></div>
+            <div class="vpr-feature__copy"><p class="vpr-eyebrow">Medical Equipment</p><h3>Hospital Bed &amp; Medical Furniture</h3><p>Complete hospital furniture including adjustable beds, medical cabinets, and patient care equipment.</p><div class="vpr-product__actions"><a class="vpr-link" href="./contact.html">Call Now <span aria-hidden="true">↗</span></a><a class="vpr-link" href="./contact.html">Enquire <span aria-hidden="true">↗</span></a></div></div>
           </article>
         </div>
       </div>
-      <div class="vpr-feature__progress">
-        <div class="vpr-feature__progress-track" role="progressbar" aria-label="Featured product progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-vpr-feature-progress>
-          <span data-vpr-feature-progress-fill></span>
-        </div>
-        <p><span data-vpr-feature-current>01</span><span> / 05</span></p>
+      <div class="vpr-feature__controls">
+        <div class="vpr-feature__progress"><div class="vpr-feature__progress-track" role="progressbar" aria-label="Featured product progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" data-vpr-feature-progress><span data-vpr-feature-progress-fill></span></div><p class="vpr-feature__count"><strong data-vpr-feature-current>01</strong> / 05</p></div>
+        <div class="vpr-feature__buttons"><button class="vpr-feature__button" type="button" data-vpr-feature-prev aria-label="Previous product">←</button><button class="vpr-feature__button" type="button" data-vpr-feature-next aria-label="Next product">→</button></div>
       </div>
     </section>
 
-   
-
     <section class="vpr-cta" id="customized-steel-solutions" aria-labelledby="vpr-cta-title">
-      <p class="vpr-eyebrow">Your requirement. Our expertise.</p>
-      <h2 id="vpr-cta-title">Looking for the Right Steel Solution?</h2>
-      <p>Share your customized product requirements with Vishal Steel Products.</p>
-      <div class="vpr-cta__actions">
-        <a href="./contact.html">Get A Free Quote <span aria-hidden="true">↗</span></a>
-        <a href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a>
+      <div class="vpr-shell vpr-cta__inner">
+        <div class="vpr-reveal"><p class="vpr-eyebrow">Your requirement. Our expertise.</p><h2 id="vpr-cta-title">Looking for the Right Steel Solution?</h2><p class="vpr-cta__description">Share your customized product requirements with Vishal Steel Products.</p></div>
+        <div class="vpr-cta__actions vpr-reveal"><a href="./contact.html">Get A Free Quote <span aria-hidden="true">↗</span></a><a href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a></div>
       </div>
-      <span class="vpr-cta__mark" aria-hidden="true">V STEEL</span>
     </section>
   </main>
   <div id="footer-placeholder"></div>
+  <button id="vpr-back-to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("[data-photo-path]").forEach(function (element) {
-    const imagePath = element.getAttribute("data-photo-path");
+  <script>
+  (() => {
+    'use strict';
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (imagePath) {
-      const image = new Image();
-
-      image.onload = function () {
-        element.style.backgroundImage = `url("${imagePath}")`;
-      };
-
-      image.onerror = function () {
-        console.error("Image not found:", imagePath);
-      };
-
-      image.src = imagePath;
+    // Load the shared navigation and footer partials, then execute their scripts.
+    async function loadPartial(fileName, placeholderId) {
+      const target = document.getElementById(placeholderId);
+      if (!target) return;
+      try {
+        const response = await fetch(fileName, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`${fileName}: ${response.status}`);
+        const template = document.createElement('template');
+        template.innerHTML = await response.text();
+        const scripts = Array.from(template.content.querySelectorAll('script'));
+        scripts.forEach(script => script.remove());
+        target.replaceChildren(template.content.cloneNode(true));
+        for (const oldScript of scripts) {
+          const script = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(attr => script.setAttribute(attr.name, attr.value));
+          script.textContent = oldScript.textContent;
+          document.body.appendChild(script);
+        }
+      } catch (error) {
+        console.error(`Could not load ${fileName}:`, error);
+      }
     }
-  });
-});
-</script>
+    Promise.all([loadPartial('./navbar.html','navbar-placeholder'), loadPartial('./footer.html','footer-placeholder')]);
 
+    // Load background images while keeping the original asset paths.
+    document.querySelectorAll('[data-photo-path]').forEach(element => {
+      const imagePath = element.getAttribute('data-photo-path');
+      if (!imagePath) return;
+      const image = new Image();
+      image.onload = () => {
+        element.style.backgroundImage = `url("${imagePath}")`;
+        element.style.backgroundSize = 'cover';
+        element.style.backgroundPosition = 'center center';
+        element.style.backgroundRepeat = 'no-repeat';
+        element.classList.add('is-image-loaded');
+      };
+      image.onerror = () => console.warn('Image not found:', imagePath);
+      image.src = imagePath;
+    });
+
+    // Hero entrance.
+    const hero = document.querySelector('.vpr-hero');
+    requestAnimationFrame(() => hero?.classList.add('is-ready'));
+
+    // Scroll reveals: the page stays readable if JavaScript or observers are unavailable.
+    const revealItems = Array.from(document.querySelectorAll('.vpr-reveal'));
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('vpr-js');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -45px 0px' });
+      revealItems.forEach(item => revealObserver.observe(item));
+    }
+
+    // Featured-products carousel with autoplay, manual arrows, keyboard and swipe support.
+    const stage = document.querySelector('[data-vpr-feature-stage]');
+    const track = document.querySelector('[data-vpr-feature-track]');
+    const slides = Array.from(document.querySelectorAll('[data-vpr-feature-slide]'));
+    const prev = document.querySelector('[data-vpr-feature-prev]');
+    const next = document.querySelector('[data-vpr-feature-next]');
+    const progress = document.querySelector('[data-vpr-feature-progress]');
+    const fill = document.querySelector('[data-vpr-feature-progress-fill]');
+    const current = document.querySelector('[data-vpr-feature-current]');
+    let activeIndex = 0;
+    let carouselTimer = null;
+    let pointerStart = null;
+    let carouselInView = true;
+    const total = slides.length;
+
+    function renderSlide(index) {
+      if (!track || !total) return;
+      activeIndex = (index + total) % total;
+      track.style.transform = `translate3d(${-activeIndex * 100}%,0,0)`;
+      slides.forEach((slide, i) => {
+        slide.setAttribute('aria-hidden', String(i !== activeIndex));
+        slide.querySelectorAll('a').forEach(link => { link.tabIndex = i === activeIndex ? 0 : -1; });
+      });
+      const value = ((activeIndex + 1) / total) * 100;
+      if (fill) fill.style.width = `${value}%`;
+      if (progress) progress.setAttribute('aria-valuenow', String(Math.round(value)));
+      if (current) current.textContent = String(activeIndex + 1).padStart(2, '0');
+    }
+    function stopCarousel() { if (carouselTimer) window.clearInterval(carouselTimer); carouselTimer = null; }
+    function startCarousel() {
+      stopCarousel();
+      if (reducedMotion || document.hidden || !carouselInView || total < 2) return;
+      carouselTimer = window.setInterval(() => renderSlide(activeIndex + 1), 6200);
+    }
+    prev?.addEventListener('click', () => { renderSlide(activeIndex - 1); startCarousel(); });
+    next?.addEventListener('click', () => { renderSlide(activeIndex + 1); startCarousel(); });
+    stage?.addEventListener('mouseenter', stopCarousel);
+    stage?.addEventListener('mouseleave', startCarousel);
+    stage?.addEventListener('focusin', stopCarousel);
+    stage?.addEventListener('focusout', startCarousel);
+    stage?.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight') { renderSlide(activeIndex + 1); startCarousel(); }
+      if (event.key === 'ArrowLeft') { renderSlide(activeIndex - 1); startCarousel(); }
+    });
+    stage?.addEventListener('pointerdown', event => { pointerStart = event.clientX; }, { passive: true });
+    stage?.addEventListener('pointerup', event => {
+      if (pointerStart === null) return;
+      const delta = event.clientX - pointerStart;
+      if (Math.abs(delta) > 45) renderSlide(activeIndex + (delta < 0 ? 1 : -1));
+      pointerStart = null;
+      startCarousel();
+    }, { passive: true });
+    if (stage && 'IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        carouselInView = entries.some(entry => entry.isIntersecting);
+        carouselInView ? startCarousel() : stopCarousel();
+      }, { threshold: .15 }).observe(stage);
+    } else startCarousel();
+    document.addEventListener('visibilitychange', () => document.hidden ? stopCarousel() : startCarousel());
+    renderSlide(0);
+    startCarousel();
+
+    // Page progress and back-to-top.
+    const progressBar = document.querySelector('[data-vpr-page-progress]');
+    const topButton = document.getElementById('vpr-back-to-top');
+    let scrollTicking = false;
+    function updateScrollUI() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        if (progressBar) progressBar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+        topButton?.classList.toggle('is-visible', window.scrollY > 420);
+        scrollTicking = false;
+      });
+    }
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    window.addEventListener('resize', updateScrollUI, { passive: true });
+    updateScrollUI();
+    topButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
+  })();
+  </script>
 </body>
 </html>
