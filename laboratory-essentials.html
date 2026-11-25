@@ -1052,6 +1052,200 @@
         transition-duration: 0.01ms !important;
       }
     }
+  
+
+    /* Premium compact layout refinements */
+    .lab-hero {
+      min-height: clamp(620px, calc(100svh - 84px), 780px);
+      padding: clamp(34px, 4.5vw, 66px) var(--lab-gutter) clamp(62px, 6vw, 82px);
+      column-gap: clamp(24px, 3.5vw, 58px);
+      background:
+        radial-gradient(ellipse at 5% 8%, rgba(181, 18, 32, 0.085), transparent 35%),
+        linear-gradient(90deg, #f6f6f5 0%, #f0f0ee 56%, #e8e8e6 100%);
+    }
+
+    .lab-hero__copy { padding: 0 clamp(12px, 2vw, 30px) 10px 0; }
+    .lab-hero__title { font-size: clamp(2.8rem, 5.1vw, 5.9rem); line-height: .94; }
+    .lab-hero__visual { min-height: 440px; margin-right: -2.5vw; }
+    .lab-hero__visual .lab-image-slot { min-height: inherit; }
+
+    .lab-hero-carousel { box-shadow: 0 24px 64px rgba(32,33,36,.17); }
+    .lab-hero-carousel .lab-image-slot__media,
+    .lab-hero-carousel__slide {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.008);
+      transition: opacity 900ms ease, transform 6.2s cubic-bezier(.2,.7,.2,1);
+      will-change: opacity, transform;
+    }
+    .lab-hero-carousel__slide.is-active {
+      opacity: 1;
+      transform: scale(1.035);
+    }
+    .lab-hero-carousel::after {
+      z-index: 1 !important;
+      inset: 0 !important;
+      border: 0 !important;
+      background: linear-gradient(180deg, rgba(16,17,19,.02) 40%, rgba(16,17,19,.5) 100%);
+      pointer-events: none;
+    }
+    .lab-hero-carousel__label {
+      position: absolute;
+      z-index: 3;
+      left: clamp(20px, 3vw, 42px);
+      bottom: 80px;
+      color: #fff;
+      font-size: clamp(17px, 2vw, 25px);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1.15;
+      text-shadow: 0 2px 18px rgba(0,0,0,.35);
+    }
+    .lab-hero-carousel__footer {
+      position: absolute;
+      z-index: 4;
+      right: clamp(18px, 2.5vw, 34px);
+      bottom: 24px;
+      left: clamp(18px, 2.5vw, 34px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .lab-hero-carousel__count {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      font-variant-numeric: tabular-nums;
+    }
+    .lab-hero-carousel__count i {
+      color: rgba(255,255,255,.64);
+      font-style: normal;
+      font-weight: 500;
+    }
+    .lab-hero-carousel__controls { display: flex; gap: 5px; }
+    .lab-hero-carousel__controls button {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(22,23,25,.2);
+      font: 700 9px/1 Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .lab-hero-carousel__controls button:hover { transform: translateY(-2px); border-color: var(--lab-red); }
+    .lab-hero-carousel__controls button[aria-current="true"] { border-color: var(--lab-red); background: var(--lab-red); }
+    .lab-hero-carousel__progress {
+      position: absolute;
+      z-index: 4;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      overflow: hidden;
+      background: rgba(255,255,255,.24);
+    }
+    .lab-hero-carousel__progress span {
+      display: block;
+      width: 20%;
+      height: 100%;
+      background: #d62332;
+      transition: width 500ms ease;
+    }
+
+    .lab-story,
+    .lab-story:nth-of-type(even) {
+      min-height: 0;
+      padding: clamp(50px, 5.4vw, 78px) var(--lab-gutter);
+      gap: clamp(34px, 6vw, 88px);
+    }
+    .lab-story:nth-of-type(even) { background: #f3f3f1; }
+    .lab-story__visual .lab-image-slot { min-height: 330px; }
+    .lab-story:nth-of-type(3n) .lab-story__visual .lab-image-slot { aspect-ratio: 1.18 / 1; }
+    .lab-story__number { margin-bottom: 20px; }
+    .lab-story__description { margin-top: 18px; line-height: 1.7; }
+    .lab-story__rule { margin-top: 22px; }
+
+    .lab-solutions { padding-bottom: clamp(62px, 7vw, 92px); }
+    .lab-solutions__heading { padding: clamp(62px, 7vw, 92px) var(--lab-gutter) clamp(28px, 3.4vw, 44px); }
+    .lab-solutions__heading h2 { font-size: clamp(2.8rem, 6.4vw, 6rem); }
+    .lab-solution,
+    .lab-solution:nth-child(even) {
+      gap: clamp(32px, 5.5vw, 78px);
+      padding: clamp(38px, 4.6vw, 64px) var(--lab-gutter);
+    }
+    .lab-solution__visual .lab-image-slot { min-height: 300px; }
+    .lab-solution__content { padding: 12px 0; }
+    .lab-solution__description { margin-top: 18px; line-height: 1.72; }
+    .lab-button { min-height: 48px; margin-top: 24px; }
+
+    .lab-comprehensive { padding: clamp(70px, 8.2vw, 116px) var(--lab-gutter); gap: clamp(32px, 6vw, 82px); }
+    .lab-comprehensive__stats { gap: 26px; }
+    .lab-stat { padding-top: 16px; }
+    .lab-why { padding: clamp(70px, 8.5vw, 120px) var(--lab-gutter); }
+    .lab-why__heading { margin-bottom: clamp(36px, 5vw, 66px); gap: 14px; }
+    .lab-why__layout { gap: clamp(34px, 6vw, 84px); }
+    .lab-why__visual .lab-image-slot { min-height: 400px; }
+    .lab-why__description { margin-bottom: 30px; }
+    .lab-feature { padding: 20px 0; }
+
+    .lab-page .lab-image-slot--photo img {
+      transform: scale(1.008);
+      transition: transform 1.1s cubic-bezier(.2,.7,.2,1), opacity .45s ease;
+    }
+    .lab-page .lab-image-slot--photo:hover img { transform: scale(1.025); }
+
+    @media (max-width: 900px) {
+      .lab-hero { min-height: 690px; padding-top: 42px; padding-bottom: 72px; }
+      .lab-hero__visual { min-height: 420px; margin-right: -3vw; }
+      .lab-story, .lab-story:nth-of-type(even) { min-height: 0; padding-top: 48px; padding-bottom: 48px; gap: 30px; }
+      .lab-story__visual .lab-image-slot { min-height: 300px; }
+      .lab-comprehensive { padding-top: 74px; padding-bottom: 78px; }
+      .lab-why { padding-top: 74px; padding-bottom: 82px; }
+    }
+    @media (max-width: 680px) {
+      .lab-hero { min-height: 0; padding-top: 54px; padding-bottom: 76px; row-gap: 12px; }
+      .lab-hero__copy { padding-bottom: 20px; }
+      .lab-hero__visual { min-height: 0; margin: 0; }
+      .lab-hero__visual .lab-image-slot { min-height: 0; aspect-ratio: 1.12 / 1; }
+      .lab-hero-carousel__label { bottom: 74px; left: 18px; font-size: 17px; }
+      .lab-hero-carousel__footer { right: 14px; bottom: 18px; left: 14px; }
+      .lab-hero-carousel__controls { gap: 3px; }
+      .lab-hero-carousel__controls button { width: 29px; height: 29px; font-size: 8px; }
+      .lab-hero-carousel__count { font-size: 10px; }
+      .lab-story, .lab-story:nth-of-type(even) { gap: 24px; padding-top: 36px; padding-bottom: 40px; }
+      .lab-story__visual .lab-image-slot,
+      .lab-story:nth-of-type(3n) .lab-story__visual .lab-image-slot { min-height: 0; aspect-ratio: 1.18 / 1; }
+      .lab-story__number { margin-bottom: 14px; }
+      .lab-solutions__heading { padding-top: 66px; padding-bottom: 26px; }
+      .lab-solution, .lab-solution:nth-child(even) { gap: 22px; padding-top: 34px; padding-bottom: 38px; }
+      .lab-solution__visual .lab-image-slot,
+      .lab-solution:nth-child(3) .lab-solution__visual .lab-image-slot { min-height: 0; aspect-ratio: 1.2 / 1; }
+      .lab-comprehensive { gap: 38px; padding-top: 70px; padding-bottom: 74px; }
+      .lab-comprehensive__stats { gap: 18px; }
+      .lab-why { padding-top: 70px; padding-bottom: 76px; }
+      .lab-why__layout { gap: 34px; }
+      .lab-why__visual .lab-image-slot { min-height: 0; aspect-ratio: 1.12 / 1; }
+      .lab-feature { padding: 18px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lab-hero-carousel__slide { transition: none !important; }
+    }
+
   </style>
 </head>
 <body class="vs-page lab-page">
@@ -1067,8 +1261,24 @@
         </h1>
       </div>
       <div class="lab-hero__visual">
-        <div class="lab-image-slot lab-image-slot--photo" data-image-slot="laboratory-hero">
-          <img class="lab-image-slot__media" src="./assets/images/Equipment1.png" alt="Laboratory equipment" loading="eager" fetchpriority="high" decoding="async">
+        <div class="lab-image-slot lab-image-slot--photo lab-hero-carousel" data-image-slot="laboratory-hero" data-lab-carousel aria-label="Laboratory equipment image carousel">
+          <img class="lab-image-slot__media lab-hero-carousel__slide is-active" data-lab-hero-slide src="./assets/images/Equipment1.png" alt="Laboratory equipment" loading="eager" fetchpriority="high" decoding="async" aria-hidden="false">
+          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment2.png" alt="Stainless steel laboratory equipment" loading="lazy" decoding="async" aria-hidden="true">
+          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment3.png" alt="Laboratory workstation" loading="lazy" decoding="async" aria-hidden="true">
+          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment4.png" alt="Laboratory safety equipment and fume hood" loading="lazy" decoding="async" aria-hidden="true">
+          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment5.png" alt="Laboratory solutions and equipment" loading="lazy" decoding="async" aria-hidden="true">
+          <span class="lab-hero-carousel__label" data-lab-hero-label>Laboratory equipment</span>
+          <div class="lab-hero-carousel__footer">
+            <span class="lab-hero-carousel__count" data-lab-hero-count>01 <i>/ 05</i></span>
+            <div class="lab-hero-carousel__controls" role="group" aria-label="Choose laboratory image">
+              <button type="button" data-lab-hero-to="0" aria-label="Show laboratory equipment image 1" aria-current="true">01</button>
+              <button type="button" data-lab-hero-to="1" aria-label="Show laboratory equipment image 2" aria-current="false">02</button>
+              <button type="button" data-lab-hero-to="2" aria-label="Show laboratory equipment image 3" aria-current="false">03</button>
+              <button type="button" data-lab-hero-to="3" aria-label="Show laboratory equipment image 4" aria-current="false">04</button>
+              <button type="button" data-lab-hero-to="4" aria-label="Show laboratory equipment image 5" aria-current="false">05</button>
+            </div>
+          </div>
+          <span class="lab-hero-carousel__progress" aria-hidden="true"><span data-lab-hero-progress></span></span>
         </div>
       </div>
       <a class="lab-scroll-cue" href="#lab-editorial">
@@ -1230,7 +1440,7 @@
       </div>
       <div class="lab-comprehensive__copy">
         <p class="lab-kicker">Our Comprehensive Solutions</p>
-        <h2 class="lab-comprehensive__title" id="lab-comprehensive-title">Multi-Industry Manufacturing Expertise</h2>
+        <h2 class="lab-comprehensive__title" id="lab-comprehensive-title">Multi Industry Manufacturing Expertise</h2>
         <p class="lab-comprehensive__description">Specialized manufacturer serving laboratories, hospitals, offices, and industrial facilities with custom steel, metal, and wood furniture solutions.</p>
         <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">↗</span></a>
       </div>
@@ -1286,6 +1496,51 @@
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let scrollTriggerRefreshBound = false;
       let animationsInitialized = false;
+      let heroCarouselTimer = 0;
+
+      function initializeHeroCarousel() {
+        const carousel = document.querySelector("[data-lab-carousel]");
+        if (!carousel || carousel.dataset.initialized === "true") return;
+        carousel.dataset.initialized = "true";
+        const slides = Array.from(carousel.querySelectorAll("[data-lab-hero-slide]"));
+        const controls = Array.from(carousel.querySelectorAll("[data-lab-hero-to]"));
+        const count = carousel.querySelector("[data-lab-hero-count]");
+        const progress = carousel.querySelector("[data-lab-hero-progress]");
+        const label = carousel.querySelector("[data-lab-hero-label]");
+        const slideLabels = [
+          "Laboratory equipment",
+          "Stainless steel laboratory equipment",
+          "Laboratory workstations",
+          "Laboratory safety and fume hoods",
+          "Integrated laboratory solutions"
+        ];
+        if (slides.length < 2) return;
+        let activeIndex = 0;
+
+        const showSlide = (index) => {
+          activeIndex = (index + slides.length) % slides.length;
+          slides.forEach((slide, slideIndex) => {
+            const active = slideIndex === activeIndex;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+          });
+          controls.forEach((button, buttonIndex) => {
+            button.setAttribute("aria-current", String(buttonIndex === activeIndex));
+          });
+          if (count) count.innerHTML = `${String(activeIndex + 1).padStart(2, "0")} <i>/ ${String(slides.length).padStart(2, "0")}</i>`;
+          if (label) label.textContent = slideLabels[activeIndex] || "Laboratory equipment";
+          if (progress) progress.style.width = `${((activeIndex + 1) / slides.length) * 100}%`;
+        };
+
+        controls.forEach((button) => {
+          button.addEventListener("click", () => showSlide(Number(button.dataset.labHeroTo)));
+        });
+        showSlide(0);
+        if (!reducedMotion) {
+          heroCarouselTimer = window.setInterval(() => showSlide(activeIndex + 1), 5600);
+        }
+        window.addEventListener("pagehide", () => window.clearInterval(heroCarouselTimer), { once: true });
+      }
 
       function animateCount(element, target, suffix) {
         if (reducedMotion) {
@@ -1311,6 +1566,7 @@
           return;
         }
         animationsInitialized = true;
+        initializeHeroCarousel();
 
         const { gsap, ScrollTrigger } = window;
         if (reducedMotion || !gsap || !ScrollTrigger) {
@@ -1340,7 +1596,7 @@
         });
         gsap.from(".lab-hero__visual .lab-image-slot", {
           clipPath: "inset(0 0 0 100%)",
-          scale: 1.06,
+          scale: 1.015,
           duration: 1.35,
           ease: "power3.inOut",
           delay: 0.2
@@ -1351,53 +1607,65 @@
           const copy = story.querySelector(".lab-story__copy");
           const fromLeft = index % 2 === 0;
           gsap.fromTo(visual,
-            { clipPath: fromLeft ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.08 },
+            { clipPath: fromLeft ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.025 },
             {
               clipPath: "inset(0 0% 0 0%)",
               scale: 1,
-              duration: 1.1,
+              duration: 1.0,
               ease: "power3.inOut",
-              scrollTrigger: { trigger: story, start: "top 78%", once: true }
+              scrollTrigger: { trigger: story, start: "top 82%", once: true }
             }
           );
-          gsap.from(copy, {
-            x: fromLeft ? 36 : -36,
-            opacity: 0,
-            duration: 0.85,
-            ease: "power2.out",
-            scrollTrigger: { trigger: story, start: "top 76%", once: true }
-          });
+          gsap.fromTo(copy.querySelectorAll(".lab-story__number, .lab-story__title, .lab-story__description, .lab-story__rule"),
+            { y: 28, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" },
+            {
+              y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)",
+              duration: 0.76, stagger: 0.1, ease: "power3.out",
+              clearProps: "transform,opacity,visibility,clipPath",
+              scrollTrigger: { trigger: story, start: "top 80%", once: true }
+            }
+          );
           gsap.to(visual, {
-            yPercent: -5,
+            yPercent: -3,
             ease: "none",
             scrollTrigger: { trigger: story, start: "top bottom", end: "bottom top", scrub: 0.6 }
           });
         });
+
+        const solutionsHeading = document.querySelector(".lab-solutions__heading h2");
+        if (solutionsHeading) {
+          gsap.fromTo(solutionsHeading, { y: 38, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" }, {
+            y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)", duration: 0.9, ease: "power3.out",
+            clearProps: "transform,opacity,visibility,clipPath",
+            scrollTrigger: { trigger: solutionsHeading, start: "top 86%", once: true }
+          });
+        }
 
         gsap.utils.toArray("[data-solution]").forEach((solution, index) => {
           const visual = solution.querySelector(".lab-image-slot");
           const content = solution.querySelector(".lab-solution__content");
           const direction = index % 2 === 0 ? 1 : -1;
           gsap.fromTo(visual,
-            { clipPath: direction > 0 ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.07 },
+            { clipPath: direction > 0 ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1.025 },
             {
               clipPath: "inset(0 0 0 0)",
               scale: 1,
-              duration: 1.05,
+              duration: 1.0,
               ease: "power3.inOut",
-              scrollTrigger: { trigger: solution, start: "top 78%", once: true }
+              scrollTrigger: { trigger: solution, start: "top 82%", once: true }
             }
           );
-          gsap.from(content.children, {
-            x: direction * 24,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.09,
-            ease: "power2.out",
-            scrollTrigger: { trigger: solution, start: "top 76%", once: true }
-          });
+          gsap.fromTo(content.querySelectorAll(".lab-solution__title, .lab-solution__description, .lab-button"),
+            { x: direction * 22, y: 20, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" },
+            {
+              x: 0, y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)",
+              duration: 0.72, stagger: 0.11, ease: "power3.out",
+              clearProps: "transform,opacity,visibility,clipPath",
+              scrollTrigger: { trigger: solution, start: "top 80%", once: true }
+            }
+          );
           gsap.to(visual, {
-            yPercent: -4,
+            yPercent: -2.5,
             ease: "none",
             scrollTrigger: { trigger: solution, start: "top bottom", end: "bottom top", scrub: 0.65 }
           });
@@ -1405,13 +1673,18 @@
 
         const comprehensive = document.querySelector(".lab-comprehensive");
         if (comprehensive) {
-          gsap.from(".lab-comprehensive__copy > *", {
-            y: 28,
+          gsap.from(".lab-comprehensive__copy > :not(.lab-comprehensive__title)", {
+            y: 24,
             opacity: 0,
-            duration: 0.8,
-            stagger: 0.12,
+            duration: 0.72,
+            stagger: 0.1,
             ease: "power2.out",
-            scrollTrigger: { trigger: comprehensive, start: "top 72%", once: true }
+            scrollTrigger: { trigger: comprehensive, start: "top 78%", once: true }
+          });
+          gsap.fromTo(".lab-comprehensive__title", { y: 38, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" }, {
+            y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)", duration: 0.9, ease: "power3.out",
+            clearProps: "transform,opacity,visibility,clipPath",
+            scrollTrigger: { trigger: comprehensive, start: "top 78%", once: true }
           });
           gsap.to(".lab-comprehensive__backdrop", {
             yPercent: -8,
@@ -1434,13 +1707,18 @@
           });
         }
 
-        gsap.from(".lab-why__heading > *, .lab-feature", {
-          y: 30,
+        gsap.from(".lab-why__heading .lab-kicker, .lab-why__description, .lab-feature, .lab-why__content > .lab-button", {
+          y: 26,
           opacity: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power2.out",
-          scrollTrigger: { trigger: ".lab-why", start: "top 72%", once: true }
+          duration: 0.72,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".lab-why", start: "top 78%", once: true }
+        });
+        gsap.fromTo(".lab-why__title", { y: 38, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" }, {
+          y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)", duration: 0.9, ease: "power3.out",
+          clearProps: "transform,opacity,visibility,clipPath",
+          scrollTrigger: { trigger: ".lab-why", start: "top 77%", once: true }
         });
         gsap.fromTo(".lab-why__visual .lab-image-slot",
           { clipPath: "inset(0 0 100% 0)", scale: 1.06 },
