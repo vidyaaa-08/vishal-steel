@@ -13,8 +13,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-  <script src="./includes.js" defer></script>
-  <script src="./site.js" defer></script>
 </head>
 <style>
 /* Shared styles — consolidated from style.css */
@@ -709,7 +707,7 @@
   position: fixed;
   right: calc(24px + env(safe-area-inset-right, 0px));
   bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-  z-index: 990;
+  z-index: 99999;
   display: grid;
   width: 54px;
   height: 54px;
@@ -721,6 +719,8 @@
   box-shadow: 0 8px 24px rgba(32, 33, 36, 0.2);
   color: #fff;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -2844,6 +2844,954 @@
   }
 }
 
+
+/* ==========================================
+   V STEEL — STAGGERED FLOATING GALLERY
+========================================== */
+
+.vs-showcase--floating {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  min-height: 690px;
+  padding: 95px 5%;
+  overflow: hidden;
+  background:
+    linear-gradient(125deg, #17191d 0%, #242629 50%, #15171a 100%);
+}
+
+/* Background grid */
+
+.vs-showcase--floating .vs-showcase__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+  background-size: 70px 70px;
+}
+
+/* Soft red light */
+
+.vs-showcase--floating .vs-showcase__glow {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(181,18,32,.17),
+    transparent 70%
+  );
+
+  filter: blur(55px);
+}
+
+/* Background decoration */
+
+.vs-showcase--floating .vs-showcase__decor {
+  position: absolute;
+  right: -20px;
+  bottom: -65px;
+
+  color: rgba(255,255,255,.025);
+  font-size: clamp(110px, 19vw, 260px);
+  font-weight: 800;
+  letter-spacing: -15px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Gallery layout */
+
+.vs-showcase--floating .vs-showcase__track {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+
+  gap: clamp(22px, 3vw, 48px);
+
+  width: min(100%, 1500px);
+  margin: auto;
+}
+
+/* Card entry animation initial states */
+
+.vs-showcase--floating .vs-showcase__item {
+  position: relative;
+  min-width: 0;
+
+  opacity: 1;
+  transform: none;
+
+  transition:
+    opacity 1.1s ease,
+    transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* Floating positions */
+
+.vs-showcase--floating .vs-showcase__item:nth-child(1) {
+  padding-top: 65px;
+}
+
+.vs-showcase--floating .vs-showcase__item:nth-child(2) {
+  padding-top: 0;
+}
+
+.vs-showcase--floating .vs-showcase__item:nth-child(3) {
+  padding-top: 100px;
+}
+
+/* Main image card */
+
+.vs-showcase--floating .vs-showcase__card {
+  position: relative;
+  height: clamp(390px, 37vw, 510px);
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #252525;
+  border: 1px solid rgba(255,255,255,.16);
+
+  box-shadow: 0 25px 60px rgba(0,0,0,.28);
+
+  transition:
+    border-color .7s ease,
+    box-shadow .7s ease,
+    transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+/* Image area */
+
+.vs-showcase--floating .vs-showcase__image {
+  position: absolute;
+  inset: -4px;
+
+  overflow: hidden;
+  min-height: 0;
+
+  background: #292929;
+
+  animation: vfs-image-float 8s ease-in-out infinite;
+}
+
+.vs-showcase--floating .vs-showcase__item:nth-child(2)
+.vs-showcase__image {
+  animation-delay: -2s;
+}
+
+.vs-showcase--floating .vs-showcase__item:nth-child(3)
+.vs-showcase__image {
+  animation-delay: -4s;
+}
+
+/* Image */
+
+.vs-showcase--floating .vs-showcase__image picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.vs-showcase--floating .vs-showcase__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(.72) saturate(.85);
+
+  transform: scale(1.08);
+
+  transition:
+    transform 1.6s cubic-bezier(.16,1,.3,1),
+    filter 1s ease;
+}
+
+/* Dark gradient */
+
+.vs-showcase--floating .vs-showcase__card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  content: "";
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(12,14,17,.08) 10%,
+    rgba(12,14,17,.12) 38%,
+    rgba(12,14,17,.91) 100%
+  );
+}
+
+/* Number label */
+
+.vs-showcase--floating .vs-showcase__number {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+
+  z-index: 3;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(20,20,20,.25);
+
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Title content */
+
+.vs-showcase--floating .vs-showcase__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 3;
+
+  padding: 30px;
+
+  transform: translateY(12px);
+
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+/* Red accent line */
+
+.vs-showcase--floating .vs-showcase__line {
+  display: block;
+
+  width: 45px;
+  height: 3px;
+
+  margin-bottom: 18px;
+
+  background: #c8102e;
+
+  transition: width .7s ease;
+}
+
+/* Title */
+
+.vs-showcase--floating .vs-showcase__content h2 {
+  max-width: 380px;
+
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(21px, 2vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -.7px;
+}
+
+/* Hover effects */
+
+@media (hover: hover) {
+
+  .vs-showcase--floating .vs-showcase__card:hover {
+    transform: translateY(-13px);
+
+    border-color: rgba(200,16,46,.8);
+
+    box-shadow: 0 32px 80px rgba(0,0,0,.48);
+  }
+
+  .vs-showcase--floating .vs-showcase__card:hover
+  .vs-showcase__image img {
+    transform: scale(1.19);
+    filter: brightness(.9) saturate(1.1);
+  }
+
+  .vs-showcase--floating .vs-showcase__card:hover
+  .vs-showcase__content {
+    transform: translateY(0);
+  }
+
+  .vs-showcase--floating .vs-showcase__card:hover
+  .vs-showcase__line {
+    width: 85px;
+  }
+}
+
+/* Floating motion */
+
+@keyframes vfs-image-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 950px) {
+
+  .vs-showcase--floating {
+    padding: 75px 28px;
+  }
+
+  .vs-showcase--floating .vs-showcase__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vs-showcase--floating .vs-showcase__item:nth-child(1),
+  .vs-showcase--floating .vs-showcase__item:nth-child(3) {
+    padding-top: 35px;
+  }
+
+  .vs-showcase--floating .vs-showcase__item:nth-child(2) {
+    padding-top: 0;
+  }
+
+  .vs-showcase--floating .vs-showcase__card {
+    height: 420px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .vs-showcase--floating {
+    padding: 55px 19px;
+  }
+
+  .vs-showcase--floating .vs-showcase__track {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .vs-showcase--floating .vs-showcase__item:nth-child(n) {
+    padding-top: 0;
+  }
+
+  .vs-showcase--floating .vs-showcase__card {
+    height: 410px;
+  }
+
+  .vs-showcase--floating .vs-showcase__content {
+    padding: 25px;
+    transform: none;
+  }
+
+  .vs-showcase--floating .vs-showcase__content h2 {
+    font-size: 25px;
+  }
+
+  .vs-showcase--floating .vs-showcase__image {
+    animation: none;
+  }
+
+  .vs-showcase--floating .vs-showcase__decor {
+    font-size: 100px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .vs-showcase--floating *,
+  .vs-showcase--floating *::before,
+  .vs-showcase--floating *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* ==========================================
+   PAGE-WIDE SCROLL MOTION — heading word masks
+========================================== */
+.vs-motion-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: .09em;
+  margin-bottom: -.09em;
+  line-height: inherit;
+}
+
+.vs-motion-word {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+/* GSAP owns the showcase card entrance; keep CSS hover motion on the inner card. */
+.vs-showcase--floating .vs-showcase__item {
+  transition: none;
+  will-change: transform, opacity;
+}
+
+.vs-showcase--floating .vs-showcase__card {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-motion-word,
+  .vs-motion-word-mask {
+    will-change: auto;
+  }
+}
+
+
+/* Back-to-top click target safety */
+.vs-back-to-top,
+.back-to-top,
+.scroll-to-top,
+#back-to-top,
+#backToTop,
+#scrollToTop {
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   HERO CAROUSEL — FULL-BLEED IMAGE + ANIMATED RED COPY PANEL
+   ========================================================= */
+.vs-hero--carousel {
+  position: relative;
+  display: block;
+  min-height: clamp(620px, calc(100svh - 88px), 820px);
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #17191d;
+  color: #fff;
+}
+
+.vs-hero--carousel .vs-hero__slides,
+.vs-hero--carousel .vs-hero__slide {
+  position: absolute;
+  inset: 0;
+}
+
+.vs-hero--carousel .vs-hero__slide {
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 950ms ease, visibility 0s linear 950ms;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.vs-hero--carousel .vs-hero__image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #25282d;
+}
+
+.vs-hero--carousel .vs-hero__image picture,
+.vs-hero--carousel .vs-hero__slide-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.vs-hero--carousel .vs-hero__slide-image {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  filter: brightness(.82) saturate(.9);
+  transition: transform 7.5s cubic-bezier(.2,.65,.2,1), filter 1s ease;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__slide-image {
+  transform: scale(1.01);
+  filter: brightness(.88) saturate(1);
+}
+
+.vs-hero--carousel .vs-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9,12,17,.12) 0%, rgba(9,12,17,.08) 43%, rgba(9,12,17,.42) 100%),
+    linear-gradient(0deg, rgba(9,12,17,.28), transparent 45%);
+  pointer-events: none;
+}
+
+.vs-hero--carousel .vs-hero__content {
+  position: absolute;
+  top: 50%;
+  right: clamp(36px, 7.5vw, 132px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: min(540px, 43vw);
+  min-height: 490px;
+  padding: clamp(34px, 4.2vw, 62px);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #c5162b 0%, #a90f22 58%, #8d0d1d 100%);
+  box-shadow: 0 28px 85px rgba(0,0,0,.32);
+  transform: translateY(-50%);
+}
+
+.vs-hero--carousel .vs-hero__content::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 58px;
+  height: 58px;
+  border-top: 1px solid rgba(255,255,255,.35);
+  border-right: 1px solid rgba(255,255,255,.35);
+  content: "";
+  pointer-events: none;
+}
+
+.vs-hero--carousel .vs-hero__eyebrow {
+  margin: 0 0 24px;
+  color: rgba(255,255,255,.82);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .19em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.vs-hero--carousel .vs-hero__eyebrow span {
+  padding: 0 6px;
+  color: #fff;
+}
+
+.vs-hero--carousel .vs-hero__title {
+  max-width: 100%;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(36px, 4.1vw, 60px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  perspective: 900px;
+}
+
+.vs-hero--carousel .vs-hero__title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .04em;
+}
+
+.vs-hero--carousel .vs-hero__title-line > span {
+  display: block;
+  transform: translateY(115%) rotateX(-28deg);
+  transform-origin: 50% 100%;
+  opacity: 0;
+}
+
+.vs-hero--carousel .vs-hero__description {
+  max-width: 440px;
+  margin: 0 0 26px;
+  color: rgba(255,255,255,.9);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.vs-hero--carousel .vs-action--light {
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 3px;
+  background: #fff;
+  color: #a90f22;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.vs-hero--carousel .vs-action--light > span {
+  color: #a90f22;
+}
+
+.vs-hero--carousel .vs-action--light:hover {
+  border-color: #202124;
+  background: #202124;
+  color: #fff;
+}
+
+.vs-hero--carousel .vs-action--light:hover > span {
+  color: #fff;
+}
+
+.vs-hero--carousel .vs-hero__index {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255,255,255,.76);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.vs-hero--carousel .vs-hero__index i {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,255,255,.7);
+}
+
+/* The copy panel and each text row replay their entrance on every slide. */
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__content {
+  animation: vsHeroPanelIn .85s cubic-bezier(.16,1,.3,1) both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__eyebrow {
+  animation: vsHeroCopyIn .65s .18s ease both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__title-line:nth-child(1) > span {
+  animation: vsHeroTitleLineIn .78s .26s cubic-bezier(.16,1,.3,1) both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__title-line:nth-child(2) > span {
+  animation: vsHeroTitleLineIn .78s .38s cubic-bezier(.16,1,.3,1) both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__title-line:nth-child(3) > span {
+  animation: vsHeroTitleLineIn .78s .50s cubic-bezier(.16,1,.3,1) both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__description {
+  animation: vsHeroCopyIn .72s .65s ease both;
+}
+
+.vs-hero--carousel .vs-hero__slide.is-active .vs-action {
+  animation: vsHeroCopyIn .72s .82s ease both;
+}
+
+@keyframes vsHeroPanelIn {
+  from { opacity: 0; transform: translate(65px, -50%) scale(.97); }
+  to { opacity: 1; transform: translate(0, -50%) scale(1); }
+}
+
+@keyframes vsHeroTitleLineIn {
+  from { transform: translateY(115%) rotateX(-28deg); opacity: 0; }
+  to { transform: translateY(0) rotateX(0); opacity: 1; }
+}
+
+@keyframes vsHeroCopyIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Carousel controls */
+.vs-hero--carousel .vs-hero__controls {
+  position: absolute;
+  left: clamp(24px, 5vw, 76px);
+  bottom: 34px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+}
+
+.vs-hero--carousel .vs-hero__arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.vs-hero--carousel .vs-hero__arrow,
+.vs-hero--carousel .vs-hero__pause {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.56);
+  border-radius: 50%;
+  background: rgba(20,22,26,.24);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.vs-hero--carousel .vs-hero__arrow:hover,
+.vs-hero--carousel .vs-hero__pause:hover {
+  border-color: #b51220;
+  background: #b51220;
+  transform: translateY(-2px);
+}
+
+.vs-hero--carousel .vs-hero__arrow svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vs-hero--carousel .vs-hero__dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.vs-hero--carousel .vs-hero__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: width .3s ease, border-radius .3s ease, background-color .3s ease;
+}
+
+.vs-hero--carousel .vs-hero__dot.is-active {
+  width: 25px;
+  border-color: #fff;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.vs-hero--carousel .vs-hero__progress {
+  width: clamp(55px, 7vw, 105px);
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255,255,255,.3);
+}
+
+.vs-hero--carousel .vs-hero__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.vs-hero--carousel .vs-hero__progress span.is-running {
+  animation: vsHeroProgress 6.8s linear forwards;
+}
+
+.vs-hero--carousel.is-paused .vs-hero__progress span {
+  animation-play-state: paused;
+}
+
+@keyframes vsHeroProgress {
+  to { transform: scaleX(1); }
+}
+
+.vs-hero--carousel .vs-hero__pause {
+  width: 34px;
+  height: 34px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vs-hero--carousel:focus-visible {
+  outline: 3px solid #b51220;
+  outline-offset: -5px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .vs-hero--carousel {
+    min-height: 700px;
+  }
+
+  .vs-hero--carousel .vs-hero__content {
+    right: 5%;
+    width: min(510px, 53vw);
+    min-height: 440px;
+    padding: 36px;
+  }
+
+  .vs-hero--carousel .vs-hero__title {
+    font-size: clamp(34px, 4.8vw, 48px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .vs-hero--carousel {
+    min-height: 760px;
+    min-height: min(820px, calc(100svh - 72px));
+    height: 760px;
+  }
+
+  .vs-hero--carousel .vs-hero__shade {
+    background: linear-gradient(180deg, rgba(8,10,14,.08), rgba(8,10,14,.48));
+  }
+
+  .vs-hero--carousel .vs-hero__content {
+    top: auto;
+    right: 18px;
+    bottom: 88px;
+    left: 18px;
+    width: auto;
+    min-height: 0;
+    padding: 29px 25px 58px;
+    border-radius: 20px;
+    transform: none;
+  }
+
+  .vs-hero--carousel .vs-hero__content::before {
+    top: 18px;
+    right: 18px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .vs-hero--carousel .vs-hero__eyebrow {
+    max-width: calc(100% - 30px);
+    margin-bottom: 16px;
+    font-size: 9px;
+  }
+
+  .vs-hero--carousel .vs-hero__title {
+    margin-bottom: 16px;
+    font-size: clamp(30px, 8.5vw, 43px);
+    line-height: 1.04;
+  }
+
+  .vs-hero--carousel .vs-hero__description {
+    margin-bottom: 19px;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .vs-hero--carousel .vs-hero__index {
+    right: 22px;
+    bottom: 18px;
+  }
+
+  .vs-hero--carousel .vs-hero__controls {
+    right: 18px;
+    bottom: 22px;
+    left: 18px;
+    justify-content: space-between;
+    gap: 9px;
+  }
+
+  .vs-hero--carousel .vs-hero__arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .vs-hero--carousel .vs-hero__dots {
+    gap: 7px;
+  }
+
+  .vs-hero--carousel .vs-hero__progress {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-hero--carousel .vs-hero__slide,
+  .vs-hero--carousel .vs-hero__slide-image,
+  .vs-hero--carousel .vs-hero__content,
+  .vs-hero--carousel .vs-hero__title-line > span,
+  .vs-hero--carousel .vs-hero__description,
+  .vs-hero--carousel .vs-action,
+  .vs-hero--carousel .vs-hero__progress span {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+
+  .vs-hero--carousel .vs-hero__title-line > span,
+  .vs-hero--carousel .vs-hero__description,
+  .vs-hero--carousel .vs-action {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
+/* =========================================================
+   HERO CAROUSEL — KEEP THE FULL BACKGROUND PHOTOGRAPH VISIBLE
+   Override the legacy hero pseudo-overlay and carousel shade.
+   ========================================================= */
+.vs-hero--carousel .vs-hero__image::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+.vs-hero--carousel .vs-hero__slide-image,
+.vs-hero--carousel .vs-hero__slide.is-active .vs-hero__slide-image {
+  filter: brightness(1) saturate(1.04) !important;
+}
+
+.vs-hero--carousel .vs-hero__shade {
+  background: linear-gradient(
+    0deg,
+    rgba(10, 12, 16, .07) 0%,
+    rgba(10, 12, 16, 0) 28%
+  ) !important;
+}
+
+@media (max-width: 700px) {
+  .vs-hero--carousel .vs-hero__shade {
+    background: linear-gradient(
+      0deg,
+      rgba(10, 12, 16, .08) 0%,
+      rgba(10, 12, 16, 0) 35%
+    ) !important;
+  }
+}
+
 </style>
 <body class="vs-page vs-page--home">
 
@@ -2851,50 +3799,214 @@
 
   <div id="navbar-placeholder"></div>
   <main>
-    <section class="vs-hero" aria-labelledby="vs-home-title">
-      <div class="vs-hero__image vs-image-slot vs-image-slot--photo">
-        <picture>
-          <source type="image/webp" srcset="./assets/images/optimized/indexbanner1-480.webp 480w, ./assets/images/optimized/indexbanner1-768.webp 768w, ./assets/images/optimized/indexbanner1-1024.webp 1024w, ./assets/images/optimized/indexbanner1-1145.webp 1145w" sizes="100vw">
-          <img class="vs-media-image" src="./assets/images/homepage/indexbanner1.png" width="1145" height="768" alt="Contemporary commercial furniture and workspace interior" loading="eager" decoding="async" fetchpriority="high">
-        </picture>
+    <section class="vs-hero vs-hero--carousel" aria-label="Vishal Steel Products featured solutions" data-vs-hero-carousel tabindex="0" aria-roledescription="carousel">
+      <div class="vs-hero__slides">
+
+        <!-- Slide 1: Brand introduction -->
+        <article class="vs-hero__slide is-active" data-vs-hero-slide aria-hidden="false">
+          <div class="vs-hero__image">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/optimized/indexbanner1-480.webp 480w, ./assets/images/optimized/indexbanner1-768.webp 768w, ./assets/images/optimized/indexbanner1-1024.webp 1024w, ./assets/images/optimized/indexbanner1-1145.webp 1145w" sizes="100vw">
+              <img class="vs-hero__slide-image" src="./assets/images/homepage/indexbanner1.png" width="1145" height="768" alt="Contemporary commercial furniture and workspace interior" loading="eager" decoding="async" fetchpriority="high">
+            </picture>
+          </div>
+          <div class="vs-hero__shade" aria-hidden="true"></div>
+          <div class="vs-hero__content">
+            <p class="vs-eyebrow vs-hero__eyebrow">Vishal Steel Products <span>·</span> A member of Chameza Group</p>
+            <h1 class="vs-hero__title" id="vs-home-title" aria-label="Leading Manufacturer of Premium Industrial &amp; Commercial Solutions">
+              <span class="vs-hero__title-line"><span>Leading Manufacturer</span></span>
+              <span class="vs-hero__title-line"><span>of Premium Industrial</span></span>
+              <span class="vs-hero__title-line"><span>&amp; Commercial Solutions</span></span>
+            </h1>
+            <p class="vs-hero__description">From healthcare to HVAC, laboratory to industrial — we're your complete manufacturing partner with proven expertise across all sectors.</p>
+            <a class="vs-action vs-action--light" href="#commercial-furniture">Explore our solutions <span aria-hidden="true">↘</span></a>
+            <span class="vs-hero__index" aria-hidden="true">01 <i></i> 03</span>
+          </div>
+        </article>
+
+        <!-- Slide 2: Laboratory infrastructure -->
+        <article class="vs-hero__slide" data-vs-hero-slide aria-hidden="true" inert>
+          <div class="vs-hero__image">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/optimized/indeximg2-480.webp 480w, ./assets/images/optimized/indeximg2-768.webp 768w, ./assets/images/optimized/indeximg2-1024.webp 1024w, ./assets/images/optimized/indeximg2-1275.webp 1275w" sizes="100vw">
+              <img class="vs-hero__slide-image" src="./assets/images/homepage/indeximg2.png" width="1275" height="768" alt="Laboratory infrastructure with modular fume hoods and work areas" loading="eager" decoding="async" fetchpriority="low">
+            </picture>
+          </div>
+          <div class="vs-hero__shade" aria-hidden="true"></div>
+          <div class="vs-hero__content">
+            <p class="vs-eyebrow vs-hero__eyebrow">02 <span>·</span> Laboratory infrastructure</p>
+            <h2 class="vs-hero__title" aria-label="Complete Laboratory Infrastructure &amp; Modular Clean Room Solutions">
+              <span class="vs-hero__title-line"><span>Complete Laboratory</span></span>
+              <span class="vs-hero__title-line"><span>Infrastructure &amp; Modular</span></span>
+              <span class="vs-hero__title-line"><span>Clean Room Solutions</span></span>
+            </h2>
+            <p class="vs-hero__description">We deliver complete laboratory infrastructure with precision and expertise. Our specialization includes lab workbenches, storage cabinets, safety equipment, clean rooms and partitions.</p>
+            <a class="vs-action vs-action--light" href="#vs-lab-title">Explore our solutions <span aria-hidden="true">↘</span></a>
+            <span class="vs-hero__index" aria-hidden="true">02 <i></i> 03</span>
+          </div>
+        </article>
+
+        <!-- Slide 3: Industrial infrastructure -->
+        <article class="vs-hero__slide" data-vs-hero-slide aria-hidden="true" inert>
+          <div class="vs-hero__image">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/optimized/indeximg1-480.webp 480w, ./assets/images/optimized/indeximg1-768.webp 768w, ./assets/images/optimized/indeximg1-1024.webp 1024w, ./assets/images/optimized/indeximg1-1440.webp 1440w, ./assets/images/optimized/indeximg1-1810.webp 1810w" sizes="100vw">
+              <img class="vs-hero__slide-image" src="./assets/images/homepage/indeximg1.png" width="1810" height="768" alt="Industrial manufacturing facility with steel production equipment" loading="eager" decoding="async" fetchpriority="low">
+            </picture>
+          </div>
+          <div class="vs-hero__shade" aria-hidden="true"></div>
+          <div class="vs-hero__content">
+            <p class="vs-eyebrow vs-hero__eyebrow">03 <span>·</span> Industrial infrastructure</p>
+            <h2 class="vs-hero__title" aria-label="Complete Industrial Infrastructure &amp; HVAC Systems">
+              <span class="vs-hero__title-line"><span>Complete Industrial</span></span>
+              <span class="vs-hero__title-line"><span>Infrastructure &amp;</span></span>
+              <span class="vs-hero__title-line"><span>HVAC Systems</span></span>
+            </h2>
+            <p class="vs-hero__description">We manufacture industrial-grade warehouse racks, storage systems, and all furniture required for industrial areas, with complete turnkey HVAC setups.</p>
+            <a class="vs-action vs-action--light" href="./service.html">Discover our services <span aria-hidden="true">↗</span></a>
+            <span class="vs-hero__index" aria-hidden="true">03 <i></i> 03</span>
+          </div>
+        </article>
+
       </div>
-      <div class="vs-hero__content">
-        <p class="vs-eyebrow vs-hero__eyebrow">Vishal Steel Products <span>·</span> A member of Chameza Group</p>
-        <h1 class="vs-hero__title" id="vs-home-title">Leading Manufacturer of Premium Industrial &amp; Commercial Solutions</h1>
-        <a class="vs-action vs-action--light" href="#commercial-furniture">Explore our solutions <span aria-hidden="true">↘</span></a>
+
+      <div class="vs-hero__controls" aria-label="Carousel controls">
+        <div class="vs-hero__arrows">
+          <button class="vs-hero__arrow" type="button" data-vs-hero-prev aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+          </button>
+          <button class="vs-hero__arrow" type="button" data-vs-hero-next aria-label="Next slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="vs-hero__dots" role="group" aria-label="Choose a slide">
+          <button class="vs-hero__dot is-active" type="button" data-vs-hero-dot="0" aria-label="Show slide 1" aria-current="true"></button>
+          <button class="vs-hero__dot" type="button" data-vs-hero-dot="1" aria-label="Show slide 2"></button>
+          <button class="vs-hero__dot" type="button" data-vs-hero-dot="2" aria-label="Show slide 3"></button>
+        </div>
+        <div class="vs-hero__progress" aria-hidden="true"><span data-vs-hero-progress></span></div>
+        <button class="vs-hero__pause" type="button" data-vs-hero-pause aria-label="Pause slideshow">Ⅱ</button>
       </div>
-      <span class="vs-hero__index" aria-hidden="true">01 / 03</span>
     </section>
 
-    <section class="vs-showcase" aria-label="Featured solutions">
-      <article class="vs-showcase__item">
-        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+  <section class="vs-showcase vs-showcase--floating" aria-label="Featured solutions">
+
+  <div class="vs-showcase__background" aria-hidden="true">
+    <span class="vs-showcase__glow"></span>
+    <span class="vs-showcase__decor">V / STEEL</span>
+  </div>
+
+  <div class="vs-showcase__track">
+
+    <!-- IMAGE 01 -->
+    <article class="vs-showcase__item" data-float-entry="left">
+
+      <div class="vs-showcase__card">
+
+        <div class="vs-showcase__image">
           <picture>
-            <source type="image/webp" srcset="./assets/images/optimized/indeximg3-400.webp 400w, ./assets/images/optimized/indeximg3-640.webp 640w, ./assets/images/optimized/indeximg3-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
-            <img class="vs-media-image" src="./assets/images/homepage/indeximg3.png" width="768" height="768" alt="High-density mobile storage compactors" loading="lazy" decoding="async">
+            <source
+              type="image/webp"
+              srcset="./assets/images/optimized/indeximg3-400.webp 400w,
+                      ./assets/images/optimized/indeximg3-640.webp 640w,
+                      ./assets/images/optimized/indeximg3-768.webp 768w"
+              sizes="(max-width: 760px) 100vw, 33vw">
+
+            <img
+              class="vs-media-image"
+              src="./assets/images/homepage/indeximg3.png"
+              width="768"
+              height="768"
+              alt="High-density mobile storage compactors"
+              loading="lazy"
+              decoding="async">
           </picture>
         </div>
-        <h2>Storage Compactor Manufacturing Unit</h2>
-      </article>
-      <article class="vs-showcase__item">
-        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+
+        <div class="vs-showcase__number">01 / 03</div>
+
+        <div class="vs-showcase__content">
+          <span class="vs-showcase__line"></span>
+          <h2>Storage Compactor Manufacturing Unit</h2>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- IMAGE 02 -->
+    <article class="vs-showcase__item" data-float-entry="bottom">
+
+      <div class="vs-showcase__card">
+
+        <div class="vs-showcase__image">
           <picture>
-            <source type="image/webp" srcset="./assets/images/optimized/indeximg-400.webp 400w, ./assets/images/optimized/indeximg-640.webp 640w, ./assets/images/optimized/indeximg-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
-            <img class="vs-media-image" src="./assets/images/homepage/indeximg.png" width="768" height="768" alt="Stainless steel laboratory workbenches and equipment" loading="lazy" decoding="async">
+            <source
+              type="image/webp"
+              srcset="./assets/images/optimized/indeximg-400.webp 400w,
+                      ./assets/images/optimized/indeximg-640.webp 640w,
+                      ./assets/images/optimized/indeximg-768.webp 768w"
+              sizes="(max-width: 760px) 100vw, 33vw">
+
+            <img
+              class="vs-media-image"
+              src="./assets/images/homepage/indeximg.png"
+              width="768"
+              height="768"
+              alt="Stainless steel laboratory workbenches and equipment"
+              loading="lazy"
+              decoding="async">
           </picture>
         </div>
-        <h2>Modular Laboratory Workbench Solutions</h2>
-      </article>
-      <article class="vs-showcase__item">
-        <div class="vs-showcase__image vs-image-slot vs-image-slot--photo">
+
+        <div class="vs-showcase__number">02 / 03</div>
+
+        <div class="vs-showcase__content">
+          <span class="vs-showcase__line"></span>
+          <h2>Modular Laboratory Workbench Solutions</h2>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- IMAGE 03 -->
+    <article class="vs-showcase__item" data-float-entry="right">
+
+      <div class="vs-showcase__card">
+
+        <div class="vs-showcase__image">
           <picture>
-            <source type="image/webp" srcset="./assets/images/optimized/indeximg4-400.webp 400w, ./assets/images/optimized/indeximg4-640.webp 640w, ./assets/images/optimized/indeximg4-768.webp 768w" sizes="(max-width: 760px) 100vw, 33vw">
-            <img class="vs-media-image" src="./assets/images/homepage/indeximg4.png" width="768" height="768" alt="Laboratory fume hoods and integrated steel cabinetry" loading="lazy" decoding="async">
+            <source
+              type="image/webp"
+              srcset="./assets/images/optimized/indeximg4-400.webp 400w,
+                      ./assets/images/optimized/indeximg4-640.webp 640w,
+                      ./assets/images/optimized/indeximg4-768.webp 768w"
+              sizes="(max-width: 760px) 100vw, 33vw">
+
+            <img
+              class="vs-media-image"
+              src="./assets/images/homepage/indeximg4.png"
+              width="768"
+              height="768"
+              alt="Laboratory fume hoods and integrated steel cabinetry"
+              loading="lazy"
+              decoding="async">
           </picture>
         </div>
-        <h2>Laboratory Furniture &amp; Fume Hood Assembly</h2>
-      </article>
-    </section>
+
+        <div class="vs-showcase__number">03 / 03</div>
+
+        <div class="vs-showcase__content">
+          <span class="vs-showcase__line"></span>
+          <h2>Laboratory Furniture &amp; Fume Hood Assembly</h2>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</section>
 
     <section class="vs-red-interlude" aria-label="Our manufacturing expertise">
       <p class="vs-eyebrow" data-reveal="rise">Engineering across materials and industries</p>
@@ -3294,37 +4406,85 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializeBackToTop() {
-    let button = document.querySelector("[data-vs-back-to-top]");
+    const buttonSelector = [
+      '[data-vs-back-to-top]',
+      '.vs-back-to-top',
+      '.back-to-top',
+      '.scroll-to-top',
+      '#back-to-top',
+      '#backToTop',
+      '#scrollToTop',
+      '[aria-label="Back to top"]'
+    ].join(',');
+
+    let button = document.querySelector(buttonSelector);
     if (!button) {
-      button = document.createElement("button");
-      button.type = "button";
-      button.className = "vs-back-to-top";
-      button.setAttribute("aria-label", "Back to top");
-      button.setAttribute("aria-hidden", "true");
-      button.tabIndex = -1;
-      button.dataset.vsBackToTop = "";
+      button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'vs-back-to-top';
+      button.setAttribute('aria-label', 'Back to top');
+      button.dataset.vsBackToTop = '';
       button.innerHTML = `
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none"
             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
         </svg>`;
       document.body.appendChild(button);
+    } else if (!button.matches('[data-vs-back-to-top]')) {
+      // Normalize an existing site button so the visibility state is consistent.
+      button.dataset.vsBackToTop = '';
     }
-    if (button.dataset.vsInitialized === "true") return;
-    button.dataset.vsInitialized = "true";
+
+    function getScrollPosition() {
+      const scrollingElement = document.scrollingElement || document.documentElement;
+      return Math.max(
+        window.scrollY || 0,
+        scrollingElement.scrollTop || 0,
+        document.body ? document.body.scrollTop || 0 : 0
+      );
+    }
 
     function updateVisibility() {
-      const isVisible = window.scrollY > 400;
+      const isVisible = getScrollPosition() > 300;
       if (!isVisible && document.activeElement === button) button.blur();
-      button.classList.toggle("is-visible", isVisible);
-      button.setAttribute("aria-hidden", String(!isVisible));
+      button.classList.toggle('is-visible', isVisible);
+      button.setAttribute('aria-hidden', String(!isVisible));
       button.tabIndex = isVisible ? 0 : -1;
     }
-    button.addEventListener("click", () => {
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
-    });
-    window.addEventListener("scroll", updateVisibility, { passive: true });
+
+    // Delegated handling survives partial reloads or a button replaced by another script.
+    if (!document.documentElement.dataset.vsBackToTopHandler) {
+      document.documentElement.dataset.vsBackToTopHandler = 'true';
+      document.addEventListener('click', (event) => {
+        const target = event.target instanceof Element
+          ? event.target.closest(buttonSelector)
+          : null;
+        if (!target) return;
+
+        event.preventDefault();
+        const reducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+        const behavior = reducedMotion ? 'auto' : 'smooth';
+        const scrollingElement = document.scrollingElement || document.documentElement;
+
+        try {
+          window.scrollTo({ top: 0, left: 0, behavior });
+          if (typeof scrollingElement.scrollTo === 'function') {
+            scrollingElement.scrollTo({ top: 0, left: 0, behavior });
+          } else {
+            scrollingElement.scrollTop = 0;
+            if (document.body) document.body.scrollTop = 0;
+          }
+        } catch (error) {
+          scrollingElement.scrollTop = 0;
+          if (document.body) document.body.scrollTop = 0;
+        }
+      }, true);
+    }
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('pageshow', updateVisibility);
     updateVisibility();
   }
 
@@ -3435,8 +4595,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const hero = document.querySelector(".vs-hero");
-    const heroImage = hero && hero.querySelector(".vs-media-image");
-    if (!hero || !heroImage) {
+    const heroImage = hero && hero.querySelector(".vs-hero__legacy-image");
+    if (!hero) {
       return;
     }
 
@@ -3532,7 +4692,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     };
-    revealHero();
+    if (heroImage) revealHero();
 
     const revealImage = (image, trigger, from, isMobile, start, end) => {
       return whenImageReady(image, () => {
@@ -3571,7 +4731,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const animateImageSections = (isMobile) => {
       const cleanups = [];
-      cleanups.push(whenImageReady(heroImage, () => {
+      if (heroImage) cleanups.push(whenImageReady(heroImage, () => {
         gsap.to(heroImage, {
           yPercent: isMobile ? 3 : 9,
           ease: "none",
@@ -3585,19 +4745,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }));
 
-      const showcaseItems = Array.from(document.querySelectorAll(".vs-showcase__item"));
-      const showcaseEntrances = [
-        { clipPath: "inset(0 100% 0 0)", x: -68 },
-        { clipPath: "inset(100% 0 0 0)", y: 58 },
-        { clipPath: "inset(50% 50% 50% 50%)" }
-      ];
-      showcaseItems.forEach((item, index) => {
-        const image = item.querySelector(".vs-media-image");
-        if (image) {
-          cleanups.push(revealImage(image, item, showcaseEntrances[index], isMobile,
-            `top ${88 - index * 3}%`, "top 58%"));
-        }
-      });
+      const showcase = document.querySelector(".vs-showcase--floating");
+      const showcaseItems = showcase
+        ? Array.from(showcase.querySelectorAll(".vs-showcase__item"))
+        : [];
+      if (showcaseItems.length) {
+        const showcaseTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: showcase,
+            start: isMobile ? "top 88%" : "top 82%",
+            once: true
+          }
+        });
+        showcaseItems.forEach((item, index) => {
+          const direction = item.dataset.floatEntry;
+          const entrance = direction === "left"
+            ? { x: isMobile ? -75 : -150, y: 38, rotation: -7, scale: 0.9 }
+            : direction === "right"
+              ? { x: isMobile ? 75 : 150, y: 42, rotation: 7, scale: 0.9 }
+              : { x: 0, y: isMobile ? 70 : 115, rotationX: 12, scale: 0.86 };
+          showcaseTimeline.fromTo(item, {
+            ...entrance,
+            autoAlpha: 0,
+            filter: "blur(9px)",
+            transformPerspective: 1000,
+            transformOrigin: "center center"
+          }, {
+            x: 0,
+            y: 0,
+            rotation: 0,
+            rotationX: 0,
+            scale: 1,
+            autoAlpha: 1,
+            filter: "blur(0px)",
+            duration: isMobile ? 0.85 : 1.15,
+            ease: "power4.out",
+            clearProps: "transform,filter,opacity,visibility",
+            immediateRender: false
+          }, index * (isMobile ? 0.12 : 0.2));
+        });
+      }
 
       const furniture = document.querySelector(".vs-solution--furniture");
       const furnitureImage = furniture && furniture.querySelector(".vs-media-image");
@@ -3873,7 +5060,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    const heroContent = document.querySelector(".vs-hero__content, .vs-about-hero__copy");
+    const heroContent = document.querySelector(".vs-about-hero__copy");
     if (heroContent) {
       gsap.fromTo(heroContent, { y: 25, autoAlpha: 0 }, {
         y: 0,
@@ -3884,6 +5071,353 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+  }
+
+  function initializePageWideScrollAnimations() {
+    const main = document.querySelector(".vs-page--home main");
+    if (!main) return;
+
+    function splitMotionWords(element) {
+      if (!element || element.dataset.vsMotionWords === "true") {
+        return element ? Array.from(element.querySelectorAll(".vs-motion-word")) : [];
+      }
+
+      const accessibleText = element.textContent.replace(/\s+/g, " ").trim();
+      if (accessibleText) element.setAttribute("aria-label", accessibleText);
+
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+      textNodes.forEach((textNode) => {
+        const tokens = textNode.nodeValue.match(/\s+|[^\s]+/g) || [];
+        const fragment = document.createDocumentFragment();
+        tokens.forEach((token) => {
+          if (/^\s+$/.test(token)) {
+            fragment.appendChild(document.createTextNode(token));
+            return;
+          }
+          const mask = document.createElement("span");
+          mask.className = "vs-motion-word-mask";
+          const word = document.createElement("span");
+          word.className = "vs-motion-word";
+          word.textContent = token;
+          mask.appendChild(word);
+          fragment.appendChild(mask);
+        });
+        textNode.parentNode.replaceChild(fragment, textNode);
+      });
+
+      element.dataset.vsMotionWords = "true";
+      return Array.from(element.querySelectorAll(".vs-motion-word"));
+    }
+
+    // Hero title: a quicker word-by-word entrance after the hero copy starts.
+    const heroTitle = main.querySelector(".vs-hero__legacy-title");
+    if (heroTitle) {
+      const heroWords = splitMotionWords(heroTitle);
+      gsap.fromTo(heroWords, {
+        yPercent: 115,
+        rotationX: -42,
+        autoAlpha: 0,
+        filter: "blur(7px)",
+        transformPerspective: 850
+      }, {
+        yPercent: 0,
+        rotationX: 0,
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 0.82,
+        delay: 0.22,
+        stagger: 0.035,
+        ease: "power4.out",
+        clearProps: "transform,opacity,visibility,filter"
+      });
+    }
+
+    // Main section headings: alternate between masked lift, side glide and focus reveal.
+    const headings = Array.from(main.querySelectorAll("h2")).filter((heading) =>
+      !heading.closest(".vs-journey") &&
+      !heading.closest(".vs-showcase--floating") &&
+      !heading.closest(".vs-hero--carousel") &&
+      !heading.closest(".vs-intro__content")
+    );
+
+    headings.forEach((heading, index) => {
+      const words = splitMotionWords(heading);
+      if (!words.length) return;
+      const mode = index % 3;
+      const from = mode === 0
+        ? { yPercent: 118, rotationX: -38, x: 0, scale: 1, filter: "blur(7px)" }
+        : mode === 1
+          ? { yPercent: 55, rotationX: 0, x: index % 2 ? 26 : -26, scale: 0.98, filter: "blur(5px)" }
+          : { yPercent: 78, rotationX: 24, x: 0, scale: 0.88, filter: "blur(10px)" };
+      const trigger = heading.closest(
+        ".vs-section-heading, .vs-solution__content, .vs-why__intro, .vs-testimonials, .vs-final-cta, .vs-red-interlude"
+      ) || heading;
+
+      gsap.fromTo(words, {
+        ...from,
+        autoAlpha: 0,
+        transformPerspective: 900,
+        transformOrigin: "50% 100%"
+      }, {
+        yPercent: 0,
+        rotationX: 0,
+        x: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        autoAlpha: 1,
+        duration: mode === 2 ? 0.95 : 0.82,
+        stagger: { each: mode === 1 ? 0.028 : 0.038, from: index % 2 ? "end" : "start" },
+        ease: mode === 1 ? "power4.out" : "power3.out",
+        clearProps: "transform,opacity,visibility,filter",
+        scrollTrigger: {
+          trigger,
+          start: "top 86%",
+          once: true
+        }
+      });
+    });
+
+    // The About/company statement is intentionally long, so reveal its block as one editorial panel.
+    const introHeading = main.querySelector(".vs-intro__content h2");
+    if (introHeading) {
+      gsap.fromTo(introHeading, {
+        x: -54,
+        y: 18,
+        autoAlpha: 0,
+        filter: "blur(8px)"
+      }, {
+        x: 0,
+        y: 0,
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 1.05,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: introHeading,
+          start: "top 88%",
+          once: true
+        }
+      });
+    }
+
+    // Small section labels move in from the side and sharpen into place.
+    const eyebrows = Array.from(main.querySelectorAll(".vs-eyebrow")).filter((item) =>
+      !item.closest(".vs-journey") &&
+      !item.closest(".vs-showcase--floating") &&
+      !item.classList.contains("vs-hero__eyebrow")
+    );
+    eyebrows.forEach((item, index) => {
+      const trigger = item.closest("section") || item;
+      gsap.fromTo(item, {
+        x: index % 2 ? 22 : -22,
+        autoAlpha: 0,
+        letterSpacing: "0.28em",
+        filter: "blur(4px)"
+      }, {
+        x: 0,
+        autoAlpha: 1,
+        letterSpacing: "0.16em",
+        filter: "blur(0px)",
+        duration: 0.72,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility,filter,letterSpacing",
+        scrollTrigger: { trigger, start: "top 88%", once: true }
+      });
+    });
+
+    // Editorial paragraphs: soft upward reveal with a subtle de-blur.
+    const copyBlocks = Array.from(main.querySelectorAll(
+      ".vs-solution__content > p:not(.vs-eyebrow), .vs-why__intro > p:last-child, " +
+      ".vs-process-step p, .vs-testimonials__note, .vs-section-heading > p:not(.vs-eyebrow)"
+    ));
+    copyBlocks.forEach((copy) => {
+      gsap.fromTo(copy, {
+        y: 24,
+        autoAlpha: 0,
+        filter: "blur(5px)"
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 0.8,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility,filter",
+        scrollTrigger: { trigger: copy, start: "top 91%", once: true }
+      });
+    });
+
+    // Third solution block did not have a reveal attribute; give it an alternating side entry.
+    const industrialCopy = main.querySelector(".vs-solution--industrial .vs-solution__content");
+    if (industrialCopy) {
+      gsap.fromTo(industrialCopy, { x: 58, autoAlpha: 0 }, {
+        x: 0,
+        autoAlpha: 1,
+        duration: 1,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: { trigger: industrialCopy, start: "top 83%", once: true }
+      });
+    }
+
+    // Product/service tiles rise in a staggered sequence with a restrained 3D settle.
+    const serviceGrid = main.querySelector(".vs-service-grid");
+    if (serviceGrid) {
+      const serviceCards = Array.from(serviceGrid.querySelectorAll(".vs-service-card"));
+      gsap.fromTo(serviceCards, {
+        y: 58,
+        scale: 0.94,
+        rotationY: -5,
+        autoAlpha: 0,
+        filter: "blur(6px)"
+      }, {
+        y: 0,
+        scale: 1,
+        rotationY: 0,
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 0.9,
+        stagger: 0.13,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility,filter",
+        scrollTrigger: { trigger: serviceGrid, start: "top 82%", once: true }
+      });
+    }
+
+    // Project gallery uses alternating lateral movement; its images keep their existing clip reveals.
+    const projectGallery = main.querySelector(".vs-projects__gallery");
+    if (projectGallery) {
+      const projectItems = Array.from(projectGallery.querySelectorAll(".vs-projects__item"));
+      projectItems.forEach((item, index) => {
+        gsap.fromTo(item, {
+          x: index % 2 ? 52 : -52,
+          y: index % 3 === 1 ? 38 : 18,
+          scale: 0.96,
+          autoAlpha: 0
+        }, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.95,
+          delay: (index % 3) * 0.07,
+          ease: "power3.out",
+          clearProps: "transform,opacity,visibility",
+          scrollTrigger: { trigger: item, start: "top 88%", once: true }
+        });
+      });
+    }
+
+    // Feature/process numerals rotate and scale into position after their row enters.
+    const numberedDetails = Array.from(main.querySelectorAll(
+      ".vs-feature__number, .vs-process-step__number"
+    ));
+    numberedDetails.forEach((number, index) => {
+      gsap.fromTo(number, {
+        scale: 0.55,
+        rotation: index % 2 ? 13 : -13,
+        autoAlpha: 0
+      }, {
+        scale: 1,
+        rotation: 0,
+        autoAlpha: 1,
+        duration: 0.7,
+        ease: "back.out(1.7)",
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: {
+          trigger: number.closest("article") || number,
+          start: "top 88%",
+          once: true
+        }
+      });
+    });
+
+    // FAQ rows slide in from alternating sides.
+    const faqItems = Array.from(main.querySelectorAll(".vs-faq__list .vs-faq-item"));
+    if (faqItems.length) {
+      gsap.fromTo(faqItems, {
+        x: (index) => index % 2 ? 34 : -34,
+        y: 16,
+        autoAlpha: 0
+      }, {
+        x: 0,
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.78,
+        stagger: 0.11,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: {
+          trigger: faqItems[0].parentElement,
+          start: "top 84%",
+          once: true
+        }
+      });
+    }
+
+    // The red statement gets a separate word cascade; it is not treated like an ordinary paragraph.
+    const redStatement = main.querySelector(".vs-red-interlude__statement");
+    if (redStatement) {
+      const statementWords = splitMotionWords(redStatement);
+      gsap.fromTo(statementWords, {
+        yPercent: 105,
+        rotationX: -24,
+        autoAlpha: 0,
+        filter: "blur(6px)",
+        transformPerspective: 850
+      }, {
+        yPercent: 0,
+        rotationX: 0,
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 0.8,
+        stagger: 0.025,
+        ease: "power4.out",
+        clearProps: "transform,opacity,visibility,filter",
+        scrollTrigger: {
+          trigger: redStatement,
+          start: "top 82%",
+          once: true
+        }
+      });
+    }
+
+    // Final CTA enters as a final composed moment.
+    const finalCta = main.querySelector(".vs-final-cta");
+    if (finalCta) {
+      const ctaLink = finalCta.querySelector(".vs-action");
+      if (ctaLink) {
+        gsap.fromTo(ctaLink, { y: 30, scale: 0.94, autoAlpha: 0 }, {
+          y: 0,
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.8,
+          ease: "back.out(1.4)",
+          clearProps: "transform,opacity,visibility",
+          scrollTrigger: { trigger: finalCta, start: "top 78%", once: true }
+        });
+      }
+    }
+
+    // Statistics appear one-by-one from the baseline.
+    const statItems = Array.from(main.querySelectorAll(".vs-stat-list li"));
+    if (statItems.length) {
+      gsap.fromTo(statItems, { y: 24, autoAlpha: 0 }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.65,
+        stagger: 0.1,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: {
+          trigger: statItems[0].parentElement,
+          start: "top 88%",
+          once: true
+        }
+      });
+    }
   }
 
   function initializeFaq() {
@@ -4257,6 +5791,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("vs-animations-ready");
     if (window.gsap && window.ScrollTrigger) {
       initializeGsapAnimations();
+      initializePageWideScrollAnimations();
       initializeHomepageImageAnimations();
       initializeJourneyAnimations();
       refreshScrollTriggersOnImageLoad();
@@ -4272,6 +5807,162 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 }, { once: true });
+</script>
+
+
+<script>
+(() => {
+  const initializeHeroCarousel = () => {
+    const carousel = document.querySelector("[data-vs-hero-carousel]");
+    if (!carousel || carousel.dataset.initialized === "true") return;
+    carousel.dataset.initialized = "true";
+
+    const slides = Array.from(carousel.querySelectorAll("[data-vs-hero-slide]"));
+    const dots = Array.from(carousel.querySelectorAll("[data-vs-hero-dot]"));
+    const previousButton = carousel.querySelector("[data-vs-hero-prev]");
+    const nextButton = carousel.querySelector("[data-vs-hero-next]");
+    const pauseButton = carousel.querySelector("[data-vs-hero-pause]");
+    const progress = carousel.querySelector("[data-vs-hero-progress]");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const intervalMs = 3500;
+
+    if (!slides.length) return;
+
+    let activeIndex = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+    let timer = null;
+    let userPaused = reducedMotion;
+    let pointerPaused = false;
+
+    const restartProgress = () => {
+      if (!progress) return;
+      progress.classList.remove("is-running");
+      // Force a style recalculation so the progress animation restarts on each slide.
+      void progress.offsetWidth;
+      if (!userPaused && !pointerPaused && !document.hidden && !reducedMotion) {
+        progress.classList.add("is-running");
+      }
+    };
+
+    const stopAutoplay = () => {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+      if (progress) progress.classList.remove("is-running");
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (reducedMotion || userPaused || pointerPaused || document.hidden || slides.length < 2) return;
+      restartProgress();
+      timer = window.setInterval(() => showSlide(activeIndex + 1), intervalMs);
+    };
+
+    const updatePauseButton = () => {
+      if (!pauseButton) return;
+      pauseButton.textContent = userPaused ? "▶" : "Ⅱ";
+      pauseButton.setAttribute("aria-label", userPaused ? "Play slideshow" : "Pause slideshow");
+      carousel.classList.toggle("is-paused", userPaused || pointerPaused);
+    };
+
+    const showSlide = (requestedIndex, shouldRestart = true) => {
+      const nextIndex = (requestedIndex + slides.length) % slides.length;
+      activeIndex = nextIndex;
+
+      slides.forEach((slide, index) => {
+        const isActive = index === activeIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
+        slide.inert = !isActive;
+      });
+
+      dots.forEach((dot, index) => {
+        const isActive = index === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        if (isActive) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+
+      if (shouldRestart) startAutoplay();
+    };
+
+    previousButton?.addEventListener("click", () => showSlide(activeIndex - 1));
+    nextButton?.addEventListener("click", () => showSlide(activeIndex + 1));
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.dataset.vsHeroDot);
+        if (Number.isInteger(index)) showSlide(index);
+      });
+    });
+
+    pauseButton?.addEventListener("click", () => {
+      userPaused = !userPaused;
+      updatePauseButton();
+      if (userPaused) stopAutoplay();
+      else startAutoplay();
+    });
+
+    carousel.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch") return;
+      pointerPaused = true;
+      stopAutoplay();
+      updatePauseButton();
+    });
+    carousel.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "touch") return;
+      pointerPaused = false;
+      updatePauseButton();
+      startAutoplay();
+    });
+    carousel.addEventListener("focusin", () => {
+      pointerPaused = true;
+      stopAutoplay();
+      updatePauseButton();
+    });
+    carousel.addEventListener("focusout", (event) => {
+      if (carousel.contains(event.relatedTarget)) return;
+      pointerPaused = false;
+      updatePauseButton();
+      startAutoplay();
+    });
+
+    carousel.addEventListener("keydown", (event) => {
+      if (event.target.closest("button, a")) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(activeIndex + 1);
+      }
+    });
+
+    let touchStartX = 0;
+    carousel.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0]?.clientX || 0;
+    }, { passive: true });
+    carousel.addEventListener("touchend", (event) => {
+      const touchEndX = event.changedTouches[0]?.clientX || 0;
+      const distance = touchEndX - touchStartX;
+      if (Math.abs(distance) > 55) showSlide(distance < 0 ? activeIndex + 1 : activeIndex - 1);
+    }, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+
+    showSlide(activeIndex, false);
+    updatePauseButton();
+    startAutoplay();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeHeroCarousel, { once: true });
+  } else {
+    initializeHeroCarousel();
+  }
+})();
 </script>
 
 </body>
