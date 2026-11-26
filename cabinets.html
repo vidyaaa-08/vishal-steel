@@ -4945,6 +4945,144 @@
     animation: none !important;
   }
 }
+
+/* =========================================================
+   STEEL CABINETS — FULL-BLEED CINEMATIC HERO
+   Replace the existing cab*.png paths in the HTML when ready.
+   ========================================================= */
+.cabinets-hero{
+  min-height:clamp(620px,calc(100svh - 76px),920px)!important;
+  height:calc(100svh - 76px);
+  padding:0!important;
+  overflow:hidden!important;
+  background:#111820!important;
+  isolation:isolate;
+}
+.cabinets-hero::before{display:none!important}
+.cabinets-hero::after{
+  top:0;right:auto;bottom:0;left:0;width:100%;height:100%;
+  background:linear-gradient(90deg,rgba(7,17,24,.88) 0%,rgba(7,17,24,.62) 42%,rgba(7,17,24,.12) 100%),
+             linear-gradient(0deg,rgba(7,17,24,.58),transparent 45%);
+  z-index:1;
+}
+.cabinets-hero__inner{
+  display:block!important;
+  width:100%!important;max-width:none!important;
+  min-height:100%!important;height:100%;
+  padding:0!important;margin:0!important;
+}
+.cabinets-hero__slider{
+  position:absolute!important;inset:0!important;
+  width:100%;height:100%;z-index:0;
+}
+.cabinets-slider__stage{position:absolute!important;inset:0!important;width:100%;height:100%}
+.cabinets-slider__slide{
+  position:absolute!important;inset:0!important;
+  width:100%;height:100%;
+  opacity:0;visibility:hidden;
+  transition:opacity 1.15s ease,visibility 1.15s ease!important;
+}
+.cabinets-slider__slide.is-active{opacity:1;visibility:visible}
+.cabinets-slider__frame{
+  position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  border:0!important;border-radius:0!important;
+  clip-path:none!important;transform:none!important;
+  box-shadow:none!important;background:#18232a!important;
+}
+.cabinets-slider__frame--upper,.cabinets-slider__frame--lower{display:none!important}
+.cabinets-slider__frame--main img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:scale(1.08);
+  filter:brightness(.78) saturate(.86);
+  transition:transform 7s cubic-bezier(.2,.65,.3,1),filter 1s ease!important;
+}
+.cabinets-slider__slide.is-active .cabinets-slider__frame--main img{transform:scale(1);filter:brightness(.82) saturate(1)}
+.cabinets-slider__frame--main::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(7,17,24,.5),transparent 72%);
+  pointer-events:none;
+}
+.cabinets-slider__frame--main figcaption{display:none!important}
+.cabinets-hero__copy{
+  position:absolute!important;z-index:3!important;
+  left:clamp(26px,8vw,132px)!important;
+  top:50%!important;bottom:auto!important;
+  width:min(760px,78vw)!important;max-width:760px!important;
+  transform:translateY(-42%)!important;
+  padding:0!important;margin:0!important;
+}
+.cabinets-hero__eyebrow{color:#e7c47d!important;margin-bottom:25px!important}
+.cabinets-hero__eyebrow::before{background:#c79a3e!important}
+.cabinets-hero__title{
+  max-width:900px!important;
+  margin:0 0 24px!important;
+  color:#fff!important;
+  font-size:clamp(64px,10.4vw,148px)!important;
+  line-height:.84!important;letter-spacing:-.085em!important;
+  text-shadow:0 8px 36px rgba(0,0,0,.24);
+}
+.cabinets-hero__title>span+span{margin-left:.04em!important}
+.cabinets-hero__period{color:#d6a84f!important}
+.cabinets-hero__supporting{
+  max-width:650px!important;margin:0 0 12px!important;
+  color:#fff!important;font-size:clamp(19px,2.2vw,30px)!important;
+  line-height:1.25!important;font-weight:500!important;
+}
+.cabinets-hero__intro{
+  max-width:540px!important;margin:0!important;
+  color:rgba(255,255,255,.82)!important;
+  font-size:clamp(13px,1.2vw,16px)!important;line-height:1.8!important;
+}
+.cabinets-hero__typing{
+  display:inline-flex!important;min-height:30px;align-items:center;
+  margin-top:18px!important;padding:7px 12px;
+  border-left:2px solid #c79a3e;
+  background:rgba(255,255,255,.1);
+  color:#f1d59c!important;font-size:11px!important;
+  letter-spacing:.14em;text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.cabinets-slider__meta{
+  position:absolute!important;z-index:4!important;
+  right:clamp(24px,6vw,90px)!important;bottom:clamp(88px,11vh,130px)!important;
+  color:#fff!important;text-align:right!important;
+}
+.cabinets-slider__meta span{color:#e4bd70!important;letter-spacing:.18em}
+.cabinets-slider__meta p{color:rgba(255,255,255,.9)!important}
+.cabinets-slider__controls{
+  position:absolute!important;z-index:5!important;
+  right:clamp(22px,6vw,90px)!important;bottom:28px!important;
+  left:clamp(22px,8vw,132px)!important;
+  width:auto!important;max-width:none!important;
+  margin:0!important;padding:14px 0 0!important;
+  border-top:1px solid rgba(255,255,255,.35)!important;
+}
+.cabinets-slider__arrow{
+  border-color:rgba(255,255,255,.55)!important;
+  background:rgba(9,20,27,.32)!important;color:#fff!important;
+  backdrop-filter:blur(8px);
+}
+.cabinets-slider__indicators button{color:rgba(255,255,255,.62)!important}
+.cabinets-slider__indicators button[aria-current="true"]{color:#e5bd70!important}
+.cabinets-slider__progress{background:rgba(255,255,255,.24)!important}
+.cabinets-slider__progress span{background:#d6a84f!important}
+@media(max-width:760px){
+ .cabinets-hero{height:calc(88svh - 72px);min-height:590px!important}
+ .cabinets-hero::after{background:linear-gradient(90deg,rgba(7,17,24,.82),rgba(7,17,24,.34)),linear-gradient(0deg,rgba(7,17,24,.72),transparent 70%)}
+ .cabinets-hero__copy{left:24px!important;top:44%!important;width:calc(100% - 48px)!important;transform:translateY(-35%)!important}
+ .cabinets-hero__title{font-size:clamp(56px,14vw,92px)!important}
+ .cabinets-hero__supporting{font-size:20px!important}
+ .cabinets-hero__intro{font-size:13px!important}
+ .cabinets-slider__meta{right:24px!important;bottom:100px!important}
+ .cabinets-slider__controls{left:24px!important;right:24px!important;bottom:18px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .cabinets-slider__slide,.cabinets-slider__frame--main img{transition:none!important}
+ .cabinets-slider__slide.is-active .cabinets-slider__frame--main img{transform:none!important}
+}
+
 </style>
 
 </head>

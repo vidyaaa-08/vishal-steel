@@ -316,7 +316,7 @@
     assistant("You can contact the team directly. Nothing has been sent from this chat.", {
       links: [
         { label: "Contact page", href: "./contact.html" },
-        { label: "Call +91 8828991702", href: "tel:+918828991702" },
+        { label: "Call +91 83879 97777", href: "tel:+9183879 97777" },
         { label: "Email V STEEL", href: "mailto:sales@vishalsteelproducts.com" }
       ]
     });
