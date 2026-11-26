@@ -111,14 +111,7 @@
           <a class="sr-cta sr-cta--light" href="./contact.html">Request a quotation <span>↗</span></a>
         </div>
       </section>
-      <section class="sr-related">
-        <div class="sr-shell sr-related__grid">
-          <h2>Continue<br>exploring.</h2>
-          <div class="sr-related__links">${visibleLinks.map(l => `<a href="${l.href}"><span>${escaped(l.text)}</span><b>↗</b></a>`).join("") || `<a href="./products.html"><span>View products</span><b>↗</b></a><a href="./contact.html"><span>Start an enquiry</span><b>↗</b></a>`}</div>
-        </div>
-        ${preservedFormNodes.length ? `<div class="sr-shell sr-preserved-form"></div>` : ""}
-      </section>`;
-
+      
     if (preservedFormNodes.length) {
       const formSlot = main.querySelector(".sr-preserved-form");
       preservedFormNodes.forEach(form => formSlot?.appendChild(form));

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Vishal Steel Products' industrial furniture, storage, laboratory solutions, and project portfolio.">
+  <meta name="theme-color" content="#102B39">
+  <title>Gallery | V STEEL Products &amp; Projects</title>
+  <script src="./includes.js" defer></script>
+  <link rel="stylesheet" href="./gallery.css">
+</head>
+<body class="vs-page gallery-page">
+  <div id="navbar-placeholder"></div>
+  <main>
+    <section class="gallery-hero" aria-labelledby="gallery-title">
+      <div class="gallery-hero__image" aria-hidden="true"></div>
+      <div class="gallery-shell gallery-hero__content">
+        <p class="gallery-eyebrow gallery-reveal">Vishal Steel Products / Portfolio</p>
+        <h1 id="gallery-title" class="gallery-reveal">Made for work.<br><span>Built to last.</span></h1>
+        <p class="gallery-hero__intro gallery-reveal">Explore the products, environments, and project imagery behind V STEEL's work across furniture, storage, laboratories, and industry.</p>
+        <a class="gallery-hero__link gallery-reveal" href="#gallery-collection">Explore the gallery <span aria-hidden="true">↓</span></a>
+        <span class="gallery-hero__index" aria-hidden="true">V / S &nbsp;—&nbsp; PRODUCT &amp; PROJECT ARCHIVE</span>
+      </div>
+    </section>
+
+    <section class="gallery-feature" aria-labelledby="gallery-feature-title">
+      <div class="gallery-shell gallery-feature__layout">
+        <div class="gallery-feature__copy gallery-reveal">
+          <p class="gallery-eyebrow">Featured application / Storage</p>
+          <h2 id="gallery-feature-title">Space-saving<br>compactor systems.</h2>
+          <p>High-density storage designed to make better use of archive and workplace space.</p>
+          <a class="gallery-text-link" href="./Project.html#projects">Explore project work <span aria-hidden="true">↗</span></a>
+        </div>
+        <a class="gallery-feature__visual gallery-reveal" href="./Project.html#projects" aria-label="View V STEEL storage compactor projects">
+          <img src="./assets/images/homepage/project-storage-compactor.png" alt="Storage compactor installation from the V STEEL project portfolio" fetchpriority="high">
+          <span class="gallery-feature__visual-label">Storage systems / Project portfolio <b aria-hidden="true">↗</b></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="gallery-collection" id="gallery-collection" aria-labelledby="gallery-collection-title">
+      <div class="gallery-shell">
+        <header class="gallery-collection__heading gallery-reveal">
+          <div>
+            <p class="gallery-eyebrow">The V STEEL range</p>
+            <h2 id="gallery-collection-title">A closer look<br>at what we make.</h2>
+          </div>
+          <p>Browse product details, applications, and completed-project imagery from across the existing V STEEL range.</p>
+        </header>
+
+        <nav class="gallery-filters gallery-reveal" aria-label="Filter gallery by category" data-gallery-filters>
+          <button class="gallery-filter" type="button" data-gallery-filter="all" aria-pressed="true">All <span data-filter-count></span></button>
+          <button class="gallery-filter" type="button" data-gallery-filter="furniture" aria-pressed="false">Furniture</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="storage" aria-pressed="false">Storage</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="laboratory" aria-pressed="false">Laboratory</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="industrial" aria-pressed="false">Industrial</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="projects" aria-pressed="false">Projects</button>
+          <span class="gallery-filter__status" role="status" aria-live="polite" data-gallery-status></span>
+        </nav>
+
+        <div class="gallery-grid" data-gallery-grid></div>
+        <!-- Load More Button -->
+<div class="gallery-load-wrap" data-gallery-load-wrap>
+  <button type="button" class="gallery-load-btn" data-gallery-load>
+    <span>Load More</span>
+    <span class="gallery-load-arrow">↓</span>
+  </button>
+  <p class="gallery-load-count" data-gallery-load-count></p>
+</div>
+        <p class="gallery-empty" data-gallery-empty hidden>No images match this category.</p>
+        <p class="gallery-collection__footnote">Product and project imagery shown across the V STEEL website.</p>
+      </div>
+    </section>
+
+    <section class="gallery-contact" aria-labelledby="gallery-contact-title">
+      <div class="gallery-shell gallery-contact__inner">
+        <div class="gallery-reveal">
+          <p class="gallery-eyebrow">Have a project in mind?</p>
+          <h2 id="gallery-contact-title">Let's shape a space<br>that works.</h2>
+        </div>
+        <a class="gallery-contact__link gallery-reveal" href="./contact.html">Discuss your requirement <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="./gallery.js" defer></script>
+</body>
+</html>

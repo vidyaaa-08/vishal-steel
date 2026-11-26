@@ -14,7 +14,7 @@
   }
 
   const pageName = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-  if (!["index.html", "about.html", "faq.html", "contact.html"].includes(pageName)) {
+  if (!["index.html", "about.html", "faq.html", "contact.html", "gallery.html"].includes(pageName)) {
     const transformLink = document.createElement("link");
     transformLink.rel = "stylesheet";
     transformLink.href = new URL("structural-redesign.css", window.location.href).href;

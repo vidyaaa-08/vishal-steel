@@ -1,737 +1,247 @@
 <!doctype html>
 <html lang="en" class="vs-html">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore V STEEL industrial steel furniture, storage cabinets, work tables, shelving, workbenches, lockers and mobile carts.">
-  <meta name="theme-color" content="#173747">
-  <title>Industrial Steel Furniture | V STEEL</title>
-  
-  <style id="industry-steel-furniture-styles">
-/* V STEEL â€” Industrial Steel Furniture page redesign */
-.vs-page--industry-steel-furniture{margin:0;overflow-x:clip;background:#F4F5F3}
-.isf-page{
-  --isf-accent:#607D8B;--isf-accent-dark:#173747;--isf-ink:#173747;--isf-muted:#607D8B;
-  --isf-paper:#F4F5F3;--isf-line:rgba(23,55,71,.16);--isf-width:1360px;
-  --isf-gutter:clamp(20px,5vw,76px);color:var(--isf-ink);background:#FFFFFF;
-  font-family:Arial,Helvetica,sans-serif;overflow:clip
-}
-.isf-page *,.isf-page *::before,.isf-page *::after{box-sizing:border-box}
-.isf-page h1,.isf-page h2,.isf-page h3,.isf-page p,.isf-page figure{margin-top:0}
-.isf-page img{max-width:100%}
-.isf-eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 16px;color:var(--isf-accent);font-size:10px;font-weight:800;letter-spacing:.19em;line-height:1.5;text-transform:uppercase}
-.isf-eyebrow::before{content:"";width:28px;height:2px;flex:0 0 auto;background:currentColor}
-.isf-hero{position:relative;isolation:isolate;padding:clamp(54px,6.6vw,92px) 0 25px;overflow:hidden;background:radial-gradient(ellipse at 88% 0,rgba(96,125,139,.24),transparent 38%),linear-gradient(125deg,#102B39,#173747 62%,#294C5C);color:#fff}
-.isf-hero::before{position:absolute;z-index:-1;inset:0;content:"";opacity:.22;background:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(125deg,#000,transparent 75%)}
-.isf-hero::after{position:absolute;z-index:-1;right:-12vw;top:-24vw;width:54vw;max-width:760px;aspect-ratio:1;border:1px solid rgba(255,255,255,.12);border-radius:50%;content:"";box-shadow:0 0 0 55px rgba(255,255,255,.018),0 0 0 110px rgba(255,255,255,.014)}
-.isf-hero__intro,.isf-photo--hero,.isf-hero__index{width:min(100% - 2*var(--isf-gutter),var(--isf-width));margin-left:auto;margin-right:auto}
-.isf-hero__intro{position:relative;margin-bottom:clamp(25px,3.5vw,46px)}
-.isf-hero .isf-eyebrow{color:#B8C9D1;margin-bottom:21px}
-.isf-hero h1{max-width:1200px;margin:0;font-size:clamp(58px,9.5vw,136px);font-weight:750;letter-spacing:-.088em;line-height:.82;text-transform:uppercase}
-.isf-hero h1 span{display:block}
-.isf-hero h1 span:last-child{color:#DCE3E7}
-.isf-hero__details{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.68fr);align-items:start;gap:28px;max-width:900px;margin:28px 0 0 auto;padding-left:clamp(0px,8vw,120px)}
-.isf-hero__details h2{margin:0;color:#fff;font-size:clamp(18px,2.1vw,27px);font-weight:600;letter-spacing:-.04em;line-height:1.22}
-.isf-hero__details p{margin:0;color:rgba(255,255,255,.67);font-size:13px;line-height:1.75}
-.isf-photo{position:relative;isolation:isolate;display:flex;min-width:0;margin:0;overflow:hidden;align-items:flex-end;background-color:#d8d8d5;background-image:linear-gradient(135deg,transparent 49.7%,rgba(255,255,255,.32) 50%,transparent 50.3%),linear-gradient(45deg,transparent 49.7%,rgba(32,33,36,.06) 50%,transparent 50.3%),linear-gradient(145deg,#a9aaa7,#d8d8d5 55%,#b9bab7);background-size:52px 52px,52px 52px,auto;color:var(--isf-ink)}
-.isf-photo::before{position:absolute;z-index:1;inset:13px;border:1px solid rgba(255,255,255,.42);content:"";pointer-events:none;transition:inset .45s ease,border-color .45s ease}
-.isf-photo::after{position:absolute;z-index:0;inset:0;background:linear-gradient(180deg,transparent 56%,rgba(21,22,24,.24));content:"";pointer-events:none}
-.isf-photo:hover::before{inset:8px;border-color:rgba(96,125,139,.76)}
-.isf-photo--hero{min-height:clamp(280px,40vw,540px);aspect-ratio:2.08/1;margin-left:auto;box-shadow:0 28px 80px rgba(0,0,0,.28)}
-.isf-photo--hero::before{inset:18px;border-color:rgba(255,255,255,.3)}
-.isf-photo__image{position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;will-change:clip-path,transform}
-.isf-photo__note{position:relative;z-index:2;display:grid;width:100%;gap:5px;padding:15px 20px;background:rgba(245,244,241,.94);border-top:1px solid rgba(32,33,36,.12);color:#4b4d50;font-size:9px;font-weight:800;letter-spacing:.13em;line-height:1.45;text-transform:uppercase;backdrop-filter:blur(8px)}
-.isf-photo__note span{color:#747679;font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}
-.isf-photo__note[hidden]{display:none}
-.isf-hero__index{margin-top:12px;margin-bottom:0;color:rgba(255,255,255,.48);font-size:9px;font-weight:700;letter-spacing:.17em;text-align:right}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore V STEEL industrial steel furniture, storage cabinets, work tables, shelving, workbenches, lockers and mobile carts.">
+<meta name="theme-color" content="#173747">
+<title>Industrial Steel Furniture | V STEEL</title>
+<script src="./includes.js" defer></script>
+<style>
+:root{--navy:#173747;--deep:#102B39;--slate:#607D8B;--steel:#DCE3E7;--silver:#A8B7BE;--ivory:#F4F5F3;--ink:#173747;--muted:#5d727d;--line:rgba(23,55,71,.16);--ease:cubic-bezier(.2,.75,.2,1);--w:min(1360px,calc(100% - 2*clamp(20px,5vw,76px)))}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:clip}
+img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}
+:focus-visible{outline:2px solid var(--slate);outline-offset:4px}
+.eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 16px;color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+.eyebrow:before{content:"";width:28px;height:2px;background:currentColor;transform-origin:left;transition:transform .9s .2s var(--ease)}
+.js .eyebrow:not(.in){--x:0}.js .rv:not(.in) .eyebrow:before,.js .eyebrow.rv:not(.in):before{transform:scaleX(0)}
+.progress{position:fixed;z-index:1200;top:0;left:0;width:100%;height:3px;pointer-events:none}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--slate),var(--silver));transform:scaleX(0);transform-origin:left}
 
-.isf-features{padding:clamp(64px,7vw,96px) 0 clamp(70px,7.5vw,104px);background:var(--isf-paper)}
-.isf-section-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);column-gap:42px;row-gap:14px;width:min(100% - 2*var(--isf-gutter),var(--isf-width));margin:0 auto 34px;align-items:end}
-.isf-section-heading .isf-eyebrow{grid-column:1/-1;margin-bottom:0}
-.isf-section-heading h2{margin:0;font-size:clamp(48px,7vw,88px);font-weight:750;letter-spacing:-.085em;line-height:.86}
-.isf-section-heading h2 span{color:var(--isf-accent)}
-.isf-section-heading>p:last-child{max-width:450px;margin:0 0 4px;color:var(--isf-muted);font-size:13px;line-height:1.75}
-.isf-feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(100% - 2*var(--isf-gutter),var(--isf-width));margin:0 auto}
-.isf-feature{position:relative;display:grid;min-width:0;min-height:174px;padding:22px 21px 20px;grid-template-columns:34px minmax(0,1fr);gap:13px;align-content:start;border:1px solid rgba(32,33,36,.1);background:#fff;box-shadow:0 6px 22px rgba(32,33,36,.025);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
-.isf-feature::before{position:absolute;top:-1px;left:0;width:0;height:3px;background:var(--isf-accent);content:"";transition:width .42s ease}
-.isf-feature:hover{z-index:1;transform:translateY(-5px);border-color:rgba(96,125,139,.28);box-shadow:0 16px 34px rgba(32,33,36,.09)}
-.isf-feature:hover::before{width:100%}
-.isf-feature__index{margin:3px 0 0;color:var(--isf-accent);font-size:10px;font-weight:800;letter-spacing:.12em}
-.isf-feature h3{margin:0 0 9px;font-size:clamp(17px,1.55vw,21px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
-.isf-feature div>p{max-width:310px;margin:0;color:#686a6d;font-size:12px;line-height:1.68}
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(54px,6.6vw,92px) 0 26px;background:radial-gradient(ellipse at 88% 0,rgba(96,125,139,.28),transparent 40%),linear-gradient(125deg,var(--deep),var(--navy) 62%,#294C5C);color:#fff}
+.hero:before{content:"";position:absolute;z-index:-1;inset:0;opacity:.22;background:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(125deg,#000,transparent 75%);animation:grid 36s linear infinite}
+.hero:after{content:"";position:absolute;z-index:-1;right:-12vw;top:-24vw;width:54vw;max-width:760px;aspect-ratio:1;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.018),0 0 0 110px rgba(255,255,255,.014);animation:float 22s ease-in-out infinite alternate}
+@keyframes grid{to{background-position:54px 54px,54px 54px}}@keyframes float{to{transform:translate(-40px,36px) scale(1.1)}}
+.hero__in,.hero .photo,.hero__idx{width:var(--w);margin-inline:auto}
+.hero .eyebrow{color:#B8C9D1}
+.hero h1{max-width:1200px;margin:0;font-size:clamp(54px,9.5vw,136px);font-weight:800;letter-spacing:-.088em;line-height:.84;text-transform:uppercase}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.08em}.hero h1 b{display:block;font-weight:inherit;transform:translateY(112%);transition:transform 1s var(--ease)}
+.hero h1 span:last-child b{color:#DCE3E7;transition-delay:.14s}.ready .hero h1 b{transform:none}
+.hero__d{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.68fr);gap:28px;max-width:900px;margin:28px 0 clamp(25px,3.5vw,46px) auto;padding-left:clamp(0px,8vw,120px)}
+.hero__d h2{margin:0;font-size:clamp(18px,2.1vw,27px);font-weight:600;letter-spacing:-.04em;line-height:1.22}
+.hero__d p{margin:0;color:rgba(255,255,255,.72);font-size:13px;line-height:1.75}
+.hero .eyebrow,.hero__d{opacity:0;transform:translateY(22px)}.ready .hero .eyebrow,.ready .hero__d{animation:up .9s .5s var(--ease) forwards}.ready .hero .eyebrow{animation-delay:.05s}
+@keyframes up{to{opacity:1;transform:none}}
+.hero .photo{min-height:clamp(280px,40vw,540px);aspect-ratio:2.08/1;box-shadow:0 28px 80px rgba(0,0,0,.28);clip-path:inset(0 0 0 100%);transition:clip-path 1.2s .25s var(--ease)}.ready .hero .photo{clip-path:inset(0)}
+.hero__idx{margin:12px auto 0;color:rgba(255,255,255,.5);font-size:9px;font-weight:700;letter-spacing:.17em;text-align:right}
 
-.isf-collection{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.58fr);gap:32px;align-items:end;padding:clamp(54px,6.5vw,86px) max(var(--isf-gutter),calc((100% - var(--isf-width))/2));overflow:hidden;background:linear-gradient(115deg,#102B39,#173747 57%,#294C5C);color:#fff}
-.isf-collection::after{position:absolute;z-index:-1;top:-54%;right:6%;width:360px;aspect-ratio:1;border:1px solid rgba(255,255,255,.19);border-radius:50%;content:"";box-shadow:0 0 0 42px rgba(255,255,255,.04),0 0 0 84px rgba(255,255,255,.025)}
-.isf-collection .isf-eyebrow{color:rgba(255,255,255,.76)}
-.isf-collection__heading h2{margin:0;font-size:clamp(44px,6.6vw,84px);font-weight:750;letter-spacing:-.083em;line-height:.88}
-.isf-collection__note{max-width:430px;margin:0 0 5px;color:rgba(255,255,255,.78);font-size:12px;line-height:1.75}
+/* photo + designed placeholder */
+.photo{position:relative;isolation:isolate;overflow:hidden;margin:0;background:linear-gradient(135deg,#1f4557,var(--deep) 70%)}
+.photo:before{content:"";position:absolute;z-index:2;inset:13px;border:1px solid rgba(255,255,255,.4);pointer-events:none;transition:inset .45s,border-color .45s}
+.photo:hover:before{inset:8px;border-color:rgba(168,183,190,.9)}
+.photo:after{content:attr(data-label);position:absolute;inset:0;z-index:0;display:grid;place-items:center;padding:28px;text-align:center;color:rgba(255,255,255,.9);font-size:clamp(20px,2.6vw,36px);font-weight:800;letter-spacing:-.045em;line-height:1.05;background:repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 2px,transparent 2px 16px)}
+.photo img{position:absolute;z-index:1;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}.photo:hover img{transform:scale(1.06)}
 
-.isf-product{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.86fr);gap:clamp(30px,5vw,72px);width:min(100% - 2*var(--isf-gutter),var(--isf-width));margin:0 auto;padding:clamp(54px,6.2vw,82px) 0;align-items:center}
-.isf-product::after{position:absolute;right:0;bottom:0;left:0;height:1px;background:var(--isf-line);content:""}
-.isf-product__photo{min-height:300px;aspect-ratio:1.45/1;box-shadow:0 18px 44px rgba(32,33,36,.11)}
-.isf-product__copy{position:relative;min-width:0;max-width:580px;padding:6px 0}
-.isf-product__copy .isf-eyebrow{margin-bottom:13px}
-.isf-product__copy h2,.isf-slide__copy h3{position:relative;margin:0 0 17px;font-size:clamp(40px,5vw,66px);font-weight:750;letter-spacing:-.078em;line-height:.93;text-wrap:balance}
-.isf-product__copy h2::after,.isf-slide__copy h3::after{display:block;width:42px;height:3px;margin-top:18px;background:var(--isf-accent);content:"";transform-origin:left center}
-.isf-product__description,.isf-slide__copy>p:not(.isf-eyebrow){max-width:520px;margin:0;color:#5e6063;font-size:13px;line-height:1.82}
-.isf-product__actions{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:21px}
-.isf-action{display:inline-flex;min-height:42px;padding:0 0 2px;align-items:center;gap:12px;border:0;border-bottom:1px solid var(--isf-accent);color:var(--isf-ink);font-size:11px;font-weight:800;letter-spacing:.025em;text-decoration:none;transition:color .2s ease,gap .2s ease,border-color .2s ease}
-.isf-action span{color:var(--isf-accent);font-size:15px;transition:transform .2s ease}
-.isf-action:hover{gap:17px;border-color:var(--isf-accent-dark);color:var(--isf-accent-dark)}
-.isf-action:hover span{transform:translate(3px,-3px)}
-.isf-action--outline{border-bottom-color:#aeb0b2}
-.isf-product--02,.isf-product--04,.isf-product--06{grid-template-columns:minmax(300px,.86fr) minmax(0,1.08fr)}
-.isf-product--02 .isf-product__photo,.isf-product--04 .isf-product__photo,.isf-product--06 .isf-product__photo{order:2}
-.isf-product--02 .isf-product__copy,.isf-product--04 .isf-product__copy,.isf-product--06 .isf-product__copy{order:1}
-.isf-product--05{width:100%;padding-right:max(var(--isf-gutter),calc((100% - var(--isf-width))/2));padding-left:max(var(--isf-gutter),calc((100% - var(--isf-width))/2));grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);background:var(--isf-paper)}
-.isf-product--05::after{display:none}
-.isf-product--05 .isf-product__photo{min-height:330px;aspect-ratio:1.55/1}
-.isf-product--07{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
-.isf-product--07 .isf-product__photo{aspect-ratio:1.55/1}
-.isf-product--08{grid-template-columns:minmax(0,1.22fr) minmax(280px,.78fr);padding-bottom:clamp(65px,7vw,92px)}
-.isf-product--08 .isf-product__photo{min-height:340px;aspect-ratio:1.6/1}
+/* ticker */
+.ticker{overflow:hidden;white-space:nowrap;background:var(--steel);padding:20px 0;border-bottom:1px solid var(--line)}
+.ticker div{display:inline-flex;animation:slide 40s linear infinite}.ticker:hover div{animation-play-state:paused}
+.ticker span{display:inline-flex;align-items:center;gap:40px;padding-right:40px;font-size:clamp(20px,2.4vw,30px);font-weight:800;letter-spacing:-.04em;text-transform:uppercase}
+.ticker span:after{content:"";width:9px;height:9px;background:var(--slate);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-.isf-pinned{position:relative;padding:clamp(54px,6vw,82px) 0;background:linear-gradient(135deg,#102B39,#173747);color:#fff;overflow:hidden}
-.isf-pinned::before{position:absolute;top:0;right:0;width:40%;height:3px;background:var(--isf-accent);content:""}
-.isf-pinned__heading,.isf-pinned__stage,.isf-pinned__progress{width:min(100% - 2*var(--isf-gutter),var(--isf-width));margin-left:auto;margin-right:auto}
-.isf-pinned__heading{display:flex;margin-bottom:22px;align-items:end;justify-content:space-between;gap:24px}
-.isf-pinned__heading .isf-eyebrow,.isf-slide__copy .isf-eyebrow{color:#B8C9D1}
-.isf-pinned__heading .isf-eyebrow{margin-bottom:12px}
-.isf-pinned__heading h2{margin:0;font-size:clamp(40px,5.5vw,70px);font-weight:750;letter-spacing:-.08em;line-height:.88}
-.isf-pinned__heading h2 span{color:#B8C9D1}
-.isf-pinned__stage{overflow:visible}
-.isf-pinned__track{display:grid;gap:12px}
-.isf-slide{display:grid;min-width:0;min-height:420px;padding:clamp(20px,3vw,38px);grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr);gap:clamp(25px,4vw,58px);align-items:center;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1)}
-.isf-slide__photo{width:100%;min-height:270px;aspect-ratio:1.48/1;background-color:#555}
-.isf-slide__copy{max-width:520px;min-width:0}
-.isf-slide__copy h3{color:#fff;font-size:clamp(38px,4.5vw,60px)}
-.isf-slide__copy>p:not(.isf-eyebrow){color:rgba(255,255,255,.72)}
-.isf-slide .isf-action{color:#fff;border-bottom-color:#A8B7BE}
-.isf-slide .isf-action span{color:#B8C9D1}
-.isf-slide .isf-action--outline{border-bottom-color:rgba(255,255,255,.35)}
-.isf-pinned__progress{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;margin-top:17px}
-.isf-pinned__progress-track{display:block;height:2px;overflow:hidden;background:rgba(255,255,255,.2)}
-.isf-pinned__progress-track>span{display:block;width:100%;height:100%;background:#B8C9D1;transform:scaleX(0);transform-origin:left center}
-.isf-pinned__progress-label{color:rgba(255,255,255,.62);font-size:10px;letter-spacing:.1em}
-.isf-pinned__progress-label [data-isf-current]{color:#fff;font-weight:800}
-.isf-pinned.isf-is-pinned{display:flex;min-height:100svh;max-height:900px;padding:34px 0 26px;flex-direction:column;justify-content:center;overflow:hidden}
-.isf-is-pinned .isf-pinned__heading{flex:0 0 auto;margin-bottom:16px}
-.isf-is-pinned .isf-pinned__heading h2{font-size:clamp(36px,4.4vw,58px)}
-.isf-is-pinned .isf-pinned__stage{flex:1 1 auto;min-height:0;overflow:hidden}
-.isf-is-pinned .isf-pinned__track{display:flex;width:300%;height:100%;gap:0}
-.isf-is-pinned .isf-slide{flex:0 0 33.333333%;min-height:0;height:100%;grid-template-columns:minmax(0,1.12fr) minmax(260px,.88fr)}
-.isf-is-pinned .isf-slide__photo{height:100%;min-height:0;aspect-ratio:auto}
-.isf-is-pinned .isf-pinned__progress{flex:0 0 auto;margin-top:14px}
-.isf-is-pinned .isf-slide[aria-hidden="true"]{pointer-events:none}
+/* features */
+.features{padding:clamp(64px,7vw,96px) 0 clamp(70px,7.5vw,104px);background:var(--ivory)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);gap:14px 42px;width:var(--w);margin:0 auto 34px;align-items:end}
+.sh .eyebrow{grid-column:1/-1;margin:0}.sh h2{margin:0;font-size:clamp(46px,7vw,88px);font-weight:800;letter-spacing:-.085em;line-height:.88}.sh h2 span{color:var(--slate)}
+.sh>p:last-child{max-width:450px;margin:0 0 4px;color:var(--muted);font-size:13px;line-height:1.75}
+.fg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:var(--w);margin:0 auto}
+.f{position:relative;overflow:hidden;display:grid;grid-template-columns:34px minmax(0,1fr);gap:13px;align-content:start;min-height:180px;padding:22px 21px;background:#fff;border:1px solid rgba(23,55,71,.1);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.f:before{content:"";position:absolute;top:-1px;left:0;width:0;height:3px;background:var(--slate);transition:width .42s}
+.f:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(96,125,139,.16),transparent 65%)}
+.f:hover{transform:translateY(-6px);border-color:rgba(96,125,139,.3);box-shadow:0 16px 34px rgba(23,55,71,.1)}.f:hover:before{width:100%}.f:hover:after{opacity:1}
+.f small{margin-top:3px;color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.12em}
+.f h3{margin:0 0 9px;font-size:clamp(17px,1.55vw,21px);font-weight:700;letter-spacing:-.045em;line-height:1.15}.f p{margin:0;color:#5f6f77;font-size:12px;line-height:1.68}
+.f--cta{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,var(--deep),var(--navy));color:#fff;border:0}.f--cta h3{font-size:clamp(22px,2vw,28px)}.f--cta p{color:rgba(255,255,255,.76)}
+.f--cta a{align-self:flex-start;margin-top:18px;padding-bottom:2px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;border-bottom:1px solid var(--silver)}
 
-.isf-cta{position:relative;isolation:isolate;overflow:hidden;padding:clamp(62px,7.5vw,100px) var(--isf-gutter);background:linear-gradient(118deg,#102B39,#173747 62%,#294C5C);color:#fff;text-align:center}
-.isf-cta::before,.isf-cta::after{position:absolute;z-index:-1;right:9%;top:-58%;width:390px;aspect-ratio:1;border:1px solid rgba(255,255,255,.19);border-radius:50%;content:""}
-.isf-cta::after{right:17%;top:-38%;width:260px}
-.isf-cta .isf-eyebrow{justify-content:center;color:rgba(255,255,255,.77)}
-.isf-cta h2{max-width:880px;margin:0 auto 14px;font-size:clamp(42px,6.7vw,84px);font-weight:750;letter-spacing:-.08em;line-height:.92;text-wrap:balance}
-.isf-cta>p:not(.isf-eyebrow){max-width:550px;margin:0 auto;color:rgba(255,255,255,.8);font-size:13px;line-height:1.75}
-.isf-cta .isf-action{margin-top:15px;border-bottom-color:#fff;color:#fff}
-.isf-cta .isf-action span{color:#fff}
+/* collection banner */
+.coll{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.58fr);gap:32px;align-items:end;padding:clamp(54px,6.5vw,86px) max(clamp(20px,5vw,76px),calc((100% - 1360px)/2));background:linear-gradient(115deg,var(--deep),var(--navy) 57%,#294C5C);color:#fff}
+.coll:after{content:"";position:absolute;z-index:-1;top:-54%;right:6%;width:360px;aspect-ratio:1;border:1px solid rgba(255,255,255,.19);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.04),0 0 0 84px rgba(255,255,255,.025)}
+.coll .eyebrow{color:rgba(255,255,255,.76)}.coll h2{margin:0;font-size:clamp(44px,6.6vw,84px);font-weight:800;letter-spacing:-.083em;line-height:.9}
+.coll p{max-width:430px;margin:0 0 5px;color:rgba(255,255,255,.8);font-size:13px;line-height:1.75}
 
-.isf-reveal-animating{will-change:transform,opacity,clip-path}
-.isf-page :focus-visible{outline:2px solid var(--isf-accent);outline-offset:4px}
+/* product splits: full-bleed, photo fills its half */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:540px;background:#fff}.split.alt{background:var(--ivory)}
+.split .photo{min-height:360px}.split.rev .photo{order:2}
+.copy{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0;padding:clamp(40px,6vw,90px);overflow:hidden}
+.copy[data-n]:before{content:attr(data-n);position:absolute;right:4%;top:6%;font-size:clamp(110px,13vw,190px);font-weight:900;letter-spacing:-.08em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(23,55,71,.13);pointer-events:none}
+.copy h2,.copy h3{position:relative;margin:0 0 17px;max-width:560px;font-size:clamp(38px,5vw,66px);font-weight:800;letter-spacing:-.078em;line-height:.94}
+.copy h2:after,.copy h3:after{content:"";display:block;width:42px;height:3px;margin-top:18px;background:var(--slate)}
+.copy>p:not(.eyebrow){position:relative;max-width:520px;margin:0;color:var(--muted);font-size:13px;line-height:1.82}
+.acts{position:relative;display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:22px}
+.act{display:inline-flex;align-items:center;gap:12px;min-height:42px;padding-bottom:2px;color:inherit;font-size:11px;font-weight:800;letter-spacing:.025em;text-decoration:none;border-bottom:1px solid var(--slate);transition:gap .2s,color .2s}
+.act span{color:var(--slate);font-size:15px;transition:transform .2s}.act:hover{gap:17px;color:var(--slate)}.act:hover span{transform:translate(3px,-3px)}
+.act.o{border-bottom-color:#aeb6ba}
 
+/* pinned horizontal showcase */
+.pin{position:relative;height:320vh;background:linear-gradient(135deg,var(--deep),var(--navy));color:#fff}
+.pin__s{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:104px 0 26px;overflow:hidden}
+.pin__h,.pin__v,.pin__p{width:var(--w);margin-inline:auto}
+.pin__h .eyebrow{color:#B8C9D1;margin-bottom:10px}.pin__h h2{margin:0;font-size:clamp(34px,4.4vw,58px);font-weight:800;letter-spacing:-.08em;line-height:.9}.pin__h h2 span{color:#B8C9D1}
+.pin__v{flex:1;min-height:0;overflow:hidden}
+.pin__t{display:flex;width:300%;height:100%;will-change:transform}
+.sl{flex:0 0 33.3333%;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(260px,.88fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(18px,2.6vw,34px);background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12)}
+.sl .photo{height:100%;min-height:0}.sl .copy{padding:0;overflow:visible}.sl .copy>p:not(.eyebrow){color:rgba(255,255,255,.74)}
+.sl .eyebrow{color:#B8C9D1}.sl .copy h3{font-size:clamp(34px,4.4vw,58px)}.sl .copy[data-n]:before{-webkit-text-stroke-color:rgba(255,255,255,.14);right:0;top:-8%}
+.pin__p{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.pin__p i{display:block;height:2px;background:rgba(255,255,255,.2);overflow:hidden}.pin__p i b{display:block;height:100%;background:#B8C9D1;transform:scaleX(0);transform-origin:left}
+.pin__p span{color:rgba(255,255,255,.62);font-size:10px;letter-spacing:.1em}.pin__p em{color:#fff;font-style:normal;font-weight:800}
 
-.isf-scroll-progress{position:fixed;z-index:1200;top:0;left:0;width:100%;height:3px;pointer-events:none}
-.isf-scroll-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,#607D8B,#A8B7BE);transform:scaleX(0);transform-origin:left center}
+/* CTA */
+.cta{position:relative;isolation:isolate;overflow:hidden;padding:clamp(62px,7.5vw,100px) clamp(20px,5vw,76px);text-align:center;color:#fff;background:linear-gradient(118deg,var(--deep),var(--navy) 62%,#294C5C)}
+.cta:before,.cta:after{content:"";position:absolute;z-index:-1;right:9%;top:-58%;width:390px;aspect-ratio:1;border:1px solid rgba(255,255,255,.19);border-radius:50%}.cta:after{right:17%;top:-38%;width:260px}
+.cta .eyebrow{justify-content:center;color:rgba(255,255,255,.78)}
+.cta h2{max-width:880px;margin:0 auto 14px;font-size:clamp(40px,6.7vw,84px);font-weight:800;letter-spacing:-.08em;line-height:.93}
+.cta>p:not(.eyebrow){max-width:550px;margin:0 auto;color:rgba(255,255,255,.8);font-size:13px;line-height:1.75}
+.cta__b{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
+.cta .act{padding:0 24px;min-height:52px;border:1px solid #fff;color:#fff;transition:background .25s,color .25s,transform .25s}.cta .act span{color:inherit}
+.cta .act:first-child{background:#fff;color:var(--navy);animation:pulse 2.6s infinite}.cta .act:hover{transform:translateY(-3px);background:var(--silver);border-color:var(--silver);color:var(--deep)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}70%,100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.top{position:fixed;right:22px;bottom:22px;z-index:900;width:48px;height:48px;border:0;border-radius:50%;background:var(--navy);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 10px 26px rgba(16,43,57,.3);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .3s,transform .3s,background .3s}
+.top.show{opacity:1;transform:none;pointer-events:auto}.top:hover{background:var(--slate)}
 
-/* Scroll-reveal preparation is applied only after JavaScript initializes.
-   Without JS (or with reduced motion), all content remains fully visible. */
-.isf-animations-ready .isf-feature,
-.isf-animations-ready .isf-product__copy,
-.isf-animations-ready .isf-slide__copy,
-.isf-animations-ready .isf-product__photo,
-.isf-animations-ready .isf-slide__photo{will-change:transform,opacity,clip-path}
-.isf-motion-fallback [data-isf-reveal],
-.isf-motion-fallback .isf-section-heading h2,
-.isf-motion-fallback .isf-collection__heading h2,
-.isf-motion-fallback .isf-product__copy h2,
-.isf-motion-fallback .isf-pinned__heading h2,
-.isf-motion-fallback .isf-slide__copy h3,
-.isf-motion-fallback .isf-cta h2,
-.isf-motion-fallback .isf-feature,
-.isf-motion-fallback .isf-product__copy,
-.isf-motion-fallback .isf-slide__copy,
-.isf-motion-fallback .isf-product__photo,
-.isf-motion-fallback .isf-slide__photo{opacity:0;transform:translate3d(0,28px,0);clip-path:inset(0 0 8% 0);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1),clip-path .7s ease}
-.isf-motion-fallback .isf-in-view{opacity:1;transform:none;clip-path:inset(0)}
-.isf-page .isf-feature,.isf-page .isf-action,.isf-page .isf-photo::before{transition-timing-function:cubic-bezier(.2,.75,.2,1)}
-.isf-page .isf-feature:hover{transform:translateY(-6px)}
-.isf-page .isf-photo__image{backface-visibility:hidden}
+/* reveal (JS only) */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}.js .rv.in{opacity:1;transform:none}
 
-@media(max-width:1100px){
-  .isf-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .isf-product,.isf-product--02,.isf-product--04,.isf-product--06,.isf-product--07,.isf-product--08{grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:32px}
-  .isf-product--02 .isf-product__photo,.isf-product--04 .isf-product__photo,.isf-product--06 .isf-product__photo,.isf-product--02 .isf-product__copy,.isf-product--04 .isf-product__copy,.isf-product--06 .isf-product__copy{order:0}
-  .isf-product--05{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr)}
-}
+@media(max-width:1100px){.fg{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){
-  .isf-hero__details{grid-template-columns:1fr;gap:10px;max-width:700px;margin-left:0;padding-left:0}
-  .isf-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .isf-section-heading{grid-template-columns:1fr;row-gap:14px}
-  .isf-section-heading>p:last-child{max-width:620px}
-  .isf-pinned.isf-is-pinned{display:block;min-height:0;max-height:none;padding:58px 0;overflow:visible}
-  .isf-pinned__stage{overflow:visible}
-  .isf-pinned__track{display:grid;width:100%;height:auto;gap:14px}
-  .isf-slide{grid-template-columns:minmax(0,1fr);min-height:0;padding:22px;gap:20px}
-  .isf-slide__photo{min-height:250px;aspect-ratio:1.5/1}
-  .isf-pinned__progress{display:none}
-  .isf-product,.isf-product--02,.isf-product--04,.isf-product--06,.isf-product--07,.isf-product--08,.isf-product--05{grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:min(100% - 2*var(--isf-gutter),var(--isf-width));padding-top:55px;padding-bottom:55px}
-  .isf-product--05{width:100%;padding-right:var(--isf-gutter);padding-left:var(--isf-gutter)}
-  .isf-product__photo,.isf-product--05 .isf-product__photo,.isf-product--08 .isf-product__photo{min-height:250px}
-  .isf-product__copy h2{font-size:clamp(34px,4.8vw,52px)}
-}
-@media(max-width:640px){
-  .isf-hero{padding:48px 0 22px}
-  .isf-hero__intro{margin-bottom:23px}
-  .isf-hero h1{font-size:clamp(46px,12.5vw,76px);line-height:.88;letter-spacing:-.075em}
-  .isf-hero .isf-eyebrow{margin-bottom:17px}
-  .isf-hero__details{margin-top:19px}
-  .isf-hero__details h2{font-size:18px}
-  .isf-hero__details p{font-size:12px}
-  .isf-photo--hero{min-height:210px;aspect-ratio:1.18/1}
-  .isf-photo__note{padding:12px 14px;font-size:8px}
-  .isf-photo__note span{font-size:9px}
-  .isf-features{padding:54px 0 60px}
-  .isf-section-heading{margin-bottom:25px}
-  .isf-section-heading h2{font-size:clamp(44px,13vw,68px)}
-  .isf-section-heading>p:last-child{font-size:12px}
-  .isf-feature-grid{grid-template-columns:1fr;gap:9px}
-  .isf-feature{min-height:0;padding:17px 16px;grid-template-columns:30px minmax(0,1fr);gap:12px}
-  .isf-feature h3{font-size:18px}
-  .isf-feature div>p{font-size:11px}
-  .isf-collection{grid-template-columns:1fr;gap:18px;padding:48px var(--isf-gutter)}
-  .isf-collection__heading h2{font-size:clamp(42px,11vw,62px)}
-  .isf-collection__note{font-size:11px}
-  .isf-product,.isf-product--02,.isf-product--04,.isf-product--06,.isf-product--07,.isf-product--08,.isf-product--05{display:grid;grid-template-columns:1fr;width:calc(100% - 2*var(--isf-gutter));gap:20px;padding:42px 0}
-  .isf-product--05{width:100%;padding:42px var(--isf-gutter)}
-  .isf-product--02 .isf-product__photo,.isf-product--04 .isf-product__photo,.isf-product--06 .isf-product__photo{order:0}
-  .isf-product__photo,.isf-product--05 .isf-product__photo,.isf-product--08 .isf-product__photo{min-height:0;aspect-ratio:1.28/1}
-  .isf-product__copy{max-width:none}
-  .isf-product__copy h2,.isf-slide__copy h3{font-size:clamp(36px,10vw,52px);margin-bottom:13px}
-  .isf-product__description,.isf-slide__copy>p:not(.isf-eyebrow){font-size:12px;line-height:1.72}
-  .isf-product__actions{margin-top:15px;gap:8px 20px}
-  .isf-action{min-height:38px;font-size:10px}
-  .isf-pinned{padding:46px 0}
-  .isf-pinned__heading,.isf-pinned__stage{width:calc(100% - 2*var(--isf-gutter))}
-  .isf-pinned__heading{margin-bottom:20px}
-  .isf-pinned__heading h2{font-size:clamp(38px,10vw,56px)}
-  .isf-slide{padding:15px;gap:16px}
-  .isf-slide__photo{min-height:0;aspect-ratio:1.3/1}
-  .isf-cta{padding:54px var(--isf-gutter)}
-  .isf-cta h2{font-size:clamp(39px,10.8vw,58px)}
-  .isf-cta>p:not(.isf-eyebrow){font-size:12px}
-  .isf-hero__index{font-size:8px}
-}
-@media(prefers-reduced-motion:reduce){
-  .isf-page *,.isf-page *::before,.isf-page *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .isf-is-pinned{display:block;min-height:0;max-height:none;overflow:visible}
-  .isf-is-pinned .isf-pinned__track{display:grid;width:100%;height:auto;gap:14px;transform:none!important}
-  .isf-is-pinned .isf-slide{height:auto}
-  .isf-is-pinned .isf-pinned__progress{display:none}
-}
-
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-  <script src="./includes.js" defer></script>
+.hero__d{grid-template-columns:1fr;margin-left:0;padding-left:0;max-width:700px}.fg{grid-template-columns:1fr 1fr}.sh,.coll{grid-template-columns:1fr}
+.split{grid-template-columns:1fr;min-height:0}.split.rev .photo{order:0}.split .photo{min-height:300px;aspect-ratio:1.5/1}
+.pin{height:auto}.pin__s{position:static;height:auto;padding:58px 0;overflow:visible}.pin__v{overflow:visible}.pin__t{display:grid;width:100%;height:auto;gap:14px}.sl{grid-template-columns:1fr}.sl .photo{min-height:240px;aspect-ratio:1.5/1}.pin__p{display:none}.sl .copy{padding:6px 0}}
+@media(max-width:640px){.fg{grid-template-columns:1fr}.f{min-height:0}.hero .photo{aspect-ratio:1.2/1;min-height:210px}.top{right:14px;bottom:14px}.copy[data-n]:before{font-size:100px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition-duration:.01ms!important}.hero h1 b{transform:none}.hero .eyebrow,.hero__d{opacity:1;transform:none}.hero .photo{clip-path:none}.pin{height:auto}.pin__s{position:static;height:auto;padding:58px 0}.pin__t{display:grid;width:100%;height:auto}.pin__v{overflow:visible}.sl{grid-template-columns:1fr}.pin__p{display:none}}
+</style>
 </head>
 <body class="vs-page vs-page--industry-steel-furniture">
-  <div id="navbar-placeholder"></div>
-  <div class="isf-scroll-progress" aria-hidden="true"><span data-isf-scroll-progress></span></div>
-  <main class="isf-page">
-    <section class="isf-hero" aria-labelledby="isf-hero-title">
-      <div class="isf-hero__intro">
-        <p class="isf-eyebrow">V STEEL | INDUSTRIAL STEEL FURNITURE</p>
-        <h1 id="isf-hero-title"><span>Industrial Steel</span><span>Furniture</span></h1>
-        <div class="isf-hero__details">
-          <h2>Engineered for Performance. Designed for Durability.</h2>
-          <p>Comprehensive steel, metal, and wood furniture solutions for laboratories, hospitals, offices, and industrial facilities.</p>
-        </div>
-      </div>
-      <figure class="isf-photo isf-photo--hero" role="img" aria-label="Industrial steel furniture and manufacturing photograph pending" data-image-path="assets/images/industrybanner.png">
-        <!-- Supply the approved image at the unique path in data-image-path; no suitable hero photograph is currently in the project assets. -->
-        <figcaption class="isf-photo__note">Approved hero photograph needed <span>assets/images/products/industrial-furniture-hero.webp</span></figcaption>
-      </figure>
-      <p class="isf-hero__index" aria-hidden="true">VSP / 01</p>
-    </section>
+<div id="navbar-placeholder"></div>
+<div class="progress" aria-hidden="true"><span id="bar"></span></div>
+<main>
+<section class="hero" aria-labelledby="t">
+  <div class="hero__in">
+    <p class="eyebrow">V STEEL | INDUSTRIAL STEEL FURNITURE</p>
+    <h1 id="t"><span><b>Industrial Steel</b></span><span><b>Furniture</b></span></h1>
+    <div class="hero__d"><h2>Engineered for Performance. Designed for Durability.</h2><p>Comprehensive steel, metal and wood furniture solutions for laboratories, hospitals, offices and industrial facilities.</p></div>
+  </div>
+  <figure class="photo" data-label="Industrial steel furniture"><img src="assets/images/industrybanner.png" alt="Industrial steel furniture and manufacturing" fetchpriority="high" onerror="this.remove()"></figure>
+  <p class="hero__idx" aria-hidden="true">VSP / 01</p>
+</section>
+<div class="ticker" aria-hidden="true"><div id="tick"></div></div>
 
-    <section class="isf-features" id="key-product-features" aria-labelledby="isf-features-title">
-      <header class="isf-section-heading" data-isf-reveal="rise">
-        <p class="isf-eyebrow">Built around your environment</p>
-        <h2 id="isf-features-title">Key Product<br><span>Features</span></h2>
-        <p>Comprehensive steel, metal, and wood furniture solutions for laboratories, hospitals, offices, and industrial facilities.</p>
-      </header>
-      <div class="isf-feature-grid">
-        <article class="isf-feature isf-feature--01" data-isf-reveal="left">
-          <p class="isf-feature__index">01</p>
-          <div><h3>Laboratory Grade</h3><p>Chemical-resistant surfaces and fume hoods designed for scientific research environments.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--02" data-isf-reveal="rise">
-          <p class="isf-feature__index">02</p>
-          <div><h3>Storage Systems</h3><p>High-density compactors and warehouse racking for optimal space utilization.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--03" data-isf-reveal="right">
-          <p class="isf-feature__index">03</p>
-          <div><h3>Medical Equipment</h3><p>Hospital beds, medical cabinets, and healthcare furniture meeting medical standards.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--04" data-isf-reveal="clip">
-          <p class="isf-feature__index">04</p>
-          <div><h3>HVAC Solutions</h3><p>Complete HVAC turnkey setups for industrial and commercial applications.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--05" data-isf-reveal="right">
-          <p class="isf-feature__index">05</p>
-          <div><h3>Storage Systems</h3><p>High-density compactors and warehouse racking for optimal space utilization.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--06" data-isf-reveal="rise">
-          <p class="isf-feature__index">06</p>
-          <div><h3>Custom Fabrication</h3><p>Tailored solutions in steel, metal, and wood for specific industry requirements.</p></div>
-        </article>
-        <article class="isf-feature isf-feature--07" data-isf-reveal="left">
-          <p class="isf-feature__index">07</p>
-          <div><h3>Quality Assurance</h3><p>Premium materials and precision manufacturing ensuring long-lasting performance.</p></div>
-        </article>
-      </div>
-    </section>
+<section class="features" aria-labelledby="ft">
+  <header class="sh rv"><p class="eyebrow">Built around your environment</p><h2 id="ft">Key Product<br><span>Features</span></h2><p>Comprehensive steel, metal and wood furniture solutions for laboratories, hospitals, offices and industrial facilities.</p></header>
+  <div class="fg" id="fg"></div>
+</section>
 
-    <section class="isf-collection" aria-labelledby="isf-collection-title">
-      <div class="isf-collection__heading" data-isf-reveal="rise">
-        <p class="isf-eyebrow">V STEEL / Selected solutions</p>
-        <h2 id="isf-collection-title">Made for the<br>work that matters.</h2>
-      </div>
-      <p class="isf-collection__note">Product photography is not yet available in the project assets. Each image space is named for its intended, unique V STEEL photograph.</p>
-    </section>
+<section class="coll" aria-labelledby="ct">
+  <div class="rv"><p class="eyebrow">V STEEL / Selected solutions</p><h2 id="ct">Made for the<br>work that matters.</h2></div>
+  <p class="rv">From storage cabinets and work tables to lockers and mobile carts, every piece is made in steel, metal or wood to suit your facility.</p>
+</section>
 
-    <section class="isf-product isf-product--01" id="industrial-storage" aria-labelledby="isf-product-01-title">
-      <figure class="isf-photo isf-product__photo" role="img" aria-label="Industrial steel storage cabinet product photograph pending" data-image-path="assets/images/industry2.png">
-        <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-        <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-storage-cabinet.webp</span></figcaption>
-      </figure>
-      <div class="isf-product__copy" data-isf-reveal="right">
-        <p class="isf-eyebrow">Industrial Storage / 01</p>
-        <h2 id="isf-product-01-title">Storage Cabinet</h2>
-        <p class="isf-product__description">Heavy-duty industrial storage cabinet with reinforced steel construction. Features multiple compartments, adjustable shelves, and secure locking system for maximum organization.</p>
-        <div class="isf-product__actions">
-          <a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a>
-          <a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a>
-        </div>
-      </div>
-    </section>
+<div id="products"></div>
 
-    <section class="isf-pinned" aria-labelledby="isf-pinned-title" data-isf-pinned>
-      <header class="isf-pinned__heading">
-        <p class="isf-eyebrow">Workplace essentials / 02â€”04</p>
-        <h2 id="isf-pinned-title">Built to work.<br><span>Made to last.</span></h2>
-      </header>
-      <div class="isf-pinned__stage" data-isf-stage>
-        <div class="isf-pinned__track" data-isf-track>
-          <article class="isf-slide" aria-labelledby="isf-product-02-title" data-isf-slide>
-            <figure class="isf-photo isf-slide__photo" role="img" aria-label="Industrial work table product photograph pending" data-image-path="assets/images/industry3.png">
-              <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-              <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-work-table.webp</span></figcaption>
-            </figure>
-            <div class="isf-slide__copy">
-              <p class="isf-eyebrow">Industrial Furniture / 02</p>
-              <h3 id="isf-product-02-title">Work Table</h3>
-              <p>Premium industrial workstation with anti-vibration design. Features scratch-resistant surface, integrated tool storage, and ergonomic height for enhanced productivity.</p>
-              <div class="isf-product__actions">
-                <a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a>
-                <a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a>
-              </div>
-            </div>
-          </article>
-          <article class="isf-slide" aria-labelledby="isf-product-03-title" data-isf-slide>
-            <figure class="isf-photo isf-slide__photo" role="img" aria-label="Industrial shelving unit product photograph pending" data-image-path="assets/images/industry4.png">
-              <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-              <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-shelving-unit.webp</span></figcaption>
-            </figure>
-            <div class="isf-slide__copy">
-              <p class="isf-eyebrow">Storage Solutions / 03</p>
-              <h3 id="isf-product-03-title">Shelving Unit</h3>
-              <p>Modular shelving system with adjustable heights and expandable design. Perfect for warehouses, offices, and industrial spaces with easy assembly and reconfiguration.</p>
-              <div class="isf-product__actions">
-                <a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a>
-                <a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a>
-              </div>
-            </div>
-          </article>
-          <article class="isf-slide" aria-labelledby="isf-product-04-title" data-isf-slide>
-            <figure class="isf-photo isf-slide__photo" role="img" aria-label="Industrial tool cabinet product photograph pending" data-image-path="assets/images/industry5.png">
-              <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-              <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-tool-cabinet.webp</span></figcaption>
-            </figure>
-            <div class="isf-slide__copy">
-              <p class="isf-eyebrow">Storage Solutions / 04</p>
-              <h3 id="isf-product-04-title">Tool Cabinet</h3>
-              <p>Professional tool storage cabinet with multiple drawers and compartments. Features ball-bearing slides, secure locks, and organized tool placement for workshop efficiency.</p>
-              <div class="isf-product__actions">
-                <a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a>
-                <a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="isf-pinned__progress">
-        <span class="isf-pinned__progress-track" role="progressbar" aria-label="Industrial furniture product progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-isf-progress><span data-isf-progress-fill></span></span>
-        <span class="isf-pinned__progress-label"><span data-isf-current>02</span> <span>/ 04</span></span>
-      </div>
-    </section>
+<section class="cta" aria-labelledby="cta-t">
+  <p class="eyebrow">Your requirement. Our expertise.</p>
+  <h2 id="cta-t">Ready to build your workspace?</h2>
+  <p>Talk to Vishal Steel Products about the right industrial furniture solution for your facility.</p>
+  <div class="cta__b"><a class="act" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a><a class="act" href="tel:+918828991702">Call +91 8828991702 <span aria-hidden="true">↗</span></a></div>
+</section>
+</main>
+<div id="footer-placeholder"></div>
+<button class="top" id="top" type="button" aria-label="Back to top">↑</button>
 
-    <section class="isf-product isf-product--05" aria-labelledby="isf-product-05-title">
-      <div class="isf-product__copy" data-isf-reveal="left">
-        <p class="isf-eyebrow">Workshop Solutions / 05</p>
-        <h2 id="isf-product-05-title">Workbench with Drawers</h2>
-        <p class="isf-product__description">Complete workshop solution with integrated storage drawers. Features durable work surface, organized tool storage, and sturdy construction for heavy-duty applications.</p>
-        <div class="isf-product__actions"><a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a><a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a></div>
-      </div>
-      <figure class="isf-photo isf-product__photo" role="img" aria-label="Industrial workbench with drawers product photograph pending" data-image-path="assets/images/industry6.png">
-        <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-        <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-workbench-with-drawers.webp</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="isf-product isf-product--06" aria-labelledby="isf-product-06-title">
-      <figure class="isf-photo isf-product__photo" role="img" aria-label="Industrial metal locker product photograph pending" data-image-path="assets/images/industry7.png">
-        <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-        <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-metal-locker.webp</span></figcaption>
-      </figure>
-      <div class="isf-product__copy" data-isf-reveal="right">
-        <p class="isf-eyebrow">Storage Solutions / 06</p>
-        <h2 id="isf-product-06-title">Metal Locker</h2>
-        <p class="isf-product__description">Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p>
-        <div class="isf-product__actions"><a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a><a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a></div>
-      </div>
-    </section>
-
-    <section class="isf-product isf-product--07" aria-labelledby="isf-product-07-title">
-      <div class="isf-product__copy" data-isf-reveal="left">
-        <p class="isf-eyebrow">Office Storage / 07</p>
-        <h2 id="isf-product-07-title">Filing Cabinet</h2>
-        <p class="isf-product__description">Professional document storage with full-extension drawers and central locking system. Features anti-tilt mechanism, label holders, and fireproof options available.</p>
-        <div class="isf-product__actions"><a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a><a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a></div>
-      </div>
-      <figure class="isf-photo isf-product__photo" role="img" aria-label="Industrial filing cabinet product photograph pending" data-image-path="assets/images/industry8.png">
-        <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-        <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-filing-cabinet.webp</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="isf-product isf-product--08" aria-labelledby="isf-product-08-title">
-      <figure class="isf-photo isf-product__photo" role="img" aria-label="Industrial mobile cart product photograph pending" data-image-path="assets/images/industry9.png">
-        <!-- Supply the approved image at the unique path in data-image-path; this asset is not currently available. -->
-        <figcaption class="isf-photo__note">Product photograph needed <span>assets/images/products/industrial-mobile-cart.webp</span></figcaption>
-      </figure>
-      <div class="isf-product__copy" data-isf-reveal="rise">
-        <p class="isf-eyebrow">Mobile Solutions / 08</p>
-        <h2 id="isf-product-08-title">Mobile Cart</h2>
-        <p class="isf-product__description">Versatile mobile storage cart with smooth-rolling casters and brake system. Features multiple shelves, easy maneuverability, and perfect for medical, office, or industrial use.</p>
-        <div class="isf-product__actions"><a class="isf-action" href="./contact.html">Call Now <span aria-hidden="true">â†—</span></a><a class="isf-action isf-action--outline" href="./contact.html">Enquire <span aria-hidden="true">â†—</span></a></div>
-      </div>
-    </section>
-
-    <section class="isf-cta" aria-labelledby="isf-cta-title">
-      <p class="isf-eyebrow">Your requirement. Our expertise.</p>
-      <h2 id="isf-cta-title">Ready to build your workspace?</h2>
-      <p>Talk to Vishal Steel Products about the right industrial furniture solution for your facility.</p>
-      <a class="isf-action isf-action--light" href="./contact.html">Contact Us <span aria-hidden="true">â†—</span></a>
-    </section>
-  </main>
-  <div id="footer-placeholder"></div>
-  <script>
+<script>
 (() => {
-  const start = () => {
-    const root = document.querySelector(".isf-page");
-    if (!root || root.dataset.isfInitialized === "true") return;
-    root.dataset.isfInitialized = "true";
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ARROW = "↗";
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const gsap = window.gsap;
-    const ScrollTrigger = window.ScrollTrigger;
-    const slots = Array.from(root.querySelectorAll(".isf-photo[data-image-path]"));
-    const pageProgress = document.querySelector("[data-isf-scroll-progress]");
-    let photoObserver;
+  /* ---------- Content ---------- */
+  const features = [
+    ["Laboratory Grade", "Chemical-resistant surfaces and fume hoods designed for scientific research environments."],
+    ["Storage Systems", "High-density compactors and warehouse racking for optimal space utilization."],
+    ["Medical Equipment", "Hospital beds, medical cabinets and healthcare furniture meeting medical standards."],
+    ["HVAC Solutions", "Complete HVAC turnkey setups for industrial and commercial applications."],
+    ["Workshop Solutions", "Workbenches, tool cabinets and mobile carts built for daily shop-floor use."],
+    ["Custom Fabrication", "Tailored solutions in steel, metal and wood for specific industry requirements."],
+    ["Quality Assurance", "Premium materials and precision manufacturing ensuring long-lasting performance."]
+  ];
+  $("#fg").innerHTML = features.map((f, i) => `<article class="f rv" style="--d:${(i % 4) * .1}s"><small>0${i + 1}</small><div><h3>${f[0]}</h3><p>${f[1]}</p></div></article>`).join("") +
+    `<article class="f f--cta rv" style="--d:.3s"><div><h3>Need something custom?</h3><p>Tell us your space and requirement. We design and build to suit.</p></div><a href="./contact.html">Get a free quote ${ARROW}</a></article>`;
 
-    let scrollRaf = false;
-    const updatePageProgress = () => {
-      if (scrollRaf) return;
-      scrollRaf = true;
-      requestAnimationFrame(() => {
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const progressValue = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
-        if (pageProgress) pageProgress.style.transform = `scaleX(${progressValue})`;
-        scrollRaf = false;
-      });
-    };
-    window.addEventListener("scroll", updatePageProgress, { passive: true });
-    updatePageProgress();
+  const products = [
+    ["Industrial Storage", "Storage Cabinet", "Heavy-duty industrial storage cabinet with reinforced steel construction. Features multiple compartments, adjustable shelves and a secure locking system for maximum organization.", "industry2"],
+    ["Industrial Furniture", "Work Table", "Premium industrial workstation with anti-vibration design. Features a scratch-resistant surface, integrated tool storage and ergonomic height for enhanced productivity.", "industry3"],
+    ["Storage Solutions", "Shelving Unit", "Modular shelving system with adjustable heights and expandable design. Perfect for warehouses, offices and industrial spaces with easy assembly and reconfiguration.", "industry4"],
+    ["Storage Solutions", "Tool Cabinet", "Professional tool storage cabinet with multiple drawers and compartments. Features ball-bearing slides, secure locks and organized tool placement for workshop efficiency.", "industry5"],
+    ["Workshop Solutions", "Workbench with Drawers", "Complete workshop solution with integrated storage drawers. Features a durable work surface, organized tool storage and sturdy construction for heavy-duty applications.", "industry6"],
+    ["Storage Solutions", "Metal Locker", "Secure personal storage lockers with individual compartments. Features ventilation slots, master key system and durable construction ideal for schools, gyms and offices.", "industry7"],
+    ["Office Storage", "Filing Cabinet", "Professional document storage with full-extension drawers and central locking system. Features anti-tilt mechanism, label holders and fireproof options available.", "industry8"],
+    ["Mobile Solutions", "Mobile Cart", "Versatile mobile storage cart with smooth-rolling casters and brake system. Features multiple shelves, easy maneuverability, perfect for medical, office or industrial use.", "industry9"]
+  ];
+  const pad = n => String(n).padStart(2, "0");
+  const photo = p => `<figure class="photo" data-label="${p[1]}"><img src="assets/images/${p[3]}.png" alt="${p[1]}" loading="lazy" onerror="this.remove()"></figure>`;
+  const copy = (p, i, h = "h2", c = "") => `<div class="copy rv ${c}" data-n="${pad(i + 1)}"><p class="eyebrow">${p[0]} / ${pad(i + 1)}</p><${h}>${p[1]}</${h}><p>${p[2]}</p><div class="acts"><a class="act" href="./contact.html">Call Now <span aria-hidden="true">${ARROW}</span></a><a class="act o" href="./contact.html">Enquire <span aria-hidden="true">${ARROW}</span></a></div></div>`;
+  const split = (i, rev, alt) => `<section class="split${rev ? " rev" : ""}${alt ? " alt" : ""}" aria-label="${products[i][1]}">${photo(products[i])}${copy(products[i], i)}</section>`;
+  const slides = [1, 2, 3].map(i => `<article class="sl">${photo(products[i])}${copy(products[i], i, "h3")}</article>`).join("");
+  $("#products").innerHTML = split(0, false, false) +
+    `<section class="pin" id="pin" aria-label="Workplace essentials"><div class="pin__s"><header class="pin__h"><p class="eyebrow">Workplace essentials / 02–04</p><h2>Built to work.<br><span>Made to last.</span></h2></header><div class="pin__v"><div class="pin__t" id="track">${slides}</div></div><div class="pin__p"><i><b id="fill"></b></i><span><em id="cur">02</em> / 04</span></div></div></section>` +
+    split(4, true, true) + split(5, false, false) + split(6, true, true) + split(7, false, false);
 
-    const refresh = () => {
-      if (ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
-    };
+  const words = ["Storage cabinets", "Work tables", "Shelving units", "Tool cabinets", "Workbenches", "Metal lockers", "Filing cabinets", "Mobile carts"].map(w => `<span>${w}</span>`).join("");
+  $("#tick").innerHTML = words + words;
 
-    function loadPhoto(slot, index) {
-      if (slot.dataset.photoState) return;
-      const path = (slot.dataset.imagePath || "").trim();
-      const note = slot.querySelector(".isf-photo__note");
-      if (!path) {
-        slot.dataset.photoState = "missing";
-        return;
-      }
-      const image = new Image();
-      image.className = "isf-photo__image";
-      image.alt = slot.getAttribute("aria-label") || "";
-      image.width = slot.classList.contains("isf-photo--hero") ? 1600 : 1400;
-      image.height = slot.classList.contains("isf-photo--hero") ? 900 : 1050;
-      image.decoding = "async";
-      image.loading = slot.classList.contains("isf-photo--hero") ? "eager" : "lazy";
-      if (slot.classList.contains("isf-photo--hero")) image.fetchPriority = "high";
-      slot.dataset.photoState = "loading";
-      slot.prepend(image);
+  /* ---------- Motion ---------- */
+  requestAnimationFrame(() => document.body.classList.add("ready"));
+  if (!reduce && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js");
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); $$(".eyebrow", e.target).forEach(x => x.classList.add("in")); io.unobserve(e.target); }
+    }), { threshold: .14, rootMargin: "0px 0px -40px 0px" });
+    $$(".rv").forEach(el => io.observe(el));
+  }
 
-      image.addEventListener("load", async () => {
-        try { if (image.decode) await image.decode(); } catch (error) {
-          console.warn("Industrial furniture image decode failed:", path, error);
-        }
-        slot.dataset.photoState = "loaded";
-        if (note) note.hidden = true;
-        if (gsap && !reducedMotion) {
-          const revealFrom = index % 2 ? "inset(0 0 100% 0)" : "inset(0 100% 0 0)";
-          gsap.fromTo(image, { clipPath: revealFrom, scale: 1.035 }, {
-            clipPath: "inset(0 0 0 0)", scale: 1, duration: slot.classList.contains("isf-photo--hero") ? 1.15 : .9,
-            ease: "power3.out", clearProps: "willChange"
-          });
-          if (!slot.classList.contains("isf-photo--hero") && ScrollTrigger) {
-            gsap.to(image, { yPercent: -1.5, ease: "none", scrollTrigger: {
-              trigger: slot, start: "top bottom", end: "bottom top", scrub: .55, invalidateOnRefresh: true
-            }});
-          }
-        }
-        refresh();
-      }, { once: true });
+  /* pinned horizontal showcase (desktop only) */
+  const pin = $("#pin"), track = $("#track"), fill = $("#fill"), cur = $("#cur");
+  const desktop = matchMedia("(min-width: 901px)");
+  const bar = $("#bar"), top = $("#top");
+  let tick = false;
+  function frame() {
+    tick = false;
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`;
+    top.classList.toggle("show", scrollY > 700);
+    if (!pin || reduce || !desktop.matches) { if (track) track.style.transform = ""; return; }
+    const r = pin.getBoundingClientRect(), span = r.height - innerHeight;
+    const p = Math.max(0, Math.min(1, -r.top / span));
+    track.style.transform = `translate3d(${-p * 66.6667}%,0,0)`;
+    fill.style.transform = `scaleX(${p})`;
+    cur.textContent = pad(Math.min(3, Math.floor(p * 3 + .0001)) + 2);
+  }
+  addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(frame); } }, { passive: true });
+  addEventListener("resize", frame);
+  frame();
+  top.onclick = () => scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 
-      image.addEventListener("error", () => {
-        image.remove();
-        slot.dataset.photoState = "missing";
-        console.warn("Industrial furniture image is unavailable; check:", path);
-      }, { once: true });
-      image.src = path;
-    }
-
-    if ("IntersectionObserver" in window) {
-      photoObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const index = slots.indexOf(entry.target);
-          if (index >= 0) loadPhoto(entry.target, index);
-          observer.unobserve(entry.target);
-        });
-      }, { rootMargin: "650px 0px" });
-      slots.forEach((slot, index) => {
-        if (slot.classList.contains("isf-photo--hero")) loadPhoto(slot, index);
-        else photoObserver.observe(slot);
-      });
-    } else {
-      slots.forEach(loadPhoto);
-    }
-
-    if (reducedMotion) return;
-
-    if (!gsap || !ScrollTrigger) {
-      if ("IntersectionObserver" in window) {
-        root.classList.add("isf-motion-fallback");
-        const fallbackTargets = root.querySelectorAll(
-          "[data-isf-reveal], .isf-section-heading h2, .isf-collection__heading h2, .isf-product__copy h2, .isf-pinned__heading h2, .isf-slide__copy h3, .isf-cta h2, .isf-feature, .isf-product__copy, .isf-slide__copy, .isf-product__photo, .isf-slide__photo"
-        );
-        const fallbackObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            entry.target.classList.toggle("isf-in-view", entry.isIntersecting);
-          });
-        }, { threshold: .12, rootMargin: "0px 0px -5% 0px" });
-        fallbackTargets.forEach((element) => fallbackObserver.observe(element));
-      }
-      return;
-    }
-
-    gsap.registerPlugin(ScrollTrigger);
-    root.classList.add("isf-animations-ready");
-
-    // Reversible scroll reveals: headings, copy, cards and images animate
-    // whenever they enter the viewport from either direction (down or up).
-    const revealTrigger = (element, from, options = {}) => {
-      const to = options.to || { y: 0, x: 0, autoAlpha: 1 };
-      const trigger = options.trigger || element;
-      const animation = {
-        ...to,
-        duration: options.duration ?? .78,
-        delay: options.delay ?? 0,
-        ease: options.ease || "power3.out",
-        immediateRender: true,
-        scrollTrigger: {
-          trigger,
-          start: options.start || "top 88%",
-          end: options.end || "bottom 12%",
-          toggleActions: "play reverse play reverse",
-          invalidateOnRefresh: true,
-          fastScrollEnd: true
-        }
-      };
-      gsap.fromTo(element, from, animation);
-    };
-
-    // Hero entrance: staggered line reveal and a measured image wipe.
-    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    heroTl.fromTo(root.querySelectorAll(".isf-hero .isf-eyebrow"),
-      { y: 18, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, duration: .62 });
-    heroTl.fromTo(root.querySelectorAll(".isf-hero h1 span"),
-      { yPercent: 112, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" },
-      { yPercent: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)", duration: 1.02, stagger: .16 }, .06);
-    heroTl.fromTo(root.querySelectorAll(".isf-hero__details > *"),
-      { y: 24, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, duration: .62, stagger: .12 }, .48);
-    heroTl.fromTo(root.querySelector(".isf-photo--hero"),
-      { clipPath: "inset(0 0 0 100%)", scale: 1.035 },
-      { clipPath: "inset(0 0 0 0)", scale: 1, duration: 1.18, ease: "power2.inOut" }, .25);
-
-    // Headings rise into view with a clipped mask. toggleActions intentionally
-    // replays them on upward entry instead of running only once.
-    const headingTargets = root.querySelectorAll(
-      ".isf-section-heading h2, .isf-collection__heading h2, .isf-product__copy h2, .isf-pinned__heading h2, .isf-slide__copy h3, .isf-cta h2, .isf-feature h3"
-    );
-    headingTargets.forEach((heading, index) => {
-      revealTrigger(heading,
-        { y: 38, autoAlpha: 0, clipPath: "inset(0 0 18% 0)" },
-        { to: { y: 0, autoAlpha: 1, clipPath: "inset(0 0 0 0)" }, delay: (index % 3) * .045, duration: .82, start: "top 88%", end: "bottom 12%" }
-      );
-    });
-
-    // Eyebrows and feature copy alternate direction for a more varied rhythm.
-    root.querySelectorAll(".isf-eyebrow").forEach((eyebrow, index) => {
-      if (eyebrow.closest(".isf-hero")) return;
-      revealTrigger(eyebrow,
-        { x: index % 2 ? 22 : -22, autoAlpha: 0 },
-        { to: { x: 0, y: 0, autoAlpha: 1 }, duration: .55, delay: (index % 2) * .04, start: "top 91%", end: "bottom 9%" }
-      );
-    });
-
-    // Feature cards reveal in a stagger and reset as they leave the viewport.
-    const featureGrid = root.querySelector(".isf-feature-grid");
-    if (featureGrid) {
-      gsap.fromTo(featureGrid.querySelectorAll(".isf-feature"),
-        { y: 34, autoAlpha: 0, rotateX: 3 },
-        { y: 0, autoAlpha: 1, rotateX: 0, duration: .66, stagger: .085, ease: "power3.out",
-          scrollTrigger: { trigger: featureGrid, start: "top 84%", end: "bottom 10%", toggleActions: "play reverse play reverse", invalidateOnRefresh: true } }
-      );
-    }
-
-    // Product copy and CTAs animate separately, both directions.
-    root.querySelectorAll(".isf-product__copy, .isf-slide__copy").forEach((copy, index) => {
-      const description = Array.from(copy.children).filter((child) =>
-        !child.matches(".isf-eyebrow,h2,h3,.isf-product__actions")
-      );
-      if (description.length) {
-        revealTrigger(description,
-          { y: 22, autoAlpha: 0 },
-          { to: { y: 0, autoAlpha: 1 }, trigger: copy, start: "top 84%", end: "bottom 12%", duration: .58, delay: .08 }
-        );
-      }
-      const actions = copy.querySelector(".isf-product__actions");
-      if (actions) {
-        revealTrigger(actions,
-          { y: 17, autoAlpha: 0 },
-          { to: { y: 0, autoAlpha: 1 }, trigger: copy, start: "top 82%", end: "bottom 10%", duration: .5, delay: .22 }
-        );
-      }
-    });
-
-    // Image frames use alternating clip reveals with subtle scroll parallax.
-    root.querySelectorAll(".isf-product__photo, .isf-slide__photo").forEach((frame, index) => {
-      revealTrigger(frame,
-        { clipPath: index % 2 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)", scale: .985 },
-        { to: { clipPath: "inset(0 0 0 0)", scale: 1 }, duration: .92, ease: "power2.inOut", start: "top 88%", end: "bottom 12%" }
-      );
-    });
-
-    // Desktop: pinned horizontal showcase for products 02â€“04. Tablet/mobile: stacked product cards.
-    const pinned = root.querySelector("[data-isf-pinned]");
-    const track = pinned && pinned.querySelector("[data-isf-track]");
-    const stage = pinned && pinned.querySelector("[data-isf-stage]");
-    const slides = pinned ? Array.from(pinned.querySelectorAll("[data-isf-slide]")) : [];
-    const progress = pinned && pinned.querySelector("[data-isf-progress]");
-    const progressFill = pinned && pinned.querySelector("[data-isf-progress-fill]");
-    const currentLabel = pinned && pinned.querySelector("[data-isf-current]");
-
-    if (pinned && track && stage && slides.length === 3 && progress && progressFill && currentLabel) {
-      const media = gsap.matchMedia();
-      media.add("(min-width: 901px)", () => {
-        pinned.classList.add("isf-is-pinned");
-        const setActive = (index) => {
-          slides.forEach((slide, slideIndex) => {
-            const active = slideIndex === index;
-            slide.setAttribute("aria-hidden", String(!active));
-            slide.inert = !active;
-          });
-          currentLabel.textContent = String(index + 2).padStart(2, "0");
-        };
-        gsap.set(track, { xPercent: 0 });
-        gsap.set(progressFill, { scaleX: 0 });
-        gsap.set(slides.slice(1).map((slide) => slide.querySelector(".isf-slide__copy")), { autoAlpha: 0, y: 22 });
-        setActive(0);
-        const tl = gsap.timeline({
-          onUpdate() {
-            const p = this.progress();
-            progress.setAttribute("aria-valuenow", String(Math.round(p * 100)));
-            gsap.set(progressFill, { scaleX: p });
-            setActive(Math.min(2, Math.floor(p * 3)));
-          },
-          scrollTrigger: {
-            trigger: pinned, pin: pinned, pinSpacing: true, start: "top top",
-            end: () => `+=${Math.max(stage.clientWidth * 1.75, window.innerHeight * 1.55)}`,
-            scrub: .72, anticipatePin: 1, invalidateOnRefresh: true,
-            onRefresh(self) {
-              progress.setAttribute("aria-valuenow", String(Math.round(self.progress * 100)));
-              gsap.set(progressFill, { scaleX: self.progress });
-            }
-          }
-        });
-        tl.to(track, { xPercent: -66.6667, duration: 2, ease: "none" }, 0);
-        slides.forEach((slide, index) => {
-          const copy = slide.querySelector(".isf-slide__copy");
-          if (index === 0) {
-            tl.to(copy, { autoAlpha: 0, y: -16, duration: .34 }, .58);
-          } else {
-            tl.fromTo(copy, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .46, ease: "power3.out", immediateRender: false }, index - .34);
-            if (index < slides.length - 1) tl.to(copy, { autoAlpha: 0, y: -16, duration: .34 }, index + .56);
-          }
-        });
-        return () => {
-          pinned.classList.remove("isf-is-pinned");
-          slides.forEach((slide) => { slide.removeAttribute("aria-hidden"); slide.inert = false; });
-          progress.setAttribute("aria-valuenow", "0");
-          currentLabel.textContent = "02";
-          gsap.set(track, { clearProps: "transform" });
-          gsap.set(progressFill, { clearProps: "transform" });
-          gsap.set(slides.map((slide) => slide.querySelector(".isf-slide__copy")), { clearProps: "opacity,visibility,transform" });
-        };
-      });
-    }
-
-    window.addEventListener("load", refresh, { once: true });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
-    document.addEventListener("vs:components-loaded", refresh);
-    refresh();
-  };
-
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
-  else start();
+  /* cursor glow on feature cards */
+  if (!reduce && matchMedia("(hover:hover) and (pointer:fine)").matches)
+    $$(".f").forEach(c => c.addEventListener("pointermove", e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", e.clientX - r.left + "px"); c.style.setProperty("--my", e.clientY - r.top + "px");
+    }));
 })();
-
-  </script>
+</script>
 </body>
 </html>

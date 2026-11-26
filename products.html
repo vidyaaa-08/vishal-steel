@@ -314,30 +314,6 @@
     'use strict';
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Load the shared navigation and footer partials, then execute their scripts.
-    async function loadPartial(fileName, placeholderId) {
-      const target = document.getElementById(placeholderId);
-      if (!target) return;
-      try {
-        const response = await fetch(fileName, { cache: 'no-cache' });
-        if (!response.ok) throw new Error(`${fileName}: ${response.status}`);
-        const template = document.createElement('template');
-        template.innerHTML = await response.text();
-        const scripts = Array.from(template.content.querySelectorAll('script'));
-        scripts.forEach(script => script.remove());
-        target.replaceChildren(template.content.cloneNode(true));
-        for (const oldScript of scripts) {
-          const script = document.createElement('script');
-          Array.from(oldScript.attributes).forEach(attr => script.setAttribute(attr.name, attr.value));
-          script.textContent = oldScript.textContent;
-          document.body.appendChild(script);
-        }
-      } catch (error) {
-        console.error(`Could not load ${fileName}:`, error);
-      }
-    }
-    Promise.all([loadPartial('./navbar.html','navbar-placeholder'), loadPartial('./footer.html','footer-placeholder')]);
-
     // Load background images while keeping the original asset paths.
     document.querySelectorAll('[data-photo-path]').forEach(element => {
       const imagePath = element.getAttribute('data-photo-path');
