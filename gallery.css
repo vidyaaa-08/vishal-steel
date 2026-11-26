@@ -2,6 +2,8 @@
   --gallery-deep: #102B39;
   --gallery-navy: #173747;
   --gallery-slate: #607D8B;
+  --gallery-accent: #C79A3E;
+  --gallery-accent-light: #E0B454;
   --gallery-steel: #DCE3E7;
   --gallery-silver: #A8B7BE;
   --gallery-ivory: #F4F5F3;
@@ -104,7 +106,7 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-  color: var(--gallery-slate);
+  color: var(--gallery-accent);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .17em;
@@ -391,9 +393,9 @@
 }
 
 .gallery-filter[aria-pressed="true"] {
-  border-color: var(--gallery-navy);
-  background: var(--gallery-navy);
-  color: var(--gallery-white);
+  border-color: var(--gallery-accent);
+  background: var(--gallery-accent);
+  color: var(--gallery-navy);
 }
 
 .gallery-filter:focus-visible,
@@ -403,7 +405,7 @@
 .gallery-text-link:focus-visible,
 .gallery-feature__visual:focus-visible,
 .gallery-contact__link:focus-visible {
-  outline: 3px solid #607D8B;
+  outline: 3px solid var(--gallery-accent-light);
   outline-offset: 4px;
 }
 

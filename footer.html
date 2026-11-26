@@ -6,7 +6,8 @@
   .vs-footer {
     --vsf-navy: #173747;
     --vsf-navy-deep: #102B39;
-    --vsf-slate: #607D8B;
+    --vsf-accent: #C79A3E;
+    --vsf-accent-light: #E0B454;
     --vsf-steel: #DCE3E7;
     --vsf-silver: #A8B7BE;
     --vsf-ivory: #F4F5F3;
@@ -115,8 +116,9 @@
   }
 
   .vs-footer .vs-social-links a:hover {
-    background: var(--vsf-slate);
-    border-color: var(--vsf-slate);
+    background: var(--vsf-accent);
+    border-color: var(--vsf-accent);
+    color: var(--vsf-navy-deep);
     transform: translateY(-3px);
   }
 
@@ -137,7 +139,7 @@
     width: 32px;
     height: 2px;
     margin-top: 13px;
-    background: var(--vsf-silver);
+    background: var(--vsf-accent);
   }
 
   .vs-footer-column a {
@@ -165,11 +167,14 @@
   }
 
   .vs-footer-column a:hover {
-    color: #fff;
+    color: var(--vsf-accent-light);
     transform: translateX(3px);
   }
 
-  .vs-footer-column a:hover::before { width: 100%; }
+  .vs-footer-column a:hover::before {
+    width: 100%;
+    background: var(--vsf-accent-light);
+  }
 
   .vs-newsletter-note {
     margin: 0 0 17px;
@@ -191,7 +196,7 @@
   }
 
   .vs-footer .vs-newsletter-form:focus-within {
-    border-color: var(--vsf-silver);
+    border-color: var(--vsf-accent-light);
     background: rgba(255,255,255,.08);
   }
 
@@ -223,8 +228,8 @@
     min-height: 46px;
     padding: 0 15px;
     border: 0;
-    background: var(--vsf-slate);
-    color: #fff;
+    background: var(--vsf-accent);
+    color: var(--vsf-navy-deep);
     font: inherit;
     font-size: 10px;
     font-weight: 700;
@@ -233,7 +238,7 @@
     transition: background .2s ease;
   }
 
-  .vs-footer .vs-newsletter-form button:hover { background: #496574; }
+  .vs-footer .vs-newsletter-form button:hover { background: var(--vsf-accent-light); }
   .vs-footer .vs-newsletter-form button span { font-size: 15px; transition: transform .2s ease; }
   .vs-footer .vs-newsletter-form button:hover span { transform: translate(2px, -2px); }
 

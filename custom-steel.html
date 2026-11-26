@@ -43,9 +43,6 @@
       box-sizing: border-box;
     }
 
-    .custom-page a {
-      color: inherit;
-    }
 
     .custom-main {
       overflow: clip;
@@ -59,7 +56,7 @@
       gap: clamp(34px, 5vw, 76px);
       padding: clamp(28px, 4vw, 60px) var(--custom-gutter) clamp(56px, 7vw, 94px);
       background:
-        radial-gradient(ellipse at 2% 0%, rgba(96, 125, 139, 0.07), transparent 36%),
+        radial-gradient(ellipse at 2% 0%, rgba(199, 154, 62, 0.07), transparent 36%),
         var(--custom-grey);
       isolation: isolate;
     }
@@ -315,7 +312,7 @@
       background:
         linear-gradient(136deg, transparent 47.8%, rgba(255, 255, 255, 0.075) 48%, transparent 48.5%),
         linear-gradient(44deg, transparent 57%, rgba(255, 255, 255, 0.055) 57.2%, transparent 57.7%),
-        radial-gradient(ellipse at 75% 18%, rgba(96, 125, 139, 0.38), transparent 37%),
+        radial-gradient(ellipse at 75% 18%, rgba(199, 154, 62, 0.38), transparent 37%),
         linear-gradient(145deg, #343538, #202124 62%, #151618);
       color: var(--custom-white);
       isolation: isolate;
@@ -365,7 +362,7 @@
 
     .custom-image-slot--icon {
       background:
-        radial-gradient(ellipse at center, rgba(96, 125, 139, 0.2), transparent 48%),
+        radial-gradient(ellipse at center, rgba(199, 154, 62, 0.2), transparent 48%),
         linear-gradient(145deg, #343538, #202124 62%, #151618);
     }
 
@@ -624,7 +621,7 @@
       bottom: 0;
       left: 8%;
       z-index: -1;
-      border: 1px solid rgba(96, 125, 139, 0.6);
+      border: 1px solid rgba(199, 154, 62, 0.6);
       content: "";
     }
 
@@ -652,7 +649,7 @@
       margin: 0 calc(-1 * var(--custom-gutter));
       padding: clamp(52px, 7vw, 92px) var(--custom-gutter);
       background:
-        radial-gradient(ellipse at 100% 0%, rgba(96, 125, 139, 0.2), transparent 42%),
+        radial-gradient(ellipse at 100% 0%, rgba(199, 154, 62, 0.2), transparent 42%),
         var(--custom-charcoal);
       color: var(--custom-white);
     }
@@ -790,7 +787,7 @@
       padding: clamp(52px, 8vw, 110px) var(--custom-gutter);
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 100% 0%, rgba(96, 125, 139, 0.25), transparent 42%),
+        radial-gradient(ellipse at 100% 0%, rgba(199, 154, 62, 0.25), transparent 42%),
         var(--custom-charcoal);
       color: var(--custom-white);
       isolation: isolate;
@@ -823,7 +820,7 @@
     }
 
     :focus-visible {
-      outline: 3px solid rgba(96, 125, 139, 0.72);
+      outline: 3px solid rgba(199, 154, 62, 0.72);
       outline-offset: 4px;
     }
 
@@ -1093,7 +1090,7 @@
 
 .custom-solutions > .custom-solution:hover {
   transform: translateY(-7px);
-  border-color: rgba(96, 125, 139, .42);
+  border-color: rgba(199, 154, 62, .42);
   box-shadow: 0 20px 46px rgba(32, 33, 36, .09);
 }
 
@@ -1129,7 +1126,7 @@
   aspect-ratio: 1;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(96, 125, 139, .16);
+  border: 1px solid rgba(199, 154, 62, .16);
   border-radius: 10px;
   background: #fbf0f1;
   box-shadow: none;
@@ -1182,9 +1179,9 @@
   margin-top: auto;
   padding: 0 15px;
   gap: 20px;
-  border-color: #607D8B;
-  background: #607D8B;
-  color: #fff;
+  border-color: #C79A3E;
+  background: #C79A3E;
+  color: #15292E;
 }
 
 .custom-solutions > .custom-solution .custom-button:hover {
@@ -1297,9 +1294,9 @@
           <div class="custom-image-slot custom-image-slot--icon custom-image-slot--carousel-icon" aria-hidden="true">
             <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
               <rect x="28" y="30" width="104" height="100" rx="8" stroke="currentColor" stroke-width="5"/>
-              <path d="M43 49h74M43 61h74" stroke="#607D8B" stroke-width="5" stroke-linecap="round"/>
+              <path d="M43 49h74M43 61h74" stroke="#C79A3E" stroke-width="5" stroke-linecap="round"/>
               <circle cx="80" cy="91" r="22" stroke="currentColor" stroke-width="5"/>
-              <path d="M80 72c11 9 10 17 0 19 2-10-4-15-13-14M97 101c-13 3-19-2-17-11 8 6 15 3 19-5M65 103c2-13 8-17 15-11-9 5-10 12-6 20" fill="#607D8B" stroke="#607D8B" stroke-linejoin="round" stroke-width="3"/>
+              <path d="M80 72c11 9 10 17 0 19 2-10-4-15-13-14M97 101c-13 3-19-2-17-11 8 6 15 3 19-5M65 103c2-13 8-17 15-11-9 5-10 12-6 20" fill="#C79A3E" stroke="#C79A3E" stroke-linejoin="round" stroke-width="3"/>
               <path d="M45 143h70" stroke="currentColor" stroke-linecap="round" stroke-width="5"/>
             </svg>
           </div>
@@ -1339,10 +1336,10 @@
           <div class="custom-image-slot custom-solution__image custom-image-slot--icon" aria-hidden="true">
             <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
               <path d="M60 24h40M70 24v42l-31 50a14 14 0 0 0 12 21h58a14 14 0 0 0 12-21L90 66V24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-              <path d="M51 109h58l11 17H40l11-17Z" fill="#607D8B" opacity="0.9"/>
+              <path d="M51 109h58l11 17H40l11-17Z" fill="#C79A3E" opacity="0.9"/>
               <path d="M59 91h41" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
               <circle cx="72" cy="80" r="3" fill="currentColor"/>
-              <circle cx="91" cy="74" r="2.5" fill="#607D8B"/>
+              <circle cx="91" cy="74" r="2.5" fill="#C79A3E"/>
             </svg>
           </div>
         </div>
@@ -1358,7 +1355,7 @@
           <div class="custom-image-slot custom-solution__image custom-image-slot--icon" aria-hidden="true">
             <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
               <path d="M35 137V48h90v89M25 137h110" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-              <path d="M68 61h24v13h13v24H92v13H68V98H55V74h13V61Z" fill="#607D8B"/>
+              <path d="M68 61h24v13h13v24H92v13H68V98H55V74h13V61Z" fill="#C79A3E"/>
               <path d="M47 125V112h18v13M98 125V112h15v13" stroke="currentColor" stroke-linejoin="round" stroke-width="4"/>
               <path d="M48 37h64" stroke="currentColor" stroke-linecap="round" stroke-width="5"/>
             </svg>
@@ -1376,8 +1373,8 @@
           <div class="custom-image-slot custom-solution__image custom-image-slot--icon" aria-hidden="true">
             <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
               <path d="M23 136V78l35 20V78l35 20V54h43v82H23Z" stroke="currentColor" stroke-linejoin="round" stroke-width="5"/>
-              <path d="M111 40V24h16v16" stroke="#607D8B" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
-              <path d="M39 112h14v13H39zM69 112h14v13H69zM100 112h14v13h-14z" fill="#607D8B"/>
+              <path d="M111 40V24h16v16" stroke="#C79A3E" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+              <path d="M39 112h14v13H39zM69 112h14v13H69zM100 112h14v13h-14z" fill="#C79A3E"/>
               <path d="M23 136h113" stroke="currentColor" stroke-linecap="round" stroke-width="5"/>
             </svg>
           </div>
@@ -1394,9 +1391,9 @@
           <div class="custom-image-slot custom-solution__image custom-image-slot--icon" aria-hidden="true">
             <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
               <rect x="25" y="35" width="110" height="84" rx="7" stroke="currentColor" stroke-width="5"/>
-              <path d="M42 53h76M42 65h76" stroke="#607D8B" stroke-linecap="round" stroke-width="5"/>
+              <path d="M42 53h76M42 65h76" stroke="#C79A3E" stroke-linecap="round" stroke-width="5"/>
               <circle cx="80" cy="91" r="22" stroke="currentColor" stroke-width="4"/>
-              <path d="M80 72c11 9 10 17 0 19 2-10-4-15-13-14M97 101c-13 3-19-2-17-11 8 6 15 3 19-5M65 103c2-13 8-17 15-11-9 5-10 12-6 20" fill="#607D8B" stroke="#607D8B" stroke-linejoin="round" stroke-width="3"/>
+              <path d="M80 72c11 9 10 17 0 19 2-10-4-15-13-14M97 101c-13 3-19-2-17-11 8 6 15 3 19-5M65 103c2-13 8-17 15-11-9 5-10 12-6 20" fill="#C79A3E" stroke="#C79A3E" stroke-linejoin="round" stroke-width="3"/>
               <path d="M52 136h56" stroke="currentColor" stroke-linecap="round" stroke-width="5"/>
             </svg>
           </div>
@@ -1429,8 +1426,8 @@
               <span class="custom-stat__label">Projects Completed</span>
             </div>
             <div class="custom-stat">
-              <span class="custom-stat__number" data-configurable-counter="yearsOfExperience" data-suffix="+">36+</span>
-              <span class="custom-stat__label">Years of Experience</span>
+              <span class="custom-stat__number" data-configurable-counter="yearsOfExperience" data-suffix="+">40+</span>
+              <span class="custom-stat__label">Years of Excellence</span>
             </div>
           </div>
           <a class="custom-button custom-product-link" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
@@ -1441,8 +1438,8 @@
           <h2 class="custom-proof__title" id="custom-experience-title">Experience &amp; Projects</h2>
           <div class="custom-stats">
             <div class="custom-stat">
-              <span class="custom-stat__number" data-custom-counter="36" data-suffix="+">36+</span>
-              <span class="custom-stat__label">Years Manufacturing Experience</span>
+              <span class="custom-stat__number" data-custom-counter="40" data-suffix="+">40+</span>
+              <span class="custom-stat__label">Years of Excellence</span>
             </div>
             <div class="custom-stat">
               <span class="custom-stat__number" data-custom-counter="1000" data-suffix="+">1000+</span>
@@ -1485,7 +1482,7 @@
       // These match the verified values shown in the Manufacturing Experience section.
       const configurableCounterFinals = {
         projectsCompleted: 1000,
-        yearsOfExperience: 36
+        yearsOfExperience: 40
       };
 
       function initializeImageSlots() {

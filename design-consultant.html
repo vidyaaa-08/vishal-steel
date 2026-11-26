@@ -1,476 +1,293 @@
 <!doctype html>
-<html lang="en" class="vs-html">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Expert design consultation for steel, healthcare, laboratory, industrial and HVAC solutions from Vishal Steel Products.">
-  <meta name="theme-color" content="#202124">
+  <meta name="theme-color" content="#F4F5F3">
   <title>Design Consultation | VISHAL STEEL PRODUCTS</title>
-  
-  
   <script src="./includes.js" defer></script>
   <style>
-    :root {
-      color-scheme: light;
-      --dc-red: #607D8B;
-      --dc-red-dark: #173747;
-      --dc-ink: #202124;
-      --dc-paper: #f4f3f0;
-      --dc-white: #fff;
-      --dc-muted: #696b6e;
-      --dc-line: rgba(32, 33, 36, .14);
-      --dc-gutter: clamp(20px, 5.8vw, 88px);
-      --dc-max: 1420px;
+    :root{
+      --navy:#102B39;--blue:#173747;--slate:#607D8B;--steel:#DCE3E7;
+      --silver:#A8B7BE;--ivory:#F4F5F3;--white:#fff;--ink:#102B39;
+      --muted:#4C626D;--line:rgba(16,43,57,.17);
+      --gutter:clamp(20px,5.5vw,82px);--max:1400px;
+      --ease:cubic-bezier(.2,.75,.2,1)
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;min-width:320px;background:var(--ivory);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:clip}
+    a{color:inherit}
+    .dc-page *, .dc-page *:before, .dc-page *:after{box-sizing:border-box}
+    .dc-shell{width:min(calc(100% - var(--gutter)*2),var(--max));margin-inline:auto}
+    .dc-eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 18px;color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+    .dc-eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+    .dc-heading{margin:0;font-size:clamp(2.8rem,6.5vw,6rem);font-weight:800;line-height:.9;letter-spacing:-.085em}
+    .dc-copy{max-width:570px;margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.9}
 
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-    body.dc-page {
-      min-width: 320px; margin: 0; overflow-x: clip; color: var(--dc-ink);
-      background: var(--dc-white); font-family: Arial, Helvetica, sans-serif;
-    }
-    .dc-page *, .dc-page *::before, .dc-page *::after { box-sizing: border-box; }
-    .dc-page h1, .dc-page h2, .dc-page h3, .dc-page p, .dc-page figure { margin-top: 0; }
-    .dc-main { overflow: clip; }
-    .dc-shell { width: min(calc(100% - var(--dc-gutter) * 2), var(--dc-max)); margin-inline: auto; }
-    .dc-eyebrow {
-      display: inline-flex; align-items: center; gap: 11px; margin: 0 0 18px;
-      color: var(--dc-red); font-size: 10px; font-weight: 800; letter-spacing: .19em;
-      line-height: 1.5; text-transform: uppercase;
-    }
-    .dc-eyebrow::before { width: 28px; height: 2px; flex: 0 0 auto; background: currentColor; content: ""; }
-    .dc-heading {
-      max-width: 980px; margin: 0; font-size: clamp(2.8rem, 6.5vw, 6.4rem);
-      font-weight: 750; letter-spacing: -.078em; line-height: .93; text-wrap: balance;
-    }
-    .dc-heading .accent { color: var(--dc-red); }
-    .dc-copy { max-width: 620px; margin: 20px 0 0; color: var(--dc-muted); font-size: clamp(14px, 1.35vw, 17px); line-height: 1.8; }
-  
-    
+    /* DISTINCT HERO: light editorial layout with photographic panel */
+    .dc-hero{position:relative;padding:clamp(64px,8vw,112px) 0 0;background:var(--ivory);overflow:hidden}
+    .dc-hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:clamp(35px,6vw,90px);align-items:center}
+    .dc-hero__copy{position:relative;z-index:2;padding:15px 0 36px}
+    .dc-hero__title{max-width:790px;margin:0;font-size:clamp(3.4rem,7.3vw,7.5rem);font-weight:850;line-height:.83;letter-spacing:-.095em}
+    .dc-hero__title span{display:block;color:var(--slate)}
+    .dc-hero__description{max-width:570px;margin:26px 0 0;color:#405965;font-size:15px;line-height:1.9}
+    .dc-hero__actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}
+    .dc-hero__button{display:inline-flex;align-items:center;gap:28px;padding:16px 20px;background:var(--navy);color:#fff;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;transition:background .25s,transform .25s}
+    .dc-hero__button:hover{background:var(--slate);transform:translateY(-3px)}
+    .dc-hero__button span{font-size:17px}
+    .dc-hero__textlink{color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--slate);padding-bottom:6px}
+    .dc-hero__visual{position:relative;min-height:clamp(390px,48vw,650px);background:#cbd5d9}
+    .dc-hero__visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .dc-hero__visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(16,43,57,.55))}
+    .dc-hero__visual-label{position:absolute;z-index:1;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;gap:16px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .dc-hero__visual-label span:last-child{color:#DCE3E7}
+    .dc-hero__bottom{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(55px,7vw,92px);border-top:1px solid var(--line)}
+    .dc-service{padding:25px 30px 27px 0}
+    .dc-service+.dc-service{padding-left:30px;border-left:1px solid var(--line)}
+    .dc-service__index{display:block;margin-bottom:17px;color:var(--slate);font-size:9px;font-weight:800;letter-spacing:.16em}
+    .dc-service h2{max-width:320px;margin:0;font-size:clamp(19px,2vw,26px);line-height:1.12;letter-spacing:-.05em}
+    .dc-service p{max-width:370px;margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.8}
 
-    /* HERO */
-    .dc-hero {
-      position: relative; isolation: isolate; overflow: hidden; min-height: min(820px, calc(100svh - 82px));
-      padding: clamp(76px, 9vw, 126px) 0 0; color: var(--dc-white); background: #202124;
-    }
-    .dc-hero::before {
-      position: absolute; z-index: -2; inset: 0; content: "";
-      background: radial-gradient(ellipse at 78% 32%, rgba(96,125,139,.3), transparent 33%),
-                  radial-gradient(ellipse at 6% 90%, rgba(143,13,24,.17), transparent 34%),
-                  linear-gradient(115deg, #1b1c1e, #252629 58%, #1d1e20);
-      animation: dc-ambient 13s ease-in-out infinite alternate;
-    }
-    .dc-hero::after {
-      position: absolute; z-index: -1; inset: 0; content: ""; opacity: .11; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
-      background-size: 72px 72px; mask-image: linear-gradient(90deg, transparent, #000 48%, #000);
-    }
-    .dc-hero__inner { position: relative; }
-    .dc-hero__top { position: relative; min-height: clamp(370px, 43vw, 550px); display: flex; align-items: center; }
-    .dc-hero__copy { position: relative; z-index: 2; max-width: 1120px; padding: 0 0 28px; }
-    .dc-hero__eyebrow { color: #ff7b84; margin-bottom: 24px; }
-    .dc-hero__title {
-      max-width: 1120px; margin: 0; font-size: clamp(3.1rem, 7.35vw, 7.25rem); font-weight: 800;
-      letter-spacing: -.09em; line-height: .88; text-wrap: balance;
-    }
-    .dc-hero__title-line { display: block; overflow: hidden; padding: .035em .08em .11em 0; }
-    .dc-hero__title-line span { display: block; transform-origin: left center; }
-    .dc-hero__title-line:last-child { color: #f15b65; }
-    .dc-hero__description { max-width: 660px; margin: 25px 0 0; color: rgba(255,255,255,.72); font-size: clamp(14px, 1.35vw, 17px); line-height: 1.8; }
-    .dc-hero__visual {
-      position: absolute; z-index: 0; top: 50%; right: -1%; width: min(35vw, 470px); aspect-ratio: 1;
-      opacity: .72; transform: translateY(-52%); pointer-events: none;
-    }
-    .dc-orbit { position: absolute; inset: 9%; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 28px rgba(255,255,255,.025), 0 0 0 68px rgba(255,255,255,.018); animation: dc-rotate 28s linear infinite; }
-    .dc-orbit::before, .dc-orbit::after { position: absolute; inset: 13%; border: 1px solid rgba(96,125,139,.56); border-radius: 50%; content: ""; }
-    .dc-orbit::after { inset: 29%; border-color: rgba(255,255,255,.22); }
-    .dc-orbit--inner { inset: 28%; border-style: dashed; opacity: .65; animation-direction: reverse; animation-duration: 18s; }
-    .dc-core { position: absolute; top: 50%; left: 50%; width: 20%; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.72); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffd2d5, #c21c2a 48%, #5a0a12 78%); box-shadow: 0 0 46px rgba(96,125,139,.7); transform: translate(-50%,-50%); animation: dc-pulse 4s ease-in-out infinite; }
-    .dc-beam { position: absolute; top: 50%; left: 7%; width: 86%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.62), transparent); transform: rotate(-38deg); }
-    .dc-beam--second { transform: rotate(52deg); opacity: .55; }
-    .dc-plate { position: absolute; top: 19%; left: 44%; width: 19%; height: 62%; border: 1px solid rgba(255,255,255,.35); background: linear-gradient(100deg, rgba(255,255,255,.12), rgba(32,33,36,.68) 48%, rgba(255,255,255,.08)); box-shadow: 17px 18px 34px rgba(0,0,0,.26); transform: rotate(29deg) skewY(-8deg); animation: dc-float 6s ease-in-out infinite; }
-    .dc-plate--back { top: 13%; left: 36%; opacity: .5; transform: rotate(-29deg) skewY(8deg); animation-delay: -2s; }
-    .dc-visual-note { position: absolute; right: 0; bottom: 5%; color: rgba(255,255,255,.5); font-size: 8px; letter-spacing: .18em; text-transform: uppercase; }
-    .dc-hero__services {
-      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 22px;
-      border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.12);
-    }
-    .dc-service { position: relative; min-width: 0; padding: 22px clamp(16px,2.3vw,34px) 25px 0; transition: background .3s ease, transform .3s ease; }
-    .dc-service + .dc-service { padding-left: clamp(16px,2.3vw,34px); border-left: 1px solid rgba(255,255,255,.18); }
-    .dc-service:hover { transform: translateY(-4px); }
-    .dc-service h2 { max-width: 300px; margin: 0; color: #fff; font-size: clamp(17px,1.8vw,23px); font-weight: 700; letter-spacing: -.04em; line-height: 1.14; }
-    .dc-service p { max-width: 380px; margin: 10px 0 0; color: rgba(255,255,255,.65); font-size: 12px; line-height: 1.7; }
-    .dc-hero__footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 0 20px; color: rgba(255,255,255,.48); font-size: 8px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
-    .dc-hero__scroll { display: inline-flex; align-items: center; gap: 10px; color: rgba(255,255,255,.75); font-size: 9px; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
-    .dc-hero__scroll::before { width: 27px; height: 1px; background: #f15b65; content: ""; }
+    /* CAPABILITIES: dark editorial band with numbered rows */
+    .dc-expertise{padding:clamp(75px,9vw,125px) 0;background:var(--navy);color:#fff}
+    .dc-expertise__intro{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:end;margin-bottom:55px}
+    .dc-expertise .dc-eyebrow{color:#B7C9D0}
+    .dc-expertise .dc-heading{max-width:760px}
+    .dc-expertise .dc-heading .accent{color:#A8B7BE}
+    .dc-expertise .dc-copy{color:#C4D0D5;margin:0 0 4px}
+    .dc-expertise__statement{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:end;margin-bottom:48px;padding:30px 0;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22)}
+    .dc-expertise__statement h3{max-width:600px;margin:0;font-size:clamp(28px,4.4vw,55px);line-height:.95;letter-spacing:-.075em}
+    .dc-expertise__statement h3 span{color:#A8B7BE}
+    .dc-expertise__statement p{max-width:520px;margin:0;color:#C4D0D5;font-size:13px;line-height:1.85}
+    .dc-expertise__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:55px}
+    .dc-expertise-card{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) 35px;gap:18px;align-items:start;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.2);transition:padding .3s}
+    .dc-expertise-card:hover{padding-left:9px}
+    .dc-expertise-card__num{padding-top:5px;color:#A8B7BE;font-size:10px;font-weight:800;letter-spacing:.12em}
+    .dc-expertise-card h3{margin:0;color:#fff;font-size:clamp(20px,2vw,27px);letter-spacing:-.055em}
+    .dc-expertise-card p{max-width:480px;margin:9px 0 0;color:#C4D0D5;font-size:12px;line-height:1.8}
+    .dc-expertise-card a{display:grid;width:32px;height:32px;place-items:center;border:1px solid rgba(255,255,255,.4);border-radius:50%;color:#fff;text-decoration:none;transition:background .25s,color .25s,transform .25s}
+    .dc-expertise-card a:hover{background:#fff;color:var(--navy);transform:translate(3px,-3px)}
 
-    /* EXPERTISE */
-    .dc-expertise { padding: clamp(66px,8vw,112px) 0 clamp(74px,9vw,122px); background: var(--dc-paper); }
-    .dc-expertise__intro { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(240px,.75fr); gap: clamp(25px,6vw,90px); align-items: end; margin-bottom: 37px; }
-    .dc-expertise__intro .dc-copy { margin: 0 0 4px; }
-    .dc-expertise__statement { position: relative; overflow: hidden; margin: 0 0 38px; padding: clamp(28px,4.5vw,58px) clamp(24px,4vw,62px); color: #fff; background: var(--dc-ink); }
-    .dc-expertise__statement::before { position: absolute; top: 0; bottom: 0; left: 0; width: 4px; background: var(--dc-red); content: ""; }
-    .dc-expertise__statement::after { position: absolute; right: -95px; bottom: -190px; width: 390px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.025),0 0 0 80px rgba(255,255,255,.018); content: ""; }
-    .dc-expertise__statement h3 { position: relative; z-index: 1; max-width: 850px; margin: 0; font-size: clamp(2.1rem,5vw,5rem); font-weight: 750; letter-spacing: -.075em; line-height: .98; }
-    .dc-expertise__statement p { position: relative; z-index: 1; max-width: 720px; margin: 17px 0 0; color: rgba(255,255,255,.68); font-size: 14px; line-height: 1.75; }
-    .dc-expertise__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
-    .dc-expertise-card { position: relative; display: flex; min-height: 215px; flex-direction: column; align-items: flex-start; padding: clamp(22px,2.6vw,34px); overflow: hidden; border: 1px solid rgba(32,33,36,.1); background: rgba(255,255,255,.82); transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
-    .dc-expertise-card::before { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: var(--dc-red); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
-    .dc-expertise-card:hover { transform: translateY(-6px); border-color: rgba(96,125,139,.3); box-shadow: 0 18px 35px rgba(32,33,36,.08); }
-    .dc-expertise-card:hover::before { transform: scaleX(1); }
-    .dc-expertise-card h3 { max-width: 330px; margin: 0; font-size: clamp(22px,2.1vw,29px); font-weight: 700; letter-spacing: -.055em; line-height: 1.04; }
-    .dc-expertise-card p { max-width: 390px; margin: 13px 0 22px; color: var(--dc-muted); font-size: 13px; line-height: 1.7; }
-    .dc-expertise-card a { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; color: var(--dc-ink); font-size: 10px; font-weight: 800; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
-    .dc-expertise-card a span { display: grid; width: 29px; height: 29px; place-items: center; border: 1px solid rgba(32,33,36,.2); border-radius: 50%; color: var(--dc-red); transition: color .25s ease, background .25s ease, transform .25s ease; }
-    .dc-expertise-card a:hover span { color: #fff; background: var(--dc-red); border-color: var(--dc-red); transform: translate(3px,-3px); }
+    /* PORTFOLIO: clean light project index */
+    .dc-portfolio{padding:clamp(76px,9vw,128px) 0;background:#fff}
+    .dc-portfolio__intro{display:flex;justify-content:space-between;align-items:end;gap:45px;margin-bottom:48px}
+    .dc-portfolio__intro .dc-heading{max-width:760px}
+    .dc-portfolio__intro .dc-heading .accent{color:var(--slate)}
+    .dc-portfolio__intro .dc-copy{max-width:390px;margin:0 0 4px}
+    .dc-portfolio__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 22px}
+    .dc-project{min-width:0}
+    .dc-project__frame{position:relative;overflow:hidden;background:var(--steel);aspect-ratio:1.25/1}
+    .dc-project__frame:after{content:"";position:absolute;inset:0;border:1px solid rgba(16,43,57,.08);pointer-events:none}
+    .dc-project__frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
+    .dc-project:hover .dc-project__frame img{transform:scale(1.055);filter:saturate(1.08)}
+    .dc-project__meta{display:flex;align-items:center;gap:10px;margin:17px 0 9px;color:var(--slate);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .dc-project__meta:before{content:"";width:22px;height:1px;background:currentColor}
+    .dc-project__title{margin:0;color:var(--navy);font-size:clamp(21px,2.1vw,29px);line-height:1.04;letter-spacing:-.06em}
+    .dc-project__title span{display:block;margin-top:8px;color:#536A75;font-size:13px;font-weight:400;line-height:1.55;letter-spacing:0}
+    .dc-project__number{float:right;color:#A8B7BE;font-size:11px;font-weight:700;letter-spacing:.1em}
 
-    /* PORTFOLIO */
-    .dc-portfolio { position: relative; padding: clamp(68px,8.5vw,118px) 0 clamp(78px,9vw,130px); overflow: hidden; background: #202124; color: #fff; }
-    .dc-portfolio::before { position: absolute; top: 0; right: 0; width: min(34vw,460px); height: 2px; background: var(--dc-red); content: ""; }
-    .dc-portfolio__intro { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(240px,.75fr); align-items: end; gap: clamp(26px,6vw,88px); margin-bottom: clamp(34px,5vw,65px); }
-    .dc-portfolio__intro .dc-eyebrow { color: #A8B7BE; }
-    .dc-portfolio__intro .dc-copy { margin: 0 0 4px; color: rgba(255,255,255,.66); }
-    .dc-portfolio__grid { display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: clamp(22px,3vw,42px); align-items: start; }
-    .dc-project { min-width: 0; }
-    .dc-project:nth-child(1), .dc-project:nth-child(4) { grid-column: span 7; }
-    .dc-project:nth-child(2), .dc-project:nth-child(5) { grid-column: span 5; margin-top: 54px; }
-    .dc-project:nth-child(3) { grid-column: 2 / span 5; }
-    .dc-project:nth-child(6) { grid-column: 8 / span 5; margin-top: 45px; }
-    .dc-project__frame { position: relative; overflow: hidden; background: #343538; }
-    .dc-media { position: relative; display: block; width: 100%; aspect-ratio: 1.35 / 1; margin: 0; overflow: hidden; background: linear-gradient(135deg,#4a4b4d,#252629); }
-    .dc-project:nth-child(2) .dc-media, .dc-project:nth-child(5) .dc-media { aspect-ratio: 1.05 / 1; }
-    .dc-project:nth-child(3) .dc-media { aspect-ratio: 1.2 / 1; }
-    .dc-media::after { position: absolute; inset: 0; background: linear-gradient(180deg,transparent 54%,rgba(0,0,0,.2)); content: ""; pointer-events: none; }
-    .dc-media__image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.005); transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .5s ease; }
-    .dc-project:hover .dc-media__image { transform: scale(1.035); filter: saturate(1.06); }
-    .dc-project__meta { display: inline-flex; align-items: center; gap: 10px; margin: 17px 0 9px; color: #ff7b84; font-size: 9px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-    .dc-project__meta::before { width: 20px; height: 1px; background: currentColor; content: ""; }
-    .dc-project__title { max-width: 560px; margin: 0; color: #fff; font-size: clamp(23px,3vw,39px); font-weight: 700; letter-spacing: -.06em; line-height: 1.02; }
-    .dc-project__title span { display: block; margin-top: 7px; color: rgba(255,255,255,.55); font-size: clamp(14px,1.45vw,18px); font-weight: 400; letter-spacing: -.02em; line-height: 1.4; }
+    .dc-end{padding:65px 0;background:var(--steel)}
+    .dc-end__inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
+    .dc-end h2{max-width:760px;margin:0;font-size:clamp(34px,5vw,62px);line-height:.92;letter-spacing:-.075em}
+    .dc-end a{display:inline-flex;align-items:center;gap:25px;padding:17px 22px;background:var(--navy);color:#fff;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;transition:background .25s,transform .25s}
+    .dc-end a:hover{background:var(--slate);transform:translateY(-3px)}
+    .dc-end a span{font-size:17px}
 
-    /* REVEAL ANIMATIONS Ã¢â‚¬â€ content stays visible even if JavaScript/observer is blocked */
-    .dc-reveal { opacity: 1; visibility: visible; transform: none; clip-path: none; }
-    .dc-reveal.is-visible { animation: dc-reveal-up .78s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--reveal-delay, 0ms); }
-    .dc-reveal[data-reveal="left"].is-visible { animation-name: dc-reveal-left; }
-    .dc-reveal[data-reveal="right"].is-visible { animation-name: dc-reveal-right; }
-    .dc-reveal[data-reveal="clip"].is-visible { animation-name: dc-reveal-clip; }
-
-    .dc-hero__eyebrow { animation: dc-reveal-up .7s .08s both; }
-    .dc-hero__title-line span { animation: dc-title-rise .95s cubic-bezier(.16,1,.3,1) both; }
-    .dc-hero__title-line:nth-child(2) span { animation-delay: .12s; }
-    .dc-hero__title-line:nth-child(3) span { animation-delay: .24s; }
-    .dc-hero__description { animation: dc-reveal-up .75s .34s both; }
-    .dc-service:nth-child(1) { animation: dc-reveal-up .7s .34s both; }
-    .dc-service:nth-child(2) { animation: dc-reveal-up .7s .45s both; }
-    .dc-service:nth-child(3) { animation: dc-reveal-up .7s .56s both; }
-
-    @keyframes dc-reveal-up { from { opacity: 0; transform: translate3d(0,24px,0); } to { opacity: 1; transform: none; } }
-    @keyframes dc-reveal-left { from { opacity: 0; transform: translate3d(-34px,0,0); } to { opacity: 1; transform: none; } }
-    @keyframes dc-reveal-right { from { opacity: 0; transform: translate3d(34px,0,0); } to { opacity: 1; transform: none; } }
-    @keyframes dc-reveal-clip { from { opacity: .35; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
-    @keyframes dc-title-rise { from { opacity: .35; transform: translate3d(0,48px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
-    @keyframes dc-ambient { from { transform: scale(1) translate3d(0,0,0); } to { transform: scale(1.07) translate3d(-1%,1%,0); } }
-    @keyframes dc-rotate { to { transform: rotate(360deg); } }
-    @keyframes dc-pulse { 50% { box-shadow: 0 0 68px rgba(96,125,139,.9); transform: translate(-50%,-50%) scale(1.07); } }
-    @keyframes dc-float { 50% { translate: 0 -10px; } }
-
-    @media (max-width: 1000px) {
-      .dc-hero__top { min-height: 420px; }
-      .dc-hero__visual { right: -5%; width: min(39vw,370px); opacity: .48; }
-      .dc-expertise__intro, .dc-portfolio__intro { grid-template-columns: minmax(0,1fr) minmax(220px,.8fr); }
-      .dc-expertise__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .dc-project:nth-child(n) { grid-column: span 6; margin-top: 0; }
-      .dc-project:nth-child(2n) { margin-top: 42px; }
+    .dc-reveal{opacity:1;transform:none}
+    body.dc-motion .dc-reveal{opacity:0;transform:translateY(25px)}
+    body.dc-motion .dc-reveal.is-visible{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .dc-backtop{position:fixed;right:22px;bottom:22px;z-index:1200;display:grid;width:48px;height:48px;place-items:center;border:0;border-radius:50%;background:var(--navy);color:#fff;box-shadow:0 8px 24px rgba(16,43,57,.22);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+    .dc-backtop.is-visible{opacity:1;visibility:visible;transform:none}
+    .dc-backtop svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+    @media(max-width:950px){
+      .dc-hero__grid{grid-template-columns:1fr  .85fr;gap:30px}
+      .dc-hero__title{font-size:clamp(3.2rem,8vw,6rem)}
+      .dc-expertise__intro{gap:30px}
+      .dc-portfolio__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
-    @media (max-width: 720px) {
-      html { scroll-padding-top: 78px; }
-      .dc-hero { min-height: 0; padding-top: 74px; }
-      .dc-hero__top { min-height: 0; padding: 0 0 35px; }
-      .dc-hero__copy { max-width: 100%; }
-      .dc-hero__title { max-width: 740px; font-size: clamp(3rem,10.5vw,5.8rem); }
-      .dc-hero__visual { top: 50%; right: -24%; width: 58vw; opacity: .24; transform: translateY(-50%); }
-      .dc-hero__description { max-width: 590px; }
-      .dc-hero__services { grid-template-columns: 1fr; margin-top: 8px; }
-      .dc-service, .dc-service + .dc-service { padding: 18px 0; border-left: 0; }
-      .dc-service + .dc-service { border-top: 1px solid rgba(255,255,255,.17); }
-      .dc-service p { max-width: 560px; margin-top: 7px; }
-      .dc-hero__footer { flex-wrap: wrap; font-size: 7px; }
-      .dc-expertise, .dc-portfolio { padding-block: 64px 76px; }
-      .dc-expertise__intro, .dc-portfolio__intro { grid-template-columns: 1fr; gap: 16px; margin-bottom: 27px; }
-      .dc-expertise__intro .dc-copy, .dc-portfolio__intro .dc-copy { margin: 0; }
-      .dc-expertise__statement { margin-bottom: 24px; }
-      .dc-expertise__grid { gap: 10px; }
-      .dc-expertise-card { min-height: 205px; padding: 20px; }
-      .dc-portfolio__grid { gap: 30px 16px; }
-      .dc-project:nth-child(n) { grid-column: span 6; margin-top: 0; }
-      .dc-project:nth-child(2n) { margin-top: 38px; }
+    @media(max-width:720px){
+      :root{--gutter:20px}
+      .dc-hero{padding-top:60px}
+      .dc-hero__grid{grid-template-columns:1fr;gap:28px}
+      .dc-hero__copy{padding-bottom:0}
+      .dc-hero__title{font-size:clamp(3.5rem,13vw,6rem)}
+      .dc-hero__description{font-size:13px}
+      .dc-hero__visual{min-height:390px}
+      .dc-hero__bottom{grid-template-columns:1fr;margin-top:50px}
+      .dc-service,.dc-service+.dc-service{padding:20px 0;border-left:0}
+      .dc-service+.dc-service{border-top:1px solid var(--line)}
+      .dc-expertise__intro{grid-template-columns:1fr;gap:18px;margin-bottom:35px}
+      .dc-expertise__statement{grid-template-columns:1fr;gap:16px;padding:25px 0;margin-bottom:28px}
+      .dc-expertise__grid{grid-template-columns:1fr}
+      .dc-portfolio__intro{display:block}
+      .dc-portfolio__intro .dc-copy{margin-top:18px}
+      .dc-end__inner{align-items:flex-start;flex-direction:column}
     }
-    @media (max-width: 520px) {
-      .dc-shell { width: calc(100% - 36px); }
-      .dc-hero { padding-top: 62px; }
-      .dc-hero__title { font-size: clamp(2.65rem,11.6vw,4rem); letter-spacing: -.085em; }
-      .dc-hero__eyebrow { margin-bottom: 18px; }
-      .dc-hero__description { margin-top: 18px; font-size: 13px; }
-      .dc-hero__visual { top: 42%; right: -42%; width: 78vw; opacity: .17; }
-      .dc-hero__footer > span:nth-child(2) { display: none; }
-      .dc-heading { font-size: clamp(2.6rem,11vw,4.2rem); }
-      .dc-expertise__grid { grid-template-columns: 1fr; }
-      .dc-expertise-card { min-height: 0; padding: 22px; }
-      .dc-expertise-card p { margin-bottom: 18px; }
-      .dc-project:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
-      .dc-media, .dc-project:nth-child(n) .dc-media { aspect-ratio: 1.18 / 1; }
-      .dc-project__title { font-size: clamp(25px,7vw,34px); }
-      .dc-portfolio__grid { row-gap: 32px; }
+    @media(max-width:520px){
+      :root{--gutter:17px}
+      .dc-hero__title{font-size:clamp(3rem,14vw,4.5rem)}
+      .dc-hero__visual{min-height:300px}
+      .dc-hero__visual-label{left:15px;right:15px;bottom:15px;font-size:8px}
+      .dc-hero__actions{gap:16px}
+      .dc-expertise,.dc-portfolio{padding-block:65px 75px}
+      .dc-expertise-card{grid-template-columns:30px minmax(0,1fr) 32px;gap:10px;padding:22px 0}
+      .dc-portfolio__grid{grid-template-columns:1fr;row-gap:30px}
+      .dc-project__frame{aspect-ratio:1.2/1}
+      .dc-end{padding:50px 0}
+      .dc-backtop{right:15px;bottom:15px;width:44px;height:44px}
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-      .dc-reveal, .dc-reveal.is-visible, .dc-hero__title-line span, .dc-hero__eyebrow, .dc-hero__description, .dc-service { opacity: 1 !important; visibility: visible !important; transform: none !important; clip-path: none !important; animation: none !important; }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .dc-reveal,body.dc-motion .dc-reveal{opacity:1!important;transform:none!important}
     }
-  
-
-    /* PORTFOLIO ALIGNMENT Ã¢â‚¬â€ equal cards, consistent image sizing */
-    .dc-portfolio__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: stretch;
-      column-gap: clamp(18px, 2.2vw, 32px);
-      row-gap: clamp(30px, 3vw, 44px);
-    }
-    .dc-portfolio__grid > .dc-project,
-    .dc-portfolio__grid > .dc-project:nth-child(n) {
-      grid-column: auto;
-      display: flex;
-      min-width: 0;
-      margin: 0;
-      flex-direction: column;
-      align-self: stretch;
-    }
-    .dc-project__frame {
-      width: 100%;
-      aspect-ratio: 1.28 / 1;
-      overflow: hidden;
-      background: #343538;
-    }
-    .dc-project__frame .dc-media,
-    .dc-project:nth-child(n) .dc-media {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: auto;
-      margin: 0;
-    }
-    .dc-project__frame .dc-media__image {
-      object-fit: cover;
-      object-position: center;
-    }
-    .dc-project__meta {
-      margin: 14px 0 8px;
-    }
-    .dc-project__title {
-      max-width: 100%;
-      font-size: clamp(21px, 2vw, 29px);
-      line-height: 1.08;
-    }
-    .dc-project__title span {
-      max-width: 95%;
-      font-size: clamp(13px, 1.15vw, 16px);
-      line-height: 1.45;
-    }
-
-    @media (max-width: 900px) {
-      .dc-portfolio__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        column-gap: 20px;
-        row-gap: 34px;
-      }
-      .dc-portfolio__grid > .dc-project,
-      .dc-portfolio__grid > .dc-project:nth-child(n) {
-        grid-column: auto;
-        margin: 0;
-      }
-      .dc-project__frame { aspect-ratio: 1.25 / 1; }
-    }
-    @media (max-width: 560px) {
-      .dc-portfolio__grid {
-        grid-template-columns: minmax(0, 1fr);
-        row-gap: 28px;
-      }
-      .dc-project__frame { aspect-ratio: 1.22 / 1; }
-      .dc-project__meta { margin-top: 12px; }
-      .dc-project__title { font-size: clamp(23px, 7vw, 30px); }
-      .dc-project__title span { font-size: 14px; }
-    }
-</style>
+  </style>
 </head>
 <body class="vs-page dc-page">
   <div id="navbar-placeholder"></div>
-  <main class="dc-main">
+  <main>
     <section class="dc-hero" aria-labelledby="dc-hero-title">
-      <div class="dc-shell dc-hero__inner">
-        <div class="dc-hero__top">
-          <div class="dc-hero__copy">
-            <p class="dc-eyebrow dc-hero__eyebrow">Design Consultation</p>
-            <h1 class="dc-hero__title" id="dc-hero-title">
-              <span class="dc-hero__title-line"><span>Multi-Material Manufacturing</span></span>
-              <span class="dc-hero__title-line"><span>Excellence Through Expert</span></span>
-              <span class="dc-hero__title-line"><span>Design Consultation</span></span>
-            </h1>
-            <p class="dc-hero__description">Part of the Chameza Group with 36+ years of excellence, we transform complex manufacturing challenges into comprehensive solutions across healthcare, laboratory, industrial, and HVAC sectors.</p>
+      <div class="dc-shell">
+        <div class="dc-hero__grid">
+          <div class="dc-hero__copy dc-reveal">
+            <p class="dc-eyebrow">Design Consultation / Vishal Steel Products</p>
+            <h1 class="dc-hero__title" id="dc-hero-title">Ideas shaped<br>into <span>solutions.</span></h1>
+            <p class="dc-hero__description">Part of the Chameza Group with 40+ years of excellence, we transform complex manufacturing challenges into comprehensive solutions across healthcare, laboratory, industrial, and HVAC sectors.</p>
+            <div class="dc-hero__actions">
+              <a class="dc-hero__button" href="./contact.html">Discuss your project <span>↗</span></a>
+              <a class="dc-hero__textlink" href="#expertise">Explore capabilities</a>
+            </div>
           </div>
-          <div class="dc-hero__visual" aria-hidden="true">
-            <div class="dc-orbit"></div><div class="dc-orbit dc-orbit--inner"></div>
-            <div class="dc-beam"></div><div class="dc-beam dc-beam--second"></div>
-            <div class="dc-plate dc-plate--back"></div><div class="dc-plate"></div><div class="dc-core"></div>
-            <span class="dc-visual-note">Design / Engineering / Precision</span>
-          </div>
+          <figure class="dc-hero__visual dc-reveal">
+            <img src="./assets/images/Design-Consultation.png" alt="Medical equipment design consultation" fetchpriority="high">
+            <figcaption class="dc-hero__visual-label"><span>Design / Engineering / Precision</span><span>V STEEL / 01</span></figcaption>
+          </figure>
         </div>
-        <div class="dc-hero__services" aria-label="Design consultation service categories">
-          <article class="dc-service">
+        <div class="dc-hero__bottom" aria-label="Design consultation service categories">
+          <article class="dc-service dc-reveal">
+            <span class="dc-service__index">01 / Healthcare & laboratory</span>
             <h2>Healthcare &amp; Laboratory Design</h2>
             <p>Specialized design consultation for hospital furniture, medical equipment, and all types of laboratory fume hoods with safety compliance.</p>
           </article>
-          <article class="dc-service">
+          <article class="dc-service dc-reveal">
+            <span class="dc-service__index">02 / Industrial</span>
             <h2>Industrial Solutions Design</h2>
             <p>Expert design consultation for warehouse racks, workbenches, and industrial furniture optimized for maximum efficiency and durability.</p>
           </article>
-          <article class="dc-service">
+          <article class="dc-service dc-reveal">
+            <span class="dc-service__index">03 / HVAC</span>
             <h2>HVAC System Design</h2>
             <p>Complete turnkey HVAC system design and consultation ensuring optimal climate control and air quality management for all industries.</p>
           </article>
-        </div>
-        <div class="dc-hero__footer">
-          <span>Vishal Steel Products</span>
-          <a class="dc-hero__scroll" href="#expertise">Scroll to explore</a>
-          <span>Design / Engineering / Precision</span>
         </div>
       </div>
     </section>
 
     <section class="dc-expertise" id="expertise" aria-labelledby="dc-expertise-title">
       <div class="dc-shell">
-        <header class="dc-expertise__intro dc-reveal-group">
-          <div class="dc-reveal" data-reveal="left">
+        <header class="dc-expertise__intro">
+          <div class="dc-reveal">
             <p class="dc-eyebrow">Our Expertise</p>
-            <h2 class="dc-heading" id="dc-expertise-title">Comprehensive <span class="accent">Steel Solutions</span></h2>
+            <h2 class="dc-heading" id="dc-expertise-title">Comprehensive<br><span class="accent">Steel Solutions</span></h2>
           </div>
-          <p class="dc-copy dc-reveal" data-reveal="right">From precision engineering to custom fabrication, Vishal Steel Products delivers innovative steel solutions tailored to your specific industrial and architectural requirements.</p>
+          <p class="dc-copy dc-reveal">From precision engineering to custom fabrication, Vishal Steel Products delivers innovative steel solutions tailored to your specific industrial and architectural requirements.</p>
         </header>
-        <div class="dc-expertise__statement dc-reveal" data-reveal="clip">
-          <h3>From concept to <span class="accent">confident execution.</span></h3>
+        <div class="dc-expertise__statement dc-reveal">
+          <h3>From concept to<br><span>confident execution.</span></h3>
           <p>From precision engineering to custom fabrication, Vishal Steel Products delivers innovative steel solutions tailored to your specific industrial and architectural requirements.</p>
         </div>
         <div class="dc-expertise__grid">
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Custom Steel Design</h3>
-            <p>Innovative design solutions for complex industrial and architectural steel structures, tailored to your unique specifications.</p>
-            <a href="#portfolio-healthcare">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Precision Fabrication</h3>
-            <p>State-of-the-art fabrication techniques ensuring highest quality, precision, and structural integrity for every steel component.</p>
-            <a href="#portfolio-laboratory">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Engineering Consultation</h3>
-            <p>Comprehensive technical support from concept development to final implementation, ensuring optimal steel solution design.</p>
-            <a href="#portfolio-industrial">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Industrial Steel Solutions</h3>
-            <p>Specialized steel solutions for diverse industrial applications, from manufacturing equipment to infrastructure projects.</p>
-            <a href="#portfolio-hvac">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Architectural Metalwork</h3>
-            <p>Innovative steel solutions for architectural projects, combining aesthetic design with structural excellence and durability.</p>
-            <a href="#portfolio-workstation">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
-          <article class="dc-expertise-card dc-reveal" data-reveal="rise">
-            <h3>Quality Assurance</h3>
-            <p>Rigorous quality control and testing processes ensuring highest standards of material strength, durability, and performance.</p>
-            <a href="#portfolio-commercial">Learn More <span aria-hidden="true">Ã¢â€ â€”</span></a>
-          </article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">01</span><div><h3>Custom Steel Design</h3><p>Innovative design solutions for complex industrial and architectural steel structures, tailored to your unique specifications.</p></div><a href="#portfolio-healthcare" aria-label="Learn more about Custom Steel Design">↗</a></article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">02</span><div><h3>Precision Fabrication</h3><p>State-of-the-art fabrication techniques ensuring highest quality, precision, and structural integrity for every steel component.</p></div><a href="#portfolio-laboratory" aria-label="Learn more about Precision Fabrication">↗</a></article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">03</span><div><h3>Engineering Consultation</h3><p>Comprehensive technical support from concept development to final implementation, ensuring optimal steel solution design.</p></div><a href="#portfolio-industrial" aria-label="Learn more about Engineering Consultation">↗</a></article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">04</span><div><h3>Industrial Steel Solutions</h3><p>Specialized steel solutions for diverse industrial applications, from manufacturing equipment to infrastructure projects.</p></div><a href="#portfolio-hvac" aria-label="Learn more about Industrial Steel Solutions">↗</a></article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">05</span><div><h3>Architectural Metalwork</h3><p>Innovative steel solutions for architectural projects, combining aesthetic design with structural excellence and durability.</p></div><a href="#portfolio-workstation" aria-label="Learn more about Architectural Metalwork">↗</a></article>
+          <article class="dc-expertise-card dc-reveal"><span class="dc-expertise-card__num">06</span><div><h3>Quality Assurance</h3><p>Rigorous quality control and testing processes ensuring highest standards of material strength, durability, and performance.</p></div><a href="#portfolio-commercial" aria-label="Learn more about Quality Assurance">↗</a></article>
         </div>
       </div>
     </section>
 
     <section class="dc-portfolio" id="portfolio" aria-labelledby="dc-portfolio-title">
       <div class="dc-shell">
-        <header class="dc-portfolio__intro dc-reveal-group">
-          <div class="dc-reveal" data-reveal="left">
+        <header class="dc-portfolio__intro">
+          <div class="dc-reveal">
             <p class="dc-eyebrow">Design Portfolio</p>
-            <h2 class="dc-heading" id="dc-portfolio-title">Expert Design <span class="accent">Across Industries</span></h2>
+            <h2 class="dc-heading" id="dc-portfolio-title">Expert design<br><span class="accent">across industries.</span></h2>
           </div>
-          <p class="dc-copy dc-reveal" data-reveal="right">Showcasing our design expertise in multi-material manufacturing solutions with specialized consultation services for healthcare, laboratory, industrial, and commercial sectors.</p>
+          <p class="dc-copy dc-reveal">Showcasing our design expertise in multi-material manufacturing solutions with specialized consultation services for healthcare, laboratory, industrial, and commercial sectors.</p>
         </header>
         <div class="dc-portfolio__grid">
-          <article class="dc-project dc-reveal" id="portfolio-healthcare" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation.png" alt="Medical Equipment Design Consultation" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">Healthcare Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-healthcare">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation.png" alt="Medical Equipment Design Consultation" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">Healthcare Design <span class="dc-project__number">01</span></p>
             <h3 class="dc-project__title">Healthcare Design<span>Medical Equipment Design Consultation</span></h3>
           </article>
-          <article class="dc-project dc-reveal" id="portfolio-laboratory" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation1.png" alt="Fume Hood Safety Design Solutions" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">Laboratory Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-laboratory">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation1.png" alt="Fume Hood Safety Design Solutions" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">Laboratory Design <span class="dc-project__number">02</span></p>
             <h3 class="dc-project__title">Laboratory Design<span>Fume Hood Safety Design Solutions</span></h3>
           </article>
-          <article class="dc-project dc-reveal" id="portfolio-industrial" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation2.png" alt="Warehouse Storage System Design" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">Industrial Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-industrial">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation2.png" alt="Warehouse Storage System Design" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">Industrial Design <span class="dc-project__number">03</span></p>
             <h3 class="dc-project__title">Industrial Design<span>Warehouse Storage System Design</span></h3>
           </article>
-          <article class="dc-project dc-reveal" id="portfolio-hvac" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation3.png" alt="Climate Control System Design" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">HVAC Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-hvac">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation3.png" alt="Climate Control System Design" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">HVAC Design <span class="dc-project__number">04</span></p>
             <h3 class="dc-project__title">HVAC Design<span>Climate Control System Design</span></h3>
           </article>
-          <article class="dc-project dc-reveal" id="portfolio-workstation" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation4.png" alt="Ergonomic Workbench Design" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">Workstation Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-workstation">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation4.png" alt="Ergonomic Workbench Design" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">Workstation Design <span class="dc-project__number">05</span></p>
             <h3 class="dc-project__title">Workstation Design<span>Ergonomic Workbench Design</span></h3>
           </article>
-          <article class="dc-project dc-reveal" id="portfolio-commercial" data-reveal="clip">
-            <div class="dc-project__frame"><figure class="dc-media"><img class="dc-media__image" src="./assets/images/Design-Consultation5.png" alt="Office Space Design Solutions" loading="lazy" decoding="async"></figure></div>
-            <p class="dc-project__meta">Commercial Design</p>
+          <article class="dc-project dc-reveal" id="portfolio-commercial">
+            <div class="dc-project__frame"><img src="./assets/images/Design-Consultation5.png" alt="Office Space Design Solutions" loading="lazy" decoding="async"></div>
+            <p class="dc-project__meta">Commercial Design <span class="dc-project__number">06</span></p>
             <h3 class="dc-project__title">Commercial Design<span>Office Space Design Solutions</span></h3>
           </article>
         </div>
       </div>
     </section>
+
+    <section class="dc-end">
+      <div class="dc-shell dc-end__inner dc-reveal">
+        <h2>Have a requirement to solve?<br>Let's plan the next step.</h2>
+        <a href="./contact.html">Start a conversation <span>↗</span></a>
+      </div>
+    </section>
   </main>
   <div id="footer-placeholder"></div>
+  <button class="dc-backtop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
   <script>
     (() => {
-      const page = document.querySelector('.dc-page');
-      if (!page) return;
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const hero = page.querySelector('.dc-hero');
-
-      requestAnimationFrame(() => hero?.classList.add('is-entered'));
-
-      if (reduceMotion || !('IntersectionObserver' in window)) {
-        page.querySelectorAll('.dc-reveal').forEach((element) => element.classList.add('is-visible'));
-        return;
-      }
-
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const element = entry.target;
-          element.classList.add('is-visible');
-          observer.unobserve(element);
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealItems = document.querySelectorAll(".dc-reveal");
+      if (!reduced && "IntersectionObserver" in window) {
+        document.body.classList.add("dc-motion");
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {threshold:.08, rootMargin:"0px 0px -25px 0px"});
+        revealItems.forEach((item,index) => {
+          item.style.transitionDelay = `${(index % 3) * 70}ms`;
+          observer.observe(item);
         });
-      }, { root: null, rootMargin: '0px 0px -9% 0px', threshold: 0.12 });
-
-      page.querySelectorAll('.dc-reveal').forEach((element, index) => {
-        if (element.classList.contains('dc-expertise-card')) {
-          element.style.setProperty('--reveal-delay', `${(index % 3) * 85}ms`);
-        }
-        revealObserver.observe(element);
-      });
-
-      // Recalculate reveal positions after shared navigation/footer components load.
-      document.addEventListener('vs:components-loaded', () => {
-        page.querySelectorAll('.dc-reveal:not(.is-visible)').forEach((element) => revealObserver.observe(element));
-      });
+      }
+      const backTop = document.querySelector(".dc-backtop");
+      const updateBackTop = () => backTop.classList.toggle("is-visible", window.scrollY > 280);
+      window.addEventListener("scroll", updateBackTop, {passive:true});
+      backTop.addEventListener("click", () => window.scrollTo({top:0,behavior:reduced?"auto":"smooth"}));
+      updateBackTop();
     })();
   </script>
 </body>
