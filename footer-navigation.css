@@ -1,0 +1,210 @@
+#vs-footer-navigation,
+#vs-footer-navigation * {
+  box-sizing: border-box;
+}
+
+#vs-footer-navigation {
+  position: fixed;
+  z-index: 2147483500;
+  right: 16px;
+  bottom: max(90px, calc(env(safe-area-inset-bottom) + 70px));
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#vs-footer-navigation[hidden] {
+  display: none !important;
+}
+
+.vs-footer-countdown {
+  display: grid;
+  width: min(590px, 100%);
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 18px;
+  border: 1px solid rgba(224, 180, 84, .64);
+  border-radius: 16px;
+  background: linear-gradient(112deg, #102B39, #173747);
+  box-shadow: 0 16px 48px rgba(16, 43, 57, .3);
+  color: #fff;
+  pointer-events: auto;
+  animation: vs-footer-countdown-in .32s cubic-bezier(.2, .75, .2, 1) both;
+}
+
+.vs-footer-countdown__ring {
+  position: relative;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+}
+
+.vs-footer-countdown__ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.vs-footer-countdown__track,
+.vs-footer-countdown__progress {
+  fill: none;
+  stroke-width: 3;
+}
+
+.vs-footer-countdown__track {
+  stroke: rgba(255, 255, 255, .22);
+}
+
+.vs-footer-countdown__progress {
+  stroke: #E0B454;
+  stroke-linecap: round;
+  stroke-dasharray: 163.36;
+  stroke-dashoffset: 0;
+}
+
+.vs-footer-countdown__number {
+  position: relative;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.vs-footer-countdown__number.is-changing {
+  animation: vs-footer-number-in .26s ease both;
+}
+
+.vs-footer-countdown__copy {
+  min-width: 0;
+}
+
+.vs-footer-countdown__message {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.vs-footer-countdown__next {
+  display: block;
+  color: #DCE3E7;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.vs-footer-countdown__cancel {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, .52);
+  border-radius: 22px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.vs-footer-countdown__cancel:hover {
+  transform: translateY(-1px);
+  border-color: #E0B454;
+  background: #E0B454;
+  color: #102B39;
+}
+
+.vs-footer-countdown__cancel:focus-visible {
+  outline: 3px solid #E0B454;
+  outline-offset: 3px;
+}
+
+.vs-footer-countdown__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@keyframes vs-footer-countdown-in {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes vs-footer-number-in {
+  from { opacity: 0; transform: translateY(5px) scale(.86); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 520px) {
+  #vs-footer-navigation {
+    right: 12px;
+    left: 12px;
+  }
+
+  .vs-footer-countdown {
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    gap: 11px;
+    padding: 12px;
+    border-radius: 13px;
+  }
+
+  .vs-footer-countdown__ring {
+    width: 48px;
+    height: 48px;
+  }
+
+  .vs-footer-countdown__number {
+    font-size: 21px;
+  }
+
+  .vs-footer-countdown__message {
+    font-size: 12px;
+  }
+
+  .vs-footer-countdown__next {
+    font-size: 10px;
+  }
+
+  .vs-footer-countdown__cancel {
+    min-height: 38px;
+    padding-inline: 11px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .vs-footer-countdown {
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .vs-footer-countdown__ring {
+    width: 42px;
+    height: 42px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #vs-footer-navigation *,
+  #vs-footer-navigation *::before,
+  #vs-footer-navigation *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

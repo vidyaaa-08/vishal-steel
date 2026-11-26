@@ -31,6 +31,24 @@
   const currentScript = document.currentScript;
   const scriptUrl = currentScript?.src || window.location.href;
 
+  function loadChatbot() {
+    if (document.querySelector('script[data-vs-chatbot-script]')) return;
+
+    const chatbotScript = document.createElement("script");
+    chatbotScript.src = new URL("chatbot.js", scriptUrl).href;
+    chatbotScript.dataset.vsChatbotScript = "true";
+    document.body.appendChild(chatbotScript);
+  }
+
+  function loadFooterNavigation() {
+    if (document.querySelector('script[data-vs-footer-navigation-script]')) return;
+
+    const navigationScript = document.createElement("script");
+    navigationScript.src = new URL("footer-navigation.js", scriptUrl).href;
+    navigationScript.dataset.vsFooterNavigationScript = "true";
+    document.body.appendChild(navigationScript);
+  }
+
   /* =========================================
      LOAD SHARED HTML PARTIALS
   ========================================= */
@@ -365,6 +383,7 @@
       new CustomEvent("vs:components-loaded")
     );
 
+    loadFooterNavigation();
     console.info("V STEEL shared components initialized.");
   }
 
@@ -373,6 +392,7 @@
   ========================================= */
 
   initializeBackToTop();
+  loadChatbot();
 
   initializeSharedComponents().catch((error) => {
     console.error(

@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en" class="vs-html">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore steel locker solutions from Vishal Steel Products for office, education, medical, fitness, industrial and warehouse environments.">
-  <meta name="theme-color" content="#202124">
-  <title>Steel Lockers | V STEEL</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Explore steel locker solutions from Vishal Steel Products for office, education, medical, fitness, industrial and warehouse environments." name="description"/>
+<meta content="#202124" name="theme-color"/>
+<title>Steel Lockers | V STEEL</title>
+<script defer="" src="./chatbot.js"></script>
+<script defer="" src="./footer-navigation.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <style>
 /* Shared V STEEL styles â€” embedded from the existing homepage bundle. */
 
@@ -4677,467 +4678,226 @@ body {
   }
 }
 
+
+/* ===== V STEEL LOCKER PAGE — COMPLETE VISUAL REDESIGN ===== */
+.vsl-page{--lk-navy:#102b39;--lk-blue:#173747;--lk-gold:#c79a3e;--lk-ivory:#f4f5f3;--lk-ink:#172b35;--lk-muted:#6d7b81;background:#f4f5f3;color:var(--lk-ink);font-family:"DM Sans",Arial,sans-serif;overflow:hidden}
+.vsl-page *{box-sizing:border-box}
+.vsl-page .lk-wrap{width:min(1240px,calc(100% - 56px));margin-inline:auto}
+.vsl-page .lk-kicker{display:inline-flex;align-items:center;gap:12px;color:var(--lk-gold);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.vsl-page .lk-kicker:before{content:"";width:30px;height:1px;background:currentColor}
+.vsl-page .lk-heading{font:700 clamp(36px,5vw,64px)/1.02 Manrope,Arial,sans-serif;letter-spacing:-.055em;color:var(--lk-navy);margin:15px 0 20px}
+.vsl-page .lk-copy{font-size:14px;line-height:1.85;color:var(--lk-muted);max-width:560px}
+.vsl-page .lk-btn{display:inline-flex;align-items:center;gap:24px;padding:16px 21px;background:var(--lk-gold);color:var(--lk-navy);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:.3s;border:1px solid var(--lk-gold)}
+.vsl-page .lk-btn:hover{background:#e0b454;transform:translateY(-3px);box-shadow:0 14px 30px #0002}
+.vsl-page .lk-btn--line{background:transparent;color:white;border-color:#ffffff70}
+.vsl-page .lk-btn--line:hover{background:white;color:var(--lk-navy)}
+/* Hero */
+.vsl-page .lk-hero{position:relative;min-height:680px;background:var(--lk-navy);color:#fff;isolation:isolate;display:flex;align-items:center}
+.vsl-page .lk-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 74% 48%,#4b697655,transparent 37%),linear-gradient(110deg,#0d2530 0%,#102b39 58%,#1b3b49 100%)}
+.vsl-page .lk-hero:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,transparent,#000)}
+.vsl-page .lk-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:78px 0 92px}
+.vsl-page .lk-hero h1{font:800 clamp(54px,7.4vw,96px)/.94 Manrope,Arial,sans-serif;letter-spacing:-.075em;margin:23px 0 25px;color:#fff}
+.vsl-page .lk-hero h1 em{font-style:normal;color:#e0b454}
+.vsl-page .lk-hero .lk-copy{color:#c1cdd1;font-size:15px;max-width:520px}
+.vsl-page .lk-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.vsl-page .lk-hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px;padding-top:20px;border-top:1px solid #ffffff26}
+.vsl-page .lk-hero-meta strong{display:block;font:700 21px Manrope;color:#fff}
+.vsl-page .lk-hero-meta span{display:block;margin-top:4px;color:#aebdc2;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.vsl-page .lk-hero-product{height:500px;position:relative;display:grid;place-items:center}
+.vsl-page .lk-orbit{position:absolute;width:min(38vw,440px);aspect-ratio:1;border:1px solid #ffffff24;border-radius:50%;box-shadow:0 0 0 42px #ffffff08,0 0 0 88px #ffffff05}
+.vsl-page .lk-slide{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(18px) scale(.94);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.vsl-page .lk-slide.is-active{opacity:1;transform:none}
+.vsl-page .lk-slide img{height:430px;width:auto;max-width:88%;object-fit:contain;filter:drop-shadow(18px 26px 22px #0009)}
+.vsl-page .lk-slide-name{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#dce4e7;white-space:nowrap}
+.vsl-page .lk-slider-dots{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
+.vsl-page .lk-slider-dots button{width:7px;height:7px;border:0;border-radius:20px;background:#ffffff55;padding:0;cursor:pointer;transition:.25s}
+.vsl-page .lk-slider-dots button.is-active{width:25px;background:var(--lk-gold)}
+.vsl-page .lk-float-note{position:absolute;right:-5px;bottom:22px;padding:16px 18px;background:#ffffff13;border:1px solid #ffffff35;backdrop-filter:blur(10px);max-width:190px}
+.vsl-page .lk-float-note b{display:block;color:white;font:700 12px Manrope;margin-bottom:5px}
+.vsl-page .lk-float-note span{font-size:10px;line-height:1.55;color:#c4d0d4}
+/* Trust bar */
+.vsl-page .lk-proof{background:#fff;border-bottom:1px solid #e1e6e8}
+.vsl-page .lk-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:25px 0}
+.vsl-page .lk-proof-item{padding:5px 25px;border-right:1px solid #e0e5e7}
+.vsl-page .lk-proof-item:first-child{padding-left:0}.vsl-page .lk-proof-item:last-child{border:0}
+.vsl-page .lk-proof-item b{display:block;color:var(--lk-navy);font:800 21px Manrope}
+.vsl-page .lk-proof-item span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#7a878c}
+/* Product range */
+.vsl-page .lk-range{padding:110px 0;background:#f4f5f3}
+.vsl-page .lk-section-top{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:42px}
+.vsl-page .lk-section-top>div{max-width:690px}.vsl-page .lk-section-top .lk-copy{max-width:400px;margin-bottom:4px}
+.vsl-page .lk-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.vsl-page .lk-product{background:#fff;border:1px solid #e2e8ea;transition:transform .35s,box-shadow .35s;min-width:0}
+.vsl-page .lk-product:hover{transform:translateY(-8px);box-shadow:0 22px 55px #102b391c}
+.vsl-page .lk-product-visual{height:300px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#edf0f1,#dce3e6)}
+.vsl-page .lk-product-visual:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #fff; border-radius:50%;box-shadow:0 0 0 28px #ffffff55,0 0 0 58px #ffffff35}
+.vsl-page .lk-product-visual img{position:relative;z-index:1;max-width:82%;height:255px;object-fit:contain;filter:drop-shadow(10px 14px 12px #1b33372b);transition:transform .5s}
+.vsl-page .lk-product:hover .lk-product-visual img{transform:scale(1.06) rotate(-1deg)}
+.vsl-page .lk-product-index{position:absolute;top:16px;left:17px;z-index:2;color:#718087;font-size:9px;letter-spacing:.16em}
+.vsl-page .lk-product-body{padding:22px 20px 24px}
+.vsl-page .lk-product-type{font-size:9px;color:var(--lk-gold);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.vsl-page .lk-product h3{font:700 18px/1.2 Manrope;color:var(--lk-navy);margin:10px 0}
+.vsl-page .lk-product p{font-size:11px;line-height:1.7;color:#6d7b81;min-height:57px;margin-bottom:16px}
+.vsl-page .lk-product-link{display:inline-flex;gap:10px;align-items:center;color:var(--lk-navy);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+.vsl-page .lk-product-link span{color:var(--lk-gold);font-size:18px;transition:.2s}
+.vsl-page .lk-product-link:hover span{transform:translateX(5px)}
+/* Product detail spotlight */
+.vsl-page .lk-spotlight{background:var(--lk-navy);color:white;padding:105px 0;position:relative;overflow:hidden}
+.vsl-page .lk-spotlight:after{content:"V";position:absolute;right:-30px;bottom:-190px;font:800 520px Manrope;color:#ffffff08;line-height:1}
+.vsl-page .lk-spot-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.vsl-page .lk-spotlight .lk-heading{color:white}
+.vsl-page .lk-spotlight .lk-copy{color:#b8c7cc}
+.vsl-page .lk-benefits{display:grid;gap:0;margin-top:30px}
+.vsl-page .lk-benefit{display:grid;grid-template-columns:42px 1fr;gap:15px;padding:17px 0;border-top:1px solid #ffffff25}
+.vsl-page .lk-benefit-num{color:var(--lk-gold);font:700 12px Manrope}
+.vsl-page .lk-benefit h3{font:700 14px Manrope;color:#fff;margin:0 0 5px}
+.vsl-page .lk-benefit p{font-size:11px;color:#afbec3;line-height:1.6;margin:0}
+.vsl-page .lk-feature-image{height:470px;position:relative;display:grid;place-items:center;background:radial-gradient(circle,#46616d 0,transparent 65%)}
+.vsl-page .lk-feature-image img{height:420px;max-width:90%;object-fit:contain;filter:drop-shadow(18px 25px 24px #0009)}
+.vsl-page .lk-image-caption{position:absolute;bottom:12px;right:10px;color:#d5dfe2;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+/* Application environments */
+.vsl-page .lk-applications{padding:108px 0;background:#fff}
+.vsl-page .lk-app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.vsl-page .lk-app-card{position:relative;min-height:310px;overflow:hidden;background:#183746;color:#fff;display:flex;flex-direction:column;justify-content:end;padding:23px}
+.vsl-page .lk-app-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#102b39 0%,#102b39cc 25%,#102b3920 100%),radial-gradient(circle at 60% 25%,#8fa0a64a,transparent 48%);transition:transform .6s}
+.vsl-page .lk-app-card:hover:before{transform:scale(1.12)}
+.vsl-page .lk-app-card:after{content:"";position:absolute;top:65px;left:24px;width:64px;height:100px;border:1px solid #ffffff8c;opacity:.75}
+.vsl-page .lk-app-card:nth-child(2):after{width:85px;height:76px;background:repeating-linear-gradient(to bottom,transparent 0 22px,#ffffff55 23px 24px)}
+.vsl-page .lk-app-card:nth-child(3):after{width:82px;height:110px;border-width:5px}
+.vsl-page .lk-app-card:nth-child(4):after{width:72px;height:90px;box-shadow:12px 0 0 -1px #183746,12px 0 0 0 #ffffff8c}
+.vsl-page .lk-app-card>*{position:relative;z-index:1}
+.vsl-page .lk-app-card small{font-size:9px;letter-spacing:.16em;color:#e0b454;margin-bottom:10px}
+.vsl-page .lk-app-card h3{font:700 18px Manrope;margin:0 0 8px}
+.vsl-page .lk-app-card p{font-size:11px;line-height:1.65;color:#c4d0d4;margin:0}
+/* Specification & process */
+.vsl-page .lk-spec{padding:105px 0;background:#e8edef}
+.vsl-page .lk-spec-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+.vsl-page .lk-spec-panel{background:#fff;padding:32px 34px;box-shadow:0 20px 55px #102b3914}
+.vsl-page .lk-spec-panel h3{font:700 18px Manrope;color:var(--lk-navy);margin:0 0 15px}
+.vsl-page .lk-spec-row{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #e4e9eb;font-size:11px}
+.vsl-page .lk-spec-row:last-child{border:0}
+.vsl-page .lk-spec-row span{color:#78868b}.vsl-page .lk-spec-row b{color:var(--lk-navy);text-align:right}
+.vsl-page .lk-process{padding:100px 0;background:#fff}
+.vsl-page .lk-process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #dce3e7}
+.vsl-page .lk-process-step{padding:27px 28px 12px 0;border-right:1px solid #dce3e7}
+.vsl-page .lk-process-step:not(:first-child){padding-left:28px}
+.vsl-page .lk-process-step:last-child{border:0}
+.vsl-page .lk-process-step b{display:block;color:var(--lk-gold);font:700 38px Manrope;margin-bottom:25px}
+.vsl-page .lk-process-step h3{font:700 17px Manrope;color:var(--lk-navy);margin:0 0 9px}
+.vsl-page .lk-process-step p{font-size:11px;line-height:1.7;margin:0;color:#6d7b81}
+/* CTA */
+.vsl-page .lk-cta{padding:78px 0;background:var(--lk-gold)}
+.vsl-page .lk-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.vsl-page .lk-cta .lk-heading{font-size:clamp(32px,4vw,49px);margin:12px 0 9px}
+.vsl-page .lk-cta .lk-copy{color:#344c56;margin:0}
+.vsl-page .lk-cta .lk-btn{background:var(--lk-navy);border-color:var(--lk-navy);color:white}
+.vsl-page .lk-cta .lk-btn:hover{background:#21495c}
+.vsl-page .lk-reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.vsl-page .lk-reveal.is-visible{opacity:1;transform:none}
+@media(max-width:1050px){.vsl-page .lk-products{grid-template-columns:repeat(2,1fr)}.vsl-page .lk-app-grid{grid-template-columns:repeat(2,1fr)}.vsl-page .lk-hero-grid{grid-template-columns:1fr .9fr}.vsl-page .lk-spot-grid{gap:35px}}
+@media(max-width:700px){.vsl-page .lk-wrap{width:calc(100% - 34px)}.vsl-page .lk-hero{min-height:auto}.vsl-page .lk-hero-grid{grid-template-columns:1fr;padding:68px 0 70px;gap:0}.vsl-page .lk-hero h1{font-size:clamp(48px,13vw,70px)}.vsl-page .lk-hero-product{height:370px;margin-top:10px}.vsl-page .lk-slide img{height:320px;max-width:85%}.vsl-page .lk-orbit{width:300px}.vsl-page .lk-float-note{right:0;bottom:12px}.vsl-page .lk-hero-meta{gap:18px;margin-top:35px}.vsl-page .lk-proof-grid{grid-template-columns:repeat(2,1fr);row-gap:18px}.vsl-page .lk-proof-item{padding:5px 12px}.vsl-page .lk-proof-item:nth-child(2){border:0}.vsl-page .lk-proof-item:first-child{padding-left:0}.vsl-page .lk-range,.vsl-page .lk-applications,.vsl-page .lk-spec,.vsl-page .lk-process{padding:72px 0}.vsl-page .lk-section-top{display:block;margin-bottom:28px}.vsl-page .lk-section-top .lk-copy{margin-top:12px}.vsl-page .lk-products{gap:10px}.vsl-page .lk-product-visual{height:225px}.vsl-page .lk-product-visual img{height:190px}.vsl-page .lk-product-body{padding:16px 13px 18px}.vsl-page .lk-product h3{font-size:15px}.vsl-page .lk-product p{font-size:10px;min-height:70px}.vsl-page .lk-spotlight{padding:75px 0}.vsl-page .lk-spot-grid,.vsl-page .lk-spec-grid{grid-template-columns:1fr;gap:25px}.vsl-page .lk-feature-image{height:350px;grid-row:1}.vsl-page .lk-feature-image img{height:320px}.vsl-page .lk-app-grid{gap:10px}.vsl-page .lk-app-card{min-height:250px;padding:16px}.vsl-page .lk-app-card h3{font-size:15px}.vsl-page .lk-spec-panel{padding:23px 18px}.vsl-page .lk-process-grid{grid-template-columns:1fr}.vsl-page .lk-process-step,.vsl-page .lk-process-step:not(:first-child){padding:22px 0;border-right:0;border-bottom:1px solid #dce3e7}.vsl-page .lk-process-step:last-child{border-bottom:0}.vsl-page .lk-cta-inner{display:block}.vsl-page .lk-cta .lk-btn{margin-top:23px}}
+@media(max-width:390px){.vsl-page .lk-products{grid-template-columns:1fr}.vsl-page .lk-product-visual{height:250px}.vsl-page .lk-product-visual img{height:220px}.vsl-page .lk-app-grid{grid-template-columns:1fr}.vsl-page .lk-app-card{min-height:220px}}
+@media(prefers-reduced-motion:reduce){.vsl-page .lk-reveal{opacity:1;transform:none}.vsl-page .lk-slide,.vsl-page .lk-product,.vsl-page .lk-product-visual img{transition:none}}
+
 </style>
 </head>
-
-<body class="vs-page vs-page--lockers">
-  <div id="navbar-placeholder"></div>
-  <main class="vsl-page">
-    <section class="vsl-hero" aria-labelledby="vsl-hero-title">
-  <div class="vsl-hero__background" aria-hidden="true">
-    <img
-      src="assets/images/product7.png"
-      alt=""
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    >
-  </div>
-
-    
-<div class="vsl-container vsl-hero__inner"><div class="vsl-hero__copy">
-    <p class="vsl-eyebrow">V STEEL / STORAGE SOLUTIONS</p>
-    <h1 id="vsl-hero-title">
-      <span data-vsl-title-line>Steel</span>
-      <span data-vsl-title-line>Lockers</span>
-    </h1>
-    <p class="vsl-hero__lead">Secure storage solutions for employee belongings and documents.</p>
-    <a class="vsl-link vsl-link--light" href="#vsl-solutions">Explore locker solutions <span aria-hidden="true">â†“</span></a>
-  </div>
-
-  <aside class="vsl-hero__index" aria-label="Locker applications">
-    <p class="vsl-eyebrow">Locker applications</p>
-    <ul>
-      <li>Office &amp; staff</li>
-      <li>Gym &amp; security</li>
-      <li>Industrial &amp; storage</li>
-    </ul>
-    <span class="vsl-hero__rule" aria-hidden="true"></span>
-  </aside>
-
-</div>
-
-      <p class="vsl-hero__edge" aria-hidden="true">VISHAL STEEL PRODUCTS <span>â€”</span> LOCKERS</p>
-    </section>
-
-    <section class="vsl-solutions" id="vsl-solutions" aria-labelledby="vsl-solutions-title" data-scroll-reveal="rise">
-      <div class="vsl-container vsl-solutions__layout">
-        <header class="vsl-section-heading" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Storage, considered</p>
-          <h2 id="vsl-solutions-title">Comprehensive<br><span>Locker Solutions</span></h2>
-        </header>
-        <div class="vsl-solutions__copy" data-vsl-reveal="right">
-          <p>Vishal Steel Products is a leading manufacturer and supplier of high-quality steel products, including stainless steel, alloy steel, and carbon steel solutions, committed to excellence and customer satisfaction.</p>
-          <p>We manufacture complete commercial furniture solutions for luxury hotels, offices, and hospitality sectors. Our expertise includes office furniture (ergonomic desks, chairs, cubicles), hospitality furniture (restaurant tables, bar stools, hotel beds, dressers), and comprehensive storage solutions including office lockers, security lockers, employee lockers, file cabinets, and storage compactors for all commercial needs.</p>
-        </div>
-      </div>
-      <div class="vsl-container vsl-solutions__rail" aria-label="Locker solution environments">
-        <span>Workplaces</span><span>Shared spaces</span><span>Industrial facilities</span><span>Storage environments</span>
-      </div>
-    </section>
-
-    <section class="vsl-application vsl-application--office" aria-labelledby="vsl-office-title" data-scroll-reveal="left">
-      <div class="vsl-container vsl-application__layout">
-        <p class="vsl-application__index" data-vsl-reveal="left">01 / OFFICE &amp; STAFF</p>
-        <div class="vsl-application__copy" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Everyday storage</p>
-          <h2 id="vsl-office-title">Office and<br>Staff Lockers</h2>
-          <p>Secure storage solutions for employee belongings and documents.</p>
-          <a class="vsl-link" href="#vsl-product-details">View product details <span aria-hidden="true">â†˜</span></a>
-        </div>
-        <div class="vsl-application__note" data-vsl-reveal="right">
-          <span class="vsl-application__line" aria-hidden="true"></span>
-          <p>Office lockers<br>Employee lockers<br>Document storage</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-application vsl-application--gym" aria-labelledby="vsl-gym-title" data-scroll-reveal="right">
-      <div class="vsl-container vsl-application__layout">
-        <p class="vsl-application__index" data-vsl-reveal="right">02 / GYM &amp; SECURITY</p>
-        <div class="vsl-application__copy" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Personal storage</p>
-          <h2 id="vsl-gym-title">Gym and<br>Security Lockers</h2>
-          <p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p>
-        </div>
-        <div class="vsl-application__note" data-vsl-reveal="left">
-          <span class="vsl-application__line" aria-hidden="true"></span>
-          <p>Schools<br>Gyms<br>Offices</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-application vsl-application--industrial" aria-labelledby="vsl-industrial-title" data-scroll-reveal="rise">
-      <div class="vsl-container vsl-application__layout">
-        <p class="vsl-application__index" data-vsl-reveal="left">03 / INDUSTRIAL &amp; STORAGE</p>
-        <div class="vsl-application__copy" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Made for demanding environments</p>
-          <h2 id="vsl-industrial-title">Industrial and<br>Storage Lockers</h2>
-          <p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p>
-        </div>
-        <div class="vsl-application__note" data-vsl-reveal="right">
-          <span class="vsl-application__line" aria-hidden="true"></span>
-          <p>Industrial furniture<br>Reinforced cabinets<br>Storage systems</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-comprehensive" aria-labelledby="vsl-comprehensive-title" data-scroll-reveal="rise">
-      <div class="vsl-container vsl-comprehensive__inner">
-        <div class="vsl-comprehensive__mark" aria-hidden="true">V / STEEL</div>
-        <div class="vsl-comprehensive__copy" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Engineered across industries</p>
-          <h2 id="vsl-comprehensive-title">Comprehensive Steel<br>Locker Solutions</h2>
-          <p>Comprehensive steel, metal, and wood furniture solutions for laboratories, hospitals, offices, and industrial facilities.</p>
-        </div>
-        <p class="vsl-comprehensive__aside" data-vsl-reveal="left">From shared workspaces to specialized environments, explore locker categories shaped around the spaces they serve.</p>
-      </div>
-    </section>
-
-    <section class="vsl-categories" aria-labelledby="vsl-categories-title" data-scroll-reveal="left">
-      <div class="vsl-container">
-        <header class="vsl-section-heading vsl-section-heading--wide" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Six locker categories</p>
-          <h2 id="vsl-categories-title">Storage for<br><span>Every Setting</span></h2>
-          <p>Explore the locker categories listed for the environments V STEEL serves.</p>
-        </header>
-
-        <div class="vsl-category-list">
-          <article class="vsl-category" data-vsl-reveal="left">
-            <span class="vsl-category__icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
-            <h3>Industrial Lockers</h3>
-            <p>For industrial workplaces and shared staff storage.</p>
-          </article>
-          <article class="vsl-category" data-vsl-reveal="right">
-            <span class="vsl-category__icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
-            <h3>Office Lockers</h3>
-            <p>Secure storage solutions for employee belongings and documents.</p>
-          </article>
-          <article class="vsl-category" data-vsl-reveal="left">
-            <span class="vsl-category__icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
-            <h3>Educational Lockers</h3>
-            <p>For students and staff in educational settings.</p>
-          </article>
-          <article class="vsl-category" data-vsl-reveal="right">
-            <span class="vsl-category__icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></span>
-            <h3>Medical Lockers</h3>
-            <p>For staff storage in medical environments.</p>
-          </article>
-          <article class="vsl-category" data-vsl-reveal="left">
-            <span class="vsl-category__icon"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i></span>
-            <h3>Gym &amp; Fitness Lockers</h3>
-            <p>For personal storage in gyms and shared changing areas.</p>
-          </article>
-          <article class="vsl-category" data-vsl-reveal="right">
-            <span class="vsl-category__icon"><i class="fa-solid fa-warehouse" aria-hidden="true"></i></span>
-            <h3>Warehouse Lockers</h3>
-            <p>For belongings and workwear in warehouse environments.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-gallery" aria-labelledby="vsl-gallery-title" data-scroll-reveal="right">
-      <div class="vsl-container">
-        <header class="vsl-section-heading vsl-section-heading--wide" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Our collection</p>
-          <h2 id="vsl-gallery-title">Our Lockers</h2>
-          <p>Explore Our Steel Locker Collection</p>
-        </header>
-        <div class="vsl-gallery__grid">
-          <figure class="vsl-gallery__item vsl-gallery__item--01" data-vsl-gallery-reveal="left">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 1: Steel Locker Manufacturing -->
-              <img alt="Steel Locker Manufacturing" data-image-src="assets/images/locker1.png" data-image-srcset="" width="1600" height="1040" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 58vw">
-            </div>
-            <figcaption>Steel Locker Manufacturing</figcaption>
-          </figure>
-          <figure class="vsl-gallery__item vsl-gallery__item--02" data-vsl-gallery-reveal="center">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 2: Multiple Compartment Steel Lockers -->
-              <img alt="Multiple Compartment Steel Lockers" data-image-src="assets/images/locker2.png" data-image-srcset="" width="1000" height="1420" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 38vw">
-            </div>
-            <figcaption>Multiple Compartment Steel Lockers</figcaption>
-          </figure>
-          <figure class="vsl-gallery__item vsl-gallery__item--03" data-vsl-gallery-reveal="bottom">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 3: Modern Office Locker Installation -->
-              <img alt="Modern Office Locker Installation" data-image-src="assets/images/locker3.png" data-image-srcset="" width="1200" height="900" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 42vw">
-            </div>
-            <figcaption>Modern Office Locker Installation</figcaption>
-          </figure>
-          <figure class="vsl-gallery__item vsl-gallery__item--04" data-vsl-gallery-reveal="right">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 4: Industrial Heavy-Duty Lockers -->
-              <img alt="Industrial Heavy-Duty Lockers" data-image-src="assets/images/locker4.png" data-image-srcset="" width="1500" height="980" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 55vw">
-            </div>
-            <figcaption>Industrial Heavy-Duty Lockers</figcaption>
-          </figure>
-          <figure class="vsl-gallery__item vsl-gallery__item--05" data-vsl-gallery-reveal="bottom">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 5: School & Educational Lockers -->
-              <img alt="School &amp; Educational Lockers" data-image-src="assets/images/locker5.png" data-image-srcset="" width="1200" height="900" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 62vw">
-            </div>
-            <figcaption>School &amp; Educational Lockers</figcaption>
-          </figure>
-          <figure class="vsl-gallery__item vsl-gallery__item--06" data-vsl-gallery-reveal="center">
-            <div class="vsl-gallery__image">
-              <!-- IMAGE SLOT 6: Customized Steel Locker Solutions -->
-              <img alt="Customized Steel Locker Solutions" data-image-src="assets/images/locker6.png" data-image-srcset="" width="1000" height="1320" loading="lazy" decoding="async" sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 34vw">
-            </div>
-            <figcaption>Customized Steel Locker Solutions</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-product-details" id="vsl-product-details" aria-labelledby="vsl-product-details-title" data-scroll-reveal="rise">
-      <div class="vsl-container">
-        <header class="vsl-section-heading" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Locker specifications</p>
-          <h2 id="vsl-product-details-title">Product Details</h2>
-        </header>
-        <div class="vsl-product-details__list">
-          <article class="vsl-product-detail" data-vsl-reveal="left">
-            <p class="vsl-product-detail__label">Storage / Office</p>
-            <div>
-              <h3>Security Office Locker</h3>
-              <p>Secure storage solutions for employee belongings and documents.</p>
-            </div>
-          </article>
-          <article class="vsl-product-detail" data-vsl-reveal="right">
-            <p class="vsl-product-detail__label">Storage / Personal</p>
-            <div>
-              <h3>Metal Locker</h3>
-              <p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="vsl-overview" aria-labelledby="vsl-overview-title" data-scroll-reveal="rise">
-      <div class="vsl-container vsl-overview__layout">
-        <div class="vsl-overview__copy" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">V STEEL / Storage</p>
-          <h2 id="vsl-overview-title">Product Overview</h2>
-          <p>Comprehensive storage solutions including office lockers, security lockers, employee lockers, file cabinets, and storage compactors for all commercial needs.</p>
-        </div>
-        <ul class="vsl-overview__list" aria-label="Locker categories">
-          <li>Industrial Lockers</li>
-          <li>Office Lockers</li>
-          <li>Educational Lockers</li>
-          <li>Medical Lockers</li>
-          <li>Gym &amp; Fitness Lockers</li>
-          <li>Warehouse Lockers</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="vsl-faq" aria-labelledby="vsl-faq-title" data-scroll-reveal="left">
-      <div class="vsl-container vsl-faq__layout">
-        <header class="vsl-section-heading" data-vsl-reveal="rise">
-          <p class="vsl-eyebrow">Questions &amp; answers</p>
-          <h2 id="vsl-faq-title">Interactive<br><span>Accordion</span></h2>
-        </header>
-        <div class="vsl-accordion">
-          <details class="vsl-accordion__item">
-            <summary><span>Which locker categories are included?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
-            <div class="vsl-accordion__answer"><p>Industrial Lockers, Office Lockers, Educational Lockers, Medical Lockers, Gym &amp; Fitness Lockers, and Warehouse Lockers.</p></div>
-          </details>
-          <details class="vsl-accordion__item">
-            <summary><span>What is the Security Office Locker designed for?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
-            <div class="vsl-accordion__answer"><p>Secure storage solutions for employee belongings and documents.</p></div>
-          </details>
-          <details class="vsl-accordion__item">
-            <summary><span>What does the Metal Locker feature?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
-            <div class="vsl-accordion__answer"><p>Secure personal storage lockers with individual compartments. Features ventilation slots, master key system, and durable construction ideal for schools, gyms, and offices.</p></div>
-          </details>
-          <details class="vsl-accordion__item">
-            <summary><span>How does V STEEL address product durability?</span><span class="vsl-accordion__icon" aria-hidden="true"></span></summary>
-            <div class="vsl-accordion__answer"><p>Our industrial furniture line, including high-performance lockers, reinforced cabinets, ergonomic trolleys, and precision-engineered workbenches, undergoes rigorous quality testing and features advanced corrosion-resistant treatments for exceptional longevity.</p></div>
-          </details>
-        </div>
-      </div>
-    </section>
-  <section class="vsl-added-section" id="vsl-added-section" data-scroll-reveal="right">
-  <div class="vsl-container">
-    <header class="vsl-section-heading" data-vsl-reveal="rise">
-      <h2>Comprehensive Locker Solutions</h2>
-    </header>
-    <div class="vsl-added-content" data-vsl-reveal="right">
-      <p>Vishal Steel Products offers a diverse range of high-quality steel lockers designed to meet various storage needs across industries. Our lockers combine security, durability, and versatility to provide optimal storage solutions.</p>
+<body>
+<div id="navbar-placeholder"></div>
+<main class="vsl-page">
+<section class="lk-hero">
+  <div class="lk-wrap lk-hero-grid">
+    <div class="lk-hero-copy lk-reveal">
+      <span class="lk-kicker">V STEEL / STORAGE SOLUTIONS</span>
+      <h1>Storage,<br><em>reimagined.</em></h1>
+      <p class="lk-copy">Steel locker solutions designed for the way people work, move and store. From personal spaces to demanding industrial environments, find a configuration that fits.</p>
+      <div class="lk-hero-actions"><a class="lk-btn" href="#locker-range">Explore the collection <span>↗</span></a><a class="lk-btn lk-btn--line" href="#locker-enquiry">Discuss your requirement</a></div>
+      <div class="lk-hero-meta"><div><strong>1986</strong><span>Established</span></div><div><strong>40+ Years</strong><span>Industry experience</span></div><div><strong>V STEEL</strong><span>Built on reliability</span></div></div>
     </div>
-  </div>
-
-  <!-- Office and Staff Lockers -->
-  <section class="vsl-application vsl-application--office" aria-labelledby="vsl-office-title-added" data-scroll-reveal="rise">
-    <div class="vsl-container vsl-application__layout">
-      <p class="vsl-application__index" data-vsl-reveal="left">01 / OFFICE &amp; STAFF</p>
-      <div class="vsl-application__copy" data-vsl-reveal="rise">
-        <h2 id="vsl-office-title-added">Office and Staff Lockers</h2>
-        <p>Precision-engineered office and staff lockers designed for professional environments. Secure personal storage solutions with sleek designs, multiple compartment options, and robust construction to meet the diverse needs of modern workplaces.</p>
-        <p>Image Label: Office &amp; Staff Locker</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gym and Security Lockers -->
-  <section class="vsl-application vsl-application--gym" aria-labelledby="vsl-gym-title-added" data-scroll-reveal="rise">
-    <div class="vsl-container vsl-application__layout">
-      <p class="vsl-application__index" data-vsl-reveal="right">02 / GYM &amp; SECURITY</p>
-      <div class="vsl-application__copy" data-vsl-reveal="rise">
-        <h2 id="vsl-gym-title-added">Gym and Security Lockers</h2>
-        <p>High-performance lockers for fitness centers and security-critical areas. Moisture-resistant gym lockers with ventilation, and ultra-secure lockers with advanced locking mechanisms for maximum protection in sensitive environments.</p>
-        <p>Image Label: Security &amp; Gym Locker</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industrial and Storage Lockers -->
-  <section class="vsl-application vsl-application--industrial" aria-labelledby="vsl-industrial-title-added" data-scroll-reveal="left">
-    <div class="vsl-container vsl-application__layout">
-      <p class="vsl-application__index" data-vsl-reveal="left">03 / INDUSTRIAL &amp; STORAGE</p>
-      <div class="vsl-application__copy" data-vsl-reveal="rise">
-        <h2 id="vsl-industrial-title-added">Industrial and Storage Lockers</h2>
-        <p>Robust industrial lockers built to withstand harsh environments. Ideal for warehouses, factories, and heavy-duty storage needs. Featuring rugged construction, customizable configurations, and maximum durability for critical industrial applications.</p>
-        <p>Image Label: Industrial &amp; Storage Locker</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product Details Section -->
-
-<section class="vsl-product-details" id="vsl-product-details-added" aria-labelledby="vsl-product-details-title-added" data-scroll-reveal="right">
-  <div class="vsl-container">
-
-    <header class="vsl-section-heading" data-vsl-reveal="rise">
-      <h2 id="vsl-product-details-title-added">Product Details</h2>
-    </header>
-
-    <div class="vsl-product-details__list">
-
-      <article class="vsl-product-detail" data-vsl-reveal="left">
-        <p class="vsl-product-detail__label">
-          <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
-          Office lockers - Staff lockers Manufacturer
-        </p>
-
-        <div>
-          <div class="vsl-detail-item">
-            <h3><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Material</h3>
-            <p>Steel, wood</p>
-          </div>
-
-          <div class="vsl-detail-item">
-            <h3><i class="fa-solid fa-cubes" aria-hidden="true"></i> No. of Units</h3>
-            <p>Customizable to meet specific requirements.</p>
-          </div>
-
-          <div class="vsl-detail-item">
-            <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Usage/Applications</h3>
-            <p>Suitable for banks, offices, schools, colleges, and various other industries.</p>
-          </div>
-
-          <div class="vsl-detail-item">
-            <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Key Features</h3>
-            <p>A key feature of Vishal Steel Products Office Lockers is their customizable design, allowing for easy integration into various office layouts.</p>
-          </div>
-
-          <div class="vsl-detail-item">
-            <h3><i class="fa-solid fa-palette" aria-hidden="true"></i> Colors Options</h3>
-            <p>Choose from a diverse range of colors to suit personal preferences and needs.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="vsl-product-detail" data-vsl-reveal="right">
-        <p class="vsl-product-detail__label">
-          <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-          Product Overview
-        </p>
-
-        <p>We are a reputable supplier of lockers, specializing in crafting customized solutions to cater to our clients' specific needs. Our dedication to excellence and creativity allows us to provide unique storage solutions that elevate the aesthetics and efficiency of workspaces.</p>
-      </article>
-
+    <div class="lk-hero-product lk-reveal" id="lkHeroSlider">
+      <div class="lk-orbit"></div>
+      <div class="lk-slide is-active" data-name="Office & Staff Lockers"><img src="./assets/images/office-locker.png" alt="Silver office and staff steel locker"></div>
+      <div class="lk-slide" data-name="Gym & Security Lockers"><img src="./assets/images/gym-locker.png" alt="Multi-compartment gym and security locker"></div>
+      <div class="lk-slide" data-name="Industrial Storage Lockers"><img src="./assets/images/industrial-locker.png" alt="Heavy-duty industrial steel locker"></div>
+      <div class="lk-slide" data-name="Multi-Compartment Lockers"><img src="./assets/images/multi-compartment-locker.png" alt="Nine-compartment steel locker"></div>
+      <div class="lk-slide-name" id="lkSlideName">Office & Staff Lockers</div>
+      <div class="lk-slider-dots"><button class="is-active" aria-label="Show office locker"></button><button aria-label="Show gym locker"></button><button aria-label="Show industrial locker"></button><button aria-label="Show multi-compartment locker"></button></div>
+      <div class="lk-float-note"><b>Made for your environment</b><span>Thoughtful locker formats for everyday storage needs.</span></div>
     </div>
   </div>
 </section>
 
+<div class="lk-proof"><div class="lk-wrap lk-proof-grid">
+  <div class="lk-proof-item"><b>40+ Years</b><span>Industry experience</span></div>
+  <div class="lk-proof-item"><b>1986</b><span>Established</span></div>
+  <div class="lk-proof-item"><b>Flexible</b><span>Locker configurations</span></div>
+  <div class="lk-proof-item"><b>V STEEL</b><span>Storage solutions</span></div>
+</div></div>
 
-  <!-- Detailed Locker Types -->
-  <section class="vsl-detailed-lockers" id="vsl-detailed-lockers" aria-labelledby="vsl-detailed-lockers-title" data-scroll-reveal="rise">
-    <div class="vsl-container">
-      <header class="vsl-section-heading" data-vsl-reveal="rise">
-        <h2 id="vsl-detailed-lockers-title">Locker Types</h2>
-      </header>
-      <div class="vsl-detailed-lockers__list">
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Industrial Lockers</h3>
-          <p>Robust storage solutions for demanding industrial environments.</p>
-          <ul data-vsl-locker-features>
-            <li>Heavy-duty steel construction</li>
-            <li>Resistant to harsh conditions</li>
-            <li>Multiple size configurations</li>
-            <li>Customizable locking mechanisms</li>
-          </ul>
-        </article>
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Office Lockers</h3>
-          <p>Sleek and secure storage for modern workplace environments.</p>
-          <ul data-vsl-locker-features>
-            <li>Elegant design</li>
-            <li>Personal and shared storage options</li>
-            <li>Compact and space-efficient</li>
-            <li>Available in multiple colors</li>
-          </ul>
-        </article>
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Educational Lockers</h3>
-          <p>Durable storage solutions for schools, colleges, and training centers.</p>
-          <ul data-vsl-locker-features>
-            <li>Student-friendly design</li>
-            <li>Vandal-resistant construction</li>
-            <li>Easy maintenance</li>
-            <li>Configurable compartment sizes</li>
-          </ul>
-        </article>
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Medical Lockers</h3>
-          <p>Hygienic and secure storage for healthcare facilities.</p>
-          <ul data-vsl-locker-features>
-            <li>Antimicrobial coating</li>
-            <li>Easy to clean surfaces</li>
-            <li>Sterile environment compatibility</li>
-            <li>Secure medication storage</li>
-          </ul>
-        </article>
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Gym &amp; Fitness Lockers</h3>
-          <p>Secure personal storage for fitness centers and sports facilities.</p>
-          <ul data-vsl-locker-features>
-            <li>Moisture-resistant design</li>
-            <li>Ventilated compartments</li>
-            <li>Robust digital locks</li>
-            <li>Various size options</li>
-          </ul>
-        </article>
-        <article class="vsl-detailed-lockers__card" data-scroll-reveal="rise" data-vsl-locker-card>
-          <h3>Warehouse Lockers</h3>
-          <p>Heavy-duty storage solutions for logistics and inventory management.</p>
-          <ul data-vsl-locker-features>
-            <li>Maximum load-bearing capacity</li>
-            <li>Modular and stackable design</li>
-            <li>Weather-resistant construction</li>
-            <li>Inventory tracking compatibility</li>
-          </ul>
-        </article>
+<section class="lk-range" id="locker-range">
+  <div class="lk-wrap">
+    <div class="lk-section-top lk-reveal"><div><span class="lk-kicker">THE COLLECTION</span><h2 class="lk-heading">A locker for every<br>kind of space.</h2></div><p class="lk-copy">Explore our core locker categories. Each range is presented with a distinct configuration and purpose, so you can identify the right starting point for your project.</p></div>
+    <div class="lk-products">
+      <article class="lk-product lk-reveal"><div class="lk-product-visual"><span class="lk-product-index">01 / OFFICE SERIES</span><img src="./locker_assets/office-locker.png" alt="Office and staff locker"></div><div class="lk-product-body"><span class="lk-product-type">Workplace storage</span><h3>Office & Staff Lockers</h3><p>Personal storage for employee belongings, uniforms and everyday essentials in offices and staff rooms.</p><a class="lk-product-link" href="#locker-enquiry">Discuss this range <span>→</span></a></div></article>
+      <article class="lk-product lk-reveal"><div class="lk-product-visual"><span class="lk-product-index">02 / PERSONAL SERIES</span><img src="./locker_assets/gym-locker.png" alt="Gym and security locker"></div><div class="lk-product-body"><span class="lk-product-type">Individual compartments</span><h3>Gym & Security Lockers</h3><p>Multi-compartment storage for bags, clothing and personal items in fitness and shared facilities.</p><a class="lk-product-link" href="#locker-enquiry">Discuss this range <span>→</span></a></div></article>
+      <article class="lk-product lk-reveal"><div class="lk-product-visual"><span class="lk-product-index">03 / INDUSTRIAL SERIES</span><img src="./locker_assets/industrial-locker.png" alt="Industrial heavy-duty locker"></div><div class="lk-product-body"><span class="lk-product-type">Heavy-duty storage</span><h3>Industrial Storage Lockers</h3><p>Robust locker formats for factories, workshops and operational spaces with demanding daily use.</p><a class="lk-product-link" href="#locker-enquiry">Discuss this range <span>→</span></a></div></article>
+      <article class="lk-product lk-reveal"><div class="lk-product-visual"><span class="lk-product-index">04 / MODULAR SERIES</span><img src="./locker_assets/multi-compartment-locker.png" alt="Multi-compartment steel locker"></div><div class="lk-product-body"><span class="lk-product-type">Organised storage</span><h3>Comprehensive Steel Lockers</h3><p>Multiple storage sections to organise belongings across institutions and high-traffic environments.</p><a class="lk-product-link" href="#locker-enquiry">Discuss this range <span>→</span></a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="lk-spotlight">
+  <div class="lk-wrap lk-spot-grid">
+    <div class="lk-reveal"><span class="lk-kicker">BUILT AROUND THE USER</span><h2 class="lk-heading">Good storage starts with thoughtful details.</h2><p class="lk-copy">A locker is part of the everyday experience of a workplace or facility. Its compartment layout, access and locking arrangement should work together to make storage practical.</p>
+      <div class="lk-benefits">
+        <div class="lk-benefit"><span class="lk-benefit-num">01</span><div><h3>Purpose-led compartments</h3><p>Choose a layout that suits personal belongings, uniforms, equipment or shared storage.</p></div></div>
+        <div class="lk-benefit"><span class="lk-benefit-num">02</span><div><h3>Practical access</h3><p>Door and compartment arrangements can be considered around the way the locker will be used.</p></div></div>
+        <div class="lk-benefit"><span class="lk-benefit-num">03</span><div><h3>Project-specific planning</h3><p>Discuss dimensions, finish and configuration to suit the available space and application.</p></div></div>
       </div>
     </div>
-  </section>
+    <div class="lk-feature-image lk-reveal"><img src="./locker_assets/industrial-locker.png" alt="Steel locker product detail"><span class="lk-image-caption">Steel locker / product detail</span></div>
+  </div>
 </section>
-  <div id="footer-placeholder"></div>
 
+<section class="lk-applications">
+  <div class="lk-wrap">
+    <div class="lk-section-top lk-reveal"><div><span class="lk-kicker">WHERE THEY WORK</span><h2 class="lk-heading">One storage solution.<br>Many environments.</h2></div><p class="lk-copy">Different spaces call for different storage formats. Consider the environment first, then select the locker layout that supports it.</p></div>
+    <div class="lk-app-grid">
+      <article class="lk-app-card lk-reveal"><small>01 / CORPORATE</small><h3>Offices & Staff Rooms</h3><p>Keep employee belongings and personal items organised within shared workspaces.</p></article>
+      <article class="lk-app-card lk-reveal"><small>02 / FITNESS</small><h3>Gyms & Sports Clubs</h3><p>Provide individual storage for bags, clothing and personal essentials.</p></article>
+      <article class="lk-app-card lk-reveal"><small>03 / INDUSTRY</small><h3>Factories & Workshops</h3><p>Support staff and operational storage in busy industrial environments.</p></article>
+      <article class="lk-app-card lk-reveal"><small>04 / EDUCATION</small><h3>Schools & Institutions</h3><p>Bring order to shared facilities with compartment-based storage options.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="lk-spec">
+  <div class="lk-wrap lk-spec-grid">
+    <div class="lk-reveal"><span class="lk-kicker">PLAN YOUR LOCKER</span><h2 class="lk-heading">The right fit begins with the right specification.</h2><p class="lk-copy">Every facility has its own requirements. Share your application, available space and storage needs with our team to discuss a suitable locker configuration.</p><a class="lk-product-link" href="./contact.html">Talk to our team <span>→</span></a></div>
+    <div class="lk-spec-panel lk-reveal"><h3>What can be planned?</h3>
+      <div class="lk-spec-row"><span>Application</span><b>Office / Gym / Industrial / Education</b></div>
+      <div class="lk-spec-row"><span>Dimensions</span><b>As per project requirement</b></div>
+      <div class="lk-spec-row"><span>Compartment layout</span><b>Single / Multiple sections</b></div>
+      <div class="lk-spec-row"><span>Door configuration</span><b>Based on intended use</b></div>
+      <div class="lk-spec-row"><span>Finish & colour</span><b>Discuss available options</b></div>
+      <div class="lk-spec-row"><span>Locking arrangement</span><b>Based on security needs</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="lk-process">
+  <div class="lk-wrap">
+    <div class="lk-section-top lk-reveal"><div><span class="lk-kicker">A SIMPLE START</span><h2 class="lk-heading">From requirement<br>to right configuration.</h2></div><p class="lk-copy">A clear conversation helps identify the most suitable locker format for your facility.</p></div>
+    <div class="lk-process-grid">
+      <div class="lk-process-step lk-reveal"><b>01</b><h3>Tell us the application</h3><p>Let us know where the lockers will be installed and who will use them.</p></div>
+      <div class="lk-process-step lk-reveal"><b>02</b><h3>Share your space needs</h3><p>Discuss dimensions, quantity, compartments and any specific requirements.</p></div>
+      <div class="lk-process-step lk-reveal"><b>03</b><h3>Discuss the solution</h3><p>Our team can help you review the appropriate locker category and configuration.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lk-cta" id="locker-enquiry"><div class="lk-wrap lk-cta-inner"><div><span class="lk-kicker" style="color:#173747">LET'S PLAN YOUR STORAGE</span><h2 class="lk-heading">Have a locker requirement?</h2><p class="lk-copy">Tell us about your project and discuss a storage solution with V STEEL.</p></div><a class="lk-btn" href="./contact.html">Request a quote <span>↗</span></a></div></section>
+</main>
+<div id="footer-placeholder"></div>
 <script>
 (() => {
   const root = document.querySelector(".vsl-page");
@@ -5450,7 +5210,6 @@ body {
 })();
 
 </script>
-
 <script>
 
 
@@ -5638,7 +5397,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </script>
-
 <script>
 
 
@@ -6569,8 +6327,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </script>
-
-
 <script>
 /* Reliable scroll reveal for all major locker sections and image cards. */
 (() => {
@@ -6597,6 +6353,49 @@ document.addEventListener("DOMContentLoaded", () => {
     element.style.transitionDelay = `${(index % 3) * 90}ms`;
     observer.observe(element);
   });
+})();
+</script>
+
+<script>
+/* Locker hero: automatic and manual product-image slider. */
+(() => {
+  const root = document.getElementById("lkHeroSlider");
+  if (!root) return;
+  const slides = [...root.querySelectorAll(".lk-slide")];
+  const dots = [...root.querySelectorAll(".lk-slider-dots button")];
+  const caption = document.getElementById("lkSlideName");
+  let active = 0, timer;
+  const show = (index) => {
+    active = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle("is-active", i === active));
+    dots.forEach((dot, i) => dot.classList.toggle("is-active", i === active));
+    if (caption) caption.textContent = slides[active].dataset.name || "V STEEL Lockers";
+  };
+  const stop = () => { if (timer) clearInterval(timer); };
+  const start = () => { stop(); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(() => show(active + 1), 3800); };
+  dots.forEach((dot, i) => dot.addEventListener("click", () => { show(i); start(); }));
+  root.addEventListener("mouseenter", stop);
+  root.addEventListener("mouseleave", start);
+  document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+  start();
+})();
+
+/* Scroll reveals for the redesigned sections. */
+(() => {
+  const items = document.querySelectorAll(".vsl-page .lk-reveal");
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  items.forEach(el => observer.observe(el));
 })();
 </script>
 

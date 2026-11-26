@@ -202,9 +202,9 @@
     .projects-section { padding: clamp(90px, 12vw, 160px) 0; overflow: hidden; background: var(--white); }
     .projects-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 35px; }
     .projects-head .section-heading { max-width: 830px; }
-    .projects-track { display: flex; gap: 16px; overflow-x: auto; padding: 8px 0 18px; scroll-snap-type: x mandatory; scrollbar-color: var(--gold) var(--steel); scrollbar-width: thin; cursor: grab; }
-    .projects-track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
-    .project-card { position: relative; flex: 0 0 min(440px, 78vw); height: clamp(300px, 38vw, 480px); overflow: hidden; background: var(--deep); color: var(--white); scroll-snap-align: start; }
+    .projects-track { display: flex; gap: 16px; overflow-x: auto; padding: 8px 0 18px; scroll-snap-type: none; scrollbar-color: var(--gold) var(--steel); scrollbar-width: thin; cursor: grab; }
+    .projects-track.is-dragging { cursor: grabbing; user-select: none; }
+    .project-card { position: relative; flex: 0 0 min(440px, 78vw); height: clamp(300px, 38vw, 480px); overflow: hidden; background: var(--deep); color: var(--white); }
     .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
     .project-card::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(16,43,57,.88), transparent 68%); content: ""; }
     .project-card:hover img { transform: scale(1.05); }
@@ -352,6 +352,27 @@
       .hero-slide__image img, .product-tile img, .industry-story__image img, .capability-visual img, .project-card img { transform: none !important; }
       .hero-carousel__progress { display: none; }
     }
+
+    /* Welcome popup */
+    .vs-welcome-popup {
+      position: fixed; z-index: 99990; right: 28px; bottom: 96px;
+      width: min(370px, calc(100vw - 32px)); padding: 28px;
+      border: 1px solid rgba(199,154,62,.45); border-radius: 18px;
+      background: #fff; color: #102B39; box-shadow: 0 18px 60px rgba(8,28,38,.24);
+      opacity: 0; visibility: hidden; transform: translateY(16px) scale(.98);
+      transition: opacity .35s ease, transform .35s ease, visibility .35s;
+    }
+    .vs-welcome-popup.is-visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .vs-welcome-popup__top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
+    .vs-welcome-popup__eyebrow { margin:0; color:#C79A3E; font-size:10px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .vs-welcome-popup__close { display:grid; width:32px; height:32px; flex:0 0 32px; place-items:center; border:1px solid #DCE3E7; border-radius:50%; background:#fff; color:#102B39; cursor:pointer; font-size:20px; }
+    .vs-welcome-popup h2 { margin:0 0 9px; font-size:25px; line-height:1.12; letter-spacing:-.045em; }
+    .vs-welcome-popup__message { margin:0; color:#60717A; font-size:13px; line-height:1.7; }
+    .vs-welcome-popup__actions { display:flex; gap:10px; margin-top:21px; }
+    .vs-welcome-popup__start { min-height:45px; flex:1; padding:0 15px; border:0; background:#C79A3E; color:#102B39; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+    .vs-welcome-popup__later { min-height:45px; padding:0 14px; border:1px solid #DCE3E7; background:#fff; color:#102B39; font-size:10px; font-weight:800; cursor:pointer; }
+    @media(max-width:600px) { .vs-welcome-popup { right:16px; bottom:86px; padding:23px; } }
+    @media(prefers-reduced-motion:reduce) { .vs-welcome-popup { transition:none; } }
   </style>
 </head>
 <body class="vs-page vs-page--home">
@@ -622,8 +643,64 @@
         <a class="button-link" href="./contact.html">Talk to our team <span aria-hidden="true">↗</span></a>
       </div>
     </section>
+    
   </main>
   <div id="footer-placeholder"></div>
+
+  <aside class="vs-welcome-popup" id="vsWelcomePopup" role="dialog" aria-modal="false" aria-labelledby="vsWelcomeTitle" aria-hidden="true">
+    <div class="vs-welcome-popup__top">
+      <p class="vs-welcome-popup__eyebrow">V STEEL Virtual Assistant</p>
+      <button class="vs-welcome-popup__close" type="button" id="vsWelcomeClose" aria-label="Close welcome message">&times;</button>
+    </div>
+    <h2 id="vsWelcomeTitle">Hello! Welcome to V STEEL.</h2>
+    <p class="vs-welcome-popup__message">Looking for the right steel furniture or need help with a project? We’re here to help you.</p>
+    <div class="vs-welcome-popup__actions">
+      <button class="vs-welcome-popup__start" type="button" id="vsWelcomeStart">Start Conversation</button>
+      <button class="vs-welcome-popup__later" type="button" id="vsWelcomeLater">Maybe Later</button>
+    </div>
+  </aside>
+  <script>
+    (() => {
+      const popup = document.getElementById('vsWelcomePopup');
+      if (!popup) return;
+      const storageKey = 'vsWelcomePopupDismissed';
+      const closePopup = () => {
+        popup.classList.remove('is-visible');
+        popup.setAttribute('aria-hidden', 'true');
+        try { sessionStorage.setItem(storageKey, '1'); } catch (error) {}
+      };
+      const showPopup = () => {
+        let dismissed = false;
+        try { dismissed = sessionStorage.getItem(storageKey) === '1'; } catch (error) {}
+        if (dismissed) return;
+        popup.classList.add('is-visible');
+        popup.setAttribute('aria-hidden', 'false');
+      };
+      document.getElementById('vsWelcomeClose')?.addEventListener('click', closePopup);
+      document.getElementById('vsWelcomeLater')?.addEventListener('click', closePopup);
+      document.getElementById('vsWelcomeStart')?.addEventListener('click', () => {
+        const chatToggle = document.querySelector(
+          '[data-chatbot-toggle], #chatbotToggle, #chatbotButton, #chatbot-toggle, .chatbot-toggle, .chatbot-launcher, .chat-widget-toggle, [aria-label*="chat" i]'
+        );
+        closePopup();
+        if (chatToggle && !popup.contains(chatToggle)) { chatToggle.click(); return; }
+        const chatWindow = document.querySelector('#chatbotWindow, #chatbot-container, .chatbot-window, .chat-widget, [data-chatbot]');
+        if (chatWindow) {
+          chatWindow.classList.add('open', 'active', 'is-open');
+          chatWindow.removeAttribute('hidden');
+          chatWindow.setAttribute('aria-hidden', 'false');
+        } else {
+          window.location.href = './contact.html';
+        }
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => window.setTimeout(showPopup, 5000), { once: true });
+      } else {
+        window.setTimeout(showPopup, 5000);
+      }
+    })();
+  </script>
+
   <script>
     (() => {
       "use strict";
@@ -709,42 +786,160 @@
       const projectTrack = document.querySelector("[data-project-track]");
       if (projectTrack && projectTrack.dataset.initialized !== "true") {
         projectTrack.dataset.initialized = "true";
-        const step = () => {
-          const card = projectTrack.querySelector(".project-card");
-          return card ? card.getBoundingClientRect().width + 16 : projectTrack.clientWidth * .8;
-        };
-        document.querySelector("[data-project-prev]")?.addEventListener("click", () => projectTrack.scrollBy({ left: -step(), behavior: "smooth" }));
-        document.querySelector("[data-project-next]")?.addEventListener("click", () => projectTrack.scrollBy({ left: step(), behavior: "smooth" }));
+        const originalCards = Array.from(projectTrack.querySelectorAll(".project-card"));
+        if (originalCards.length) {
+          const cloneCards = () => originalCards.map((card) => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            clone.inert = true;
+            clone.dataset.projectClone = "true";
+            return clone;
+          });
+          const beforeClones = cloneCards();
+          const afterClones = cloneCards();
+          beforeClones.forEach((card) => projectTrack.insertBefore(card, projectTrack.firstChild));
+          afterClones.forEach((card) => projectTrack.appendChild(card));
 
-        let pointerStart = null;
-        let dragged = false;
-        projectTrack.addEventListener("pointerdown", (event) => {
-          if (event.pointerType !== "mouse" || event.button !== 0) return;
-          pointerStart = { x: event.clientX, scroll: projectTrack.scrollLeft };
-          dragged = false;
-        });
-        projectTrack.addEventListener("pointermove", (event) => {
-          if (!pointerStart || event.pointerType !== "mouse") return;
-          const delta = event.clientX - pointerStart.x;
-          if (Math.abs(delta) > 4) {
-            dragged = true;
-            projectTrack.classList.add("is-dragging");
-            projectTrack.scrollLeft = pointerStart.scroll - delta;
+          const firstOriginal = originalCards[0];
+          const cycleWidth = firstOriginal.getBoundingClientRect().left - projectTrack.getBoundingClientRect().left;
+          projectTrack.scrollLeft = cycleWidth;
+
+          const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+          const speed = 30;
+          let animationFrame = 0;
+          let previousFrame = 0;
+          let resumeTimer = 0;
+          let pointerStart = null;
+          let dragged = false;
+          let hovered = false;
+          let interacting = false;
+          let inViewport = true;
+          let normalizing = false;
+
+          function normalizePosition() {
+            if (normalizing || cycleWidth <= 0) return;
+            const position = projectTrack.scrollLeft;
+            let normalized = position;
+            if (position < cycleWidth) normalized += cycleWidth;
+            else if (position >= cycleWidth * 2) normalized -= cycleWidth;
+            if (normalized !== position) {
+              normalizing = true;
+              projectTrack.scrollLeft = normalized;
+              normalizing = false;
+            }
           }
-        });
-        const endDrag = () => {
-          pointerStart = null;
-          projectTrack.classList.remove("is-dragging");
-          if (dragged) window.setTimeout(() => { dragged = false; }, 0);
-        };
-        projectTrack.addEventListener("pointerup", endDrag);
-        projectTrack.addEventListener("pointercancel", endDrag);
-        projectTrack.addEventListener("click", (event) => {
-          if (dragged) {
-            event.preventDefault();
-            event.stopPropagation();
+
+          function stopAutoScroll() {
+            window.cancelAnimationFrame(animationFrame);
+            animationFrame = 0;
+            previousFrame = 0;
+            projectTrack.classList.remove("is-auto-scrolling");
           }
-        }, true);
+
+          function animate(timestamp) {
+            if (!animationFrame) return;
+            if (previousFrame) {
+              projectTrack.scrollLeft += Math.min(timestamp - previousFrame, 50) * speed / 1000;
+              normalizePosition();
+            }
+            previousFrame = timestamp;
+            animationFrame = window.requestAnimationFrame(animate);
+          }
+
+          function startAutoScroll() {
+            stopAutoScroll();
+            if (hovered || interacting || !inViewport || document.hidden || reducedMotion.matches) return;
+            projectTrack.classList.add("is-auto-scrolling");
+            animationFrame = window.requestAnimationFrame(animate);
+          }
+
+          function resumeAfterInteraction() {
+            window.clearTimeout(resumeTimer);
+            resumeTimer = window.setTimeout(() => {
+              interacting = false;
+              startAutoScroll();
+            }, 900);
+          }
+
+          projectTrack.addEventListener("mouseenter", () => {
+            hovered = true;
+            stopAutoScroll();
+          });
+          projectTrack.addEventListener("mouseleave", () => {
+            hovered = false;
+            startAutoScroll();
+          });
+          projectTrack.addEventListener("pointerdown", (event) => {
+            interacting = true;
+            window.clearTimeout(resumeTimer);
+            stopAutoScroll();
+            if (event.pointerType === "mouse" && event.button === 0) {
+              pointerStart = { x: event.clientX, scroll: projectTrack.scrollLeft };
+              dragged = false;
+            }
+          });
+          projectTrack.addEventListener("pointermove", (event) => {
+            if (!pointerStart || event.pointerType !== "mouse") return;
+            const delta = event.clientX - pointerStart.x;
+            if (Math.abs(delta) > 4) {
+              dragged = true;
+              projectTrack.classList.add("is-dragging");
+              projectTrack.scrollLeft = pointerStart.scroll - delta;
+            }
+          });
+          const endDrag = () => {
+            if (!pointerStart && !interacting) return;
+            pointerStart = null;
+            projectTrack.classList.remove("is-dragging");
+            normalizePosition();
+            resumeAfterInteraction();
+            if (dragged) window.setTimeout(() => { dragged = false; }, 0);
+          };
+          projectTrack.addEventListener("pointerup", endDrag);
+          projectTrack.addEventListener("pointercancel", endDrag);
+          projectTrack.addEventListener("wheel", () => {
+            interacting = true;
+            stopAutoScroll();
+            resumeAfterInteraction();
+          }, { passive: true });
+          projectTrack.addEventListener("click", (event) => {
+            if (dragged) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+          }, true);
+
+          const step = () => {
+            const card = originalCards[0];
+            return card ? card.getBoundingClientRect().width + 16 : projectTrack.clientWidth * .8;
+          };
+          function moveBy(direction) {
+            interacting = true;
+            stopAutoScroll();
+            const min = cycleWidth;
+            const max = cycleWidth * 2;
+            let target = projectTrack.scrollLeft + direction * step();
+            if (target < min) target += cycleWidth;
+            else if (target >= max) target -= cycleWidth;
+            projectTrack.scrollTo({ left: target, behavior: reducedMotion.matches ? "auto" : "smooth" });
+            resumeAfterInteraction();
+          }
+
+          document.querySelector("[data-project-prev]")?.addEventListener("click", () => moveBy(-1));
+          document.querySelector("[data-project-next]")?.addEventListener("click", () => moveBy(1));
+          projectTrack.addEventListener("scroll", normalizePosition, { passive: true });
+          document.addEventListener("visibilitychange", startAutoScroll);
+          reducedMotion.addEventListener?.("change", startAutoScroll);
+          if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(([entry]) => {
+              inViewport = entry.isIntersecting;
+              if (!inViewport) stopAutoScroll();
+              else startAutoScroll();
+            });
+            observer.observe(projectTrack);
+          }
+          startAutoScroll();
+        }
       }
 
       const revealItems = Array.from(document.querySelectorAll(".reveal"));

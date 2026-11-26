@@ -122,6 +122,81 @@ img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}
 .pin{height:auto}.pin__s{position:static;height:auto;padding:58px 0;overflow:visible}.pin__v{overflow:visible}.pin__t{display:grid;width:100%;height:auto;gap:14px}.sl{grid-template-columns:1fr}.sl .photo{min-height:240px;aspect-ratio:1.5/1}.pin__p{display:none}.sl .copy{padding:6px 0}}
 @media(max-width:640px){.fg{grid-template-columns:1fr}.f{min-height:0}.hero .photo{aspect-ratio:1.2/1;min-height:210px}.top{right:14px;bottom:14px}.copy[data-n]:before{font-size:100px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition-duration:.01ms!important}.hero h1 b{transform:none}.hero .eyebrow,.hero__d{opacity:1;transform:none}.hero .photo{clip-path:none}.pin{height:auto}.pin__s{position:static;height:auto;padding:58px 0}.pin__t{display:grid;width:100%;height:auto}.pin__v{overflow:visible}.sl{grid-template-columns:1fr}.pin__p{display:none}}
+
+/* ---------- Compact product-led redesign ---------- */
+.hero{padding:clamp(38px,4.2vw,62px) 0 18px}
+.hero h1{font-size:clamp(48px,7.2vw,104px)}
+.hero__d{margin:20px 0 24px;gap:22px}
+.hero .photo{min-height:clamp(240px,31vw,410px);aspect-ratio:2.35/1}
+.ticker{padding:13px 0}
+.features{padding:clamp(42px,4.5vw,62px) 0}
+.sh{margin-bottom:22px;gap:10px 28px}
+.sh h2{font-size:clamp(38px,5.2vw,68px)}
+.fg{gap:9px}
+.f{min-height:145px;padding:17px 16px}
+.coll{padding:clamp(38px,4.5vw,62px) max(clamp(20px,5vw,76px),calc((100% - 1360px)/2));gap:22px}
+.coll h2{font-size:clamp(38px,5.2vw,68px)}
+.split{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);min-height:390px}
+.split .photo{min-height:390px}
+.copy{padding:clamp(26px,3.2vw,52px);justify-content:center}
+.copy h2,.copy h3{font-size:clamp(32px,3.8vw,52px);margin-bottom:12px}
+.copy h2:after,.copy h3:after{margin-top:13px}
+.copy>p:not(.eyebrow){font-size:12px;line-height:1.7}
+.copy .eyebrow{margin-bottom:11px}
+.acts{margin-top:14px;gap:8px 18px}
+.act{min-height:34px}
+.copy[data-n]:before{font-size:clamp(90px,10vw,140px);top:3%;right:5%}
+
+/* Turn the former long pinned scroll sequence into a compact product grid. */
+.pin{height:auto;padding:0 0 38px}
+.pin__s{position:relative;top:auto;height:auto;min-height:0;padding:42px 0 0;gap:18px;overflow:visible}
+.pin__h h2{font-size:clamp(34px,4.8vw,58px)}
+.pin__v{width:var(--w);overflow:visible;flex:none}
+.pin__t{display:grid;width:100%;height:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;transform:none!important}
+.sl{display:flex;flex-direction:column;gap:14px;min-width:0;padding:12px;background:rgba(255,255,255,.055)}
+.sl .photo{width:100%;height:auto;min-height:0;aspect-ratio:1.35/1}
+.sl .copy{width:100%;padding:4px 3px 10px}
+.sl .copy h3{font-size:clamp(25px,2.7vw,36px);margin-bottom:10px}
+.sl .copy[data-n]:before{font-size:82px;top:-5%;right:2%}
+.sl .copy>p:not(.eyebrow){font-size:11px;line-height:1.6}
+.sl .acts{margin-top:12px}
+.pin__p{display:none}
+.cta{padding:clamp(42px,5vw,68px) 20px}
+.cta h2{font-size:clamp(36px,5.5vw,68px)}
+@media(max-width:900px){
+ .hero__d{margin:18px 0 22px}
+ .split{grid-template-columns:1fr 1fr;min-height:330px}
+ .split .photo{min-height:330px}
+ .copy{padding:24px}
+ .pin__t{grid-template-columns:1fr 1fr}
+ .sl .photo{aspect-ratio:1.4/1}
+}
+@media(max-width:640px){
+ .hero{padding-top:42px}
+ .hero h1{font-size:clamp(43px,13vw,68px)}
+ .hero .photo{aspect-ratio:1.35/1;min-height:220px}
+ .features{padding:38px 0}
+ .sh{margin-bottom:18px}
+ .f{min-height:0;padding:16px}
+ .coll{padding:38px 20px}
+ .split{grid-template-columns:1fr;min-height:0}
+ .split .photo{min-height:0;aspect-ratio:1.25/1}
+ .split.rev .photo{order:0}
+ .copy{padding:28px 22px 32px}
+ .copy h2,.copy h3{font-size:clamp(34px,10vw,48px)}
+ .copy[data-n]:before{font-size:94px;top:4%;right:5%}
+ .pin{padding-bottom:28px}
+ .pin__s{padding-top:34px}
+ .pin__t{grid-template-columns:1fr;gap:10px}
+ .sl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:12px;padding:10px}
+ .sl .photo{aspect-ratio:1/1}
+ .sl .copy{padding:0}
+ .sl .copy h3{font-size:clamp(23px,6vw,30px)}
+ .sl .copy[data-n]:before{font-size:58px}
+ .sl .acts{gap:6px 12px}
+ .sl .act{font-size:10px}
+}
+
 </style>
 </head>
 <body class="vs-page vs-page--industry-steel-furniture">
@@ -193,7 +268,7 @@ img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}
   ];
   const pad = n => String(n).padStart(2, "0");
   const photo = p => `<figure class="photo" data-label="${p[1]}"><img src="assets/images/${p[3]}.png" alt="${p[1]}" loading="lazy" onerror="this.remove()"></figure>`;
-  const copy = (p, i, h = "h2", c = "") => `<div class="copy rv ${c}" data-n="${pad(i + 1)}"><p class="eyebrow">${p[0]} / ${pad(i + 1)}</p><${h}>${p[1]}</${h}><p>${p[2]}</p><div class="acts"><a class="act" href="./contact.html">Call Now <span aria-hidden="true">${ARROW}</span></a><a class="act o" href="./contact.html">Enquire <span aria-hidden="true">${ARROW}</span></a></div></div>`;
+  const copy = (p, i, h = "h2", c = "") => `<div class="copy rv ${c}" data-n="${pad(i + 1)}"><p class="eyebrow">${p[0]} / ${pad(i + 1)}</p><${h}>${p[1]}</${h}><p>${p[2]}</p></div>`;
   const split = (i, rev, alt) => `<section class="split${rev ? " rev" : ""}${alt ? " alt" : ""}" aria-label="${products[i][1]}">${photo(products[i])}${copy(products[i], i)}</section>`;
   const slides = [1, 2, 3].map(i => `<article class="sl">${photo(products[i])}${copy(products[i], i, "h3")}</article>`).join("");
   $("#products").innerHTML = split(0, false, false) +
@@ -213,22 +288,14 @@ img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}
     $$(".rv").forEach(el => io.observe(el));
   }
 
-  /* pinned horizontal showcase (desktop only) */
-  const pin = $("#pin"), track = $("#track"), fill = $("#fill"), cur = $("#cur");
-  const desktop = matchMedia("(min-width: 901px)");
+  /* compact product grid: no pinned or extended scroll section */
   const bar = $("#bar"), top = $("#top");
   let tick = false;
   function frame() {
     tick = false;
     const h = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`;
-    top.classList.toggle("show", scrollY > 700);
-    if (!pin || reduce || !desktop.matches) { if (track) track.style.transform = ""; return; }
-    const r = pin.getBoundingClientRect(), span = r.height - innerHeight;
-    const p = Math.max(0, Math.min(1, -r.top / span));
-    track.style.transform = `translate3d(${-p * 66.6667}%,0,0)`;
-    fill.style.transform = `scaleX(${p})`;
-    cur.textContent = pad(Math.min(3, Math.floor(p * 3 + .0001)) + 2);
+    top.classList.toggle("show", scrollY > 500);
   }
   addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(frame); } }, { passive: true });
   addEventListener("resize", frame);
