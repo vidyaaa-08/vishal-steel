@@ -185,9 +185,13 @@
     .industry-rail span { font-size: 19px; }
 
     .experience-section { position: relative; display: grid; min-height: 650px; grid-template-columns: 1fr 1fr; overflow: hidden; background: var(--deep); color: var(--white); }
-    .experience-image { position: relative; min-height: 500px; }
-    .experience-image img { width: 100%; height: 100%; object-fit: cover; }
-    .experience-image::after { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 62%, var(--deep)); content: ""; }
+.experience-image { position: relative; min-height: 500px; overflow: hidden; background: var(--deep) url("./assets/images/homepage/indeximg4.png") center/cover no-repeat; }
+    .experience-image video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .experience-image::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(16,43,57,.05) 35%, rgba(16,43,57,.72) 100%); content: ""; pointer-events: none; }
+    @media (max-width: 760px) {
+      .experience-image { min-height: 340px; }
+      .experience-image::after { background: linear-gradient(0deg, var(--deep), transparent 70%); }
+    }
     .experience-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(45px, 7vw, 110px) max(40px, calc((100vw - 1440px) / 2)) clamp(45px, 7vw, 110px) 4vw; }
     .experience-copy .eyebrow { color: var(--gold-light); }
     .experience-number { display: block; margin: 20px 0 2px; color: var(--gold-light); font-size: clamp(110px, 17vw, 235px); font-weight: 900; letter-spacing: -.12em; line-height: .8; }
@@ -388,7 +392,7 @@
         </article>
         <article class="hero-slide hero-slide--industry" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
           <div class="hero-slide__image">
-            <img src="./assets/images/project-industrial-storage-rack.png" alt="Industrial steel storage rack for warehouse applications" loading="lazy" decoding="async">
+            <img src="./assets/images/homepage/banner1.png" alt="Industrial steel storage rack for warehouse applications" loading="lazy" decoding="async">
             <span class="hero-slide__caption">Storage &amp; operations · 03</span>
           </div>
           <div class="hero-slide__copy">
@@ -508,16 +512,42 @@
       </div>
     </section>
 
-    <section class="experience-section" aria-labelledby="experience-title">
-      <div class="experience-image reveal"><img src="./assets/images/homepage/indeximg4.png" alt="V STEEL healthcare and manufacturing environment" loading="lazy" decoding="async"></div>
-      <div class="experience-copy reveal reveal-from-left">
-        <p class="eyebrow">Established 1986 · A Chameza Group company</p>
-        <strong class="experience-number" data-count="40" aria-label="40 plus"><span data-counter-value>40</span><sup>+</sup></strong>
-        <h2 id="experience-title">Years of manufacturing <span class="accent">excellence.</span></h2>
-        <p>Decades of experience, applied to the spaces and systems people rely on every day.</p>
-        <a class="text-link" href="./about.html">Learn about V STEEL <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
+
+<section class="experience-section" aria-labelledby="experience-title">
+
+  <div class="experience-image reveal">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="./assets/images/homepage/indeximg4.png"
+      aria-label="V STEEL manufacturing operations">
+      <source src="./assets/images/homepage/years.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="experience-copy reveal reveal-from-left">
+    <p class="eyebrow">Established 1986 · A Chameza Group company</p>
+
+    <strong class="experience-number" data-count="40" aria-label="40 plus">
+      <span data-counter-value>40</span><sup>+</sup>
+    </strong>
+
+    <h2 id="experience-title">
+      Years of manufacturing <span class="accent">excellence.</span>
+    </h2>
+
+    <p>Decades of experience, applied to the spaces and systems people rely on every day.</p>
+
+    <a class="text-link" href="./about.html">
+      Learn about V STEEL <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+
+</section>
+
 
     <section class="projects-section" aria-labelledby="projects-title">
       <div class="page-width">
