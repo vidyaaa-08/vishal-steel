@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="./includes.js" defer></script>
   <style>
-    :root{--ct-red:#607D8B;--ct-dark:#173747;--ct-ink:#202124;--ct-white:#fff;--ct-grey:#F5F5F5;--ct-muted:#696b70;--ct-line:rgba(32,33,36,.14);--ct-width:1280px;--ct-ease:cubic-bezier(.2,.72,.18,1)}
+    :root{--ct-red:#C99A3C;--ct-dark:#172B35;--ct-ink:#202124;--ct-white:#fff;--ct-grey:#F5F5F5;--ct-muted:#62666b;--ct-line:rgba(32,33,36,.14);--ct-width:1280px;--ct-ease:cubic-bezier(.2,.72,.18,1)}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:90px}
     body.ct-page{margin:0;color:var(--ct-ink);background:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
@@ -94,7 +94,7 @@
     .ct-location:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ct-red);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
     .ct-location:hover{padding-left:12px;background:#fafafa}
     .ct-location:hover:before{transform:scaleY(1)}
-    .ct-location h3{display:flex;align-items:center;gap:9px;margin:0 0 7px;font-size:18px;letter-spacing:-.03em}.ct-location h3:before{content:"Ã¢Å’â€“";display:inline-grid;place-items:center;width:23px;height:23px;flex:0 0 23px;border:1px solid rgba(199, 154, 62,.28);border-radius:50%;color:var(--ct-red);font-size:15px;font-weight:400}
+    .ct-location h3{display:flex;align-items:center;gap:9px;margin:0 0 7px;font-size:18px;letter-spacing:-.03em}.ct-location h3:before{content:"⌖";display:inline-grid;place-items:center;width:23px;height:23px;flex:0 0 23px;border:1px solid rgba(199, 154, 62,.28);border-radius:50%;color:var(--ct-red);font-size:15px;font-weight:400}
     .ct-location p{margin:0;color:var(--ct-muted);font-size:11px;line-height:1.7}
     .ct-location b{display:block;margin-bottom:4px;color:var(--ct-red);font-size:9px;letter-spacing:.09em;text-transform:uppercase}
     .ct-presence__note{margin:26px 0 0;color:var(--ct-muted);font-size:11px;line-height:1.7}
@@ -117,7 +117,122 @@
     @media(max-width:760px){.ct-wrap{width:calc(100% - 38px)}.ct-hero__grid{min-height:auto;grid-template-columns:1fr;padding:65px 0 58px;gap:42px}.ct-hero h1{font-size:clamp(48px,12vw,72px)}.ct-hero__sub{font-size:19px}.ct-hero__visual{min-height:390px;margin-right:12px}.ct-hero__main{inset:0 0 28px 20px}.ct-hero__detail{border-width:6px}.ct-section-head,.ct-stories__head{display:block}.ct-section-head .ct-copy{margin-top:20px}.ct-industries,.ct-stories,.ct-presence{padding:82px 0}.ct-industry{grid-template-columns:52px 1fr;gap:16px;padding:24px 0}.ct-industry h3{font-size:18px}.ct-industry p{grid-column:2}.ct-stories__head .ct-slider-controls{margin-top:25px}.ct-testimonial{flex-basis:100%;min-height:350px;padding:28px}.ct-presence__layout{grid-template-columns:1fr;gap:30px}.ct-presence-visual{min-height:350px}.ct-location-grid{gap:0 18px}.ct-gallery__grid{grid-template-columns:1fr;gap:10px}.ct-gallery__item,.ct-gallery__item:nth-child(n){height:230px;margin:0}.ct-closing__inner{display:block}.ct-closing a{display:inline-flex;margin-top:25px}}
     @media(max-width:430px){.ct-location-grid{grid-template-columns:1fr}.ct-hero__visual{min-height:330px}.ct-hero__caption{padding:16px;max-width:190px}.ct-title{font-size:clamp(36px,10vw,48px)}.ct-industry{gap:13px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ct-page *, .ct-page *:before,.ct-page *:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.ct-page.ct-motion .ct-reveal{opacity:1!important;transform:none!important}}
-  </style>
+  
+    /* Gold editorial redesign: compact rhythm, richer surfaces and purposeful motion */
+    :root{
+      --ct-red:#C99A3C;
+      --ct-dark:#172B35;
+      --ct-gold:#C99A3C;
+      --ct-gold-light:#E4BD68;
+      --ct-ink:#202124;
+      --ct-grey:#F3F2EF;
+      --ct-ease:cubic-bezier(.2,.72,.18,1);
+    }
+    .ct-page{background:#fff}
+    .ct-wrap{width:min(1320px,calc(100% - clamp(32px,7vw,112px)))}
+    .ct-eyebrow{color:#A97820}
+    .ct-title{letter-spacing:-.065em}
+    .ct-hero{
+      background:
+        radial-gradient(ellipse at 82% 18%,rgba(201,154,60,.22),transparent 34%),
+        linear-gradient(115deg,#17232a 0%,#24343b 55%,#172b35 100%);
+    }
+    .ct-hero:before{opacity:.09;background-size:64px 64px}
+    .ct-hero:after{border-color:#e4bd6830;box-shadow:0 0 0 55px #e4bd6809,0 0 0 110px #e4bd6806}
+    .ct-hero__grid{min-height:610px;padding:64px 0;gap:5%;grid-template-columns:1fr 1fr}
+    .ct-hero .ct-eyebrow{color:var(--ct-gold-light)}
+    .ct-hero h1{font-size:clamp(46px,6vw,82px);line-height:.96}
+    .ct-hero h1 em{color:var(--ct-gold-light)}
+    .ct-hero__link{background:var(--ct-gold);color:#17232a;border-radius:2px}
+    .ct-hero__link:hover{background:var(--ct-gold-light)}
+    .ct-hero__visual{min-height:450px}
+    .ct-hero__main{inset:0 0 28px 28px;box-shadow:0 24px 70px #0005}
+    .ct-image:after{inset:12px;border-color:#e4bd6870}
+    .ct-hero__caption{background:var(--ct-gold);color:#17232a;box-shadow:0 14px 35px #0003}
+    .ct-hero__caption span{color:#26333a}
+    .ct-industries,.ct-stories,.ct-presence{padding-block:clamp(58px,6vw,84px)}
+    .ct-section-head{margin-bottom:34px;gap:32px}
+    .ct-section-head .ct-copy{max-width:460px}
+    .ct-industry-list{border-top:1px solid #d9d5cc}
+    .ct-industry{grid-template-columns:62px minmax(220px,.85fr) 1.3fr 150px;gap:22px;padding:22px 10px}
+    .ct-industry:hover{padding-inline:18px;background:#fbf8f0}
+    .ct-industry__icon{border-color:#dfc78f;color:#A97820;border-radius:50%;background:#fbf7ed}
+    .ct-industry__image{height:82px;width:132px}
+    .ct-stories{background:linear-gradient(135deg,#f4f1e9,#f8f8f7 58%,#f0eee8)}
+    .ct-stories__head{margin-bottom:30px}
+    .ct-slider-controls button{border-color:#c8b17f;color:#8b641d;border-radius:50%}
+    .ct-slider-controls button:hover:not(:disabled){background:var(--ct-gold);border-color:var(--ct-gold);color:#17232a}
+    .ct-testimonial{min-height:360px;padding:30px 28px 25px;border:1px solid #e8dfcc;border-top:3px solid var(--ct-gold);box-shadow:0 8px 26px #2b25150a;transition:transform .45s var(--ct-ease),box-shadow .45s,border-color .3s}
+    .ct-testimonial:hover{transform:translateY(-7px);box-shadow:0 20px 42px #2b25151a;border-color:#d8bd7d}
+    .ct-quote-mark{color:var(--ct-gold);font-size:64px}
+    .ct-testimonial blockquote{margin:20px 0 24px;line-height:1.78}
+    .ct-client{border-color:#e7dfd0}
+    .ct-client strong{color:#252629}
+    .ct-client span{color:#777}
+    .ct-slider-progress{background:#e1ddd4;margin-top:24px}
+    .ct-slider-progress span{background:linear-gradient(90deg,#A97820,#E4BD68)}
+    .ct-presence{padding-block:clamp(60px,7vw,92px)}
+    .ct-presence__head{margin-bottom:34px}
+    .ct-presence__layout{gap:42px}
+    .ct-presence-visual{min-height:460px;background:radial-gradient(circle at 50% 45%,#34444a,#172b35 68%);border:1px solid #34464d}
+    .ct-presence-visual:before{border-color:#e4bd6840;box-shadow:0 0 0 28px #e4bd6809}
+    .ct-presence-visual:after{border-color:#e4bd6870}
+    .ct-presence-visual__line{background:linear-gradient(90deg,transparent,#e4bd68,transparent);animation:ct-sweep 5s ease-in-out infinite alternate}
+    .ct-presence-visual__copy strong{color:#fff}
+    .ct-presence-visual__copy span{color:#e4bd68}
+    .ct-location{padding-block:16px}
+    .ct-location:before{background:var(--ct-gold)}
+    .ct-location h3:before{content:"+";border-color:#dfc78f;color:#A97820}
+    .ct-location b{color:#A97820}
+    .ct-gallery{padding:0 0 clamp(58px,7vw,88px)}
+    .ct-gallery__heading{margin-bottom:24px}
+    .ct-gallery__item{height:clamp(230px,30vw,390px);border-radius:3px}
+    .ct-closing{padding:clamp(42px,5vw,64px) 0;background:linear-gradient(110deg,#172b35,#263940)}
+    .ct-closing a{background:var(--ct-gold);color:#17232a;border-radius:2px}
+    .ct-closing a:hover{background:var(--ct-gold-light);transform:translateY(-3px)}
+    .ct-reveal{opacity:1;transform:none}
+    .ct-page.ct-motion.ct-animations-ready .ct-reveal{transition:opacity .75s var(--ct-ease),transform .75s var(--ct-ease)}
+    .ct-page.ct-motion .ct-reveal{opacity:0;transform:translateY(22px)}
+    .ct-page.ct-motion.ct-animations-ready .ct-reveal.is-visible{opacity:1;transform:none}
+    .ct-industry,.ct-location{transition:padding .35s var(--ct-ease),background .35s,border-color .35s}
+    .ct-industry__icon{transition:transform .4s var(--ct-ease),background .3s}
+    .ct-industry:hover .ct-industry__icon{transform:rotate(-8deg) scale(1.06);background:#f6ebd1}
+    .ct-image img{transition:transform 1.1s var(--ct-ease),filter .6s}
+    .ct-image:hover img{transform:scale(1.055);filter:saturate(1.08)}
+    @keyframes ct-sweep{from{transform:translateX(-10%) rotate(-31deg);opacity:.55}to{transform:translateX(10%) rotate(-31deg);opacity:1}}
+    @media(max-width:1050px){
+      .ct-industry{grid-template-columns:58px 1fr 1.2fr}
+      .ct-industry__image{display:none}
+      .ct-presence__layout{gap:28px}
+    }
+    @media(max-width:760px){
+      .ct-wrap{width:calc(100% - 36px)}
+      .ct-hero__grid{min-height:0;padding:56px 0 48px;gap:30px}
+      .ct-hero__visual{min-height:320px;margin:0 8px 0 0}
+      .ct-hero__main{inset:0 0 22px 16px}
+      .ct-hero__caption{padding:15px 17px}
+      .ct-industries,.ct-stories,.ct-presence{padding-block:58px}
+      .ct-section-head,.ct-stories__head{margin-bottom:28px}
+      .ct-industry{grid-template-columns:48px 1fr;gap:12px 15px;padding:20px 0}
+      .ct-industry__icon{width:44px;height:44px}
+      .ct-industry p{grid-column:2}
+      .ct-testimonial{min-height:320px;padding:25px 23px}
+      .ct-presence__layout{gap:24px}
+      .ct-presence-visual{min-height:300px}
+      .ct-location-grid{gap:0 16px}
+      .ct-gallery{padding-bottom:58px}
+      .ct-gallery__item{height:230px}
+      .ct-closing{padding:42px 0}
+    }
+    @media(max-width:430px){
+      .ct-location-grid{grid-template-columns:1fr}
+      .ct-hero__visual{min-height:280px}
+      .ct-title{font-size:clamp(34px,10vw,46px)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .ct-presence-visual__line{animation:none}
+    }
+</style>
 </head>
 <body class="vs-page ct-page">
   <div id="navbar-placeholder"></div>
@@ -128,8 +243,8 @@
           <p class="ct-eyebrow">Vishal Steel Products / A Chameza Group Company</p>
           <h1 id="ct-hero-title">Chameza Group <em>Excellence</em> Since 1986</h1>
           <p class="ct-hero__sub">Transforming Industries with 40+ Years of Multi-Material Expertise</p>
-          <p class="ct-hero__desc">Part of the prestigious Chameza Group, we don't just manufacture products Ã¢â‚¬â€œ we engineer comprehensive solutions across healthcare, laboratory, industrial, and HVAC sectors with unmatched precision and reliability.</p>
-          <a class="ct-hero__link" href="#ct-industries">Explore Our Expertise <span aria-hidden="true">Ã¢â€ Ëœ</span></a>
+          <p class="ct-hero__desc">Part of the prestigious Chameza Group, we don't just manufacture products – we engineer comprehensive solutions across healthcare, laboratory, industrial, and HVAC sectors with unmatched precision and reliability.</p>
+          <a class="ct-hero__link" href="#ct-industries">Explore Our Expertise <span aria-hidden="true">↗</span></a>
         </div>
         <div class="ct-hero__visual" aria-label="Chameza Group manufacturing and engineering imagery">
           <div class="ct-image ct-hero__main">
@@ -176,34 +291,34 @@
             <p class="ct-copy">Discover how leading organizations across healthcare, laboratory, industrial, and commercial sectors have transformed their operations with our comprehensive multi-material manufacturing solutions.</p>
           </div>
           <div class="ct-slider-controls" role="group" aria-label="Testimonial controls">
-            <button type="button" id="ct-prev" aria-label="Previous testimonials" disabled>Ã¢â€ Â</button>
-            <button type="button" id="ct-next" aria-label="Next testimonials">Ã¢â€ â€™</button>
+            <button type="button" id="ct-prev" aria-label="Previous testimonials" disabled>←</button>
+            <button type="button" id="ct-next" aria-label="Next testimonials">→</button>
           </div>
         </div>
         <div class="ct-testimonial-viewport">
           <div class="ct-testimonial-track" id="ct-track">
             <article class="ct-testimonial">
-              <div class="ct-quote-mark" aria-hidden="true">Ã¢â‚¬Å“</div>
+              <div class="ct-quote-mark" aria-hidden="true">“</div>
               <blockquote>"Vishal Steel Products transformed our entire hospital infrastructure. Their medical trolleys and hospital beds exceeded all safety standards, and the installation team's professionalism was exceptional. We've seen 40% improvement in operational efficiency since implementation."</blockquote>
               <div class="ct-client"><strong>Dr. Rajesh Mehta</strong><span>Medical Director, Apollo Healthcare</span></div>
             </article>
             <article class="ct-testimonial">
-              <div class="ct-quote-mark" aria-hidden="true">Ã¢â‚¬Å“</div>
+              <div class="ct-quote-mark" aria-hidden="true">“</div>
               <blockquote>"The laboratory fume hoods and safety equipment from Vishal Steel Products have been game-changers for our research facility. Their technical expertise in laboratory safety compliance is unmatched. Zero safety incidents in 3 years of operation."</blockquote>
               <div class="ct-client"><strong>Dr. Priya Sharma</strong><span>Research Director, CSIR Laboratory</span></div>
             </article>
             <article class="ct-testimonial">
-              <div class="ct-quote-mark" aria-hidden="true">Ã¢â‚¬Å“</div>
+              <div class="ct-quote-mark" aria-hidden="true">“</div>
               <blockquote>"Their complete HVAC turnkey solution revolutionized our manufacturing facility. The system integration was flawless, and their ongoing technical support is outstanding. Our energy efficiency improved by 35% while maintaining optimal climate control."</blockquote>
               <div class="ct-client"><strong>Amit Desai</strong><span>Operations Manager, Tata Manufacturing</span></div>
             </article>
             <article class="ct-testimonial">
-              <div class="ct-quote-mark" aria-hidden="true">Ã¢â‚¬Å“</div>
+              <div class="ct-quote-mark" aria-hidden="true">“</div>
               <blockquote>"The warehouse rack systems and industrial storage solutions have maximized our space utilization by 60%. Their engineering team's attention to detail and post-installation support demonstrates why they're industry leaders in multi-material manufacturing."</blockquote>
               <div class="ct-client"><strong>Vikram Singh</strong><span>Logistics Director, Reliance Industries</span></div>
             </article>
             <article class="ct-testimonial">
-              <div class="ct-quote-mark" aria-hidden="true">Ã¢â‚¬Å“</div>
+              <div class="ct-quote-mark" aria-hidden="true">“</div>
               <blockquote>"The security lockers from Vishal Steel Products have exceeded our expectations. Robust construction, sleek design, and competitive pricing make them our preferred vendor for security solutions."</blockquote>
               <div class="ct-client"><strong>Vikram Malhotra</strong><span>Security Solutions Manager</span></div>
             </article>
@@ -227,7 +342,7 @@
           </div>
           <div>
             <div class="ct-location-grid">
-              <article class="ct-location"><h3>Mumbai Ã¢â‚¬â€œ Vasai</h3><p><b>Manufacturing Headquarters</b>Healthcare &amp; HVAC Solutions</p></article>
+              <article class="ct-location"><h3>Mumbai – Vasai</h3><p><b>Manufacturing Headquarters</b>Healthcare &amp; HVAC Solutions</p></article>
               <article class="ct-location"><h3>Delhi NCR</h3><p><b>North India Operations</b>Industrial &amp; Laboratory Solutions</p></article>
               <article class="ct-location"><h3>Bangalore</h3><p><b>Tech &amp; Research Hub</b>Laboratory Fume Hoods &amp; IT Furniture</p></article>
               <article class="ct-location"><h3>Chennai</h3><p><b>South Regional Center</b>Healthcare &amp; Industrial Solutions</p></article>
@@ -260,7 +375,7 @@
     <section class="ct-closing">
       <div class="ct-wrap ct-closing__inner">
         <h2>Partner with a group built on 40+ years of manufacturing excellence.</h2>
-        <a href="contact.html">Discuss Your Requirements Ã¢â€ â€”</a>
+        <a href="contact.html">Discuss Your Requirements →</a>
       </div>
     </section>
   </main>
@@ -314,6 +429,26 @@
         },{once:true});
       }
       window.addEventListener("load",updateSlider,{once:true});
+
+      // Auto-advance testimonials; pause while the visitor interacts with the slider.
+      if(track && cards.length > visibleCount() && !reduce){
+        const viewport=document.querySelector(".ct-testimonial-viewport");
+        let autoTimer=window.setInterval(()=>{
+          index=index>=maxIndex()?0:index+1;
+          updateSlider();
+        },4800);
+        const pause=()=>{if(autoTimer){clearInterval(autoTimer);autoTimer=null;}};
+        const resume=()=>{if(!autoTimer)autoTimer=window.setInterval(()=>{
+          index=index>=maxIndex()?0:index+1;
+          updateSlider();
+        },4800);};
+        viewport?.addEventListener("mouseenter",pause);
+        viewport?.addEventListener("mouseleave",resume);
+        viewport?.addEventListener("focusin",pause);
+        viewport?.addEventListener("focusout",resume);
+        prev?.addEventListener("click",()=>{pause();resume();});
+        next?.addEventListener("click",()=>{pause();resume();});
+      }
     })();
   </script>
 </body>

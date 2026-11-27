@@ -566,10 +566,21 @@
         transform 240ms ease;
     }
 
-    .custom-button span {
-      font-size: 17px;
-      font-weight: 400;
+    .custom-button .custom-button__arrow {
+      display: inline-flex;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
       transition: transform 240ms ease;
+    }
+
+    .custom-button__arrow svg {
+      display: block;
+      width: 18px;
+      height: 18px;
     }
 
     .custom-button:hover {
@@ -1061,7 +1072,7 @@
     }
 
 /* =========================================================
-   SOLUTION CARDS Ã¢â‚¬â€ compact icons with information underneath
+   SOLUTION CARDS — compact icons with information underneath
    ========================================================= */
 .custom-solutions {
   display: grid;
@@ -1290,21 +1301,27 @@
             <p>Space-Efficient Solutions</p>
           </div>
         </article>
-        <article class="custom-carousel__slide" data-custom-slide aria-hidden="true" aria-label="HVAC Turnkey Solutions">
-          <div class="custom-image-slot custom-image-slot--icon custom-image-slot--carousel-icon" aria-hidden="true">
-            <svg class="custom-image-slot__icon" viewBox="0 0 160 160" fill="none">
-              <rect x="28" y="30" width="104" height="100" rx="8" stroke="currentColor" stroke-width="5"/>
-              <path d="M43 49h74M43 61h74" stroke="#C79A3E" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="80" cy="91" r="22" stroke="currentColor" stroke-width="5"/>
-              <path d="M80 72c11 9 10 17 0 19 2-10-4-15-13-14M97 101c-13 3-19-2-17-11 8 6 15 3 19-5M65 103c2-13 8-17 15-11-9 5-10 12-6 20" fill="#C79A3E" stroke="#C79A3E" stroke-linejoin="round" stroke-width="3"/>
-              <path d="M45 143h70" stroke="currentColor" stroke-linecap="round" stroke-width="5"/>
-            </svg>
-          </div>
-          <div class="custom-carousel__copy">
-            <h2>HVAC Turnkey Solutions</h2>
-            <p>Complete System Integration</p>
-          </div>
-        </article>
+      <article class="custom-carousel__slide"
+         data-custom-slide
+         aria-hidden="true"
+         aria-label="HVAC Turnkey Solutions">
+
+    <div class="custom-image-slot"
+         data-image-slot="hero-hvac-solutions">
+
+        <img src="./assets/images/HVAC Turnkey Solutions.png"
+             alt="HVAC Turnkey Solutions"
+             loading="eager"
+             decoding="async">
+
+    </div>
+
+    <div class="custom-carousel__copy">
+        <h2>HVAC Turnkey Solutions</h2>
+        <p>Complete System Integration</p>
+    </div>
+
+</article>
         <div class="custom-carousel__controls">
           <div class="custom-carousel__dots" role="group" aria-label="Choose a carousel slide">
             <button class="custom-carousel__dot" type="button" aria-label="Show Laboratory Furniture" aria-current="true" data-custom-dot="0"></button>
@@ -1346,7 +1363,12 @@
         <div class="custom-solution__copy">
           <h3 class="custom-solution__title">Laboratory Equipment</h3>
           <p class="custom-solution__description">Custom laboratory furniture, fume hoods, and chemical-resistant workbenches for research facilities.</p>
-          <a class="custom-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button" href="./contact.html">Contact Us <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </div>
       </article>
 
@@ -1364,7 +1386,12 @@
         <div class="custom-solution__copy">
           <h3 class="custom-solution__title">Medical Furniture</h3>
           <p class="custom-solution__description">Hospital beds, medical trolleys, and healthcare furniture manufactured to medical industry standards.</p>
-          <a class="custom-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button" href="./contact.html">Contact Us <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </div>
       </article>
 
@@ -1382,7 +1409,12 @@
         <div class="custom-solution__copy">
           <h3 class="custom-solution__title">Industrial Solutions</h3>
           <p class="custom-solution__description">Heavy-duty workbenches, tool trolleys, and warehouse racking systems for manufacturing environments.</p>
-          <a class="custom-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button" href="./contact.html">Contact Us <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </div>
       </article>
 
@@ -1401,7 +1433,12 @@
         <div class="custom-solution__copy">
           <h3 class="custom-solution__title">HVAC Systems</h3>
           <p class="custom-solution__description">Complete HVAC turnkey solutions including design, installation, and maintenance for all industries.</p>
-          <a class="custom-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button" href="./contact.html">Contact Us <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </div>
       </article>
     </section>
@@ -1430,7 +1467,12 @@
               <span class="custom-stat__label">Years of Excellence</span>
             </div>
           </div>
-          <a class="custom-button custom-product-link" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button custom-product-link" href="./products.html">View All Products <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </section>
 
         <section class="custom-proof-section custom-proof-section--experience" aria-labelledby="custom-experience-title">
@@ -1462,14 +1504,24 @@
               <p>End-to-end services from design consultation to installation, including HVAC turnkey solutions for all industries.</p>
             </article>
           </div>
-          <a class="custom-button custom-product-link" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="custom-button custom-product-link" href="./products.html">View All Products <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
         </section>
       </div>
     </section>
 
     <section class="custom-closing" aria-label="View all products">
       <h3 class="custom-closing__title">Custom Steel, Metal &amp; Wood Fabrication Solutions</h3>
-      <a class="custom-button custom-button--light" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+      <a class="custom-button custom-button--light" href="./products.html">View All Products <span class="custom-button__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M5 12h14m-7-7 7 7-7 7" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span></a>
     </section>
   </main>
   <div id="footer-placeholder"></div>

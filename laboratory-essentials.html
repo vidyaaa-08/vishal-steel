@@ -14,7 +14,7 @@
   <style>
     :root {
       color-scheme: light;
-      --lab-red: #607D8B;
+      --lab-red: #C79A3E;
       --lab-dark-red: #173747;
       --lab-charcoal: #202124;
       --lab-white: #fff;
@@ -568,7 +568,7 @@
     }
 
     .lab-comprehensive__copy .lab-kicker {
-      color: #ffb8be;
+      color: #E2BE78;
     }
 
     .lab-comprehensive__title {
@@ -631,7 +631,7 @@
 
     .lab-comprehensive .lab-button span,
     .lab-why .lab-button span {
-      color: #ffb8be;
+      color: #E2BE78;
     }
 
     .lab-comprehensive .lab-button:hover,
@@ -1160,7 +1160,7 @@
       display: block;
       width: 20%;
       height: 100%;
-      background: #d62332;
+      background: #C79A3E;
       transition: width 500ms ease;
     }
 
@@ -1243,6 +1243,108 @@
       .lab-hero-carousel__slide { transition: none !important; }
     }
 
+
+    /* V STEEL premium gold refinement + interaction polish */
+    :root {
+      --lab-red: #c79a3e;
+      --lab-dark-red: #102b39;
+      --lab-gold-soft: #e6c77f;
+    }
+    .lab-page { -webkit-font-smoothing: antialiased; }
+    .lab-hero {
+      background:
+        radial-gradient(ellipse at 8% 12%, rgba(199,154,62,.13), transparent 34%),
+        linear-gradient(112deg,#f7f7f5 0%,#efefec 58%,#e5e8e7 100%);
+    }
+    .lab-hero::after {
+      content:"";
+      position:absolute; z-index:0; left:var(--lab-gutter); bottom:0;
+      width:min(42vw,520px); height:3px; background:var(--lab-red);
+      transform-origin:left; animation:lab-gold-line 1.15s .35s both cubic-bezier(.2,.7,.2,1);
+    }
+    .lab-hero__copy,.lab-hero__visual { position:relative; z-index:1; }
+    .lab-kicker,.lab-story__number,.lab-feature__number { color:var(--lab-red); }
+    .lab-hero__title-line:last-child { color:var(--lab-red); }
+    .lab-image-slot { border-radius:3px; }
+    .lab-image-slot--photo { box-shadow:0 22px 58px rgba(16,43,57,.13); }
+    .lab-image-slot--photo::after { border-color:rgba(230,199,127,.7); }
+    .lab-hero-carousel__progress span { background:var(--lab-red); }
+    .lab-hero-carousel__controls button[aria-current="true"],
+    .lab-hero-carousel__controls button:hover {
+      border-color:var(--lab-red); background:var(--lab-red); color:#102b39;
+    }
+    .lab-story,.lab-solution { position:relative; }
+    .lab-story__visual,.lab-solution__visual { isolation:isolate; }
+    .lab-story__visual::before {
+      border-color:rgba(199,154,62,.8);
+      transition:width .5s ease,height .5s ease;
+    }
+    .lab-story:hover .lab-story__visual::before { width:clamp(68px,9vw,128px); }
+    .lab-story__title,.lab-solution__title { transition:color .3s ease; }
+    .lab-story:hover .lab-story__title,
+    .lab-solution:hover .lab-solution__title { color:#9a7129; }
+    .lab-solution { overflow:hidden; }
+    .lab-solution__index { color:rgba(199,154,62,.12); transition:transform .55s ease,color .35s ease; }
+    .lab-solution:hover .lab-solution__index { transform:translateY(-8px); color:rgba(199,154,62,.2); }
+    .lab-button {
+      border:1px solid var(--lab-red);
+      border-radius:2px;
+      background:linear-gradient(110deg,transparent 0 50%,rgba(199,154,62,.10) 50% 100%);
+      background-size:220% 100%;
+      background-position:100% 0;
+      box-shadow:0 7px 20px rgba(16,43,57,.045);
+      transition:background-position .35s ease,color .3s ease,border-color .3s ease,transform .3s ease,box-shadow .3s ease;
+    }
+    .lab-button span { color:var(--lab-red); font-size:20px; line-height:1; }
+    .lab-button:hover {
+      border-color:var(--lab-red); background-color:var(--lab-red);
+      background-position:0 0; color:#102b39;
+      box-shadow:0 12px 28px rgba(199,154,62,.22);
+      transform:translateY(-4px);
+    }
+    .lab-button:hover span { color:#102b39; }
+    .lab-comprehensive {
+      background:linear-gradient(115deg,#102b39,#173747 65%,#203f4b);
+    }
+    .lab-comprehensive::before {
+      background:
+        radial-gradient(circle at 85% 20%,rgba(199,154,62,.2),transparent 30%),
+        repeating-linear-gradient(0deg,transparent 0 62px,rgba(255,255,255,.045) 63px),
+        repeating-linear-gradient(90deg,transparent 0 62px,rgba(255,255,255,.045) 63px);
+    }
+    .lab-comprehensive .lab-kicker { color:var(--lab-gold-soft); }
+    .lab-comprehensive .lab-button,.lab-why .lab-button { border-color:var(--lab-gold-soft); }
+    .lab-comprehensive .lab-button span,.lab-why .lab-button span { color:var(--lab-gold-soft); }
+    .lab-comprehensive .lab-button:hover,.lab-why .lab-button:hover {
+      background:var(--lab-red); border-color:var(--lab-red); color:#102b39;
+    }
+    .lab-comprehensive .lab-button:hover span,.lab-why .lab-button:hover span { color:#102b39; }
+    .lab-stat { border-color:rgba(230,199,127,.45); }
+    .lab-stat__number { color:var(--lab-gold-soft); }
+    .lab-why { background:linear-gradient(135deg,#f4f5f3,#e9edec); }
+    .lab-feature { transition:padding-left .3s ease,border-color .3s ease; }
+    .lab-feature:hover { padding-left:10px; border-color:var(--lab-red); }
+    .lab-feature__number { color:#a77b2d; }
+    .lab-solutions__heading h2,.lab-why__title { color:#173747; }
+    .lab-solutions__heading h2::after {
+      content:""; display:block; width:76px; height:3px; margin-top:18px;
+      background:var(--lab-red); transform-origin:left; animation:lab-gold-line 1s .25s both;
+    }
+    .lab-scroll-cue__line::after { background:var(--lab-red); }
+    .lab-hero-carousel__slide { will-change:opacity,transform; }
+    @keyframes lab-gold-line { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+    @keyframes lab-soft-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+    @media (hover:hover) {
+      .lab-image-slot--photo:hover .lab-image-slot__media { transform:scale(1.045); }
+    }
+    @media (max-width:680px) {
+      .lab-hero::after { left:var(--lab-gutter); width:48%; }
+      .lab-button { min-height:50px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .lab-hero::after,.lab-solutions__heading h2::after { animation:none; }
+    }
+
   </style>
 </head>
 <body class="vs-page lab-page">
@@ -1263,7 +1365,7 @@
           <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment2.png" alt="Stainless steel laboratory equipment" loading="lazy" decoding="async" aria-hidden="true">
           <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment3.png" alt="Laboratory workstation" loading="lazy" decoding="async" aria-hidden="true">
           <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment4.png" alt="Laboratory safety equipment and fume hood" loading="lazy" decoding="async" aria-hidden="true">
-          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/Equipment5.png" alt="Laboratory solutions and equipment" loading="lazy" decoding="async" aria-hidden="true">
+          <img class="lab-image-slot__media lab-hero-carousel__slide" data-lab-hero-slide src="./assets/images/customsteel3.png" alt="Laboratory solutions and equipment" loading="lazy" decoding="async" aria-hidden="true">
           <span class="lab-hero-carousel__label" data-lab-hero-label>Laboratory equipment</span>
           <div class="lab-hero-carousel__footer">
             <span class="lab-hero-carousel__count" data-lab-hero-count>01 <i>/ 05</i></span>
@@ -1379,7 +1481,7 @@
           <span class="lab-solution__index" aria-hidden="true">01</span>
           <h3 class="lab-solution__title">Laboratory Furniture &amp; Fume Hoods</h3>
           <p class="lab-solution__description">Complete laboratory setups including workbenches, fume hoods, and chemical-resistant furniture for research facilities.</p>
-          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">&#8599;</span></a>
         </div>
       </article>
 
@@ -1394,7 +1496,7 @@
           <span class="lab-solution__index" aria-hidden="true">02</span>
           <h3 class="lab-solution__title">Industrial Workbenches &amp; Storage</h3>
           <p class="lab-solution__description">Heavy-duty workbenches, tool trolleys, and warehouse racking systems for manufacturing environments.</p>
-          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">&#8599;</span></a>
         </div>
       </article>
 
@@ -1409,7 +1511,7 @@
           <span class="lab-solution__index" aria-hidden="true">03</span>
           <h3 class="lab-solution__title">Office Furniture Solutions</h3>
           <p class="lab-solution__description">Modern office desks, filing cabinets, storage compactors, and ergonomic furniture for professional workspaces.</p>
-          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">&#8599;</span></a>
         </div>
       </article>
 
@@ -1424,7 +1526,7 @@
           <span class="lab-solution__index" aria-hidden="true">04</span>
           <h3 class="lab-solution__title">HVAC Turnkey Solutions</h3>
           <p class="lab-solution__description">Complete HVAC system design, installation, and maintenance for industrial and commercial facilities.</p>
-          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="lab-button" href="./contact.html">Contact Us <span aria-hidden="true">&#8599;</span></a>
         </div>
       </article>
     </section>
@@ -1439,7 +1541,7 @@
         <p class="lab-kicker">Our Comprehensive Solutions</p>
         <h2 class="lab-comprehensive__title" id="lab-comprehensive-title">Multi Industry Manufacturing Expertise</h2>
         <p class="lab-comprehensive__description">Specialized manufacturer serving laboratories, hospitals, offices, and industrial facilities with custom steel, metal, and wood furniture solutions.</p>
-        <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+        <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">&#8599;</span></a>
       </div>
       <div class="lab-comprehensive__stats" aria-label="Manufacturing statistics">
         <div class="lab-stat">
@@ -1481,7 +1583,7 @@
               <p>Complete project delivery including design, manufacturing, installation, and HVAC turnkey setups for all industries.</p>
             </div>
           </article>
-          <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="lab-button" href="./products.html">View All Products <span aria-hidden="true">&#8599;</span></a>
         </div>
       </div>
     </section>

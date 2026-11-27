@@ -23,7 +23,7 @@
         ["industry5.png", "Workshop tool cabinet"],
         ["industry6.png", "Workbench with drawers"],
         ["industry7.png", "Metal locker"],
-        ["industry8.png", "Steel filing cabinet"],
+        ["Steel filing cabinet.png", "Steel filing cabinet"],
         ["industry9.png", "Mobile industrial cart"]
       ]
     },
@@ -33,14 +33,14 @@
       description: "Steel filing, office, industrial, and laboratory cabinets from the V STEEL range.",
       href: "./cabinets.html",
       images: [
-        ["cab1.png", "Steel filing cabinet"],
-        ["cab2.png", "Filing cabinet drawer detail"],
-        ["cab3.png", "Office storage cabinet"],
-        ["cab4.png", "Industrial steel storage cabinet"],
-        ["cab5.png", "Industrial cabinet shelving detail"],
-        ["cab6.png", "Laboratory steel cabinet", "laboratory"],
-        ["cab7.png", "Laboratory cabinet detail", "laboratory"],
-        ["cab8.png", "Technical storage cabinet"]
+        ["Filing cabinet drawer.png", "Filing cabinet drawer detail"],
+        ["Office storage cabinet.png", "Office storage cabinet"],
+        ["contact3.png", "Industrial steel storage cabinet"],
+        ["industry4.png", "Industrial cabinet shelving detail"],
+        ["Laboratory and Technical Cabinets.png", "Laboratory steel cabinet", "laboratory"],
+        ["hospita5.png", "Laboratory cabinet detail", "laboratory"],
+        ["steelcab.png", "Steel storage cabinet"],
+        ["steelalmari.png", "Steel almirah"]
       ]
     },
     {
@@ -66,8 +66,7 @@
         ["Equipment1.png", "Laboratory equipment"],
         ["Equipment2.png", "Stainless steel laboratory equipment"],
         ["Equipment3.png", "Laboratory workstation"],
-        ["Equipment4.png", "Laboratory safety equipment and fume hood"],
-        ["Equipment5.png", "Laboratory solutions and equipment"]
+        ["Equipment4.png", "Laboratory safety equipment and fume hood"]
       ]
     },
     {
@@ -293,15 +292,27 @@
     }
   ];
 
+  function getGalleryFilters(file, title, collection) {
+    const searchable = `${file} ${title} ${collection.label}`.toLowerCase();
+    if (/almari|almirah/.test(searchable)) return ["almirahs"];
+    if (/locker/.test(searchable)) return ["lockers"];
+    if (/cabinet|filing|steelcab/.test(searchable)) return ["cabinets"];
+    if (
+      /manufacturing|fabrication|industrial workbench|industrial steel furniture|trolleys and mobile|industrial steel furniture/.test(searchable) ||
+      /^(?:industry|workbe|fabrication|equipment|customsteel|product)\d*/.test(file.toLowerCase())
+    ) {
+      return ["manufacturing"];
+    }
+    return ["projects"];
+  }
+
   const allItems = collections.flatMap((collection) =>
-    collection.images.map(([file, title, overrideFilter]) => ({
+    collection.images.map(([file, title]) => ({
       src: `./assets/images/${file}`,
       title,
       category: collection.label,
       description: collection.description,
-      filters: overrideFilter && overrideFilter !== collection.filter
-        ? [collection.filter, overrideFilter]
-        : [collection.filter],
+      filters: getGalleryFilters(file, title, collection),
       href: collection.href
     }))
   );
@@ -325,12 +336,15 @@
     const safeSrc = item.src.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
     return `<article class="gallery-card${shape}" data-category="${item.filters.join(" ")}" style="--reveal-delay:${(index % 8) * 35}ms">
-      <div class="gallery-card__image"><img src="${safeSrc}" alt="${safeTitle}" loading="lazy" decoding="async"></div>
+      <button class="gallery-card__image" type="button" data-gallery-open aria-label="View ${safeTitle}">
+        <img src="${safeSrc}" alt="${safeTitle}" width="800" height="600" loading="lazy" decoding="async">
+      </button>
       <div class="gallery-card__caption" aria-hidden="true"><span class="gallery-card__category">${safeCategory}</span><h3 class="gallery-card__title">${safeTitle}</h3></div>
       <div class="gallery-card__details" id="${id}">
         <span class="gallery-card__category">${safeCategory}</span>
         <h3 class="gallery-card__title">${safeTitle}</h3>
         <p>${safeDescription}</p>
+        <button class="gallery-card__action" type="button" data-gallery-open>View image <span aria-hidden="true">↗</span></button>
         <a class="gallery-card__action" href="${item.href}">Explore details <span aria-hidden="true">↗</span></a>
       </div>
       <button class="gallery-card__toggle" type="button" aria-expanded="false" aria-controls="${id}" aria-label="Show details for ${safeTitle}">Details <span aria-hidden="true">+</span></button>
@@ -342,6 +356,13 @@
   const count = filters.querySelector("[data-filter-count]");
   const buttons = Array.from(filters.querySelectorAll("[data-gallery-filter]"));
   const filterNames = new Map(buttons.map((button) => [button.dataset.galleryFilter, button.textContent.trim()]));
+  const lightbox = document.querySelector("[data-gallery-lightbox]");
+  const lightboxImage = lightbox && lightbox.querySelector("[data-lightbox-image]");
+  const lightboxTitle = lightbox && lightbox.querySelector("[data-lightbox-title]");
+  const lightboxCount = lightbox && lightbox.querySelector("[data-lightbox-count]");
+  const lightboxClose = lightbox && lightbox.querySelector("[data-lightbox-close]");
+  const lightboxPrevious = lightbox && lightbox.querySelector("[data-lightbox-previous]");
+  const lightboxNext = lightbox && lightbox.querySelector("[data-lightbox-next]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const categoryCounts = cards.reduce((totals, card) => {
     card.dataset.category.split(" ").forEach((category) => {
@@ -359,12 +380,97 @@
   });
 
   let filterVersion = 0;
+  let lightboxCards = [];
+  let lightboxIndex = 0;
+  let lightboxOrigin = null;
+  let previousBodyOverflow = "";
+  let lightboxCloseTimer = 0;
   const matchesFilter = (card, category) =>
     category === "all" || card.dataset.category.split(" ").includes(category);
+
+  function renderLightboxImage() {
+    const card = lightboxCards[lightboxIndex];
+    if (!card || !lightboxImage) return;
+    const image = card.querySelector(".gallery-card__image img");
+    const title = card.querySelector(".gallery-card__title");
+    const category = card.querySelector(".gallery-card__category");
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+    lightboxTitle.textContent = title.textContent;
+    lightboxCount.textContent = `${String(lightboxIndex + 1).padStart(2, "0")} / ${String(lightboxCards.length).padStart(2, "0")} · ${category.textContent}`;
+  }
+
+  function openLightbox(trigger) {
+    if (!lightbox || !lightboxImage) return;
+    lightboxCards = cards.filter((card) => !card.hidden && card.getAttribute("aria-hidden") !== "true");
+    const selectedCard = trigger.closest(".gallery-card");
+    lightboxIndex = Math.max(0, lightboxCards.indexOf(selectedCard));
+    lightboxOrigin = trigger;
+    previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    renderLightboxImage();
+    lightbox.showModal();
+    lightboxClose.focus();
+  }
+
+  function moveLightbox(step) {
+    if (!lightboxCards.length) return;
+    lightboxIndex = (lightboxIndex + step + lightboxCards.length) % lightboxCards.length;
+    renderLightboxImage();
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightbox.open || lightboxCloseTimer) return;
+    lightbox.classList.add("is-closing");
+    lightboxCloseTimer = window.setTimeout(() => {
+      lightboxCloseTimer = 0;
+      if (lightbox.open) lightbox.close();
+    }, reducedMotion ? 0 : 180);
+  }
+
+  if (lightbox && lightboxClose && lightboxPrevious && lightboxNext) {
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrevious.addEventListener("click", () => moveLightbox(-1));
+    lightboxNext.addEventListener("click", () => moveLightbox(1));
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeLightbox();
+    });
+    lightbox.addEventListener("close", () => {
+      window.clearTimeout(lightboxCloseTimer);
+      lightboxCloseTimer = 0;
+      lightbox.classList.remove("is-closing");
+      document.body.style.overflow = previousBodyOverflow;
+      if (lightboxOrigin && lightboxOrigin.isConnected) lightboxOrigin.focus();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.open) return;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        moveLightbox(-1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        moveLightbox(1);
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+      }
+    });
+  }
 
   function applyFilter(category) {
     const version = ++filterVersion;
     let visibleCount = 0;
+
+    cards.forEach((card) => {
+      if (card.classList.contains("is-filtering-out")) {
+        card.hidden = true;
+        card.classList.remove("is-filtering-out");
+      }
+    });
 
     cards.forEach((card) => {
       const shouldShow = matchesFilter(card, category);
@@ -410,10 +516,18 @@
 
   filters.addEventListener("click", (event) => {
     const button = event.target.closest("[data-gallery-filter]");
-    if (button && filters.contains(button)) applyFilter(button.dataset.galleryFilter);
+    if (button && filters.contains(button)) {
+      applyFilter(button.dataset.galleryFilter);
+      if (lightbox && lightbox.open) closeLightbox();
+    }
   });
 
   grid.addEventListener("click", (event) => {
+    const imageTrigger = event.target.closest("[data-gallery-open]");
+    if (imageTrigger && grid.contains(imageTrigger)) {
+      openLightbox(imageTrigger);
+      return;
+    }
     const toggle = event.target.closest(".gallery-card__toggle");
     if (!toggle) return;
     const card = toggle.closest(".gallery-card");
@@ -462,67 +576,3 @@
     }, { passive: true });
   }
 })();
-
-
-
-/* =================================
-   GALLERY LOAD MORE
-================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const grid = document.querySelector("[data-gallery-grid]");
-  const loadBtn = document.querySelector("[data-gallery-load]");
-  const loadWrap = document.querySelector("[data-gallery-load-wrap]");
-  const countText = document.querySelector("[data-gallery-load-count]");
-
-  if (!grid || !loadBtn || !loadWrap || !countText) return;
-
-  const initialItems = 8;
-  const itemsPerClick = 4;
-
-  let visibleItems = initialItems;
-
-  function getCards() {
-    return Array.from(grid.children).filter(card =>
-      card.nodeType === 1
-    );
-  }
-
-  function updateGallery() {
-    const cards = getCards();
-    const total = cards.length;
-
-    cards.forEach((card, index) => {
-      card.dataset.loadHidden = index >= visibleItems
-        ? "true"
-        : "false";
-    });
-
-    const showing = Math.min(visibleItems, total);
-
-    countText.textContent = `Showing ${showing} of ${total} images`;
-
-    loadWrap.classList.toggle(
-      "is-finished",
-      showing >= total
-    );
-  }
-
-  loadBtn.addEventListener("click", function () {
-    visibleItems += itemsPerClick;
-    updateGallery();
-  });
-
-  // Wait for dynamically generated gallery cards
-  const observer = new MutationObserver(function () {
-    updateGallery();
-  });
-
-  observer.observe(grid, {
-    childList: true
-  });
-
-  updateGallery();
-
-});

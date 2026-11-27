@@ -16,8 +16,8 @@
       <div class="gallery-hero__image" aria-hidden="true"></div>
       <div class="gallery-shell gallery-hero__content">
         <p class="gallery-eyebrow gallery-reveal">Vishal Steel Products / Portfolio</p>
-        <h1 id="gallery-title" class="gallery-reveal">Made for work.<br><span>Built to last.</span></h1>
-        <p class="gallery-hero__intro gallery-reveal">Explore the products, environments, and project imagery behind V STEEL's work across furniture, storage, laboratories, and industry.</p>
+        <h1 id="gallery-title" class="gallery-reveal">Our Gallery</h1>
+        <p class="gallery-hero__intro gallery-reveal">Explore the steel products, manufacturing spaces, and completed projects shaping workplaces across India.</p>
         <a class="gallery-hero__link gallery-reveal" href="#gallery-collection">Explore the gallery <span aria-hidden="true">↓</span></a>
         <span class="gallery-hero__index" aria-hidden="true">V / S &nbsp;—&nbsp; PRODUCT &amp; PROJECT ARCHIVE</span>
       </div>
@@ -32,7 +32,7 @@
           <a class="gallery-text-link" href="./Project.html#projects">Explore project work <span aria-hidden="true">↗</span></a>
         </div>
         <a class="gallery-feature__visual gallery-reveal" href="./Project.html#projects" aria-label="View V STEEL storage compactor projects">
-          <img src="./assets/images/homepage/project-storage-compactor.png" alt="Storage compactor installation from the V STEEL project portfolio" fetchpriority="high">
+          <img src="./assets/images/homepage/project-storage-compactor.png" alt="Storage compactor installation from the V STEEL project portfolio" width="927" height="768" fetchpriority="high">
           <span class="gallery-feature__visual-label">Storage systems / Project portfolio <b aria-hidden="true">↗</b></span>
         </a>
       </div>
@@ -50,23 +50,15 @@
 
         <nav class="gallery-filters gallery-reveal" aria-label="Filter gallery by category" data-gallery-filters>
           <button class="gallery-filter" type="button" data-gallery-filter="all" aria-pressed="true">All <span data-filter-count></span></button>
-          <button class="gallery-filter" type="button" data-gallery-filter="furniture" aria-pressed="false">Furniture</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="storage" aria-pressed="false">Storage</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="laboratory" aria-pressed="false">Laboratory</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="industrial" aria-pressed="false">Industrial</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="projects" aria-pressed="false">Projects</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="cabinets" aria-pressed="false">Steel Cabinets</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="almirahs" aria-pressed="false">Steel Almirahs</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="lockers" aria-pressed="false">Metal Lockers</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="projects" aria-pressed="false">Industrial Projects</button>
+          <button class="gallery-filter" type="button" data-gallery-filter="manufacturing" aria-pressed="false">Manufacturing</button>
           <span class="gallery-filter__status" role="status" aria-live="polite" data-gallery-status></span>
         </nav>
 
         <div class="gallery-grid" data-gallery-grid></div>
-        <!-- Load More Button -->
-<div class="gallery-load-wrap" data-gallery-load-wrap>
-  <button type="button" class="gallery-load-btn" data-gallery-load>
-    <span>Load More</span>
-    <span class="gallery-load-arrow">↓</span>
-  </button>
-  <p class="gallery-load-count" data-gallery-load-count></p>
-</div>
         <p class="gallery-empty" data-gallery-empty hidden>No images match this category.</p>
         <p class="gallery-collection__footnote">Product and project imagery shown across the V STEEL website.</p>
       </div>
@@ -82,6 +74,18 @@
       </div>
     </section>
   </main>
+  <dialog class="gallery-lightbox" data-gallery-lightbox aria-label="Gallery image viewer">
+    <button class="gallery-lightbox__close" type="button" data-lightbox-close aria-label="Close image viewer">×</button>
+    <button class="gallery-lightbox__nav gallery-lightbox__nav--previous" type="button" data-lightbox-previous aria-label="Previous image">‹</button>
+    <figure class="gallery-lightbox__figure">
+      <img class="gallery-lightbox__image" data-lightbox-image alt="">
+      <figcaption class="gallery-lightbox__caption">
+        <span data-lightbox-title></span>
+        <span data-lightbox-count></span>
+      </figcaption>
+    </figure>
+    <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" data-lightbox-next aria-label="Next image">›</button>
+  </dialog>
   <div id="footer-placeholder"></div>
   <script src="./gallery.js" defer></script>
 </body>

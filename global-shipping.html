@@ -14,8 +14,8 @@
   <style>
     :root {
       color-scheme: light;
-      --gs-red: #607D8B;
-      --gs-dark-red: #173747;
+      --gs-red: #C99A3C;
+      --gs-dark-red: #A97820;
       --gs-charcoal: #202124;
       --gs-white: #fff;
       --gs-light: #f5f5f5;
@@ -212,7 +212,11 @@
     .gs-hero__title-line--accent {
       position: relative;
       width: fit-content;
-      color: var(--gs-white);
+      color: var(--gs-red);
+    }
+
+    .gs-hero__title-line {
+      color: var(--gs-red);
     }
 
     .gs-hero__title-line--accent::after {
@@ -590,7 +594,7 @@
     }
 
     .gs-why__heading .gs-eyebrow {
-      color: #ef5964;
+      color: #D5A33E;
     }
 
     .gs-why__heading h2 {
@@ -630,7 +634,7 @@
       place-items: center;
       border: 1px solid rgba(255, 255, 255, 0.32);
       border-radius: 50%;
-      color: #f56c76;
+      color: #D5A33E;
       transition: transform 400ms ease, background-color 400ms ease;
     }
 
@@ -922,7 +926,7 @@
     }
 
     .gs-article--featured::before {
-      background: #ef5964;
+      background: #D5A33E;
     }
 
     .gs-article--featured::after {
@@ -982,7 +986,7 @@
     }
 
     .gs-article--featured .gs-article__category {
-      color: #ff7b83;
+      color: #E0B454;
     }
 
     .gs-article__body {
@@ -1338,26 +1342,249 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    /* Refined global-shipping layout: tighter rhythm, no decorative orbit artwork */
+    .gs-hero {
+      min-height: clamp(500px, 72svh, 740px);
+    }
+    .gs-hero__inner {
+      padding-block: clamp(64px, 8vw, 108px);
+    }
+    .gs-breadcrumb { margin-bottom: clamp(34px, 5vw, 64px); }
+    .gs-hero__base { margin-top: clamp(34px, 5vw, 62px); }
+
+    .gs-intro {
+      padding: clamp(54px, 7vw, 88px) 0;
+      background: linear-gradient(120deg, #f3f5f6 0%, #fff 58%, #edf1f3 100%);
+    }
+    .gs-intro::after {
+      content: "";
+      display: block;
+      width: min(100% - var(--gs-gutter) * 2, 1440px);
+      height: 3px;
+      margin: 34px auto 0;
+      background: linear-gradient(90deg, var(--gs-red), rgba(96,125,139,.08) 72%, transparent);
+      transform-origin: left;
+      animation: gs-line-reveal 1.1s ease both;
+    }
+    .gs-intro__grid {
+      display: block;
+    }
+    .gs-intro__heading {
+      max-width: 1050px;
+      font-size: clamp(2.8rem, 6.8vw, 6.4rem);
+      line-height: .98;
+      letter-spacing: -.075em;
+      animation: gs-rise-in .85s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .gs-intro__heading span {
+      display: inline;
+      color: var(--gs-red);
+    }
+    .gs-excellence,
+    .gs-why,
+    .gs-faq,
+    .gs-insights {
+      padding-block: clamp(64px, 8vw, 108px);
+    }
+    .gs-excellence__heading {
+      margin-bottom: clamp(30px, 4vw, 54px);
+    }
+    .gs-services { gap: 16px; }
+    .gs-service {
+      min-height: 285px;
+      padding: clamp(24px, 3vw, 40px);
+      border-radius: 3px;
+    }
+    .gs-service__copy { padding-top: 34px; }
+    .gs-service:hover { transform: translateY(-7px); }
+    .gs-why__heading { margin-bottom: clamp(38px, 5vw, 64px); }
+    .gs-advantage { min-height: 230px; padding-top: 28px; }
+    .gs-advantage__icon { margin-bottom: 26px; }
+    .gs-faq__grid { gap: clamp(30px, 5vw, 76px); }
+    .gs-faq__question { padding: 21px 0; }
+    .gs-contact-cta {
+      min-height: 130px;
+      margin-top: clamp(38px, 5vw, 66px);
+      border-radius: 3px;
+    }
+    .gs-insights__heading { margin-bottom: clamp(30px, 4vw, 54px); }
+    .gs-insights__grid {
+      grid-template-rows: repeat(2, minmax(220px, auto));
+      gap: 16px;
+    }
+    .gs-article {
+      min-height: 230px;
+      padding: clamp(24px, 3vw, 38px);
+      border-radius: 3px;
+    }
+    .gs-article--featured { min-height: 476px; }
+    .gs-article__body { padding-top: 28px; }
+
+    @keyframes gs-rise-in {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gs-line-reveal {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @media (max-width: 700px) {
+      .gs-hero { min-height: 590px; }
+      .gs-breadcrumb { margin-bottom: 48px; }
+      .gs-hero__base { margin-top: 48px; }
+      .gs-intro { padding: 58px 0 48px; }
+      .gs-intro__heading {
+        font-size: clamp(2.65rem, 11vw, 4.4rem);
+        line-height: 1;
+      }
+      .gs-intro::after { margin-top: 24px; }
+      .gs-excellence,
+      .gs-why,
+      .gs-faq,
+      .gs-insights { padding-block: 62px; }
+      .gs-excellence__heading { margin-bottom: 32px; }
+      .gs-service { min-height: 250px; }
+      .gs-advantage { padding-block: 24px !important; }
+      .gs-article,
+      .gs-article--featured { min-height: 275px; }
+      .gs-article--featured { min-height: 340px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gs-intro__heading, .gs-intro::after { animation: none !important; }
+    }
+
+
+    /* Global refresh: stronger gold identity, compact rhythm and reliable hero layering */
+    :root {
+      --gs-red: #C99A3C;
+      --gs-dark-red: #A97820;
+      --gs-gold: #C99A3C;
+      --gs-gold-light: #E5BD68;
+      --gs-gutter: clamp(20px, 5vw, 76px);
+    }
+    .gs-hero {
+      min-height: clamp(560px, 78svh, 790px);
+      background: #171b1f;
+    }
+    .gs-hero__slider { position:absolute; inset:0; z-index:0; overflow:hidden; }
+    .gs-hero__slide {
+      position:absolute; inset:0; opacity:0; visibility:hidden;
+      transition:opacity 1.15s ease, visibility 1.15s ease;
+    }
+    .gs-hero__slide.is-active { opacity:1; visibility:visible; }
+    .gs-hero__picture { position:absolute; inset:0; z-index:0; display:block; }
+    .gs-hero__picture img, .gs-hero__slide > img {
+      display:block; width:100%; height:100%; object-fit:cover;
+      object-position:center 52%; transform:scale(1.06);
+      animation:gs-banner-zoom 8s ease-in-out both;
+    }
+    .gs-hero__slide--wide img { object-position: center 35%; transform:scale(1.16); filter:saturate(.9) contrast(1.08); }
+    .gs-hero__slide--detail img { object-position: 72% center; transform:scale(1.25); filter:brightness(.82) saturate(1.08); }
+    .gs-hero__slide::after {
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(90deg,rgba(13,17,20,.88) 0%,rgba(13,17,20,.68) 45%,rgba(13,17,20,.24) 100%),
+                 linear-gradient(0deg,rgba(10,13,15,.5),transparent 55%);
+    }
+    .gs-hero__glow { z-index:1; pointer-events:none; }
+    .gs-hero__grid { z-index:1; pointer-events:none; }
+    .gs-hero__inner { z-index:3; }
+    .gs-hero__slider-controls {
+      position:absolute; z-index:4; right:var(--gs-gutter); bottom:34px;
+      display:flex; align-items:center; gap:13px;
+    }
+    .gs-slider-arrow {
+      display:grid; place-items:center; width:42px; height:42px;
+      border:1px solid rgba(255,255,255,.5); border-radius:50%;
+      background:rgba(20,23,25,.25); color:#fff; font-size:25px;
+      cursor:pointer; transition:background .25s,border-color .25s,transform .25s;
+      backdrop-filter:blur(8px);
+    }
+    .gs-slider-arrow:hover { background:var(--gs-gold); border-color:var(--gs-gold); transform:scale(1.07); }
+    .gs-slider-dots { display:flex; gap:8px; align-items:center; }
+    .gs-slider-dots button {
+      width:7px; height:7px; padding:0; border:0; border-radius:99px;
+      background:rgba(255,255,255,.55); cursor:pointer; transition:width .3s,background .3s;
+    }
+    .gs-slider-dots button.is-active { width:25px; background:var(--gs-gold-light); }
+    .gs-hero__progress { position:absolute; z-index:4; left:0; right:0; bottom:0; height:3px; background:rgba(255,255,255,.18); }
+    .gs-hero__progress span { display:block; width:0; height:100%; background:var(--gs-gold-light); }
+    @keyframes gs-banner-zoom { from { transform:scale(1.02); } to { transform:scale(1.14); } }
+
+    /* Tight, connected section spacing */
+    .gs-intro { padding:clamp(46px,5.5vw,76px) 0; }
+    .gs-intro::after { margin-top:24px; }
+    .gs-excellence,.gs-why,.gs-faq,.gs-insights { padding-block:clamp(58px,6.5vw,88px); }
+    .gs-excellence__heading { margin-bottom:clamp(28px,3.5vw,46px); }
+    .gs-service { min-height:260px; }
+    .gs-service--red {
+      border-color:#A97820;
+      background:radial-gradient(ellipse at 87% 14%,rgba(255,255,255,.15),transparent 33%),linear-gradient(135deg,#C99A3C,#A97820);
+    }
+    .gs-why { background:radial-gradient(ellipse at 95% 0%,rgba(201,154,60,.2),transparent 34%),#202124; }
+    .gs-faq__question:hover .gs-faq__question-text,
+    .gs-faq__question[aria-expanded="true"] .gs-faq__question-text { color:#A97820; }
+    .gs-faq__question[aria-expanded="true"] .gs-faq__toggle { border-color:#C99A3C; background:#C99A3C; }
+    .gs-contact-cta__link:hover { border-color:#C99A3C; background:#C99A3C; }
+    .gs-article__category { color:#A97820; }
+    .gs-article--featured { background:radial-gradient(ellipse at 94% 10%,rgba(201,154,60,.3),transparent 36%),#202124; }
+    .gs-article--featured::before { background:#E5BD68; }
+    .gs-article--featured .gs-article__category { color:#E5BD68; }
+    .gs-insights__accent { border-color:rgba(201,154,60,.5); background:radial-gradient(circle,#C99A3C 0 3px,transparent 4px); }
+    .gs-shell { width:min(calc(100% - var(--gs-gutter)*2),1480px); }
+    [data-gs-reveal] { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1); }
+    [data-gs-reveal].is-visible { opacity:1; transform:translateY(0); }
+    @media(max-width:700px) {
+      .gs-hero { min-height:650px; }
+      .gs-hero__slider-controls { right:20px; bottom:24px; }
+      .gs-hero__inner { padding-block:65px 100px; }
+      .gs-intro { padding:48px 0 42px; }
+      .gs-excellence,.gs-why,.gs-faq,.gs-insights { padding-block:54px; }
+      .gs-service { min-height:235px; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .gs-hero__slide,.gs-hero__picture img,.gs-hero__slide>img { animation:none!important; transition:none!important; }
+      [data-gs-reveal] { opacity:1; transform:none; transition:none; }
+    }
+
   </style>
 </head>
 <body class="vs-page gs-page">
   <div id="navbar-placeholder"></div>
   <main class="gs-main" data-global-shipping-page>
     <section class="gs-hero" aria-labelledby="gs-page-title">
-      <picture class="gs-hero__picture" aria-hidden="true">
-        <source
-          type="image/webp"
-          srcset="./assets/images/optimized/indeximg13-400.webp 400w, ./assets/images/optimized/indeximg13-640.webp 640w, ./assets/images/optimized/indeximg13-768.webp 768w"
-          sizes="100vw">
-        <img src="./assets/images/homepage/indeximg13.png" width="768" height="768" alt="" fetchpriority="high">
-      </picture>
+      <div class="gs-hero__slider" data-gs-slider aria-label="Global shipping banner">
+        <div class="gs-hero__slide is-active" data-gs-slide>
+          <picture class="gs-hero__picture" aria-hidden="true">
+            <source type="image/webp" srcset="./assets/images/optimized/indeximg13-400.webp 400w, ./assets/images/optimized/indeximg13-640.webp 640w, ./assets/images/optimized/indeximg13-768.webp 768w" sizes="100vw">
+            <img src="./assets/images/homepage/indeximg13.png" width="768" height="768" alt="" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="gs-hero__slide gs-hero__slide--wide" data-gs-slide aria-hidden="true">
+          <img src="./assets/images/homepage/indeximg13.png" alt="" loading="lazy">
+        </div>
+        <div class="gs-hero__slide gs-hero__slide--detail" data-gs-slide aria-hidden="true">
+          <img src="./assets/images/homepage/indeximg13.png" alt="" loading="lazy">
+        </div>
+        <div class="gs-hero__slider-controls" aria-label="Banner controls">
+          <button type="button" class="gs-slider-arrow" data-gs-prev aria-label="Previous banner">‹</button>
+          <div class="gs-slider-dots">
+            <button type="button" data-gs-dot="0" class="is-active" aria-label="Show banner 1"></button>
+            <button type="button" data-gs-dot="1" aria-label="Show banner 2"></button>
+            <button type="button" data-gs-dot="2" aria-label="Show banner 3"></button>
+          </div>
+          <button type="button" class="gs-slider-arrow" data-gs-next aria-label="Next banner">›</button>
+        </div>
+        <div class="gs-hero__progress" aria-hidden="true"><span data-gs-progress></span></div>
+      </div>
       <div class="gs-hero__glow" aria-hidden="true"></div>
       <div class="gs-hero__grid" aria-hidden="true"></div>
       <div class="gs-shell gs-hero__inner">
         <nav class="gs-breadcrumb" aria-label="Breadcrumb">
           <ol>
             <li><a href="./index.html">Home</a></li>
-            <li class="gs-breadcrumb__separator" aria-hidden="true">Ã¢â€ â€™</li>
+            <li class="gs-breadcrumb__separator" aria-hidden="true">›</li>
             <li aria-current="page">Global Shipping Services</li>
           </ol>
         </nav>
@@ -1375,20 +1602,6 @@
     <section class="gs-intro" aria-labelledby="gs-intro-title">
       <div class="gs-shell gs-intro__grid">
         <h2 class="gs-intro__heading" id="gs-intro-title">Multi-Material <span>Global Shipping</span></h2>
-        <div class="gs-intro__visual" aria-hidden="true">
-          <svg class="gs-intro__orbit" viewBox="0 0 480 420" role="presentation">
-            <ellipse class="gs-intro__orbit-ring" cx="240" cy="210" rx="190" ry="76" transform="rotate(-27 240 210)"></ellipse>
-            <ellipse class="gs-intro__orbit-ring" cx="240" cy="210" rx="145" ry="120" transform="rotate(29 240 210)"></ellipse>
-            <path class="gs-intro__orbit-route" d="M66 270C112 170 185 116 242 142c48 22 86 120 159 84"></path>
-            <path class="gs-intro__orbit-route gs-intro__orbit-route--soft" d="M97 118c66 104 201 184 285 103"></path>
-            <circle class="gs-intro__orbit-core" cx="240" cy="210" r="13"></circle>
-            <circle class="gs-intro__orbit-node" cx="66" cy="270" r="7"></circle>
-            <circle class="gs-intro__orbit-node" cx="242" cy="142" r="6"></circle>
-            <circle class="gs-intro__orbit-node" cx="401" cy="226" r="7"></circle>
-            <circle class="gs-intro__orbit-node" cx="97" cy="118" r="5"></circle>
-            <circle class="gs-intro__orbit-node" cx="382" cy="221" r="5"></circle>
-          </svg>
-        </div>
       </div>
     </section>
 
@@ -1812,6 +2025,73 @@
         }
       }
       };
+
+
+      // Auto-rotating hero banner with pause-on-hover and manual controls.
+      const slider = document.querySelector("[data-gs-slider]");
+      if (slider && slider.dataset.initialized !== "true") {
+        slider.dataset.initialized = "true";
+        const slides = [...slider.querySelectorAll("[data-gs-slide]")];
+        const dots = [...slider.querySelectorAll("[data-gs-dot]")];
+        const progress = slider.querySelector("[data-gs-progress]");
+        let active = 0, timer = null, startedAt = 0, raf = null;
+        const duration = 5600;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const show = (index) => {
+          active = (index + slides.length) % slides.length;
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("is-active", i === active);
+            slide.setAttribute("aria-hidden", String(i !== active));
+          });
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("is-active", i === active);
+            dot.setAttribute("aria-current", i === active ? "true" : "false");
+          });
+          if (progress) progress.style.width = "0%";
+          startedAt = performance.now();
+        };
+        const tick = (now) => {
+          if (!slider.matches(":hover") && !document.hidden && !reduced && progress) {
+            progress.style.width = `${Math.min(100, ((now - startedAt) / duration) * 100)}%`;
+          }
+          raf = requestAnimationFrame(tick);
+        };
+        const stop = () => { if (timer) clearInterval(timer); if (raf) cancelAnimationFrame(raf); };
+        const start = () => {
+          stop();
+          if (!reduced) {
+            startedAt = performance.now();
+            timer = setInterval(() => show(active + 1), duration);
+            raf = requestAnimationFrame(tick);
+          }
+        };
+        slider.querySelector("[data-gs-prev]")?.addEventListener("click", () => { show(active - 1); start(); });
+        slider.querySelector("[data-gs-next]")?.addEventListener("click", () => { show(active + 1); start(); });
+        dots.forEach((dot) => dot.addEventListener("click", () => { show(Number(dot.dataset.gsDot)); start(); }));
+        slider.addEventListener("mouseenter", () => { if (timer) clearInterval(timer); });
+        slider.addEventListener("mouseleave", start);
+        document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else start(); });
+        show(0); start();
+      }
+
+      // Lightweight reveal-on-scroll fallback; works even if GSAP is unavailable.
+      const revealTargets = page.querySelectorAll(
+        ".gs-intro__heading,.gs-excellence__heading,.gs-service,.gs-why__heading,.gs-advantage,.gs-faq__intro,.gs-faq__item,.gs-insights__heading,.gs-article"
+      );
+      revealTargets.forEach((element) => element.setAttribute("data-gs-reveal", ""));
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+        revealTargets.forEach((element) => revealObserver.observe(element));
+      } else {
+        revealTargets.forEach((element) => element.classList.add("is-visible"));
+      }
 
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initializePage, { once: true });
