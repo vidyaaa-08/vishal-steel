@@ -252,12 +252,657 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
+  
+    /* ===== Premium motion and visual polish ===== */
+    :root {
+      --h-gold: #c79a3e;
+      --h-gold-light: #e5c77f;
+      --h-navy: #102b39;
+      --h-slate: #607d8b;
+    }
+
+    .hospital-redesign {
+      --h-red: var(--h-gold);
+      --h-red-deep: var(--h-navy);
+    }
+
+    .hospital-redesign .h-hero {
+      background:
+        radial-gradient(ellipse at 78% 16%, rgba(199,154,62,.22), transparent 34%),
+        radial-gradient(ellipse at 10% 85%, rgba(96,125,139,.24), transparent 38%),
+        linear-gradient(128deg, #101f28 0%, #202124 55%, #263b43 100%);
+    }
+
+    .hospital-redesign .h-hero::before {
+      opacity: .32;
+      background-size: 54px 54px;
+      animation: h-grid-drift 24s linear infinite;
+    }
+
+    @keyframes h-grid-drift {
+      from { background-position: 0 0; }
+      to { background-position: 108px 54px; }
+    }
+
+    .hospital-redesign .h-hero__copy .h-eyebrow,
+    .hospital-redesign .h-slide__index,
+    .hospital-redesign .h-manufacturing .h-eyebrow {
+      color: var(--h-gold-light);
+    }
+
+    .hospital-redesign .h-hero__title span:last-child {
+      color: var(--h-gold-light);
+    }
+
+    .hospital-redesign .h-hero__underline {
+      background: linear-gradient(90deg, var(--h-gold), rgba(229,199,127,.2));
+    }
+
+    .hospital-redesign .h-carousel {
+      border: 1px solid rgba(229,199,127,.28);
+      border-radius: 3px;
+      box-shadow: 0 34px 90px rgba(0,0,0,.38), 0 0 0 8px rgba(255,255,255,.025);
+    }
+
+    .hospital-redesign .h-carousel::after {
+      position: absolute;
+      inset: 12px;
+      z-index: 2;
+      border: 1px solid rgba(255,255,255,.16);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hospital-redesign .h-slide img {
+      filter: saturate(.9) contrast(1.035);
+    }
+
+    .hospital-redesign .h-carousel__dot[aria-current="true"] {
+      background: var(--h-gold-light);
+      border-color: var(--h-gold-light);
+    }
+
+    .hospital-redesign .h-carousel__progress span {
+      background: var(--h-gold-light);
+    }
+
+    .hospital-redesign .h-carousel__arrow:hover {
+      border-color: var(--h-gold);
+      background: var(--h-gold);
+      color: var(--h-navy);
+    }
+
+    .hospital-redesign .h-collection {
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(199,154,62,.08), transparent 30%),
+        #f5f5f2;
+    }
+
+    .hospital-redesign .h-product {
+      border: 1px solid rgba(16,43,57,.07);
+      transition: transform .42s cubic-bezier(.2,.7,.2,1), box-shadow .42s ease, border-color .42s ease;
+    }
+
+    .hospital-redesign .h-product:hover {
+      transform: translateY(-9px);
+      border-color: rgba(199,154,62,.48);
+      box-shadow: 0 24px 50px rgba(16,43,57,.13);
+    }
+
+    .hospital-redesign .h-product__image img {
+      transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+    }
+
+    .hospital-redesign .h-product:hover .h-product__image img {
+      transform: scale(1.065);
+      filter: saturate(1.08);
+    }
+
+    .hospital-redesign .h-product__number,
+    .hospital-redesign .h-product__link span {
+      color: #a77a2d;
+    }
+
+    .hospital-redesign .h-product__link:hover {
+      color: #a77a2d;
+      border-color: #a77a2d;
+    }
+
+    .hospital-redesign .h-manufacturing {
+      background: #102b39;
+    }
+
+    .hospital-redesign .h-manufacturing::before {
+      background:
+        radial-gradient(ellipse at 86% 18%, rgba(199,154,62,.27), transparent 34%),
+        radial-gradient(ellipse at 5% 100%, rgba(96,125,139,.22), transparent 40%),
+        linear-gradient(115deg, #102b39 10%, #173747 100%);
+    }
+
+    .hospital-redesign .h-manufacturing::after {
+      border-color: rgba(229,199,127,.16);
+      box-shadow: 0 0 0 48px rgba(229,199,127,.035), 0 0 0 96px rgba(229,199,127,.02);
+      animation: h-orbit 22s linear infinite;
+    }
+
+    @keyframes h-orbit {
+      to { transform: rotate(360deg); }
+    }
+
+    .hospital-redesign .h-button {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-color: var(--h-gold);
+      transition: color .3s ease, background .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+
+    .hospital-redesign .h-button::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--h-gold);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .38s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .hospital-redesign .h-button:hover {
+      color: var(--h-navy);
+      border-color: var(--h-gold);
+      box-shadow: 0 12px 28px rgba(199,154,62,.2);
+    }
+
+    .hospital-redesign .h-button:hover::before {
+      transform: scaleX(1);
+    }
+
+    .hospital-redesign .h-button span {
+      color: var(--h-gold-light);
+    }
+
+    .hospital-redesign .h-button:hover span {
+      color: var(--h-navy);
+    }
+
+    .hospital-redesign .h-feature {
+      transition: padding .3s ease, background .3s ease, border-color .3s ease;
+    }
+
+    .hospital-redesign .h-feature:hover {
+      padding-inline: 14px;
+      border-bottom-color: rgba(199,154,62,.55);
+      background: linear-gradient(90deg, rgba(199,154,62,.07), transparent);
+    }
+
+    .hospital-redesign .h-feature__number {
+      color: #a77a2d;
+    }
+
+    /* Refined enquiry banner with animated rings and light sweep */
+    .hospital-redesign .h-cta {
+      isolation: isolate;
+      padding: clamp(66px, 8vw, 108px) 0;
+      background:
+        radial-gradient(ellipse at 8% 110%, rgba(16,43,57,.22), transparent 45%),
+        linear-gradient(112deg, #c79a3e 0%, #d9b66b 46%, #173747 100%);
+    }
+
+    .hospital-redesign .h-cta::before,
+    .hospital-redesign .h-cta::after {
+      top: 50%;
+      right: 8%;
+      border-color: rgba(255,255,255,.26);
+      box-shadow: 0 0 0 22px rgba(255,255,255,.035), 0 0 0 44px rgba(255,255,255,.025);
+      animation: h-cta-ring 16s ease-in-out infinite alternate;
+    }
+
+    .hospital-redesign .h-cta::after {
+      right: 3%;
+      width: 470px;
+      animation-delay: -5s;
+      animation-duration: 21s;
+    }
+
+    @keyframes h-cta-ring {
+      from { transform: translate3d(0,-50%,0) scale(.94) rotate(-8deg); }
+      to { transform: translate3d(-22px,-50%,0) scale(1.06) rotate(8deg); }
+    }
+
+    .hospital-redesign .h-cta__inner {
+      gap: 34px;
+    }
+
+    .hospital-redesign .h-cta__title {
+      max-width: 760px;
+      color: #fff;
+      text-shadow: 0 3px 22px rgba(16,43,57,.14);
+    }
+
+    .hospital-redesign .h-cta .h-button {
+      z-index: 2;
+      min-width: 245px;
+      min-height: 60px;
+      padding-inline: 22px;
+      border: 1px solid rgba(255,255,255,.78);
+      background: rgba(16,43,57,.16);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(16,43,57,.12);
+    }
+
+    .hospital-redesign .h-cta .h-button::before {
+      background: #fff;
+    }
+
+    .hospital-redesign .h-cta .h-button:hover {
+      color: var(--h-navy);
+      border-color: #fff;
+      box-shadow: 0 18px 36px rgba(16,43,57,.2);
+      transform: translateY(-4px);
+    }
+
+    .hospital-redesign .h-cta .h-button span {
+      color: #fff;
+      transition: transform .3s ease, color .3s ease;
+    }
+
+    .hospital-redesign .h-cta .h-button:hover span {
+      color: var(--h-navy);
+      transform: translate(4px,-3px);
+    }
+
+    .hospital-redesign .h-cta .h-button[aria-disabled="true"] {
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .hospital-redesign .h-cta .h-button[aria-disabled="true"]:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 760px) {
+      .hospital-redesign .h-cta {
+        padding: 62px 0;
+      }
+      .hospital-redesign .h-cta__inner {
+        align-items: flex-start;
+        gap: 25px;
+      }
+      .hospital-redesign .h-cta .h-button {
+        width: min(100%, 340px);
+      }
+      .hospital-redesign .h-cta::before {
+        right: -210px;
+      }
+      .hospital-redesign .h-cta::after {
+        right: -260px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hospital-redesign .h-hero::before,
+      .hospital-redesign .h-manufacturing::after,
+      .hospital-redesign .h-cta::before,
+      .hospital-redesign .h-cta::after {
+        animation: none !important;
+      }
+    }
+
   </style>
+
+<style id="hospital-cta-content-visibility-fix">
+/* CTA fallback: never leave the main heading hidden if reveal animation fails. */
+.hospital-redesign .h-cta__inner {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  min-height: 150px;
+}
+.hospital-redesign .h-cta__title,
+.hospital-redesign .h-cta__title.h-reveal {
+  display: block !important;
+  position: relative;
+  z-index: 3;
+  max-width: 760px;
+  margin: 0;
+  color: #102b39 !important;
+  font-size: clamp(2.2rem, 4.8vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -.075em;
+  line-height: .98;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  clip-path: none !important;
+  -webkit-text-fill-color: #102b39 !important;
+  text-shadow: none !important;
+}
+.hospital-redesign .h-cta__inner .h-button {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 4;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+@media (max-width: 760px) {
+  .hospital-redesign .h-cta__inner {
+    align-items: flex-start !important;
+    flex-direction: column;
+    min-height: 0;
+    gap: 24px;
+  }
+  .hospital-redesign .h-cta__title,
+  .hospital-redesign .h-cta__title.h-reveal {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+  }
+  .hospital-redesign .h-cta__inner .h-button {
+    width: min(100%, 340px);
+  }
+}
+</style>
+
+
+<style id="hospital-hero-title-font-size-fix">
+/* Reduce oversized hero typography and prevent words clipping on narrow screens. */
+.hospital-redesign .h-hero__title {
+  max-width: 100%;
+  font-size: clamp(3rem, 5.2vw, 5.7rem) !important;
+  letter-spacing: -.075em;
+  line-height: .92;
+}
+.hospital-redesign .h-hero__title span {
+  max-width: 100%;
+  overflow: visible;
+}
+@media (max-width: 1050px) {
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.8rem, 5.4vw, 4.7rem) !important;
+  }
+}
+@media (max-width: 760px) {
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.55rem, 8.4vw, 4.35rem) !important;
+    line-height: .94;
+  }
+}
+@media (max-width: 520px) {
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.25rem, 9.6vw, 3.25rem) !important;
+    letter-spacing: -.07em;
+    line-height: .96;
+  }
+}
+</style>
+
+
+<style id="hospital-hero-banner-layout-fix">
+/* Hero banner: use an existing project image as the background and prevent overlap. */
+.hospital-redesign .h-hero {
+  min-height: clamp(620px, 82vh, 790px);
+  padding: clamp(58px, 7vw, 96px) 0 28px;
+  background-color: #14242d;
+  
+  background-position: center, center, center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hospital-redesign .h-hero__inner {
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  align-items: center;
+  gap: clamp(22px, 3.4vw, 52px);
+  width: min(calc(100% - 2 * var(--h-gutter)), 1320px);
+}
+.hospital-redesign .h-hero__copy {
+  min-width: 0;
+  padding: 8px 0 24px;
+}
+.hospital-redesign .h-hero__title {
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(2.65rem, 4.25vw, 4.65rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.065em !important;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.hospital-redesign .h-hero__title span {
+  display: block;
+  max-width: 100%;
+  padding: .025em .025em .055em 0;
+  overflow: visible;
+  white-space: normal;
+}
+.hospital-redesign .h-hero__title span:last-child {
+  color: var(--h-gold-light, #e5c77f);
+}
+.hospital-redesign .h-hero__copy .h-eyebrow {
+  margin-bottom: 20px;
+  color: #e5c77f;
+}
+.hospital-redesign .h-hero__underline {
+  margin-top: 24px;
+}
+.hospital-redesign .h-hero__note {
+  max-width: 390px;
+  margin-top: 16px;
+}
+.hospital-redesign .h-hero__visual {
+  min-width: 0;
+  width: 100%;
+}
+.hospital-redesign .h-carousel {
+  width: 100%;
+  height: clamp(360px, 42vw, 560px);
+  max-height: 560px;
+}
+.hospital-redesign .h-hero__foot {
+  width: min(calc(100% - 2 * var(--h-gutter)), 1320px);
+}
+@media (max-width: 1050px) {
+  .hospital-redesign .h-hero {
+    min-height: 0;
+    padding-top: 64px;
+  }
+  .hospital-redesign .h-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
+    gap: 24px;
+  }
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.55rem, 4.4vw, 3.9rem) !important;
+  }
+  .hospital-redesign .h-carousel {
+    height: clamp(340px, 43vw, 470px);
+  }
+}
+@media (max-width: 760px) {
+  .hospital-redesign .h-hero {
+    padding: 54px 0 24px;
+    background-position: center, center, 62% center;
+  }
+  .hospital-redesign .h-hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .hospital-redesign .h-hero__copy {
+    padding: 0;
+  }
+  .hospital-redesign .h-hero__title {
+    max-width: 620px;
+    font-size: clamp(2.55rem, 8.2vw, 4rem) !important;
+    line-height: .99 !important;
+  }
+  .hospital-redesign .h-carousel {
+    height: clamp(330px, 78vw, 470px);
+    max-height: none;
+  }
+}
+@media (max-width: 420px) {
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.3rem, 9vw, 3rem) !important;
+  }
+  .hospital-redesign .h-hero__copy .h-eyebrow {
+    font-size: 9px;
+    letter-spacing: .15em;
+  }
+}
+</style>
+
+
+<style id="hospital-static-background-hero">
+/* Static full-width image background — no carousel / auto-rotation. */
+.hospital-redesign .h-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(590px, 78vh, 760px);
+  padding: clamp(72px, 9vw, 120px) 0 34px;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #10232d;
+
+  background-position: center, center 48%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hospital-redesign .h-hero::before {
+  z-index: 0;
+  opacity: .14;
+  pointer-events: none;
+}
+.hospital-redesign .h-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(calc(100% - 2 * var(--h-gutter)), 1320px);
+  margin-inline: auto;
+}
+.hospital-redesign .h-hero__copy {
+  width: min(760px, 78%);
+  padding: 0;
+}
+.hospital-redesign .h-hero__title {
+  max-width: 760px;
+  font-size: clamp(2.7rem, 5.1vw, 5.2rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.067em !important;
+}
+.hospital-redesign .h-hero__title span {
+  display: block;
+  overflow: visible;
+  white-space: normal;
+  padding: .025em .025em .06em 0;
+}
+.hospital-redesign .h-hero__title span:last-child {
+  color: #e5c77f;
+}
+.hospital-redesign .h-hero__copy .h-eyebrow {
+  color: #e5c77f;
+  margin-bottom: 22px;
+}
+.hospital-redesign .h-hero__note {
+  max-width: 430px;
+  color: rgba(255,255,255,.82);
+}
+.hospital-redesign .h-hero__underline {
+  background: #e5c77f;
+  margin-top: 26px;
+}
+.hospital-redesign .h-hero__foot {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .hospital-redesign .h-hero {
+    min-height: 620px;
+    padding: 76px 0 28px;
+    background-position: center, 60% center;
+  }
+  .hospital-redesign .h-hero__copy {
+    width: 100%;
+  }
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.45rem, 8.5vw, 4rem) !important;
+  }
+}
+@media (max-width: 420px) {
+  .hospital-redesign .h-hero {
+    min-height: 570px;
+  }
+  .hospital-redesign .h-hero__title {
+    font-size: clamp(2.2rem, 9vw, 3rem) !important;
+  }
+}
+</style>
+
+
+<style id="hospital-hero-video-background">
+/* Full-bleed hero video background */
+.hospital-redesign .h-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent !important;
+  background-color: #10232d !important;
+}
+.hospital-redesign .h-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hospital-redesign .h-hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 22, 30, .88) 0%,
+    rgba(8, 22, 30, .68) 48%,
+    rgba(8, 22, 30, .35) 100%
+  );
+}
+.hospital-redesign .h-hero__inner,
+.hospital-redesign .h-hero__foot {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .hospital-redesign .h-hero__video {
+    object-position: 60% center;
+  }
+  .hospital-redesign .h-hero__video-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 22, 30, .82) 0%,
+      rgba(8, 22, 30, .58) 100%
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hospital-redesign .h-hero__video {
+    display: none;
+  }
+}
+</style>
+
 </head>
 <body class="vs-page hospital-page hospital-redesign">
   <div id="navbar-placeholder"></div>
   <main>
     <section class="h-hero" aria-labelledby="h-hero-title">
+      <video class="h-hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="./assets/images/video_preview_h264.mp4" type="video/mp4">
+      </video>
+      <div class="h-hero__video-overlay" aria-hidden="true"></div>
       <div class="h-hero__inner">
         <div class="h-hero__copy">
           <p class="h-eyebrow">Medical Equipment Solutions</p>
@@ -269,46 +914,7 @@
           <span class="h-hero__underline" aria-hidden="true"></span>
           <p class="h-hero__note">Hospital furniture and medical equipment solutions from Vishal Steel Products.</p>
         </div>
-        <div class="h-hero__visual">
-          <div class="h-carousel" data-h-carousel role="region" aria-roledescription="carousel" aria-label="Hospital furniture and equipment collection">
-            <article class="h-slide is-active" data-h-slide aria-hidden="false">
-              <img src="./assets/images/hospital2.png" alt="Adjustable Hospital Beds" width="1400" height="1500" fetchpriority="high" decoding="async">
-              <div class="h-slide__meta"><span class="h-slide__index">01 / 05</span><h2>Adjustable Hospital Beds</h2><p>Patient Comfort &amp; Safety</p></div>
-            </article>
-            <article class="h-slide" data-h-slide aria-hidden="true">
-              <img src="./assets/images/hospital1.png" alt="Medical Equipment Trolleys" width="1400" height="1500" loading="lazy" decoding="async">
-              <div class="h-slide__meta"><span class="h-slide__index">02 / 05</span><h2>Medical Equipment Trolleys</h2><p>Mobile Healthcare Solutions</p></div>
-            </article>
-            <article class="h-slide" data-h-slide aria-hidden="true">
-              <img src="./assets/images/hospital3.png" alt="Surgical Instrument Storage" width="1400" height="1500" loading="lazy" decoding="async">
-              <div class="h-slide__meta"><span class="h-slide__index">03 / 05</span><h2>Surgical Instrument Storage</h2><p>Sterile &amp; Organized</p></div>
-            </article>
-            <article class="h-slide" data-h-slide aria-hidden="true">
-              <img src="./assets/images/hospital4.png" alt="Medical Storage Cabinets" width="1400" height="1500" loading="lazy" decoding="async">
-              <div class="h-slide__meta"><span class="h-slide__index">04 / 05</span><h2>Medical Storage Cabinets</h2><p>Secure &amp; Hygienic Storage</p></div>
-            </article>
-            <article class="h-slide" data-h-slide aria-hidden="true">
-              <img src="./assets/images/hospita5.png" alt="Custom Medical Furniture" width="1400" height="1500" loading="lazy" decoding="async">
-              <div class="h-slide__meta"><span class="h-slide__index">05 / 05</span><h2>Custom Medical Furniture</h2><p>Tailored Healthcare Solutions</p></div>
-            </article>
-            <div class="h-carousel__controls">
-              <div class="h-carousel__dots" role="group" aria-label="Choose carousel slide">
-                <button class="h-carousel__dot" type="button" data-h-dot="0" aria-label="Show Adjustable Hospital Beds" aria-current="true"></button>
-                <button class="h-carousel__dot" type="button" data-h-dot="1" aria-label="Show Medical Equipment Trolleys" aria-current="false"></button>
-                <button class="h-carousel__dot" type="button" data-h-dot="2" aria-label="Show Surgical Instrument Storage" aria-current="false"></button>
-                <button class="h-carousel__dot" type="button" data-h-dot="3" aria-label="Show Medical Storage Cabinets" aria-current="false"></button>
-                <button class="h-carousel__dot" type="button" data-h-dot="4" aria-label="Show Custom Medical Furniture" aria-current="false"></button>
-              </div>
-              <div class="h-carousel__progress" aria-hidden="true"><span data-h-progress></span></div>
-              <div class="h-carousel__arrows">
-                <button class="h-carousel__arrow" type="button" data-h-previous aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></button>
-                <button class="h-carousel__arrow" type="button" data-h-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="h-hero__foot"><span>V STEEL / HEALTHCARE</span><span>PRECISION / FUNCTION / CARE</span><span>01 Ã¢â‚¬â€ 05 / COLLECTION</span></div>
+</div>
     </section>
 
     <section class="h-collection" aria-labelledby="h-collection-title">
@@ -320,19 +926,19 @@
         <div class="h-product-grid">
           <article class="h-product h-reveal">
             <div class="h-product__image"><img src="./assets/images/hospital2.png" alt="Hospital beds and patient furniture" width="900" height="760" loading="lazy" decoding="async"></div>
-            <div class="h-product__body"><span class="h-product__number">01 / 04</span><h3>Hospital Beds &amp; Patient Furniture</h3><p>Adjustable hospital beds, patient chairs, and bedside furniture designed for comfort and medical functionality.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a></div>
+            <div class="h-product__body"><span class="h-product__number">01 / 04</span><h3>Hospital Beds &amp; Patient Furniture</h3><p>Adjustable hospital beds, patient chairs, and bedside furniture designed for comfort and medical functionality.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a></div>
           </article>
           <article class="h-product h-reveal">
             <div class="h-product__image"><img src="./assets/images/hospital1.png" alt="Medical trolleys and equipment carts" width="900" height="760" loading="lazy" decoding="async"></div>
-            <div class="h-product__body"><span class="h-product__number">02 / 04</span><h3>Medical Trolleys &amp; Equipment Carts</h3><p>Mobile medical trolleys, instrument carts, and equipment stands for efficient healthcare delivery.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a></div>
+            <div class="h-product__body"><span class="h-product__number">02 / 04</span><h3>Medical Trolleys &amp; Equipment Carts</h3><p>Mobile medical trolleys, instrument carts, and equipment stands for efficient healthcare delivery.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a></div>
           </article>
           <article class="h-product h-reveal">
             <div class="h-product__image"><img src="./assets/images/hospital4.png" alt="Medical storage and cabinets" width="900" height="760" loading="lazy" decoding="async"></div>
-            <div class="h-product__body"><span class="h-product__number">03 / 04</span><h3>Medical Storage &amp; Cabinets</h3><p>Sterile storage cabinets, medicine cupboards, and instrument storage solutions for healthcare facilities.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a></div>
+            <div class="h-product__body"><span class="h-product__number">03 / 04</span><h3>Medical Storage &amp; Cabinets</h3><p>Sterile storage cabinets, medicine cupboards, and instrument storage solutions for healthcare facilities.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a></div>
           </article>
           <article class="h-product h-reveal">
             <div class="h-product__image"><img src="./assets/images/hospita5.png" alt="Custom medical furniture" width="900" height="760" loading="lazy" decoding="async"></div>
-            <div class="h-product__body"><span class="h-product__number">04 / 04</span><h3>Custom Medical Fabrication</h3><p>Tailored medical furniture and equipment fabricated to meet specific hospital and clinical requirements.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">Ã¢â€ â€”</span></a></div>
+            <div class="h-product__body"><span class="h-product__number">04 / 04</span><h3>Custom Medical Fabrication</h3><p>Tailored medical furniture and equipment fabricated to meet specific hospital and clinical requirements.</p><a class="h-product__link" href="./contact.html">Contact Us <span aria-hidden="true">↗</span></a></div>
           </article>
         </div>
       </div>
@@ -344,7 +950,7 @@
           <p class="h-eyebrow">Medical Equipment Manufacturing</p>
           <h2 class="h-manufacturing__title h-reveal" id="h-manufacturing-title">Professional Healthcare Furniture Solutions</h2>
           <p class="h-manufacturing__description">Specialized manufacturer of hospital furniture and medical equipment using premium steel, metal, and wood materials for healthcare facilities.</p>
-          <a class="h-button" href="./products.html">View All Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+          <a class="h-button" href="./products.html">View All Products <span aria-hidden="true">↗</span></a>
         </div>
         <div class="h-stats" aria-label="Manufacturing statistics">
           <div class="h-stat h-reveal"><span class="h-stat__number" data-h-count="40" data-h-suffix="+">40+</span><span class="h-stat__label">Years of Excellence</span></div>
@@ -360,7 +966,7 @@
           <div class="h-why__intro h-reveal">
             <p class="h-why__description">Specialized manufacturer of hospital furniture and medical equipment using premium materials and precision engineering for healthcare facilities.</p>
             <span class="h-why__intro-mark" aria-hidden="true"></span>
-            <a class="h-button h-why__products" href="./products.html">View Medical Products <span aria-hidden="true">Ã¢â€ â€”</span></a>
+            <a class="h-button h-why__products" href="./products.html">View Medical Products <span aria-hidden="true">↗</span></a>
           </div>
           <div class="h-feature-list">
             <article class="h-feature h-reveal"><span class="h-feature__number">01</span><div><h3>Medical-Grade Materials</h3><p>Hospital equipment manufactured with medical-grade stainless steel and materials meeting healthcare industry standards.</p></div></article>
@@ -373,7 +979,7 @@
     <section class="h-cta" aria-label="WhatsApp enquiry">
       <div class="h-container h-cta__inner">
         <h2 class="h-cta__title h-reveal">Complete Healthcare Solutions</h2>
-        <a class="h-button" data-whatsapp-enquiry aria-disabled="true" tabindex="-1">WhatsApp Enquiry <span aria-hidden="true">Ã¢â€ â€”</span></a>
+        <a class="h-button" data-whatsapp-enquiry aria-disabled="true" tabindex="-1">WhatsApp Enquiry <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -386,16 +992,14 @@
       if (!root || root.dataset.redesignInitialized === "true") return;
       root.dataset.redesignInitialized = "true";
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const carousel = root.querySelector("[data-h-carousel]");
-      const slides = Array.from(root.querySelectorAll("[data-h-slide]"));
-      const dots = Array.from(root.querySelectorAll("[data-h-dot]"));
-      const progress = root.querySelector("[data-h-progress]");
-      const previous = root.querySelector("[data-h-previous]");
-      const next = root.querySelector("[data-h-next]");
+      const carousel = null;
+      const slides = [];
+      const dots = [];
+      const progress = null;
+      const previous = null;
+      const next = null;
       const interval = 5600;
-      let active = 0;
       let timer = null;
-      let progressFrame = null;
       let startedAt = 0;
       let remaining = interval;
       let paused = false;

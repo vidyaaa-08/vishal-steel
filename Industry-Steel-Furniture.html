@@ -256,18 +256,35 @@ img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}
   $("#fg").innerHTML = features.map((f, i) => `<article class="f rv" style="--d:${(i % 4) * .1}s"><small>0${i + 1}</small><div><h3>${f[0]}</h3><p>${f[1]}</p></div></article>`).join("") +
     `<article class="f f--cta rv" style="--d:.3s"><div><h3>Need something custom?</h3><p>Tell us your space and requirement. We design and build to suit.</p></div><a href="./contact.html">Get a free quote ${ARROW}</a></article>`;
 
+  /*
+   * ================= IMAGE PATHS - CHANGE YOUR IMAGES HERE =================
+   * Apni image ko assets/images/ folder mein rakho aur neeche uska filename do.
+   * Example: "assets/images/my-storage-cabinet.jpg"
+   * PNG, JPG, JPEG aur WEBP sab use kar sakte ho.
+   */
+  const PRODUCT_IMAGE_PATHS = {
+    storageCabinet: "assets/images/Modern Steel Storage Cabinet Showroom.png",
+    workTable: "assets/images/industry3.png",
+    shelvingUnit: "assets/images/industry4.png",
+    toolCabinet: "assets/images/industry5.png",
+    workbench: "assets/images/industry6.png",
+    metalLocker: "assets/images/Bright Locker Showroom with Plants.png",
+    filingCabinet: "assets/images/Modern Office Filing Cabinets with Plants.png",
+    mobileCart: "assets/images/Industrial Utility Carts Workshop Banner.png"
+  };
+
   const products = [
-    ["Industrial Storage", "Storage Cabinet", "Heavy-duty industrial storage cabinet with reinforced steel construction. Features multiple compartments, adjustable shelves and a secure locking system for maximum organization.", "industry2"],
-    ["Industrial Furniture", "Work Table", "Premium industrial workstation with anti-vibration design. Features a scratch-resistant surface, integrated tool storage and ergonomic height for enhanced productivity.", "industry3"],
-    ["Storage Solutions", "Shelving Unit", "Modular shelving system with adjustable heights and expandable design. Perfect for warehouses, offices and industrial spaces with easy assembly and reconfiguration.", "industry4"],
-    ["Storage Solutions", "Tool Cabinet", "Professional tool storage cabinet with multiple drawers and compartments. Features ball-bearing slides, secure locks and organized tool placement for workshop efficiency.", "industry5"],
-    ["Workshop Solutions", "Workbench with Drawers", "Complete workshop solution with integrated storage drawers. Features a durable work surface, organized tool storage and sturdy construction for heavy-duty applications.", "industry6"],
-    ["Storage Solutions", "Metal Locker", "Secure personal storage lockers with individual compartments. Features ventilation slots, master key system and durable construction ideal for schools, gyms and offices.", "industry7"],
-    ["Office Storage", "Filing Cabinet", "Professional document storage with full-extension drawers and central locking system. Features anti-tilt mechanism, label holders and fireproof options available.", "industry8"],
-    ["Mobile Solutions", "Mobile Cart", "Versatile mobile storage cart with smooth-rolling casters and brake system. Features multiple shelves, easy maneuverability, perfect for medical, office or industrial use.", "industry9"]
+    ["Industrial Storage", "Storage Cabinet", "Heavy-duty industrial storage cabinet with reinforced steel construction. Features multiple compartments, adjustable shelves and a secure locking system for maximum organization.", "storageCabinet"],
+    ["Industrial Furniture", "Work Table", "Premium industrial workstation with anti-vibration design. Features a scratch-resistant surface, integrated tool storage and ergonomic height for enhanced productivity.", "workTable"],
+    ["Storage Solutions", "Shelving Unit", "Modular shelving system with adjustable heights and expandable design. Perfect for warehouses, offices and industrial spaces with easy assembly and reconfiguration.", "shelvingUnit"],
+    ["Storage Solutions", "Tool Cabinet", "Professional tool storage cabinet with multiple drawers and compartments. Features ball-bearing slides, secure locks and organized tool placement for workshop efficiency.", "toolCabinet"],
+    ["Workshop Solutions", "Workbench with Drawers", "Complete workshop solution with integrated storage drawers. Features a durable work surface, organized tool storage and sturdy construction for heavy-duty applications.", "workbench"],
+    ["Storage Solutions", "Metal Locker", "Secure personal storage lockers with individual compartments. Features ventilation slots, master key system and durable construction ideal for schools, gyms and offices.", "metalLocker"],
+    ["Office Storage", "Filing Cabinet", "Professional document storage with full-extension drawers and central locking system. Features anti-tilt mechanism, label holders and fireproof options available.", "filingCabinet"],
+    ["Mobile Solutions", "Mobile Cart", "Versatile mobile storage cart with smooth-rolling casters and brake system. Features multiple shelves, easy maneuverability, perfect for medical, office or industrial use.", "mobileCart"]
   ];
   const pad = n => String(n).padStart(2, "0");
-  const photo = p => `<figure class="photo" data-label="${p[1]}"><img src="assets/images/${p[3]}.png" alt="${p[1]}" loading="lazy" onerror="this.remove()"></figure>`;
+  const photo = p => `<figure class="photo" data-label="${p[1]}"><img src="${PRODUCT_IMAGE_PATHS[p[3]]}" alt="${p[1]}" loading="lazy" onerror="this.remove()"></figure>`;
   const copy = (p, i, h = "h2", c = "") => `<div class="copy rv ${c}" data-n="${pad(i + 1)}"><p class="eyebrow">${p[0]} / ${pad(i + 1)}</p><${h}>${p[1]}</${h}><p>${p[2]}</p></div>`;
   const split = (i, rev, alt) => `<section class="split${rev ? " rev" : ""}${alt ? " alt" : ""}" aria-label="${products[i][1]}">${photo(products[i])}${copy(products[i], i)}</section>`;
   const slides = [1, 2, 3].map(i => `<article class="sl">${photo(products[i])}${copy(products[i], i, "h3")}</article>`).join("");

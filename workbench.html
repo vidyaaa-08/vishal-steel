@@ -2958,6 +2958,10 @@
   opacity: 1;
 }
 
+.wb-photo[data-wb-photo-state="error"] img {
+  opacity: 1;
+}
+
 .wb-photo[data-wb-photo-state="loaded"]::after {
   opacity: 0.36;
 }
@@ -3008,296 +3012,66 @@
   pointer-events: none;
 }
 
-.wb-hero {
-  position: relative;
-  min-height: min(810px, calc(100svh - 88px));
-  padding: clamp(42px, 5vw, 76px) 0 54px;
-  overflow: clip;
-  background:
-    linear-gradient(90deg, transparent 0 49.95%, rgba(32, 33, 36, 0.045) 50%, transparent 50.05%),
-    var(--wb-light);
+.wb-hero{
+ position:relative; width:100%; min-height:min(760px,calc(100svh - 88px));
+ display:grid; grid-template-columns:minmax(0, 1.06fr) minmax(0,.94fr);
+ overflow:hidden; background:#102b39; color:#fff;
 }
-
-.wb-hero__layout {
-  display: grid;
-  min-height: 620px;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  align-items: center;
-  gap: 22px;
+.wb-hero__layout{display:contents}
+.wb-hero__copy{
+ position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center;
+ padding:clamp(48px,7vw,112px) clamp(28px,7.2vw,120px);
+ min-width:0; background:#102b39;
 }
-
-.wb-hero__copy {
-  position: relative;
-  z-index: 5;
-  padding: 20px 0 36px;
+.wb-hero__copy .wb-eyebrow{margin-bottom:28px;color:#d4a344}
+.wb-hero h1{max-width:850px;margin:0 0 28px;color:#fff;font-family:Impact,"Arial Narrow",Arial,sans-serif;font-size:clamp(64px,7.2vw,112px);font-weight:500;letter-spacing:-.045em;line-height:.88;text-transform:uppercase}
+.wb-hero h1 span{display:block}
+.wb-hero h1 span:last-child{color:#c79a3e;white-space:normal}
+.wb-hero__typing{display:flex;flex-wrap:wrap;min-height:31px;align-items:center;gap:9px;margin:0;color:#e4edf0;font-size:clamp(14px,1.2vw,17px);font-weight:500}
+.wb-hero__typing-label{color:#d2a248;font-size:10px;font-weight:800;letter-spacing:.14em}
+.wb-hero__caret{width:2px;height:18px;background:#c79a3e;animation:wb-caret-blink 760ms steps(2,start) infinite}
+.wb-hero__link{display:inline-flex;align-items:center;gap:20px;width:max-content;max-width:100%;margin-top:36px;padding:16px 20px;background:#fff;color:#102b39;font-size:11px;font-weight:800;letter-spacing:.08em;text-decoration:none;transition:background .25s,color .25s,transform .25s}
+.wb-hero__link span{color:#c79a3e;font-size:17px}
+.wb-hero__link:hover{background:#c79a3e;color:#102b39;transform:translateY(-3px)}
+.wb-hero__stage{position:relative;isolation:isolate;min-width:0;min-height:600px;height:100%;overflow:hidden;background:#dce3e7}
+.wb-hero__slides,.wb-hero__slide{position:absolute;inset:0}
+.wb-hero__slide{margin:0;opacity:0;visibility:hidden;transition:opacity 900ms ease,visibility 900ms ease}
+.wb-hero__slide.is-active{opacity:1;visibility:visible;z-index:1}
+.wb-hero__slide img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.055);transition:transform 5.8s cubic-bezier(.2,.65,.25,1)}
+.wb-hero__slide.is-active img{transform:scale(1)}
+.wb-hero__slide::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,43,57,.18),transparent 32%);pointer-events:none}
+.wb-hero__image-tag{position:absolute;z-index:2;top:24px;right:26px;color:#fff;font-size:10px;font-weight:800;letter-spacing:.16em;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.wb-hero__slider-ui{position:absolute;z-index:4;right:clamp(18px,3vw,42px);bottom:28px;left:clamp(18px,3vw,42px);display:flex;align-items:center;gap:16px;color:#fff}
+.wb-hero__count{flex:0 0 auto;font-size:11px;font-weight:800;letter-spacing:.12em;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.wb-hero__progress{position:relative;flex:1;height:2px;background:rgba(255,255,255,.48);overflow:hidden}
+.wb-hero__progress span{display:block;width:0;height:100%;background:#c79a3e}
+.wb-hero__progress.is-running span{animation:wb-hero-progress 4.8s linear forwards}
+@keyframes wb-hero-progress{from{width:0}to{width:100%}}
+.wb-hero__arrows{display:flex;gap:7px}
+.wb-hero__arrows button{display:grid;width:38px;height:38px;place-items:center;border:1px solid rgba(255,255,255,.65);background:rgba(16,43,57,.25);color:#fff;font-size:17px;cursor:pointer;transition:background .2s,border-color .2s}
+.wb-hero__arrows button:hover{background:#c79a3e;border-color:#c79a3e;color:#102b39}
+.wb-hero__bottom{position:absolute;z-index:3;right:0;bottom:0;left:0;display:flex;justify-content:space-between;gap:16px;padding:16px clamp(24px,4vw,58px);border-top:1px solid rgba(255,255,255,.18);background:#102b39;color:#c8d5da;font-size:9px;font-weight:700;letter-spacing:.14em}
+.wb-hero__copy .wb-eyebrow,.wb-hero__copy h1,.wb-hero__typing,.wb-hero__link{animation:wb-hero-enter .8s both}
+.wb-hero__copy h1{animation-delay:.12s}.wb-hero__typing{animation-delay:.24s}.wb-hero__link{animation-delay:.34s}
+@keyframes wb-hero-enter{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+ .wb-hero{grid-template-columns:1fr;min-height:0}
+ .wb-hero__copy{padding:64px clamp(24px,7vw,64px) 48px}
+ .wb-hero__stage{min-height:480px;height:58vw;max-height:650px}
+ .wb-hero__bottom{position:relative;flex-wrap:wrap}
 }
-
-.wb-hero__copy .wb-eyebrow {
-  margin-bottom: 27px;
+@media(max-width:560px){
+ .wb-hero__copy{padding:54px 22px 42px}
+ .wb-hero h1{font-size:clamp(58px,13.5vw,82px)}
+ .wb-hero__stage{min-height:390px;height:105vw;max-height:500px}
+ .wb-hero__bottom{padding:14px 20px;font-size:8px;gap:10px}
+ .wb-hero__bottom span:nth-child(2){display:none}
+ .wb-hero__slider-ui{bottom:18px}
 }
-
-.wb-hero h1 {
-  max-width: 740px;
-  margin: 0 0 28px;
-  color: var(--wb-charcoal);
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(68px, 7.15vw, 112px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.84;
-  text-transform: uppercase;
+@media(prefers-reduced-motion:reduce){
+ .wb-hero__slide,.wb-hero__slide img,.wb-hero__copy .wb-eyebrow,.wb-hero__copy h1,.wb-hero__typing,.wb-hero__link{animation:none!important;transition:none!important}
+ .wb-hero__progress.is-running span{animation:none!important;width:100%}
 }
-
-.wb-hero h1 span {
-  display: block;
-}
-
-.wb-hero h1 span:last-child {
-  color: var(--wb-red);
-  white-space: nowrap;
-}
-
-.wb-hero__typing {
-  display: flex;
-  min-height: 31px;
-  align-items: center;
-  gap: 9px;
-  margin: 0;
-  color: #3e4043;
-  font-size: clamp(14px, 1.3vw, 17px);
-  font-weight: 600;
-  letter-spacing: 0.015em;
-}
-
-.wb-hero__typing-label {
-  color: var(--wb-red);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.wb-hero__caret {
-  width: 2px;
-  height: 19px;
-  background: var(--wb-red);
-  animation: wb-caret-blink 760ms steps(2, start) infinite;
-}
-
-.wb-hero__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 38px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(32, 33, 36, 0.35);
-  color: var(--wb-charcoal);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: color 200ms ease, border-color 200ms ease;
-}
-
-.wb-hero__link span {
-  color: var(--wb-red);
-  font-size: 17px;
-  transition: transform 200ms ease;
-}
-
-.wb-hero__link:hover {
-  border-color: var(--wb-red);
-  color: var(--wb-red);
-}
-
-.wb-hero__link:hover span {
-  transform: translateY(3px);
-}
-
-.wb-hero__stage {
-  position: relative;
-  width: 100%;
-  height: clamp(500px, 49vw, 660px);
-  min-width: 0;
-  perspective: 1100px;
-  --wb-pointer-x: 0px;
-  --wb-pointer-y: 0px;
-}
-
-.wb-hero__drawing {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  stroke: rgba(199, 154, 62, 0.55);
-  stroke-width: 1;
-  pointer-events: none;
-}
-
-.wb-hero__drawing circle {
-  stroke-dasharray: 3 8;
-  opacity: 0.5;
-}
-
-.wb-hero__photo {
-  position: absolute;
-  box-shadow: 0 22px 54px rgba(32, 33, 36, 0.17);
-  transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 450ms ease;
-}
-
-.wb-hero__photo--main {
-  z-index: 1;
-  top: 9%;
-  right: 1%;
-  width: 74%;
-  height: 78%;
-  transform: translate3d(calc(var(--wb-pointer-x) * -0.35), calc(var(--wb-pointer-y) * -0.35), 0);
-}
-
-.wb-hero__photo--research {
-  z-index: 2;
-  top: 3%;
-  left: 3%;
-  width: 31%;
-  height: 37%;
-  transform: translate3d(calc(var(--wb-pointer-x) * 0.55), calc(var(--wb-pointer-y) * 0.45), 0) rotate(-2.2deg);
-}
-
-.wb-hero__photo--assembly {
-  z-index: 2;
-  bottom: 6%;
-  left: 1%;
-  width: 39%;
-  height: 30%;
-  transform: translate3d(calc(var(--wb-pointer-x) * 0.38), calc(var(--wb-pointer-y) * 0.62), 0) rotate(1.2deg);
-}
-
-.wb-hero__photo.is-focus {
-  z-index: 3;
-  box-shadow: 0 30px 70px rgba(32, 33, 36, 0.23);
-}
-
-.wb-hero__photo--research.is-focus {
-  transform: translate3d(calc(var(--wb-pointer-x) * 0.55), calc(var(--wb-pointer-y) * 0.45), 0) rotate(0) scale(1.035);
-}
-
-.wb-hero__photo--assembly.is-focus {
-  transform: translate3d(calc(var(--wb-pointer-x) * 0.38), calc(var(--wb-pointer-y) * 0.62), 0) rotate(0) scale(1.035);
-}
-
-.wb-hero__photo--main.is-focus {
-  transform: translate3d(calc(var(--wb-pointer-x) * -0.35), calc(var(--wb-pointer-y) * -0.35), 0) scale(1.012);
-}
-
-.wb-hero__photo--research .wb-photo__label,
-.wb-hero__photo--assembly .wb-photo__label {
-  right: 12px;
-  bottom: 12px;
-  gap: 6px;
-  padding: 6px 7px;
-  font-size: 8px;
-}
-
-.wb-hero__measure {
-  position: absolute;
-  z-index: 4;
-  display: flex;
-  justify-content: space-between;
-  pointer-events: none;
-}
-
-.wb-hero__measure span {
-  display: block;
-  width: 1px;
-  height: 10px;
-  background: var(--wb-red);
-}
-
-.wb-hero__measure--top {
-  top: 1%;
-  right: 5%;
-  width: 66%;
-  border-top: 1px solid rgba(199, 154, 62, 0.65);
-}
-
-.wb-hero__measure--side {
-  top: 14%;
-  right: 0;
-  height: 68%;
-  flex-direction: column;
-  border-right: 1px solid rgba(199, 154, 62, 0.65);
-}
-
-.wb-hero__measure--side span {
-  width: 10px;
-  height: 1px;
-}
-
-.wb-hero__controls {
-  position: absolute;
-  z-index: 6;
-  right: 3%;
-  bottom: 0;
-  display: flex;
-  gap: 7px;
-  padding: 6px;
-  border: 1px solid rgba(32, 33, 36, 0.14);
-  background: rgba(245, 245, 245, 0.84);
-  backdrop-filter: blur(8px);
-}
-
-.wb-hero__controls button {
-  display: grid;
-  width: 38px;
-  height: 34px;
-  place-items: center;
-  border: 0;
-  background: transparent;
-  color: #66686b;
-  font: 700 10px/1 Arial, Helvetica, sans-serif;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.wb-hero__controls button:hover,
-.wb-hero__controls button.is-active {
-  background: var(--wb-red);
-  color: #15292E;
-}
-
-.wb-hero__controls button:focus-visible,
-.wb-hero__link:focus-visible,
-.wb-cta__button:focus-visible {
-  outline: 2px solid var(--wb-red);
-  outline-offset: 4px;
-}
-
-.wb-hero__stage-index {
-  position: absolute;
-  z-index: 4;
-  bottom: 8px;
-  left: 1%;
-  margin: 0;
-  color: #747679;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.wb-hero__bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-top: 23px;
-  border-top: 1px solid rgba(32, 33, 36, 0.14);
-  color: #696b6e;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
 .wb-showcase {
   position: relative;
   padding: clamp(92px, 11vw, 158px) 0;
@@ -4964,75 +4738,492 @@
     transition-duration: .01ms !important;
   }
 }
-</style></head>
+
+/* =========================================================
+   SCROLL STORY ENHANCEMENTS — single-file CSS + vanilla JS
+   ========================================================= */
+:root { --wb-motion-ease: cubic-bezier(.22,.72,.18,1); }
+html { scroll-behavior: smooth; }
+.wb-scroll-progress {
+  position: fixed; inset: 0 auto auto 0; z-index: 1200;
+  width: 100%; height: 3px; pointer-events: none;
+  background: rgba(199,154,62,.12);
+}
+.wb-scroll-progress span {
+  display:block; width:100%; height:100%; transform:scaleX(0);
+  transform-origin:left center; background:#C79A3E;
+}
+.wb-page.wb-motion-ready [data-wb-reveal] {
+  opacity:0; transform:translate3d(0,48px,0);
+  transition: opacity .85s var(--wb-motion-ease), transform .95s var(--wb-motion-ease);
+  will-change:opacity,transform;
+}
+.wb-page.wb-motion-ready [data-wb-reveal="left"] { transform:translate3d(-58px,0,0); }
+.wb-page.wb-motion-ready [data-wb-reveal="right"] { transform:translate3d(58px,0,0); }
+.wb-page.wb-motion-ready [data-wb-reveal="scale"] { transform:translate3d(0,24px,0) scale(.94); }
+.wb-page [data-wb-reveal].is-inview { opacity:1; transform:translate3d(0,0,0) scale(1); }
+.wb-page.wb-motion-ready .wb-photo[data-wb-image-reveal] img {
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1.05s var(--wb-motion-ease), transform 1.35s var(--wb-motion-ease);
+}
+.wb-page .wb-photo[data-wb-image-reveal].is-inview img { clip-path:inset(0); }
+.wb-page .wb-photo[data-wb-image-reveal] img {
+  transform:scale(1.12); transition:transform 1.35s var(--wb-motion-ease);
+}
+.wb-page .wb-photo[data-wb-image-reveal].is-inview img { transform:scale(1); }
+.wb-page [data-wb-word] { display:inline-block; overflow:hidden; vertical-align:bottom; }
+.wb-page [data-wb-word] > span {
+  display:inline-block; transform:translateY(115%);
+  transition:transform .72s var(--wb-motion-ease);
+}
+.wb-page [data-wb-reveal].is-inview [data-wb-word] > span { transform:translateY(0); }
+.wb-page .wb-category {
+  transition:transform .45s var(--wb-motion-ease), box-shadow .45s ease, border-color .35s ease;
+}
+.wb-page .wb-category:hover,
+.wb-page .wb-category:focus-visible {
+  transform:translateY(-9px);
+  box-shadow:0 22px 55px rgba(16,43,57,.12);
+}
+.wb-page .wb-showcase__photo,
+.wb-page .wb-extra-image { isolation:isolate; }
+.wb-page .wb-photo__label { transition:transform .5s var(--wb-motion-ease), opacity .4s ease; }
+.wb-page .wb-photo.is-inview .wb-photo__label { transform:translateY(0); opacity:1; }
+.wb-page .wb-cta__inner > * { transition:transform .7s var(--wb-motion-ease), opacity .7s ease; }
+.wb-page .wb-cta.is-inview .wb-cta__inner > * { transform:translateY(0); opacity:1; }
+.wb-page .wb-cta:not(.is-inview) .wb-cta__inner > * { transform:translateY(24px); opacity:0; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .wb-page.wb-motion-ready [data-wb-reveal],
+  .wb-page.wb-motion-ready .wb-photo[data-wb-image-reveal],
+  .wb-page .wb-photo[data-wb-image-reveal] img,
+  .wb-page [data-wb-word] > span,
+  .wb-page .wb-category,
+  .wb-page .wb-cta__inner > * { transition:none!important; transform:none!important; clip-path:none!important; opacity:1!important; }
+}
+
+/* Screenshot-led hero banner refinement */
+.wb-page .wb-hero{
+  min-height: min(760px, calc(100svh - 88px));
+  padding: clamp(28px,4.5vw,58px) 0 34px;
+  background:#f5f5f5;
+}
+.wb-page .wb-hero__layout{
+  min-height: clamp(500px,65vh,610px);
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(12px,2vw,30px);
+}
+.wb-page .wb-hero__copy{padding:12px 0 28px;}
+.wb-page .wb-hero h1{font-size:clamp(64px,7vw,80px);line-height:.83;letter-spacing:-.045em;}
+.wb-page .wb-hero__stage{height:clamp(430px,47vw,590px);}
+.wb-page .wb-hero__photo{box-shadow:0 14px 35px rgba(32,33,36,.10);}
+.wb-page .wb-hero__photo::after{background:linear-gradient(145deg,rgba(32,33,36,.005),rgba(32,33,36,.06));opacity:1;}
+.wb-page .wb-hero__photo--main{top:9%;right:2%;width:74%;height:78%;}
+.wb-page .wb-hero__photo--research{top:2%;left:2%;width:31%;height:36%;}
+.wb-page .wb-hero__photo--assembly{bottom:5%;left:2%;width:39%;height:29%;}
+.wb-page .wb-hero__controls{right:3%;bottom:0;}
+.wb-page .wb-hero__bottom{padding-top:16px;border-top:1px solid rgba(32,33,36,.16);}
+.wb-page .wb-hero__stage-index{letter-spacing:.16em;}
+@media(max-width:900px){
+ .wb-page .wb-hero{min-height:auto;padding:42px 0 26px;}
+ .wb-page .wb-hero__layout{min-height:0;grid-template-columns:1fr;gap:18px;}
+ .wb-page .wb-hero__copy{padding:10px 0 0;}
+ .wb-page .wb-hero__stage{height:clamp(380px,70vw,560px);}
+ .wb-page .wb-hero__bottom{margin-top:18px;gap:12px;flex-wrap:wrap;}
+}
+@media(max-width:560px){
+ .wb-page .wb-hero h1{font-size:clamp(54px,14vw,78px);}
+ .wb-page .wb-hero__stage{height:390px;}
+ .wb-page .wb-hero__photo--main{top:12%;right:0;width:78%;height:72%;}
+ .wb-page .wb-hero__photo--research{top:3%;left:0;width:36%;height:31%;}
+ .wb-page .wb-hero__photo--assembly{bottom:8%;left:0;width:43%;height:26%;}
+ .wb-page .wb-hero__controls button{width:32px;height:30px;}
+ .wb-page .wb-hero__bottom{font-size:8px;}
+}
+</style>
+<style id="wb-responsive-polish">
+/* V STEEL workbench page — responsive visual refinement */
+.wb-page{
+  --wb-red:#c79a3e;
+  --wb-gold:#c79a3e;
+  --wb-navy:#102b39;
+  --wb-ink:#202a30;
+  --wb-muted:#667178;
+  --wb-soft:#f3f5f5;
+  width:100%;
+  overflow:hidden;
+  color:var(--wb-ink);
+}
+.wb-page img{max-width:100%}
+.wb-container{width:min(100% - 72px,1360px);margin-inline:auto}
+.wb-page section{scroll-margin-top:100px}
+.wb-page .wb-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  color:var(--wb-gold);font-size:10px;font-weight:800;
+  letter-spacing:.19em;text-transform:uppercase
+}
+.wb-page .wb-eyebrow::before{
+  content:"";display:inline-block;width:28px;height:1px;background:currentColor
+}
+.wb-page .wb-photo{
+  overflow:hidden;background:#e5e9e9;
+  box-shadow:0 24px 65px rgba(16,43,57,.12)
+}
+.wb-page .wb-photo::before{inset:12px;border-color:rgba(255,255,255,.55)}
+.wb-page .wb-photo__label{
+  right:20px;bottom:20px;border:1px solid rgba(255,255,255,.38);
+  background:rgba(16,43,57,.82);color:#fff;backdrop-filter:blur(10px)
+}
+.wb-page .wb-photo__label span{color:#e2b75f}
+.wb-page .wb-photo__corner{border-color:#d7aa52}
+.wb-page .wb-hero{
+  min-height:clamp(600px,calc(100svh - 88px),790px);
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  background:var(--wb-navy)
+}
+.wb-page .wb-hero__copy{
+  padding:clamp(54px,7vw,112px) clamp(28px,6vw,92px);
+  background:linear-gradient(135deg,#102b39 0%,#163b4c 100%)
+}
+.wb-page .wb-hero h1{
+  font-family:Arial,Helvetica,sans-serif;font-size:clamp(58px,6.7vw,92px);
+  font-weight:800;letter-spacing:-.075em;line-height:.91
+}
+.wb-page .wb-hero h1 span:last-child{color:#e0b45c}
+.wb-page .wb-hero__link{
+  min-height:52px;padding:0 22px;background:#d0a34c;
+  color:#122d3a;letter-spacing:.1em;transition:all .28s ease
+}
+.wb-page .wb-hero__link:hover{
+  background:#fff;color:#102b39;transform:translateY(-3px)
+}
+.wb-page .wb-hero__stage{background:#e7ebec}
+.wb-page .wb-hero__slide img{object-fit:cover}
+.wb-page .wb-hero__bottom{background:#0b222d}
+.wb-page .wb-showcase{padding:clamp(76px,9vw,132px) 0}
+.wb-page .wb-showcase__layout{
+  min-height:0;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:clamp(34px,6vw,88px)
+}
+.wb-page .wb-showcase__copy{padding:20px 0}
+.wb-page .wb-showcase__copy h2,
+.wb-page .wb-categories h2,
+.wb-page .wb-details h2,
+.wb-page .wb-overview h2,
+.wb-page .wb-premium h2,
+.wb-page .wb-features h2,
+.wb-page .wb-why h2,
+.wb-page .wb-cta h2{
+  font-family:Arial,Helvetica,sans-serif;font-weight:800;
+  letter-spacing:-.055em;line-height:1.02
+}
+.wb-page .wb-showcase__copy h2{font-size:clamp(42px,5.1vw,72px)}
+.wb-page .wb-showcase__description,
+.wb-page .wb-categories__heading p:not(.wb-eyebrow),
+.wb-page .wb-overview__copy>p:not(.wb-eyebrow),
+.wb-page .wb-premium__copy>p:not(.wb-eyebrow),
+.wb-page .wb-features__copy>p:not(.wb-eyebrow){
+  color:#626d72;font-size:15px;line-height:1.9
+}
+.wb-page .wb-showcase__photo{height:clamp(390px,42vw,590px)}
+.wb-page .wb-showcase--research{
+  background:linear-gradient(135deg,#102b39,#183b49);color:#fff
+}
+.wb-page .wb-showcase--research .wb-showcase__description{color:#c6d0d4}
+.wb-page .wb-showcase--research .wb-eyebrow{color:#e0b45c}
+.wb-page .wb-showcase--technical{background:#f3f5f5}
+.wb-page .wb-categories{padding:clamp(76px,9vw,126px) 0;background:#fff}
+.wb-page .wb-categories__heading{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
+  align-items:center;gap:clamp(30px,6vw,84px);margin-bottom:48px
+}
+.wb-page .wb-categories__heading h2,
+.wb-page .wb-details h2,
+.wb-page .wb-overview h2,
+.wb-page .wb-premium h2,
+.wb-page .wb-features h2,
+.wb-page .wb-why h2{font-size:clamp(38px,4.8vw,64px)}
+.wb-page .wb-extra-image{width:100%;min-height:260px}
+.wb-page .wb-category-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px
+}
+.wb-page .wb-category{
+  position:relative;min-width:0;padding:30px 28px 34px;
+  border:1px solid #e1e6e7;background:#f7f8f8;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background .3s ease
+}
+.wb-page .wb-category:hover,.wb-page .wb-category:focus-visible{
+  transform:translateY(-7px);border-color:#d2a34c;
+  background:#fff;box-shadow:0 20px 45px rgba(16,43,57,.09);outline:none
+}
+.wb-page .wb-category__number{color:#b48735;font-weight:800;letter-spacing:.1em}
+.wb-page .wb-category h3{font-size:20px;line-height:1.25;letter-spacing:-.025em}
+.wb-page .wb-category>p:not(.wb-category__number){color:#667178;font-size:13px;line-height:1.7}
+.wb-page .wb-category ul{padding-left:18px;color:#47545a;font-size:12px;line-height:1.9}
+.wb-page .wb-category__line{background:#c79a3e}
+.wb-page .wb-details{padding:clamp(76px,9vw,126px) 0;background:#f3f5f5}
+.wb-page .wb-details__layout{
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  align-items:center;gap:clamp(36px,7vw,100px)
+}
+.wb-page .wb-details__specs{
+  padding:clamp(26px,4vw,48px);background:#fff;
+  box-shadow:0 18px 48px rgba(16,43,57,.07)
+}
+.wb-page .wb-details__specs h3{font-size:23px;letter-spacing:-.03em}
+.wb-page .wb-spec{padding:18px 0;border-bottom:1px solid #e7ebec}
+.wb-page .wb-spec:last-child{border-bottom:0}
+.wb-page .wb-spec dt{color:#a77a2d;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.wb-page .wb-spec dd{margin:7px 0 0;color:#59666c;font-size:13px;line-height:1.75}
+.wb-page .wb-overview{padding:clamp(76px,9vw,126px) 0;background:#fff}
+.wb-page .wb-overview__layout{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:center;gap:clamp(36px,7vw,100px)
+}
+.wb-page .wb-overview .wb-photo{height:clamp(360px,42vw,560px)}
+.wb-page .wb-overview__copy{padding:20px 0}
+.wb-page .wb-overview__copy>p:not(.wb-eyebrow){color:#626d72;font-size:15px;line-height:1.9}
+.wb-page .wb-premium{padding:clamp(76px,9vw,126px) 0;background:#102b39;color:#fff}
+.wb-page .wb-premium__layout{
+  display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  align-items:center;gap:clamp(34px,6vw,86px)
+}
+.wb-page .wb-premium h2{color:#fff}
+.wb-page .wb-premium__copy>p:not(.wb-eyebrow){color:#c5d0d4}
+.wb-page .wb-premium .wb-eyebrow{color:#e0b45c}
+.wb-page .wb-premium .wb-photo{height:clamp(360px,40vw,540px)}
+.wb-page .wb-features{padding:clamp(76px,9vw,126px) 0;background:#f3f5f5}
+.wb-page .wb-features__layout{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);
+  align-items:center;gap:clamp(36px,7vw,96px)
+}
+.wb-page .wb-features .wb-photo{height:clamp(360px,39vw,520px)}
+.wb-page .wb-feature-list{margin-top:26px;padding:0;list-style:none}
+.wb-page .wb-feature-list li{
+  position:relative;margin:0;padding:14px 0 14px 28px;
+  border-bottom:1px solid #dce2e3;color:#46545a;font-size:13px;line-height:1.65
+}
+.wb-page .wb-feature-list li::before{
+  content:"";position:absolute;top:22px;left:0;width:9px;height:9px;
+  border:2px solid #c79a3e;transform:rotate(45deg)
+}
+.wb-page .wb-why{padding:clamp(76px,9vw,126px) 0;background:#fff}
+.wb-page .wb-why__layout{width:min(100% - 72px,1000px)}
+.wb-page .wb-why__copy{max-width:100%}
+.wb-page .wb-why-list{max-width:900px}
+.wb-page .wb-why-list li{
+  padding:20px 24px;border-bottom:1px solid #e2e7e8;
+  transition:background .25s ease,transform .25s ease
+}
+.wb-page .wb-why-list li:hover{background:#f5f7f7;transform:translateX(5px)}
+.wb-page .wb-why-list li>span{color:#c79a3e;font-size:24px;font-weight:800}
+.wb-page .wb-why-list li p{color:#445158;font-size:14px;line-height:1.6}
+.wb-page .wb-cta{
+  position:relative;padding:clamp(76px,9vw,120px) 0;
+  background:linear-gradient(120deg,#c79a3e,#e0b45c);color:#102b39;overflow:hidden
+}
+.wb-page .wb-cta::before,.wb-page .wb-cta::after{
+  content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(16,43,57,.13);
+  border-radius:50%;pointer-events:none
+}
+.wb-page .wb-cta::before{top:-210px;right:8%}
+.wb-page .wb-cta::after{right:-170px;bottom:-260px;width:520px;height:520px}
+.wb-page .wb-cta__inner{position:relative;z-index:1}
+.wb-page .wb-cta .wb-eyebrow{color:#173747}
+.wb-page .wb-cta h2{max-width:800px;font-size:clamp(42px,6vw,76px);color:#102b39}
+.wb-page .wb-cta__button{
+  display:inline-flex;align-items:center;justify-content:center;gap:18px;
+  min-height:54px;margin-top:30px;padding:0 24px;
+  border:1px solid #102b39;background:#102b39;color:#fff;
+  font-size:12px;font-weight:800;letter-spacing:.08em;text-decoration:none;
+  transition:all .25s ease
+}
+.wb-page .wb-cta__button:hover{background:#fff;color:#102b39;transform:translateY(-3px)}
+.wb-page .wb-cta__index{color:rgba(16,43,57,.65)}
+.wb-scroll-progress{z-index:1100}
+@media(max-width:1000px){
+  .wb-container{width:min(100% - 48px,900px)}
+  .wb-page .wb-hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  .wb-page .wb-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wb-page .wb-showcase__layout,.wb-page .wb-details__layout,
+  .wb-page .wb-overview__layout,.wb-page .wb-premium__layout,
+  .wb-page .wb-features__layout{gap:34px}
+}
+@media(max-width:760px){
+  .wb-container{width:calc(100% - 40px)}
+  .wb-page .wb-hero{display:flex;flex-direction:column;min-height:0}
+  .wb-page .wb-hero__copy{padding:56px 24px 44px}
+  .wb-page .wb-hero h1{font-size:clamp(54px,11vw,82px)}
+  .wb-page .wb-hero__stage{height:clamp(340px,72vw,520px);min-height:0}
+  .wb-page .wb-hero__bottom{position:relative;gap:12px;padding:14px 22px}
+  .wb-page .wb-showcase__layout,.wb-page .wb-details__layout,
+  .wb-page .wb-overview__layout,.wb-page .wb-premium__layout,
+  .wb-page .wb-features__layout{grid-template-columns:1fr;min-height:0}
+  .wb-page .wb-showcase__photo,.wb-page .wb-overview .wb-photo,
+  .wb-page .wb-premium .wb-photo,.wb-page .wb-features .wb-photo{height:clamp(300px,68vw,460px)}
+  .wb-page .wb-showcase--research .wb-showcase__copy,
+  .wb-page .wb-showcase--research .wb-showcase__photo{grid-column:auto;grid-row:auto}
+  .wb-page .wb-showcase--research .wb-showcase__copy{padding-left:0}
+  .wb-page .wb-categories__heading{grid-template-columns:1fr;gap:24px}
+  .wb-page .wb-categories__heading .wb-photo{min-height:260px}
+  .wb-page .wb-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wb-page .wb-details__heading{display:grid;grid-template-columns:1fr;gap:20px}
+  .wb-page .wb-details__heading .wb-photo{min-height:260px}
+  .wb-page .wb-why__layout{width:calc(100% - 40px)}
+  .wb-page .wb-why-list li{gap:16px;padding:17px 12px}
+}
+@media(max-width:520px){
+  .wb-container{width:calc(100% - 36px)}
+  .wb-page .wb-hero__copy{padding:46px 20px 36px}
+  .wb-page .wb-hero h1{font-size:clamp(48px,12.5vw,66px)}
+  .wb-page .wb-hero__link{width:100%;justify-content:space-between;gap:10px;padding-inline:15px;font-size:9px}
+  .wb-page .wb-hero__stage{height:360px}
+  .wb-page .wb-hero__image-tag{top:16px;right:16px;font-size:8px}
+  .wb-page .wb-hero__slider-ui{right:14px;bottom:15px;left:14px;gap:9px}
+  .wb-page .wb-hero__arrows button{width:34px;height:34px}
+  .wb-page .wb-hero__bottom{font-size:8px}
+  .wb-page .wb-category-grid{grid-template-columns:1fr;gap:12px}
+  .wb-page .wb-category{padding:25px 22px}
+  .wb-page .wb-showcase__copy h2{font-size:clamp(38px,10vw,52px)}
+  .wb-page .wb-categories h2,.wb-page .wb-details h2,
+  .wb-page .wb-overview h2,.wb-page .wb-premium h2,
+  .wb-page .wb-features h2,.wb-page .wb-why h2{font-size:clamp(36px,9vw,48px)}
+  .wb-page .wb-details__specs{padding:24px 20px}
+  .wb-page .wb-why-list li{align-items:flex-start}
+  .wb-page .wb-why-list li>span{font-size:20px}
+  .wb-page .wb-why-list li p{margin:0;text-align:left}
+  .wb-page .wb-cta h2{font-size:clamp(38px,10vw,52px)}
+  .wb-page .wb-cta__button{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .wb-page *, .wb-page *::before, .wb-page *::after{
+    scroll-behavior:auto!important;animation-duration:.01ms!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important
+  }
+}
+</style>
+
+
+<style id="wb-cta-visibility-fix">
+/* Prevent the CTA content from remaining hidden if scroll reveal fails. */
+.wb-page .wb-cta__inner,
+.wb-page .wb-cta__inner[data-wb-reveal],
+.wb-page .wb-cta__inner.is-inview{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+.wb-page .wb-cta__inner [data-wb-word] > span{
+  transform:translateY(0)!important;
+}
+.wb-page .wb-cta__inner .wb-eyebrow,
+.wb-page .wb-cta__inner h2,
+.wb-page .wb-cta__inner .wb-cta__button,
+.wb-page .wb-cta__inner .wb-cta__index{
+  opacity:1!important;
+  visibility:visible!important;
+}
+</style>
+
+
+<style id="wb-category-text-contrast-fix">
+/* Keep every category card readable, including the formerly dark first card. */
+.wb-page .wb-category,
+.wb-page .wb-category--01,
+.wb-page .wb-category--02,
+.wb-page .wb-category--03,
+.wb-page .wb-category--04,
+.wb-page .wb-category--05,
+.wb-page .wb-category--06{
+  background:#f7f8f8!important;
+  color:#26343a!important;
+}
+.wb-page .wb-category h3,
+.wb-page .wb-category > p:not(.wb-category__number),
+.wb-page .wb-category li{
+  color:#46545a!important;
+  opacity:1!important;
+  visibility:visible!important;
+  -webkit-text-fill-color:#46545a!important;
+}
+.wb-page .wb-category h3{
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-weight:800!important;
+  font-size:clamp(21px,2.2vw,30px)!important;
+  line-height:1.2!important;
+  letter-spacing:-.035em!important;
+}
+.wb-page .wb-category ul{
+  color:#46545a!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.wb-page .wb-category__number{
+  color:#a77a2d!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.wb-page .wb-category__line{background:#c79a3e!important}
+.wb-page .wb-category [data-wb-word],
+.wb-page .wb-category [data-wb-word] > span{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  clip-path:none!important;
+}
+.wb-page .wb-category[data-wb-reveal],
+.wb-page .wb-category.is-inview{
+  opacity:1!important;
+  visibility:visible!important;
+  clip-path:none!important;
+}
+</style>
+
+</head>
 <body class="vs-page vs-page--workbench">
 <div id="navbar-placeholder"></div>
 <main class="wb-page">
 <section aria-labelledby="wb-hero-title" class="wb-hero">
-<div class="wb-hero__layout wb-container">
-<div class="wb-hero__copy">
-<p class="wb-eyebrow">INDUSTRIAL PRECISION WORKBENCHES</p>
-<h1 id="wb-hero-title"><span>STEEL</span><span>WORKBENCHES.</span></h1>
-<p class="wb-hero__typing">
-<span class="wb-hero__typing-label">V STEEL /</span>
-<span data-wb-typing="">Industrial Workbenches</span>
-<span aria-hidden="true" class="wb-hero__caret"></span>
-</p>
-<a class="wb-hero__link" href="#wb-solutions">Explore workbench solutions <span aria-hidden="true">â†“</span></a>
-</div>
-<div class="wb-hero__stage" data-wb-hero-stage="">
-<svg aria-hidden="true" class="wb-hero__drawing" fill="none" viewbox="0 0 720 640">
-<path d="M37 68H242M478 68H683M37 68V103M683 68V103M64 591H227M493 591H656M64 556V591M656 556V591"></path>
-<path d="M360 0V47M360 593V640M0 320H54M666 320H720"></path>
-<circle cx="360" cy="320" r="248"></circle>
-<circle cx="360" cy="320" r="226"></circle>
-<path d="M78 320H119M601 320H642M360 38V79M360 561V602"></path>
-</svg>
-<!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the hero image is supplied. -->
-<figure class="wb-photo wb-hero__photo wb-hero__photo--main is-focus" data-wb-hero-image="0" data-wb-photo="">
-<picture>
-<source data-wb-srcset="" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" type="image/avif"/>
-<source data-wb-srcset="" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" type="image/webp"/>
-<img alt="Industrial steel workbench product photograph" data-wb-src="assets/images/workbe1.png" data-wb-srcset="" decoding="async" fetchpriority="high" height="1200" loading="eager" sizes="(max-width: 760px) 90vw, (max-width: 1100px) 66vw, 54vw" width="1600"/>
-</picture>
-<figcaption aria-hidden="true" class="wb-photo__label"><span>01</span> WORK SURFACE</figcaption>
-<span aria-hidden="true" class="wb-photo__corner"></span>
-</figure>
-<!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the supporting image is supplied. -->
-<figure class="wb-photo wb-hero__photo wb-hero__photo--research" data-wb-hero-image="1" data-wb-photo="">
-<picture>
-<source data-wb-srcset="" sizes="(max-width: 760px) 38vw, 24vw" type="image/avif"/>
-<source data-wb-srcset="" sizes="(max-width: 760px) 38vw, 24vw" type="image/webp"/>
-<img alt="Laboratory research workbench product photograph" data-wb-src="assets/images/workbe2.png" data-wb-srcset="" decoding="async" height="1100" loading="eager" sizes="(max-width: 760px) 38vw, 24vw" width="900"/>
-</picture>
-<figcaption aria-hidden="true" class="wb-photo__label"><span>02</span> RESEARCH</figcaption>
-<span aria-hidden="true" class="wb-photo__corner"></span>
-</figure>
-<!-- Add approved AVIF, WebP and fallback paths to the data-wb-srcset/data-wb-src attributes when the supporting image is supplied. -->
-<figure class="wb-photo wb-hero__photo wb-hero__photo--assembly" data-wb-hero-image="2" data-wb-photo="">
-<picture>
-<source data-wb-srcset="" sizes="(max-width: 760px) 38vw, 24vw" type="image/avif"/>
-<source data-wb-srcset="" sizes="(max-width: 760px) 38vw, 24vw" type="image/webp"/>
-<img alt="Electronics assembly workbench product photograph" data-wb-src="assets/images/workbe3.png" data-wb-srcset="" decoding="async" height="760" loading="eager" sizes="(max-width: 760px) 38vw, 24vw" width="1000"/>
-</picture>
-<figcaption aria-hidden="true" class="wb-photo__label"><span>03</span> ASSEMBLY</figcaption>
-<span aria-hidden="true" class="wb-photo__corner"></span>
-</figure>
-<div aria-hidden="true" class="wb-hero__measure wb-hero__measure--top"><span></span><span></span><span></span></div>
-<div aria-hidden="true" class="wb-hero__measure wb-hero__measure--side"><span></span><span></span><span></span></div>
-<div aria-label="Select a workbench image" class="wb-hero__controls" role="group">
-<button aria-label="Focus industrial workbench image" aria-pressed="true" class="is-active" data-wb-hero-focus="0" type="button">01</button>
-<button aria-label="Focus research workbench image" aria-pressed="false" data-wb-hero-focus="1" type="button">02</button>
-<button aria-label="Focus assembly workbench image" aria-pressed="false" data-wb-hero-focus="2" type="button">03</button>
-</div>
-<p aria-hidden="true" class="wb-hero__stage-index">VSP / WBâ€”01</p>
-</div>
-</div>
-<div aria-hidden="true" class="wb-hero__bottom wb-container">
-<span>ENGINEERED WORKSPACE</span>
-<span>PRECISION / FUNCTION / FORM</span>
-<span>V STEEL</span>
-</div>
+  <div class="wb-hero__copy">
+    <p class="wb-eyebrow">INDUSTRIAL PRECISION WORKBENCHES</p>
+    <h1 id="wb-hero-title"><span>STEEL</span><span>WORKBENCHES.</span></h1>
+    <p class="wb-hero__typing">
+      <span class="wb-hero__typing-label">V STEEL /</span>
+      <span data-wb-typing="">Industrial Workbenches</span>
+      <span aria-hidden="true" class="wb-hero__caret"></span>
+    </p>
+    <a class="wb-hero__link" href="#wb-solutions">EXPLORE WORKBENCH SOLUTIONS <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="wb-hero__stage" data-wb-hero-stage="" aria-label="Steel workbench image carousel">
+    <div class="wb-hero__slides">
+      <figure class="wb-hero__slide is-active" data-wb-hero-slide="0">
+        <img src="assets/images/workbanner1.png" alt="Steel workbench product" width="1639" height="960" fetchpriority="high"/>
+        <figcaption class="wb-hero__image-tag">V STEEL / WORKBENCH RANGE</figcaption>
+      </figure>
+      <figure class="wb-hero__slide" data-wb-hero-slide="1">
+        <img src="assets/images/workbanner2.png" alt="Laboratory workbench product" width="1639" height="960" loading="lazy"/>
+        <figcaption class="wb-hero__image-tag">V STEEL / WORKBENCH RANGE</figcaption>
+      </figure>
+      <figure class="wb-hero__slide" data-wb-hero-slide="2">
+        <img src="assets/images/workbanner3.png" alt="Electronics workbench product" width="1639" height="960" loading="lazy"/>
+        <figcaption class="wb-hero__image-tag">V STEEL / WORKBENCH RANGE</figcaption>
+      </figure>
+    </div>
+    <div class="wb-hero__slider-ui">
+      <span class="wb-hero__count" data-wb-hero-count>01 / 03</span>
+      <div class="wb-hero__progress is-running" data-wb-hero-progress aria-hidden="true"><span></span></div>
+      <div class="wb-hero__arrows">
+        <button type="button" data-wb-hero-prev aria-label="Previous workbench image">‹</button>
+        <button type="button" data-wb-hero-next aria-label="Next workbench image">›</button>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true" class="wb-hero__bottom">
+    <span>ENGINEERED WORKSPACE</span>
+    <span>PRECISION / FUNCTION / FORM</span>
+    <span>V STEEL</span>
+  </div>
 </section>
 <section aria-labelledby="wb-industrial-title" class="wb-showcase wb-showcase--industrial" id="wb-solutions">
 <div class="wb-showcase__layout wb-container">
@@ -5043,12 +5234,11 @@
 <p class="wb-showcase__description">Transform your industrial workspace with our meticulously engineered workbenches. Designed for maximum productivity, these robust steel workstations offer unparalleled durability, ergonomic design, and customizable configurations to meet the most demanding manufacturing and technical environments.</p>
 <span aria-hidden="true" class="wb-showcase__index">01 / 03</span>
 </div>
-<!-- Add the approved industrial workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
-<figure class="wb-photo wb-showcase__photo wb-showcase__photo--industrial" data-wb-photo="">
+<figure class="wb-photo wb-showcase__photo wb-showcase__photo--industrial" data-wb-photo="assets/images/workbe4.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/webp"/>
-<img alt="Industrial precision steel workbench product photograph" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" decoding="async" height="1200" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="1600"/>
+<img alt="Industrial precision steel workbench product photograph" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" decoding="async" height="1248" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="832"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>01</span> INDUSTRIAL PRECISION</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5064,12 +5254,11 @@
 <p class="wb-showcase__description">Elevate scientific research with our cutting-edge laboratory workbenches. Engineered with precision, these workstations feature chemical-resistant surfaces, anti-static properties, and specialized compartments. Designed to protect sensitive equipment, facilitate complex research, and maintain a sterile, organized scientific environment.</p>
 <span aria-hidden="true" class="wb-showcase__index">02 / 03</span>
 </div>
-<!-- Add the approved laboratory workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
-<figure class="wb-photo wb-showcase__photo wb-showcase__photo--research" data-wb-photo="">
+<figure class="wb-photo wb-showcase__photo wb-showcase__photo--research" data-wb-photo="assets/images/workbe5.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/webp"/>
-<img alt="Laboratory research workbench product photograph" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" decoding="async" height="1200" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="1400"/>
+<img alt="Laboratory research workbench product photograph" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" decoding="async" height="2560" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="2509"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>02</span> SCIENTIFIC WORKSPACE</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5085,12 +5274,11 @@
 <p class="wb-showcase__description">Revolutionize your electronics and assembly processes with our specialized workbenches. Featuring integrated power outlets, ESD protection, precision tool storage, and ergonomic design, these workstations are engineered to enhance productivity, ensure component safety, and optimize workflow efficiency in high-precision manufacturing environments.</p>
 <span aria-hidden="true" class="wb-showcase__index">03 / 03</span>
 </div>
-<!-- Add the approved electronics and assembly workbench AVIF/WebP sources and fallback path to the data-wb-srcset/data-wb-src attributes. -->
-<figure class="wb-photo wb-showcase__photo wb-showcase__photo--technical" data-wb-photo="">
+<figure class="wb-photo wb-showcase__photo wb-showcase__photo--technical" data-wb-photo="assets/images/workbe6.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/webp"/>
-<img alt="Electronics and assembly workbench product photograph" data-wb-src="assets/images/workbe6.png" data-wb-srcset="" decoding="async" height="1100" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="1600"/>
+<img alt="Electronics and assembly workbench product photograph" data-wb-src="assets/images/workbe6.png" data-wb-srcset="" decoding="async" height="1248" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="832"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>03</span> TECHNICAL ASSEMBLY</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5106,12 +5294,11 @@
 <h2 id="wb-categories-title">Comprehensive Steel Workbench Solutions</h2>
 <p>Vishal Steel Products offers a diverse range of high-performance steel workbenches engineered to meet complex industrial, scientific, and technical workspace requirements. Our workbenches combine precision engineering, durability, and innovative design to provide optimal productivity and efficiency.</p>
 </div>
-<!-- Additional image 01 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
-<figure class="wb-photo wb-extra-image wb-extra-image--01" data-wb-photo="">
+<figure class="wb-photo wb-extra-image wb-extra-image--01" data-wb-photo="assets/images/workbe1.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 38vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 38vw" type="image/webp"/>
-<img alt="Workbench systems detail photograph" data-wb-src="assets/images/workbe1.png" data-wb-srcset="" decoding="async" height="900" loading="lazy" sizes="(max-width: 760px) 92vw, 38vw" width="1200"/>
+<img alt="Workbench systems detail photograph" data-wb-src="assets/images/workbe1.png" data-wb-srcset="" decoding="async" height="909" loading="lazy" sizes="(max-width: 760px) 92vw, 38vw" width="800"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>DETAIL 01</span> WORKSPACE SYSTEMS</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5198,12 +5385,11 @@
 <div class="wb-details__heading">
 <p class="wb-eyebrow">Built with purpose</p>
 <h2 id="wb-details-title">Product Details</h2>
-<!-- Additional image 02 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
-<figure class="wb-photo wb-extra-image wb-extra-image--02" data-wb-photo="">
+<figure class="wb-photo wb-extra-image wb-extra-image--02" data-wb-photo="assets/images/workbe2.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 40vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 40vw" type="image/webp"/>
-<img alt="Workbench construction detail photograph" data-wb-src="assets/images/workbe2.png" data-wb-srcset="" decoding="async" height="1050" loading="lazy" sizes="(max-width: 760px) 92vw, 40vw" width="1200"/>
+<img alt="Workbench construction detail photograph" data-wb-src="assets/images/workbe2.png" data-wb-srcset="" decoding="async" height="1248" loading="lazy" sizes="(max-width: 760px) 92vw, 40vw" width="832"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>DETAIL 02</span> CONSTRUCTION</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5238,12 +5424,11 @@
 </section>
 <section aria-labelledby="wb-overview-title" class="wb-overview">
 <div class="wb-overview__layout wb-container">
-<!-- Additional image 03 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
-<figure class="wb-photo wb-extra-image wb-extra-image--03" data-wb-photo="">
+<figure class="wb-photo wb-extra-image wb-extra-image--03" data-wb-photo="assets/images/workbe3.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 56vw" type="image/webp"/>
-<img alt="Industrial workbench overview photograph" data-wb-src="assets/images/workbe3.png" data-wb-srcset="" decoding="async" height="1200" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="1600"/>
+<img alt="Industrial workbench overview photograph" data-wb-src="assets/images/workbe3.png" data-wb-srcset="" decoding="async" height="900" loading="lazy" sizes="(max-width: 760px) 92vw, 56vw" width="800"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>OVERVIEW</span> WORKBENCH IN USE</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5263,12 +5448,11 @@
 <h2 id="wb-premium-title">Premium Industrial Steel Workbenches</h2>
 <p>Engineered for maximum productivity and precision, our steel workbenches provide robust workspace solutions for manufacturing, research, technical, and industrial environments. Designed to optimize workflow, enhance efficiency, and support complex technical operations.</p>
 </div>
-<!-- Additional image 04 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
-<figure class="wb-photo wb-extra-image wb-extra-image--04" data-wb-photo="">
+<figure class="wb-photo wb-extra-image wb-extra-image--04" data-wb-photo="assets/images/workbe4.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 52vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 52vw" type="image/webp"/>
-<img alt="Premium industrial steel workbench photograph" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" decoding="async" height="1050" loading="lazy" sizes="(max-width: 760px) 92vw, 52vw" width="1500"/>
+<img alt="Premium industrial steel workbench photograph" data-wb-src="assets/images/workbe4.png" data-wb-srcset="" decoding="async" height="1248" loading="lazy" sizes="(max-width: 760px) 92vw, 52vw" width="832"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>WORKSPACE</span> INDUSTRIAL STEEL</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5290,12 +5474,11 @@
 <li>Modular and adaptable workspace solutions</li>
 </ul>
 </div>
-<!-- Additional image 05 of 06. Add AVIF/WebP candidates to data-wb-srcset and the fallback image path to data-wb-src. -->
-<figure class="wb-photo wb-extra-image wb-extra-image--05" data-wb-photo="">
+<figure class="wb-photo wb-extra-image wb-extra-image--05" data-wb-photo="assets/images/workbe5.png">
 <picture>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 44vw" type="image/avif"/>
 <source data-wb-srcset="" sizes="(max-width: 760px) 92vw, 44vw" type="image/webp"/>
-<img alt="Workbench technical features photograph" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" decoding="async" height="1400" loading="lazy" sizes="(max-width: 760px) 92vw, 44vw" width="1200"/>
+<img alt="Workbench technical features photograph" data-wb-src="assets/images/workbe5.png" data-wb-srcset="" decoding="async" height="2560" loading="lazy" sizes="(max-width: 760px) 92vw, 44vw" width="2509"/>
 </picture>
 <figcaption aria-hidden="true" class="wb-photo__label"><span>DETAIL 05</span> TECHNICAL FEATURES</figcaption>
 <span aria-hidden="true" class="wb-photo__corner"></span>
@@ -5323,7 +5506,7 @@
 <div class="wb-cta__inner wb-container">
 <p class="wb-eyebrow">V STEEL / INDUSTRIAL WORKSPACE</p>
 <h2 id="wb-cta-title">Need a Workbench for Your Industry?</h2>
-<a aria-disabled="true" class="wb-cta__button" data-wb-whatsapp="" data-whatsapp-enquiry="" tabindex="-1">WhatsApp Enquiry <span aria-hidden="true">â†—</span></a>
+<a aria-disabled="true" class="wb-cta__button" data-wb-whatsapp="" data-whatsapp-enquiry="" tabindex="-1">WhatsApp Enquiry <span aria-hidden="true">↗</span></a>
 <span aria-hidden="true" class="wb-cta__index">END / WB</span>
 </div>
 </section>
@@ -5600,92 +5783,101 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const heroStage = root.querySelector("[data-wb-hero-stage]");
-  const heroPhotos = Array.from(root.querySelectorAll("[data-wb-hero-image]"));
-  const heroControls = Array.from(root.querySelectorAll("[data-wb-hero-focus]"));
+  const heroSlides = Array.from(root.querySelectorAll("[data-wb-hero-slide]"));
+  const heroCount = root.querySelector("[data-wb-hero-count]");
+  const heroProgress = root.querySelector("[data-wb-hero-progress]");
+  const heroPrev = root.querySelector("[data-wb-hero-prev]");
+  const heroNext = root.querySelector("[data-wb-hero-next]");
   let activeHeroIndex = 0;
   let heroAutoplayTimer = 0;
-  let heroAutoplayPaused = false;
-  const heroAutoplayDelay = 5200;
+  let heroPaused = false;
+  const heroDelay = 4800;
 
-  const setHeroFocus = (index) => {
-    if (!Number.isInteger(index) || index < 0 || index >= heroPhotos.length) {
-      return;
-    }
+  const restartHeroProgress = () => {
+    if (!heroProgress) return;
+    heroProgress.classList.remove("is-running");
+    void heroProgress.offsetWidth;
+    if (!reducedMotion && !heroPaused) heroProgress.classList.add("is-running");
+  };
 
-    activeHeroIndex = index;
-    const topIndex = (index + 1) % heroPhotos.length;
-    const bottomIndex = (index + 2) % heroPhotos.length;
-
-    heroPhotos.forEach((photo, photoIndex) => {
-      photo.classList.toggle("is-focus", photoIndex === index);
-      photo.classList.toggle("is-card-top", photoIndex === topIndex);
-      photo.classList.toggle("is-card-bottom", photoIndex === bottomIndex);
+  const setHeroSlide = (index) => {
+    if (!heroSlides.length) return;
+    activeHeroIndex = (index + heroSlides.length) % heroSlides.length;
+    heroSlides.forEach((slide, i) => {
+      const active = i === activeHeroIndex;
+      slide.classList.toggle("is-active", active);
+      slide.setAttribute("aria-hidden", String(!active));
+      const img = slide.querySelector("img");
+      if (img && active) img.loading = "eager";
     });
-    heroControls.forEach((control, controlIndex) => {
-      const active = controlIndex === index;
-      control.classList.toggle("is-active", active);
-      control.setAttribute("aria-pressed", String(active));
-    });
+    if (heroCount) heroCount.textContent =
+      String(activeHeroIndex + 1).padStart(2, "0") + " / " +
+      String(heroSlides.length).padStart(2, "0");
+    restartHeroProgress();
   };
 
   const stopHeroAutoplay = () => {
-    if (heroAutoplayTimer) {
-      window.clearInterval(heroAutoplayTimer);
-      heroAutoplayTimer = 0;
-    }
+    if (heroAutoplayTimer) window.clearTimeout(heroAutoplayTimer);
+    heroAutoplayTimer = 0;
   };
-  const startHeroAutoplay = () => {
+  const scheduleHeroAutoplay = () => {
     stopHeroAutoplay();
-    if (reducedMotion || heroAutoplayPaused || heroPhotos.length < 2) {
-      return;
-    }
-    heroAutoplayTimer = window.setInterval(() => {
-      setHeroFocus((activeHeroIndex + 1) % heroPhotos.length);
-    }, heroAutoplayDelay);
+    if (reducedMotion || heroPaused || heroSlides.length < 2) return;
+    heroAutoplayTimer = window.setTimeout(() => {
+      setHeroSlide(activeHeroIndex + 1);
+      scheduleHeroAutoplay();
+    }, heroDelay);
   };
-  const resetHeroAutoplay = () => startHeroAutoplay();
+  const moveHero = (step) => {
+    setHeroSlide(activeHeroIndex + step);
+    scheduleHeroAutoplay();
+  };
 
-  heroControls.forEach((control) => {
-    const onClick = () => {
-      setHeroFocus(Number(control.dataset.wbHeroFocus));
-      resetHeroAutoplay();
-    };
-    control.addEventListener("click", onClick);
-    cleanups.push(() => control.removeEventListener("click", onClick));
-  });
-  setHeroFocus(0);
+  if (heroPrev) {
+    const onPrev = () => moveHero(-1);
+    heroPrev.addEventListener("click", onPrev);
+    cleanups.push(() => heroPrev.removeEventListener("click", onPrev));
+  }
+  if (heroNext) {
+    const onNext = () => moveHero(1);
+    heroNext.addEventListener("click", onNext);
+    cleanups.push(() => heroNext.removeEventListener("click", onNext));
+  }
+  setHeroSlide(0);
 
-  if (heroStage && heroPhotos.length > 1 && !reducedMotion) {
-    const pauseOnPointer = () => {
-      heroAutoplayPaused = true;
+  if (heroStage && heroSlides.length > 1) {
+    const pause = () => {
+      heroPaused = true;
       stopHeroAutoplay();
+      if (heroProgress) heroProgress.classList.remove("is-running");
     };
-    const resumeOnPointer = () => {
-      heroAutoplayPaused = false;
-      startHeroAutoplay();
+    const resume = () => {
+      heroPaused = false;
+      restartHeroProgress();
+      scheduleHeroAutoplay();
     };
-    const pauseOnFocus = () => {
-      heroAutoplayPaused = true;
-      stopHeroAutoplay();
-    };
-    const resumeOnFocus = (event) => {
-      if (!heroStage.contains(event.relatedTarget)) {
-        heroAutoplayPaused = false;
-        startHeroAutoplay();
-      }
-    };
-    heroStage.addEventListener("pointerenter", pauseOnPointer);
-    heroStage.addEventListener("pointerleave", resumeOnPointer);
-    heroStage.addEventListener("focusin", pauseOnFocus);
-    heroStage.addEventListener("focusout", resumeOnFocus);
+    heroStage.addEventListener("pointerenter", pause);
+    heroStage.addEventListener("pointerleave", resume);
+    heroStage.addEventListener("focusin", pause);
+    heroStage.addEventListener("focusout", (event) => {
+      if (!heroStage.contains(event.relatedTarget)) resume();
+    });
+
+    let touchStartX = 0;
+    heroStage.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    heroStage.addEventListener("touchend", (event) => {
+      const delta = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 45) moveHero(delta < 0 ? 1 : -1);
+    }, { passive: true });
+
     cleanups.push(() => {
-      heroStage.removeEventListener("pointerenter", pauseOnPointer);
-      heroStage.removeEventListener("pointerleave", resumeOnPointer);
-      heroStage.removeEventListener("focusin", pauseOnFocus);
-      heroStage.removeEventListener("focusout", resumeOnFocus);
+      heroStage.removeEventListener("pointerenter", pause);
+      heroStage.removeEventListener("pointerleave", resume);
       stopHeroAutoplay();
     });
-    startHeroAutoplay();
+    scheduleHeroAutoplay();
   }
 
   const categories = Array.from(root.querySelectorAll("[data-wb-category]"));
@@ -5760,14 +5952,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, { once: true });
 
+    let fallbackRetried = false;
     image.addEventListener("error", () => {
-      image.removeAttribute("src");
-      image.removeAttribute("srcset");
-      sources.forEach((source) => source.removeAttribute("srcset"));
+      const activeSources = sources.filter((source) => source.hasAttribute("srcset"));
+      if (!fallbackRetried && fallback && activeSources.length > 0) {
+        fallbackRetried = true;
+        activeSources.forEach((source) => source.removeAttribute("srcset"));
+        image.src = fallback;
+        return;
+      }
+
       figure.dataset.wbPhotoState = "error";
       console.warn("Workbench image is unavailable; check its configured data-wb-src path.", fallback);
       scheduleScrollRefresh();
-    }, { once: true });
+    });
 
     if (fallback) {
       image.src = fallback;
@@ -6945,5 +7143,115 @@ document.addEventListener("DOMContentLoaded", () => {
 
 }, { once: true });
 
-</script></body>
+</script>
+<script>
+/* V STEEL workbench page — lightweight scroll storytelling */
+(() => {
+  const page = document.querySelector('.wb-page');
+  if (!page) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const progress = document.createElement('div');
+  progress.className = 'wb-scroll-progress';
+  progress.setAttribute('aria-hidden','true');
+  progress.innerHTML = '<span></span>';
+  document.body.appendChild(progress);
+  const progressBar = progress.firstElementChild;
+
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  page.classList.add('wb-motion-ready');
+
+  // Scroll-up text reveal and staggered content entrances.
+  const revealTargets = [
+    ...page.querySelectorAll('.wb-showcase__copy, .wb-categories__heading, .wb-details__heading, .wb-details__specs, .wb-overview__copy, .wb-premium__copy, .wb-features__copy, .wb-why__copy, .wb-cta__inner')
+  ];
+  revealTargets.forEach((el, i) => {
+    el.dataset.wbReveal = i % 3 === 1 ? 'left' : 'up';
+  });
+
+  // Stagger the workbench solution cards and why-us list items.
+  page.querySelectorAll('.wb-category-grid').forEach(grid => {
+    [...grid.children].forEach((item, i) => {
+      item.dataset.wbReveal = 'scale';
+      item.style.transitionDelay = `${(i % 3) * 90}ms`;
+    });
+  });
+  page.querySelectorAll('.wb-feature-list li, .wb-why-list li').forEach((item, i) => {
+    item.dataset.wbReveal = 'up';
+    item.style.transitionDelay = `${Math.min(i, 5) * 75}ms`;
+  });
+
+  // Image masks reveal like editorial scrollytelling panels.
+  page.querySelectorAll('.wb-photo').forEach((figure, i) => {
+    figure.dataset.wbImageReveal = '';
+    figure.dataset.wbReveal = 'up';
+    figure.style.transitionDelay = `${(i % 2) * 100}ms`;
+  });
+
+  // Word-by-word title reveal, preserving the original text and semantics.
+  page.querySelectorAll('.wb-showcase__copy h2, .wb-categories__heading h2, .wb-details__heading h2, .wb-overview__copy h2, .wb-premium__copy h2, .wb-features__copy h2, .wb-why__copy h2, .wb-cta h2').forEach(heading => {
+    if (heading.querySelector('[data-wb-word]')) return;
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) if (walker.currentNode.nodeValue.trim()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.nodeValue.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) fragment.append(document.createTextNode(part));
+        else {
+          const mask = document.createElement('span');
+          mask.dataset.wbWord = '';
+          const word = document.createElement('span');
+          word.textContent = part;
+          mask.append(word);
+          fragment.append(mask);
+        }
+      });
+      node.parentNode.replaceChild(fragment, node);
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-inview');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold:0.14, rootMargin:'0px 0px -7% 0px' });
+
+  page.querySelectorAll('[data-wb-reveal], [data-wb-image-reveal]').forEach(el => observer.observe(el));
+
+  // Gentle image drift tied to scroll; no pinned sections or scroll hijacking.
+  const parallaxPhotos = [...page.querySelectorAll('.wb-showcase__photo img, .wb-extra-image img')];
+  let ticking = false;
+  const moveImages = () => {
+    const vh = window.innerHeight || 1;
+    parallaxPhotos.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      if (rect.bottom < -100 || rect.top > vh + 100) return;
+      const distance = (rect.top + rect.height / 2 - vh / 2) / vh;
+      img.style.setProperty('--wb-drift', `${distance * -18}px`);
+      if (img.closest('.is-inview')) img.style.translate = `0 ${distance * -10}px`;
+    });
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(moveImages); }
+  }, { passive:true });
+  window.addEventListener('resize', moveImages);
+  moveImages();
+})();
+</script>
+
+</body>
 </html>

@@ -493,6 +493,10 @@
 
 /* Tablet and mobile */
 @media (max-width: 1100px) {
+  body:has(.vs-navigation.is-open) {
+    overflow: hidden;
+  }
+
   .vs-header__inner {
     display: flex;
     justify-content: space-between;
@@ -540,7 +544,7 @@
   }
 
   .vs-navigation.is-open {
-    max-height: min(82vh, 720px);
+    max-height: min(82vh, 720px, calc(100dvh - 160px));
     overflow-x: hidden;
     overflow-y: auto;
     border-bottom-width: 1px;
@@ -937,12 +941,7 @@
         </li>
 
         <!-- This copy is shown only inside the collapsed mobile navigation. -->
-        <li class="vs-navigation__item vs-navigation__item--cta vs-navigation__item--mobile-cta">
-          <a class="vs-quote-button" href="./contact.html">
-            Get A Free Quote
-            <span class="vs-quote-button__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
+
       </ul>
     </nav>
 

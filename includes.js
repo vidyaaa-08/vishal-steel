@@ -13,21 +13,6 @@
     document.head.appendChild(redesignLink);
   }
 
-  const pageName = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-  if (!["index.html", "about.html", "faq.html", "contact.html", "gallery.html"].includes(pageName)) {
-    const transformLink = document.createElement("link");
-    transformLink.rel = "stylesheet";
-    transformLink.href = new URL("structural-redesign.css", window.location.href).href;
-    transformLink.dataset.vsStructural = "true";
-    if (!document.querySelector('link[data-vs-structural="true"]')) {
-      document.head.appendChild(transformLink);
-    }
-    const transformScript = document.createElement("script");
-    transformScript.src = new URL("structural-redesign.js", window.location.href).href;
-    transformScript.defer = true;
-    document.head.appendChild(transformScript);
-  }
-
   const currentScript = document.currentScript;
   const scriptUrl = currentScript?.src || window.location.href;
 
@@ -293,6 +278,14 @@
     let button = document.querySelector(
       "[data-vs-back-to-top]"
     );
+
+    if (!button && document.querySelector(
+      "#vs-back-to-top, #about-top, #contact-top, #vpr-back-to-top, " +
+      "#custom-top, #dc-backtop, #faq-top, .vs-back-to-top, .dc-backtop, .faq-backtop, " +
+      "button#top, button#backTop, button.totop, button.back-top"
+    )) {
+      return;
+    }
 
     if (!button) {
       button = document.createElement("button");

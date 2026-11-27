@@ -50,7 +50,7 @@
 html { scroll-behavior: smooth; }
 body { overflow-x: clip; }
 
-/* Back-to-top is a shared fallback even on pages with an older local button. */
+/* Shared back-to-top fallback for pages without a page-specific control. */
 .vs-back-to-top,
 #vs-back-to-top,
 #about-top,
